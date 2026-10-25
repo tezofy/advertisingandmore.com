@@ -15,10 +15,12 @@ voice.
   base64/data URIs in the shipped HTML, so the page stays cache-friendly and light
   (~1.7 MB HTML + ~8 MB of optimised image assets).
 - **Native A&M brand experience** — hero, agency stats with explicit agency-wide
-  disclaimers, "Pick your WOW" band, occasion strip, featured-experiences mosaic,
-  Richard Branson quote block, Why-Choose cards, party recipes with wishlist,
-  Top 15 crowd favourites (3-per-row grid), full services inventory, process
-  timeline, FAQ, testimonials, contact form, pre-footer plan band and footer.
+  disclaimers, featured-experiences mosaic with equal-height tiles, Richard Branson
+  quote block, Why-Choose cards, party recipes with wishlist, Top 15 crowd
+  favourites (photo-header cards, 3-per-row grid), the "Pick your WOW" category
+  band that deep-links into the full services inventory (placed directly above it),
+  process timeline, FAQ, testimonials with the client logo above each quote,
+  contact form, pre-footer plan band and footer.
 - **Conversion architecture** — four "CLICK FOR COFFEE" brand pills plus in-content
   "Request a Quote" CTAs; a two-column pre-footer plan band carrying the real,
   verbatim Dentsu client review.
@@ -43,7 +45,6 @@ party-services-rentals-site/
 │   └── brand/                # Client-published brand logos (LinkedIn, Bosch, UMG, Dentsu)
 ├── build-fragments/          # Reusable section fragments consumed by the pipeline
 │   ├── wow-band.html
-│   ├── occasion-strip.html
 │   ├── featured-experiences.html
 │   ├── party-recipes.html
 │   ├── trusted-compact.css
@@ -77,9 +78,12 @@ python3 -m http.server 8080
 
 **Option C — GitHub Pages**
 
-Push this repository to GitHub, then enable
-**Settings → Pages → Deploy from branch (root)**. Because the entry point is
-named `index.html`, the site will serve with no extra configuration.
+Push this repository to a repo named `advertisingandmore.com`, then enable
+**Settings → Pages → Deploy from branch (root)**. The entry point is
+named `index.html`, every asset uses a relative path and the package ships a
+`.nojekyll` file, so the site serves correctly at the project subpath
+`https://tezofy.github.io/advertisingandmore.com/` with no extra configuration.
+Step-by-step instructions (UI and git) live in `DEPLOY-GITHUB-PAGES.md`.
 
 ## 🛠 Rebuilding from source (optional)
 
@@ -146,7 +150,8 @@ consent defaults and image decoding.
 See `docs/AUDIT-v5-native-brand-rebuild.md` for the full design rationale and
 version-by-version QA record (Bengali), and
 `docs/HANDOFF-v3.36-audit-closure.md` for the engineering handoff and changelog
-(English), including the v5.1 plan band and v5.2 occasion strip.
+(English), including the v5.1 plan band, v5.3 marquee rebuild and v5.4
+photo-card / layout refinements.
 
 ---
 

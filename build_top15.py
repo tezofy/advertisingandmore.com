@@ -31,7 +31,7 @@ def _frag(name):
 FRAG_WOW = _frag("wow-band.html")
 FRAG_RECIPES = _frag("party-recipes.html")
 FRAG_FEATURED = _frag("featured-experiences.html")
-FRAG_OCCASIONS = _frag("occasion-strip.html")
+# v5.4 — occasion strip removed at client request (no replacement block)
 FRAG_TRUST_COMPACT = _frag("trusted-compact.css")
 FRAG_BRAND_ALIGN = _frag("brand-alignment.css")
 
@@ -226,12 +226,14 @@ BLOCK_PLAN = '''
 
   <style id="plan-band-css">
     .plan-band { padding: clamp(24px, 4vw, 48px) 0 clamp(28px, 4vw, 56px); }
+    /* v5.4 — card chrome removed: the "Ready when you are" band now sits
+       directly on the shared cream page (transparent, no border/shadow) */
     .plan-card {
       max-width: 1180px; margin: 0 auto;
-      background: #FFFFFF;
-      border: 1px solid var(--color-border);
+      background: transparent;
+      border: 0;
       border-radius: 24px;
-      box-shadow: 0 16px 40px rgba(11, 30, 63, .08);
+      box-shadow: none;
       display: grid;
       grid-template-columns: 1.12fr 1fr;
       overflow: hidden;
@@ -417,12 +419,13 @@ BLOCK_A = '''
       gap: 22px;
     }
 
-    /* ---------- card ---------- */
+    /* ---------- card (v5.4: photo-header design, matching the WOW cards) -- */
     .t15-card {
       position: relative;
       display: flex;
       flex-direction: column;
-      padding: 26px 24px 20px;
+      padding: 0;
+      overflow: hidden;
       background: var(--color-bg-surface, #fff);
       border: 1px solid var(--color-border-card, rgba(0, 73, 168, .12));
       border-radius: 20px;
@@ -448,22 +451,41 @@ BLOCK_A = '''
       box-shadow: 0 22px 44px rgba(120, 18, 64, 0.13);
     }
 
-    .t15-rank-ghost {
+    /* ---- photo header (v5.6: shorter 16/8.4 frame to cut card height) ---- */
+    .t15-media {
+      position: relative;
+      aspect-ratio: 16 / 8.4;
+      /* visible so the overlapping badge icon can break the photo edge;
+         the card's own overflow:hidden + radius still clip the corners */
+      overflow: visible;
+      background: #0B1E3F;
+    }
+    /* absolute fill so the image can't inflate the aspect-ratio box:
+       the media height is now driven purely by aspect-ratio (v5.6) */
+    .t15-photo {
       position: absolute;
-      top: 10px;
-      left: 18px;
-      font-family: var(--font-display);
-      font-size: 3.6rem;
-      font-weight: 700;
-      line-height: 1;
-      color: rgba(0, 73, 168, 0.08);
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 20px 20px 0 0;
+      object-fit: cover;
+      display: block;
+      transition: transform .7s cubic-bezier(.16, 1, .3, 1);
+    }
+    .t15-photo--empty { background: linear-gradient(135deg, #10284f, #0B1E3F); }
+    .t15-card:hover .t15-photo { transform: scale(1.06); }
+    /* subtle readability scrim for the overlaid chips */
+    .t15-media::after {
+      content: "";
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(11,30,63,.28) 0%, rgba(11,30,63,0) 34%, rgba(11,30,63,0) 70%, rgba(11,30,63,.12) 100%);
       pointer-events: none;
-      user-select: none;
     }
     .t15-rank-pill {
       position: absolute;
-      top: 18px;
-      right: 18px;
+      z-index: 2;
+      top: 12px;
+      left: 12px;
       padding: 6px 12px;
       border-radius: 999px;
       background: linear-gradient(180deg, #FFD84D, #F0BE1F);
@@ -471,83 +493,126 @@ BLOCK_A = '''
       font-family: var(--font-body);
       font-size: 10px;
       font-weight: 800;
-      letter-spacing: 1.6px;
-      box-shadow: 0 6px 14px rgba(213, 160, 33, .35);
+      letter-spacing: 1.4px;
+      box-shadow: 0 6px 14px rgba(11, 30, 63, .28);
     }
     .t15-pill-short { display: none; }
+    /* mobile-only faint serial, overlaid on the photo (no pill ≤640px) */
+    .t15-rank-ghost {
+      display: none;
+      position: absolute;
+      z-index: 2;
+      top: 10px;
+      left: 14px;
+      font-family: var(--font-display);
+      font-size: 1.9rem;
+      font-weight: 700;
+      line-height: 1;
+      color: rgba(255, 255, 255, .92);
+      text-shadow: 0 2px 10px rgba(11, 30, 63, .55);
+      pointer-events: none;
+      user-select: none;
+    }
+    /* type chip rides the photo's top-right corner */
+    .t15-media .t15-type {
+      position: absolute;
+      z-index: 2;
+      top: 12px;
+      right: 12px;
+      padding: 5px 11px;
+      border-radius: 999px;
+      font-family: var(--font-body);
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 1.4px;
+      color: #fff;
+      background: rgba(11, 30, 63, .62);
+      border: 1px solid rgba(255, 255, 255, .28);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+    }
+    .t15-media .t15-type--rental { color: #FFE4A8; background: rgba(120, 84, 8, .55); border-color: rgba(255, 206, 27, .45); }
 
-    /* AI-generated circular badge icons — the artwork carries its own
-       cream disc, gold ring and blue/gold illustration, so the container
-       stays transparent and only adds a soft lift shadow. */
+    /* AI-generated circular badge icon — overlaps the photo's bottom-left */
     .t15-icon {
-      position: relative;
-      z-index: 1;
-      width: 62px;
-      height: 62px;
-      margin-bottom: 16px;
+      position: absolute;
+      z-index: 3;
+      left: 20px;
+      bottom: -20px;
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: #fff;
+      padding: 4px;
+      box-shadow: 0 10px 22px rgba(11, 30, 63, .22);
     }
     .t15-icon img {
       width: 100%;
       height: 100%;
       display: block;
-      filter: drop-shadow(0 6px 12px rgba(11, 30, 63, .18));
+      border-radius: 50%;
       transition: transform .35s ease;
     }
     .t15-card:hover .t15-icon img { transform: scale(1.07) rotate(-3deg); }
 
+    /* ---- text body (v5.6: compact rhythm) ---- */
+    .t15-body {
+      display: flex;
+      flex-direction: column;
+      flex: 1 1 auto;
+      padding: 30px 20px 16px;
+    }
+
+    /* type chip now lives on the photo header; meta row holds category only */
     .t15-meta {
       display: flex;
       align-items: center;
       flex-wrap: wrap;
-      gap: 8px 10px;
-      margin-bottom: 10px;
+      gap: 6px 10px;
+      margin-bottom: 5px;
     }
-    .t15-type {
-      padding: 4px 10px;
-      border-radius: 999px;
+    .t15-cat {
       font-family: var(--font-body);
-      font-size: 9.5px;
-      font-weight: 800;
-      letter-spacing: 1.7px;
+      font-size: 10.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.1px;
+      color: var(--color-gold-text, #A16D12);
     }
-    .t15-type--experience { color: var(--color-primary); background: var(--color-accent-soft); border: 1px solid rgba(0, 73, 168, .22); }
-    .t15-type--rental { color: var(--color-gold-text, #A16D12); background: var(--color-gold-soft); border: 1px solid rgba(213, 160, 33, .35); }
-    .t15-cat { font-family: var(--font-body); font-size: 11.5px; font-weight: 600; color: var(--color-text-light); letter-spacing: .4px; }
 
     .t15-title {
-      margin: 0 0 8px;
-      padding-bottom: 10px;
+      margin: 0 0 5px;
       position: relative;
       font-family: var(--font-display);
-      font-size: 1.28rem;
+      font-size: 1.12rem;
       font-weight: 700;
       line-height: 1.25;
       color: var(--color-primary-dark);
+      /* reserve two lines so one- and two-line titles keep every card equal height */
+      min-height: 2.5em;
+      display: flex;
+      align-items: center;
     }
-    .t15-title::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 38px;
-      height: 3px;
-      border-radius: 3px;
-      background: linear-gradient(90deg, var(--color-accent-gold), rgba(255, 206, 27, .25));
-    }
+    /* v5.4 — hook is a plain marketing description, no quotation marks.
+       v5.6 — capped at three lines so every card stays the same compact height */
     .t15-quote {
-      margin: 0 0 16px;
-      font-family: var(--font-display);
-      font-style: italic;
-      font-size: .95rem;
-      line-height: 1.6;
+      margin: 0 0 10px;
+      font-family: var(--font-body);
+      font-style: normal;
+      font-size: .86rem;
+      line-height: 1.5;
       color: var(--color-text-body);
       flex-grow: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      /* reserve three lines so all 15 cards share one compact height */
+      min-height: 4.5em;
     }
-    .t15-quote::before { content: "\\201C"; color: var(--color-accent-gold-hover, #D5A021); font-weight: 700; margin-right: 2px; }
-    .t15-quote::after  { content: "\\201D"; color: var(--color-accent-gold-hover, #D5A021); font-weight: 700; margin-left: 1px; }
 
     /* ---------- footer: specs + wishlist ---------- */
-    .t15-divider { height: 1px; background: var(--color-border, #E2E8F0); margin: 4px 0 14px; }
+    .t15-divider { height: 1px; background: var(--color-border, #E2E8F0); margin: 0 0 10px; }
     .t15-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
     .t15-specs-btn {
       display: inline-flex;
@@ -596,8 +661,8 @@ BLOCK_A = '''
     /* Three-state wish button: plus (idle) -> gold check (brief) -> pink heart (saved) */
     .t15-wish {
       position: relative;
-      width: 46px;
-      height: 46px;
+      width: 42px;
+      height: 42px;
       flex: 0 0 auto;
       display: flex;
       align-items: center;
@@ -736,37 +801,26 @@ BLOCK_A = '''
     /* ---------- responsive: always 3 cards per row ---------- */
     @media (max-width: 1024px) {
       .t15-grid { gap: 16px; }
-      .t15-card { padding: 22px 18px 18px; }
+      .t15-body { padding: 28px 16px 14px; }
+      .t15-icon { left: 14px; bottom: -18px; width: 50px; height: 50px; }
     }
     @media (max-width: 640px) {
       .t15-grid { gap: 10px; }
-      .t15-card { padding: 10px 10px 12px; border-radius: 14px; }
-      /* compact header row: icon left, rank pill to its right — no overlap */
-      .t15-icon { width: 42px; height: 42px; margin-bottom: 9px; }
-      /* mobile only: remove the yellow # pill beside the icon; the serial
-         becomes a larger, light brand-blue numeral in the empty space to
-         the right of the icon (desktop keeps the pill + faint ghost). */
+      .t15-card { border-radius: 14px; }
+      .t15-media { aspect-ratio: 16 / 8.6; }
+      /* overlapping badge stays proportional on phones */
+      .t15-icon { left: 11px; bottom: -15px; width: 38px; height: 38px; padding: 4px; }
+      /* contract: no rank pill ≤640px — a faint white serial sits on the
+         photo instead, so cards keep their order without a yellow chip */
       .t15-rank-pill { display: none; }
-      .t15-rank-ghost {
-        display: block;
-        /* right-anchored: every numeral rests just inside the card's right
-           edge, aligned across all 15 cards. Fluid size keeps two-digit
-           ranks (10-15) clear of the icon on every phone width. */
-        left: auto;
-        right: 11px;
-        top: 15px;
-        font-size: clamp(24px, calc(20vw - 40px), 40px);
-        line-height: 1;
-        font-variant-numeric: lining-nums;
-        color: rgba(0, 73, 168, .26);
-      }
-      .t15-meta { gap: 4px 6px; margin-bottom: 7px; }
-      .t15-type { padding: 3px 7px; font-size: 7.5px; letter-spacing: 1px; }
-      .t15-cat { display: none; }
-      .t15-title { font-size: .82rem; margin-bottom: 6px; padding-bottom: 7px; }
-      .t15-title::after { width: 26px; height: 2px; }
+      .t15-rank-ghost { display: block; top: 9px; left: 12px; font-size: 1.5rem; }
+      .t15-media .t15-type { top: 10px; right: 10px; padding: 4px 8px; font-size: 7.5px; letter-spacing: 1px; }
+      .t15-body { padding: 22px 11px 10px; }
+      .t15-meta { gap: 4px 6px; margin-bottom: 6px; }
+      .t15-cat { font-size: 9px; letter-spacing: .8px; }
+      .t15-title { font-size: .82rem; margin-bottom: 6px; }
       .t15-quote {
-        font-size: .66rem; line-height: 1.45; margin-bottom: 8px;
+        font-size: .68rem; line-height: 1.45; margin-bottom: 8px; min-height: 2.9em;
         display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
       }
       .t15-divider { margin: 0 0 8px; }
@@ -780,11 +834,10 @@ BLOCK_A = '''
       .t15-wish svg { width: 16px; height: 16px; }
     }
     @media (max-width: 380px) {
-      .t15-card { padding: 9px 8px 10px; }
-      .t15-icon { width: 38px; height: 38px; }
-      .t15-rank-ghost { right: 9px; top: 16px; }
-      .t15-title { font-size: .74rem; }
-      .t15-quote { -webkit-line-clamp: 1; font-size: .6rem; }
+      .t15-icon { width: 34px; height: 34px; }
+      .t15-rank-ghost { font-size: 1.25rem; }
+      .t15-title { font-size: .76rem; }
+      .t15-quote { -webkit-line-clamp: 1; font-size: .62rem; min-height: 1.5em; }
       .t15-wish { width: 32px; height: 32px; }
     }
     @media (prefers-reduced-motion: reduce) {
@@ -848,27 +901,37 @@ BLOCK_B = r'''
       const specs = (item.specs || []).map((sp) =>
         '<li>' + SVG_SPEC_CHECK + '<span>' + esc(sp) + '</span></li>').join('');
       const panelId = 't15-specs-' + rank;
+      const photo = item.img
+        ? '<img class="t15-photo" src="' + esc(item.img) + '" alt="' + esc(item.title) + '" loading="lazy" decoding="async">'
+        : '<div class="t15-photo t15-photo--empty" aria-hidden="true"></div>';
       return '' +
       '<article class="t15-card" data-t15-key="' + esc(key) + '" style="transition-delay:' + (index * 55) + 'ms">' +
-        '<span class="t15-rank-ghost" aria-hidden="true">' + rank + '</span>' +
-        '<span class="t15-rank-pill"><span class="t15-pill-full">#' + rank + ' FAVOURITE</span><span class="t15-pill-short">#' + rank + '</span></span>' +
-        '<div class="t15-icon"><img src="' + (ICONS[item.categoryKey] || ICONS['cat-1']) + '" alt="" loading="lazy"></div>' +
-        '<div class="t15-meta">' +
+        '<div class="t15-media">' +
+          photo +
+          '<span class="t15-rank-ghost" aria-hidden="true">' + rank + '</span>' +
+          '<span class="t15-rank-pill"><span class="t15-pill-full">#' + rank + ' FAVOURITE</span><span class="t15-pill-short">#' + rank + '</span></span>' +
           '<span class="t15-type ' + typeClass + '">' + esc(entry.type) + '</span>' +
-          '<span class="t15-cat">' + esc(CATEGORY_LABELS[item.categoryKey] || item.cat || '') + '</span>' +
+          /* badge icon overlaps the photo's bottom-left; kept here so the
+             existing fly-to-tray animation (.t15-icon img) works unchanged */
+          '<span class="t15-icon"><img src="' + (ICONS[item.categoryKey] || ICONS['cat-1']) + '" alt="" loading="lazy"></span>' +
         '</div>' +
-        '<h3 class="t15-title">' + esc(item.title) + '</h3>' +
-        '<p class="t15-quote">' + esc(entry.hook) + '</p>' +
-        '<div class="t15-divider" aria-hidden="true"></div>' +
-        '<div class="t15-footer">' +
-          '<button type="button" class="t15-specs-btn" aria-expanded="false" aria-controls="' + panelId + '">' +
-            SVG_INFO + '<span class="t15-specs-label">Quick Specs</span>' + SVG_CHEVRON +
-          '</button>' +
-          '<button type="button" class="t15-wish" data-wishlist-key="' + esc(key) + '" aria-pressed="false" aria-label="Add ' + esc(item.title) + ' to wishlist">' +
-            SVG_PLUS + SVG_CHECK + SVG_HEART +
-          '</button>' +
+        '<div class="t15-body">' +
+          '<div class="t15-meta">' +
+            '<span class="t15-cat">' + esc(CATEGORY_LABELS[item.categoryKey] || item.cat || '') + '</span>' +
+          '</div>' +
+          '<h3 class="t15-title">' + esc(item.title) + '</h3>' +
+          '<p class="t15-quote">' + esc(entry.hook) + '</p>' +
+          '<div class="t15-divider" aria-hidden="true"></div>' +
+          '<div class="t15-footer">' +
+            '<button type="button" class="t15-specs-btn" aria-expanded="false" aria-controls="' + panelId + '">' +
+              SVG_INFO + '<span class="t15-specs-label">Quick Specs</span>' + SVG_CHEVRON +
+            '</button>' +
+            '<button type="button" class="t15-wish" data-wishlist-key="' + esc(key) + '" aria-pressed="false" aria-label="Add ' + esc(item.title) + ' to wishlist">' +
+              SVG_PLUS + SVG_CHECK + SVG_HEART +
+            '</button>' +
+          '</div>' +
+          '<div class="t15-specs-panel" id="' + panelId + '" role="region" aria-label="Specifications for ' + esc(item.title) + '"><ul>' + specs + '</ul></div>' +
         '</div>' +
-        '<div class="t15-specs-panel" id="' + panelId + '" role="region" aria-label="Specifications for ' + esc(item.title) + '"><ul>' + specs + '</ul></div>' +
       '</article>';
     }
 
@@ -1241,11 +1304,9 @@ BLOCK_B = r'''
 # placed in conversion-funnel order. All markup is self-contained and uses the
 # site's shared .section-header-center / .hd-eyebrow / .heading-display system.
 
-TESTI_DIR = "/home/user/ai-icons/testimonials"
-TESTI_PHOTOS = {}
-for _name in ("jasmine", "daniel", "priya"):
-    with open(os.path.join(TESTI_DIR, _name + ".jpg"), "rb") as _fh:
-        TESTI_PHOTOS[_name] = "data:image/jpeg;base64," + base64.b64encode(_fh.read()).decode("ascii")
+# v5.3 — the old AI testimonial portraits (jasmine/daniel/priya) were retired
+# in v5.1; the testimonials section now uses real client-published logos only,
+# so no portrait input directory is required to build.
 
 # Shared header treatment for the three new sections: mirrors the source's
 # scoped #services/#contact heading rules (600-weight navy, coral eyebrow,
@@ -1897,23 +1958,28 @@ BLOCK_TESTI = '''
       will-change: transform;
     }
     .ts-slide { flex: 0 0 100%; min-width: 0; margin: 0; padding: 0 4px; }
+    /* v5.4 — logo sits ABOVE the quote at every width (the former mobile-only
+       stack is now the desktop layout too), matching the mobile arrangement */
     .ts-card {
       display: flex;
-      gap: 32px;
+      flex-direction: column;
+      gap: 18px;
       align-items: center;
+      text-align: center;
       /* no card chrome — sits directly on the section's ice-blue band */
       background: transparent;
       border: none;
       border-radius: 22px;
-      padding: 12px 40px 20px;
+      padding: 20px 40px 24px;
       box-shadow: none;
       height: 100%;
     }
     .ts-logo {
-      width: 168px;
+      width: 158px;
       height: auto;
-      max-height: 64px;
+      max-height: 60px;
       flex: 0 0 auto;
+      margin: 0 auto;
       object-fit: contain;
       background: #fff;
       border: 1px solid var(--color-border);
@@ -2120,8 +2186,9 @@ HERO_FIX_CSS = '''
 # Audit-driven layer (no source edits, all injected at build time):
 #   - honest form placeholders, optional LinkedIn, softened footer claim
 #   - slim trusted-by band, hero CTA clarifier, mid-page CTA panels,
-#     pre-form reassurance strip, FAQ section + accordion, scroll reveals,
+#     FAQ section + accordion, scroll reveals,
 #     SEO meta + JSON-LD, image loading priorities.
+#   (v5.5: pre-form reassurance cards removed at client request)
 FAQ_ITEMS = [
     ("How early should we book our event?",
      "Peak dates — year-end dinners, weddings and product launches — fill up six to ten weeks ahead, so earlier is always better. Send us your date and we will confirm availability within one business day, and we always do our best to accommodate shorter timelines."),
@@ -2184,15 +2251,8 @@ POLISH_CSS = '''
 
     /* slim trusted-by band sizing now comes from the v4.12 fragment (#trusted-brands-compact) */
 
-    /* ---------- hero CTA clarifier (keeps the coffee brand voice) ---------- */
-    .hb-cta-note {
-      margin: 14px 0 0;
-      font-family: var(--font-body);
-      font-size: .88rem;
-      letter-spacing: .02em;
-      color: rgba(255, 255, 255, .84);
-    }
-    @media (max-width: 640px) { .hb-cta-note { font-size: .8rem; } }
+    /* v5.9 — hero CTA clarifier note removed at client request; no
+       replacement text is rendered under the coffee pill. */
 
     /* ---------- mid-page conversion panels ---------- */
     .hp3-cta {
@@ -2267,30 +2327,7 @@ POLISH_CSS = '''
       .hp3-cta__sub { margin-inline: auto; }
     }
 
-    /* ---------- reassurance strip directly above the enquiry form ---------- */
-    .hp3-assure {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
-      max-width: 1000px;
-      margin: 0 auto 30px;
-    }
-    .hp3-assure__item {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      padding: 11px 20px;
-      border-radius: 999px;
-      background: #fff;
-      border: 1px solid rgba(213, 160, 33, .28);
-      box-shadow: 0 8px 20px rgba(11, 30, 63, .06);
-      font-family: var(--font-body);
-      font-weight: 600;
-      font-size: .92rem;
-      color: #20304D;
-    }
-    .hp3-assure__item svg { width: 18px; height: 18px; flex: 0 0 auto; }
+    /* v5.5 — pre-form reassurance cards removed at client request */
 
     /* ---------- FAQ ---------- */
     .hp3-faq-section {
@@ -2484,17 +2521,7 @@ POLISH_JS = '''
     var reduce = window.matchMedia &&
       window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    /* ---- 1. hero CTA clarifier under the coffee pill ---- */
-    (function () {
-      var cta = document.querySelector('#hero .hb-cta');
-      if (!cta || cta.querySelector('.hb-cta-note')) return;
-      var note = document.createElement('p');
-      note.className = 'hb-cta-note';
-      note.textContent = 'Free 20-minute consultation · No obligation · KL-based, worldwide delivery';
-      cta.insertAdjacentElement('afterend', note);
-    })();
-
-    /* ---- 2. mid-page CTA panels ---- */
+    /* ---- 1. mid-page CTA panels ---- */
     function ctaBand(kicker, titleHtml, sub) {
       var wrap = document.createElement('div');
       wrap.className = 'hp3-cta';
@@ -2528,25 +2555,9 @@ POLISH_JS = '''
       ));
     }
 
-    /* ---- 3. reassurance strip above the enquiry form ---- */
-    (function () {
-      var form = document.querySelector('#contact form');
-      if (!form || document.querySelector('.hp3-assure')) return;
-      var promises = [
-        'Free 20-minute consultation',
-        'One dedicated planner, first call to final toast',
-        'Transparent itemised quotes — no hidden costs'
-      ];
-      var check = '<svg viewBox="0 0 24 24" fill="none" stroke="#D5A021" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m8.5 12.2 2.4 2.4 4.8-5.2"/></svg>';
-      var strip = document.createElement('div');
-      strip.className = 'hp3-assure';
-      strip.innerHTML = promises.map(function (t) {
-        return '<span class="hp3-assure__item">' + check + '<span>' + t + '</span></span>';
-      }).join('');
-      form.insertAdjacentElement('beforebegin', strip);
-    })();
+    /* v5.5 — reassurance cards above the enquiry form removed at client request */
 
-    /* ---- 4. FAQ accordion ---- */
+    /* ---- 2. FAQ accordion ---- */
     document.querySelectorAll('.hp3-faq-q').forEach(function (btn) {
       var item = btn.closest('.hp3-faq-item');
       var panel = item.querySelector('.hp3-faq-a');
@@ -2562,7 +2573,7 @@ POLISH_JS = '''
       });
     });
 
-    /* ---- 5. scroll reveal (excludes #top15, which has its own system) ---- */
+    /* ---- 3. scroll reveal (excludes #top15, which has its own system) ---- */
     var SELECTORS = [
       '#why-choose .section-header-center',
       '#why-choose .wc-card',
@@ -2573,11 +2584,8 @@ POLISH_JS = '''
       '#hp3-faq .section-header-center',
       '.hp3-faq-item',
       '.hp3-cta',
-      '.hp3-assure',
       '#contact .section-header-center',
-      '#plan-band .plan-col',
-      '#occasion-strip .occ-eyebrow',
-      '#occasion-strip .occ-chip'
+      '#plan-band .plan-col'
     ];
     var targets = [];
     SELECTORS.forEach(function (sel) {
@@ -2594,10 +2602,6 @@ POLISH_JS = '''
     /* plan-band columns: quote first, conversion column a beat later */
     document.querySelectorAll('#plan-band .plan-col').forEach(function (el, i) {
       el.style.transitionDelay = (i * 140) + 'ms';
-    });
-    /* occasion chips: soft left-to-right float-up cascade */
-    document.querySelectorAll('#occasion-strip .occ-chip').forEach(function (el, i) {
-      el.style.transitionDelay = (Math.min(i, 5) * 70) + 'ms';
     });
     if (reduce || !('IntersectionObserver' in window) ||
         !window.requestAnimationFrame) {
@@ -2632,6 +2636,100 @@ POLISH_JS = '''
       window.addEventListener('resize', onScroll);
       check();
     }
+  })();
+
+  /* ---- v5.3 trusted-brands: seamless, viewport-proof logo marquee ----
+     The source markup ships two mirrored groups animated with a -50%
+     translate. When one group is narrower than the viewport the loop
+     exposes an empty right edge (the reported "logos vanish on the
+     right" bug). Clone the base group until BOTH halves are wider than
+     the container, then scale duration to the half width so the travel
+     speed stays constant at every breakpoint. */
+  (function () {
+    var rows = document.querySelectorAll('#trusted-brands .hp-logo-marquee');
+    if (!rows.length) return;
+    var reduce = window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var SPEED = 30;                 /* px per second, forward row */
+    var SPEED_REVERSE = 34;         /* opposite row drifts a touch faster */
+
+    function cloneGroup(base) {
+      var c = base.cloneNode(true);
+      c.setAttribute('data-clone', '');
+      c.setAttribute('aria-hidden', 'true');
+      c.querySelectorAll('img').forEach(function (img) {
+        img.setAttribute('alt', '');
+        img.setAttribute('loading', 'lazy');
+        img.setAttribute('decoding', 'async');
+      });
+      return c;
+    }
+
+    function halfWidth(track, mirrorEl) {
+      /* width of everything in the track before the mirror half begins */
+      var w = 0, node = track.firstElementChild;
+      while (node && node !== mirrorEl) {
+        w += node.getBoundingClientRect().width;
+        node = node.nextElementSibling;
+      }
+      return w;
+    }
+
+    function fillRow(marquee) {
+      var track = marquee.querySelector('.hp-logo-track');
+      var groups = track.querySelectorAll('.hp-logo-group');
+      var base = track.querySelector('[data-base]') || groups[0];
+      var mirror = track.querySelector('[data-mirror]') || groups[1];
+      if (!base || !mirror) return;
+      base.setAttribute('data-base', '');
+      mirror.setAttribute('data-mirror', '');
+      /* undo clones from a previous (resize) run */
+      track.querySelectorAll('[data-clone]').forEach(function (n) { n.remove(); });
+
+      var containerW = marquee.clientWidth || window.innerWidth;
+      var baseW = base.getBoundingClientRect().width;
+      if (!baseW || !containerW) return;
+      /* each half must clear the container, plus a quarter-group buffer so
+         the masked fade edges never meet a hard content boundary. A
+         measure-and-grow loop (rather than one computed count) stays
+         correct through mid-animation resize reflows. */
+      var target = containerW + baseW * 0.25;
+      var copies = 1, guard = 0;
+      while (halfWidth(track, mirror) < target && guard < 12) {
+        track.insertBefore(cloneGroup(base), mirror);   /* grow first half */
+        track.appendChild(cloneGroup(base));            /* grow mirror half */
+        copies++; guard++;
+      }
+
+      if (!reduce) {
+        var halfW = baseW * copies;
+        var speed = marquee.classList.contains('hp-logo-marquee-reverse')
+          ? SPEED_REVERSE : SPEED;
+        track.style.animationDuration = (halfW / speed).toFixed(2) + 's';
+      }
+    }
+
+    function fillAll() { rows.forEach(fillRow); }
+    /* verify after layout settles (covers late viewport changes / font
+       swaps that shift card widths); only refills when a half fell short */
+    function verifyFill() {
+      rows.forEach(function (marquee) {
+        var track = marquee.querySelector('.hp-logo-track');
+        var mirror = track.querySelector('[data-mirror]');
+        var containerW = marquee.clientWidth || window.innerWidth;
+        if (mirror && halfWidth(track, mirror) < containerW) fillRow(marquee);
+      });
+    }
+
+    var resizeTimer = null;
+    function onResize() {
+      if (resizeTimer) clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(fillAll, 150);
+    }
+    fillAll();
+    requestAnimationFrame(function () { requestAnimationFrame(verifyFill); });
+    window.addEventListener('load', verifyFill);
+    window.addEventListener('resize', onResize, { passive: true });
   })();
   </script>
 '''
@@ -2893,6 +2991,13 @@ def main():
     assert html.count('href="https://advertisingandmore.com/#contactform"') == 6
     html = html.replace('href="https://advertisingandmore.com/#contactform"', 'href="#contact"')
 
+    # v5.9 — the standalone package ships no job-vacancy-page.html, so the
+    # three Careers links would 404 on GitHub Pages; point them at the live
+    # site like every other header/footer navigation link.
+    assert html.count('href="./job-vacancy-page.html#vacancies"') == 3
+    html = html.replace('href="./job-vacancy-page.html#vacancies"',
+                        'href="https://advertisingandmore.com/job-vacancy-page.html#vacancies"')
+
     # v4.30 — add-only wishlist helper for the party-recipe cards
     html = _swap("      window.syncWishlistButtons = syncWishlistButtons;",
                  "      /* v4.30 add-only helper for party-recipe cards */\n"
@@ -2925,11 +3030,14 @@ def main():
     assert html.count("</head>") == 1, "head close not unique"
     html = html.replace("</head>", HEAD_EXTRAS + RHYTHM_CSS + HERO_FIX_CSS + POLISH_CSS
                         + FRAG_BRAND_ALIGN + FRAG_TRUST_COMPACT + "</head>", 1)
-    # v5 native funnel: trust -> stats+disclaimer -> WOW orientation ->
-    # featured aspiration (moved up) -> Branson quote -> Why Choose ->
-    # recipes -> Top15 -> full inventory -> process -> drinks ...
-    html = html.replace(anchor, BLOCK_STATS + FRAG_WOW + FRAG_OCCASIONS + FRAG_FEATURED + BLOCK_QUOTE
-                        + block_why + FRAG_RECIPES + BLOCK_A + anchor, 1)
+    # v5 native funnel: trust -> stats+disclaimer -> featured aspiration ->
+    # Branson quote -> Why Choose -> recipes -> Top15 -> WOW orientation ->
+    # full inventory (#services, WOW moved here in v5.7) -> process -> drinks ...
+    # v5.7 — WOW band moved directly above the services catalogue (#services):
+    # its six category cards deep-link into the catalogue filters, so sitting
+    # immediately above the target section makes the click path contiguous.
+    html = html.replace(anchor, BLOCK_STATS + FRAG_FEATURED + BLOCK_QUOTE
+                        + block_why + FRAG_RECIPES + BLOCK_A + FRAG_WOW + anchor, 1)
     html = html.replace(happy_anchor, block_process + happy_anchor, 1)
     html = html.replace(contact_anchor, BLOCK_FAQ + block_testi + contact_anchor, 1)
     # v5.1 — plan band directly above the navy footer

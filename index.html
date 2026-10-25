@@ -8349,15 +8349,8 @@
 
     /* slim trusted-by band sizing now comes from the v4.12 fragment (#trusted-brands-compact) */
 
-    /* ---------- hero CTA clarifier (keeps the coffee brand voice) ---------- */
-    .hb-cta-note {
-      margin: 14px 0 0;
-      font-family: var(--font-body);
-      font-size: .88rem;
-      letter-spacing: .02em;
-      color: rgba(255, 255, 255, .84);
-    }
-    @media (max-width: 640px) { .hb-cta-note { font-size: .8rem; } }
+    /* v5.9 — hero CTA clarifier note removed at client request; no
+       replacement text is rendered under the coffee pill. */
 
     /* ---------- mid-page conversion panels ---------- */
     .hp3-cta {
@@ -8432,30 +8425,7 @@
       .hp3-cta__sub { margin-inline: auto; }
     }
 
-    /* ---------- reassurance strip directly above the enquiry form ---------- */
-    .hp3-assure {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
-      max-width: 1000px;
-      margin: 0 auto 30px;
-    }
-    .hp3-assure__item {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      padding: 11px 20px;
-      border-radius: 999px;
-      background: #fff;
-      border: 1px solid rgba(213, 160, 33, .28);
-      box-shadow: 0 8px 20px rgba(11, 30, 63, .06);
-      font-family: var(--font-body);
-      font-weight: 600;
-      font-size: .92rem;
-      color: #20304D;
-    }
-    .hp3-assure__item svg { width: 18px; height: 18px; flex: 0 0 auto; }
+    /* v5.5 — pre-form reassurance cards removed at client request */
 
     /* ---------- FAQ ---------- */
     .hp3-faq-section {
@@ -8674,60 +8644,71 @@
       }
     }
   </style><style id="trusted-brands-compact">
-    /* v4.12 — the brand strip is deliberately SMALL: a slim two-row ribbon
-       directly under the hero. Every size is capped, so it can never grow. */
+    /* v5.3 — slim but legible two-row brand ribbon directly under the hero.
+       Card sizing is comfortable for every logo aspect ratio; the v5.3
+       marquee-fill script guarantees the two mirrored track halves always
+       exceed the viewport, so the -50% loop never exposes an empty edge. */
     .hp-trusted#trusted-brands {
-      padding: 8px 0 7px !important;
+      padding: 18px 0 16px !important;
       background: transparent;
     }
     .hp-trusted#trusted-brands .hp-trusted-head {
       max-width: none;
-      margin: 0 auto 6px;
+      margin: 0 auto 12px;
       padding: 0 14px;
     }
     .hp-trusted#trusted-brands .hp-trusted-eyebrow {
-      padding: 3px 9px;
-      font-size: clamp(7px, .5vw, 8.5px);
+      padding: 5px 14px;
+      font-size: clamp(8.5px, 0.65vw, 10.5px);
       font-weight: 800;
-      letter-spacing: .12em;
-      line-height: 1.1;
+      letter-spacing: .14em;
+      line-height: 1.15;
       background: rgba(255, 206, 27, .2);
       box-shadow: inset 0 0 0 1px rgba(213, 160, 33, .28);
     }
     .hp-trusted#trusted-brands .hp-logo-marquee {
-      padding: 3px 0;
-      -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 3%, #000 97%, transparent 100%);
-      mask-image: linear-gradient(90deg, transparent 0, #000 3%, #000 97%, transparent 100%);
+      padding: 4px 0;
+      -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 4%, #000 96%, transparent 100%);
+      mask-image: linear-gradient(90deg, transparent 0, #000 4%, #000 96%, transparent 100%);
     }
     .hp-trusted#trusted-brands .hp-logo-group {
-      gap: clamp(6px, .6vw, 9px);
-      padding-right: clamp(6px, .6vw, 9px);
+      gap: clamp(10px, 1vw, 16px);
+      padding-right: clamp(10px, 1vw, 16px);
     }
     .hp-trusted#trusted-brands .hp-logo-card {
-      width: clamp(62px, 5.4vw, 82px);
-      height: clamp(25px, 2.2vw, 31px);
-      padding: 3px 6px;
-      border-radius: 7px;
-      box-shadow: 0 1px 4px rgba(11, 30, 63, .05);
+      width: clamp(104px, 8.6vw, 140px);
+      height: clamp(46px, 4.6vw, 66px);
+      padding: 8px 11px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(11, 30, 63, .07), 0 1px 2px rgba(11, 30, 63, .04);
+      transition: transform .3s cubic-bezier(.22,.61,.36,1), box-shadow .3s ease;
+    }
+    .hp-trusted#trusted-brands .hp-logo-card img {
+      transition: transform .3s cubic-bezier(.22,.61,.36,1);
+    }
+    .hp-trusted#trusted-brands .hp-logo-marquee:hover .hp-logo-card {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 18px rgba(11, 30, 63, .12);
     }
     @media (max-width: 700px) {
-      .hp-trusted#trusted-brands { padding: 7px 0 6px !important; }
-      .hp-trusted#trusted-brands .hp-trusted-head { margin-bottom: 5px; }
+      .hp-trusted#trusted-brands { padding: 14px 0 12px !important; }
+      .hp-trusted#trusted-brands .hp-trusted-head { margin-bottom: 9px; }
       .hp-trusted#trusted-brands .hp-logo-card {
-        width: 56px;
-        height: 23px;
-        padding: 2px 5px;
-        border-radius: 6px;
+        width: 88px;
+        height: 40px;
+        padding: 6px 9px;
+        border-radius: 10px;
       }
-      .hp-trusted#trusted-brands .hp-logo-group { gap: 5px; padding-right: 5px; }
-      .hp-trusted#trusted-brands .hp-logo-marquee { padding: 2px 0; }
+      .hp-trusted#trusted-brands .hp-logo-group { gap: 8px; padding-right: 8px; }
+      .hp-trusted#trusted-brands .hp-logo-marquee { padding: 3px 0; }
     }
     @media (max-width: 400px) {
-      .hp-trusted#trusted-brands .hp-logo-card { width: 50px; height: 21px; padding: 2px 4px; }
-      .hp-trusted#trusted-brands .hp-logo-group { gap: 4px; padding-right: 4px; }
-      .hp-trusted#trusted-brands .hp-trusted-eyebrow { font-size: 7px; letter-spacing: .09em; padding: 3px 7px; }
+      .hp-trusted#trusted-brands .hp-logo-card { width: 76px; height: 34px; padding: 5px 8px; }
+      .hp-trusted#trusted-brands .hp-logo-group { gap: 7px; padding-right: 7px; }
+      .hp-trusted#trusted-brands .hp-trusted-eyebrow { font-size: 8px; letter-spacing: .1em; padding: 4px 10px; }
     }
-  </style><link rel="preload" as="image" href="assets/img/hp-736a7ff3ddd2.webp" fetchpriority="high">
+  </style>
+<link rel="preload" as="image" href="assets/img/hp-736a7ff3ddd2.webp" fetchpriority="high">
   <meta property="og:image" content="assets/img/og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -8761,7 +8742,7 @@
             <li><a href="https://advertisingandmore.com/#about" class="nav-link">About</a></li>
             <li><a href="https://advertisingandmore.com/#reviews" class="nav-link">Reviews</a></li>
             <li><a href="https://advertisingandmore.com/#whyus" class="nav-link">Why Us</a></li>
-            <li><a href="./job-vacancy-page.html#vacancies" class="nav-link">Careers <span class="nav-badge-pill">Hiring</span></a></li>
+            <li><a href="https://advertisingandmore.com/job-vacancy-page.html#vacancies" class="nav-link">Careers <span class="nav-badge-pill">Hiring</span></a></li>
             <li><a href="#contact" class="nav-link">Contact</a></li>
           </ul>
 
@@ -8791,7 +8772,7 @@
         <li><a href="https://advertisingandmore.com/#about" class="nav-link">About</a></li>
         <li><a href="https://advertisingandmore.com/#reviews" class="nav-link">Reviews</a></li>
         <li><a href="https://advertisingandmore.com/#whyus" class="nav-link">Why Us</a></li>
-        <li><a href="./job-vacancy-page.html#vacancies" class="nav-link">Careers (We Are Hiring!)</a></li>
+        <li><a href="https://advertisingandmore.com/job-vacancy-page.html#vacancies" class="nav-link">Careers (We Are Hiring!)</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
       <div class="drawer-cta">
@@ -9081,548 +9062,14 @@
       .am-stat__lbl { font-size: 0.72rem; }
     }
   </style>
-<section class="wow-band" id="pick-your-wow" aria-labelledby="wow-heading">
-  <style id="wow-band-styles">
-    .wow-band {
-      position: relative;
-      padding: clamp(1.6rem, 3vw, 2.6rem) 0 clamp(2rem, 3.6vw, 3rem);
-      background:
-        radial-gradient(760px 300px at 92% 0%, rgba(255, 206, 27, .14), transparent 62%),
-        linear-gradient(180deg, #FFFCF4 0%, #FBF4E6 100%);
-      overflow: hidden;
-    }
-
-    /* the band runs slightly wider than the standard 1240 container so the six
-       labels stay on one line at every desktop width */
-    .wow-band > .container { max-width: 1400px; }
-
-    /* ─── header row ───────────────────────────────────────────────────── */
-    .wow-head {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 0.92fr);
-      align-items: end;
-      gap: clamp(16px, 3vw, 54px);
-      margin-bottom: clamp(14px, 1.8vw, 22px);
-    }
-
-    .wow-eyebrow {
-      font-family: var(--font-body);
-      font-size: clamp(.62rem, .74vw, .72rem);
-      font-weight: 700;
-      letter-spacing: .19em;
-      text-transform: uppercase;
-      color: #4A6280;
-      margin: 0 0 6px;
-    }
-
-    .wow-title-row {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .wow-title {
-      font-family: var(--font-body);
-      font-size: clamp(1.75rem, 4vw, 3.05rem);
-      font-weight: 800;
-      line-height: .98;
-      letter-spacing: -.035em;
-      color: #0B1E3F;
-      margin: 0;
-      white-space: nowrap;
-    }
-    .wow-title .wow-gold { color: #F2A21B; }
-
-    .wow-sparks {
-      flex: 0 0 auto;
-      width: clamp(26px, 3.1vw, 46px);
-      color: #F2A21B;
-      margin-top: 4px;
-    }
-
-    .wow-right {
-      position: relative;
-      padding-right: clamp(0px, 7vw, 96px);
-    }
-
-    .wow-copy {
-      font-size: clamp(.82rem, .92vw, .93rem);
-      line-height: 1.68;
-      color: #43566E;
-      margin: 0;
-      max-width: 46ch;
-    }
-
-    .wow-note {
-      position: absolute;
-      right: 0;
-      top: -22px;
-      width: clamp(96px, 9.5vw, 132px);
-      font-family: var(--font-script);
-      font-size: clamp(1rem, 1.35vw, 1.32rem);
-      line-height: .95;
-      color: #2C3E55;
-      text-align: center;
-      transform: rotate(-4deg);
-      pointer-events: none;
-    }
-    .wow-note svg {
-      display: block;
-      width: clamp(40px, 4vw, 56px);
-      margin: 2px auto 0;
-      color: #2C3E55;
-    }
-
-    /* ─── six tiles ────────────────────────────────────────────────────── */
-    .wow-grid {
-      display: grid;
-      grid-template-columns: repeat(6, minmax(0, 1fr));
-      gap: clamp(9px, 1.1vw, 18px);
-    }
-
-    .wow-card {
-      display: flex;
-      flex-direction: column;
-      min-width: 0;
-      background: #fff;
-      border: 1px solid rgba(11, 30, 63, .08);
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 6px 16px rgba(11, 30, 63, .06);
-      transition: transform var(--transition-normal), box-shadow var(--transition-normal),
-                  border-color var(--transition-normal);
-    }
-
-    .wow-card:hover,
-    .wow-card:focus-visible {
-      transform: translateY(-5px);
-      border-color: rgba(213, 160, 33, .5);
-      box-shadow: 0 16px 30px rgba(11, 30, 63, .14);
-      outline: none;
-    }
-    .wow-card:focus-visible { box-shadow: 0 0 0 3px rgba(255, 206, 27, .75), 0 16px 30px rgba(11, 30, 63, .14); }
-
-    .wow-card-media {
-      position: relative;
-      aspect-ratio: 3 / 2;
-      overflow: hidden;
-      background: #0B1E3F;
-    }
-    .wow-card-media img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform .65s cubic-bezier(.16, 1, .3, 1);
-    }
-    .wow-card:hover .wow-card-media img { transform: scale(1.07); }
-    .wow-card-media::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(11, 30, 63, 0) 55%, rgba(11, 30, 63, .22) 100%);
-      pointer-events: none;
-    }
-
-    .wow-card-foot {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      min-height: 46px;
-      padding: 8px;
-      background: #fff;
-    }
-
-    .wow-ic {
-      flex: 0 0 auto;
-      width: 17px;
-      height: 17px;
-      color: #16283F;
-    }
-    .wow-ic svg { width: 100%; height: 100%; display: block; }
-
-    .wow-label {
-      flex: 1 1 auto;
-      min-width: 0;
-      font-family: var(--font-body);
-      font-size: clamp(10.5px, .8vw, 11.6px);
-      font-weight: 700;
-      letter-spacing: 0;
-      word-spacing: .05em;
-      color: #16283F;
-      line-height: 1.14;
-      /* never truncate: a long label wraps to a second line and the footer
-         keeps a uniform height across all six tiles */
-      white-space: normal;
-      overflow-wrap: break-word;
-      text-wrap: balance;
-    }
-
-    .wow-go {
-      flex: 0 0 auto;
-      display: grid;
-      place-items: center;
-      width: 23px;
-      height: 23px;
-      border-radius: 50%;
-      background: #F7C64B;
-      color: #3A2A05;
-      transition: background var(--transition-fast), transform var(--transition-fast);
-    }
-    .wow-go svg { width: 13px; height: 13px; }
-    .wow-card:hover .wow-go { background: #F2A21B; transform: translateX(2px); }
-
-    /* ─── responsive ───────────────────────────────────────────────────── */
-    @media (max-width: 1120px) {
-      .wow-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-      .wow-head { grid-template-columns: 1fr; align-items: start; gap: 10px; }
-      .wow-right { padding-right: clamp(96px, 16vw, 132px); min-height: 54px; }
-      .wow-note { top: 0; }
-      .wow-title { white-space: normal; }
-    }
-
-    /* ── v4.13 : MOBILE ONLY ────────────────────────────────────────────────
-       Heading block sits on the LEFT column, the six cards sit on the RIGHT in
-       a two-by-three grid; the description drops below the title, on the left.
-       Desktop (≥761px) is untouched. */
-    @media (max-width: 760px) {
-      .wow-band { padding: 14px 0 16px; }
-
-      .wow-band > .container {
-        display: grid;
-        grid-template-columns: minmax(0, 37%) minmax(0, 1fr);
-        column-gap: 10px;
-        align-items: start;
-      }
-
-      /* left column: eyebrow + title, then the copy pulled in underneath */
-      .wow-head {
-        display: block;
-        margin: 0;
-        gap: 0;
-      }
-      .wow-eyebrow {
-        font-size: 8px;
-        letter-spacing: .1em;
-        margin: 0 0 4px;
-        line-height: 1.25;
-      }
-      .wow-title-row { gap: 5px; align-items: flex-start; }
-      .wow-title {
-        white-space: normal;
-        font-size: clamp(1.02rem, 4.5vw, 1.42rem);
-        line-height: 1.04;
-        letter-spacing: -.03em;
-      }
-      .wow-title .wow-gold { display: inline; }
-      .wow-sparks { width: 16px; margin-top: 2px; }
-
-      .wow-right {
-        padding: 0;
-        min-height: 0;
-        margin-top: 8px;
-      }
-      .wow-copy {
-        font-size: .655rem;
-        line-height: 1.5;
-        max-width: none;
-      }
-      .wow-note {
-        position: static;
-        width: auto;
-        margin: 7px 0 0 2px;
-        font-size: .84rem;
-        line-height: 1;
-        text-align: left;
-        transform: rotate(-3deg);
-        transform-origin: left center;
-      }
-      .wow-note svg { width: 30px; margin: 1px 0 0 26px; }
-
-      /* right column: 2 × 3 compact cards */
-      .wow-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 7px;
-      }
-      .wow-card { border-radius: 9px; }
-      .wow-card-foot {
-        padding: 4px 4px 4px 5px;
-        gap: 4px;
-        min-height: 0;
-      }
-      .wow-ic { width: 12px; height: 12px; }
-      .wow-label {
-        font-size: 8.6px;
-        line-height: 1.16;
-        letter-spacing: -.01em;
-        text-wrap: balance;
-        word-break: normal;
-        overflow-wrap: break-word;
-        hyphens: none;
-      }
-      .wow-go { width: 16px; height: 16px; }
-      .wow-go svg { width: 8px; height: 8px; }
-    }
-
-    @media (max-width: 400px) {
-      .wow-band > .container {
-        grid-template-columns: minmax(0, 33%) minmax(0, 1fr);
-        column-gap: 7px;
-      }
-      .wow-title { font-size: clamp(.94rem, 4.7vw, 1.2rem); }
-      .wow-copy { font-size: .6rem; line-height: 1.44; }
-      .wow-note { font-size: .72rem; }
-      .wow-note svg { width: 24px; margin-left: 20px; }
-      .wow-grid { gap: 6px; }
-      .wow-card { border-radius: 8px; }
-      .wow-card-foot { padding: 3px 3px 3px 4px; gap: 3px; }
-      .wow-ic { width: 10px; height: 10px; }
-      .wow-label { font-size: 8px; line-height: 1.14; letter-spacing: -.02em; }
-      .wow-go { width: 14px; height: 14px; }
-      .wow-go svg { width: 7px; height: 7px; }
-    }
-
-    /* very small phones: give the two card columns a little more room so no
-       label word ever has to break */
-    @media (max-width: 360px) {
-      .wow-band > .container {
-        grid-template-columns: minmax(0, 30%) minmax(0, 1fr);
-        column-gap: 6px;
-      }
-      .wow-grid { gap: 5px; }
-      .wow-card-foot { padding: 3px; gap: 2.5px; }
-      .wow-ic { width: 9px; height: 9px; }
-      .wow-label { font-size: 7.9px; line-height: 1.14; }
-      .wow-go { width: 13px; height: 13px; }
-      .wow-go svg { width: 6.5px; height: 6.5px; }
-      .wow-copy { font-size: .575rem; line-height: 1.42; }
-      .wow-title { font-size: clamp(.9rem, 4.6vw, 1.1rem); }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .wow-card, .wow-card-media img, .wow-go { transition: none !important; }
-      .wow-card:hover { transform: none !important; }
-      .wow-card:hover .wow-card-media img { transform: none !important; }
-    }
-  </style>
-
-  <div class="container">
-
-    <div class="wow-head">
-      <div class="wow-head-left">
-        <p class="wow-eyebrow">Our Party Services &amp; Rentals</p>
-        <div class="wow-title-row">
-          <h2 class="wow-title" id="wow-heading">Pick your kind of <span class="wow-gold">wow.</span></h2>
-          <svg class="wow-sparks" viewBox="0 0 60 46" fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round" aria-hidden="true">
-            <path d="M10 6 26 2"/><path d="M6 22h15"/><path d="M12 38 26 44"/>
-          </svg>
-        </div>
-      </div>
-
-      <div class="wow-right">
-        <p class="wow-copy">Whether it&rsquo;s a corporate event, brand activation, wedding, private celebration or something completely unique &mdash; we have the experiences, rentals and entertainment to make it unforgettable.</p>
-        <span class="wow-note" aria-hidden="true">
-          Different events. Same amazing vibes.
-          <svg viewBox="0 0 60 34" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M56 4C44 22 28 30 8 27"/>
-            <path d="M15 21 6 27l11 5"/>
-          </svg>
-        </span>
-      </div>
-    </div>
-
-    <div class="wow-grid">
-
-      <a class="wow-card" href="#services" data-wow-cat="cat-1" aria-label="Giant games and competitive challenges">
-        <span class="wow-card-media"><img src="assets/img/hp-99cd0c4e65cf.webp" alt="Guests playing giant Jenga at an event" loading="lazy" decoding="async"></span>
-        <span class="wow-card-foot">
-          <span class="wow-ic" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="8.4"/><circle cx="12" cy="12" r="3.6"/>
-              <path d="M12 3.6v2.2M12 18.2v2.2M3.6 12h2.2M18.2 12h2.2"/>
-            </svg>
-          </span>
-          <span class="wow-label">Giant Games</span>
-          <span class="wow-go" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg>
-          </span>
-        </span>
-      </a>
-
-      <a class="wow-card" href="#services" data-wow-cat="cat-2" aria-label="Carnival and arcade games">
-        <span class="wow-card-media"><img src="assets/img/hp-e79442c3e545.webp" alt="Colourful carnival midway games at a party" loading="lazy" decoding="async"></span>
-        <span class="wow-card-foot">
-          <span class="wow-ic" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M3 20h18"/><path d="M5.4 20V9.6L12 4l6.6 5.6V20"/>
-              <path d="M12 4v16"/><path d="M9.2 7.4 12 4l2.8 3.4"/><path d="M9 20v-4.2h6V20"/>
-            </svg>
-          </span>
-          <span class="wow-label">Carnival &amp; Arcade</span>
-          <span class="wow-go" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg>
-          </span>
-        </span>
-      </a>
-
-      <a class="wow-card" href="#services" data-wow-cat="cat-3" aria-label="Photo and video experiences">
-        <span class="wow-card-media"><img src="assets/img/hp-1eb47595c12a.webp" alt="Guests posing inside a 360 degree video booth" loading="lazy" decoding="async"></span>
-        <span class="wow-card-foot">
-          <span class="wow-ic" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="7" width="18" height="13" rx="2.6"/><path d="M8.4 7 10 4h4l1.6 3"/>
-              <circle cx="12" cy="13.4" r="3.4"/>
-            </svg>
-          </span>
-          <span class="wow-label">Photo &amp; Video</span>
-          <span class="wow-go" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg>
-          </span>
-        </span>
-      </a>
-
-      <a class="wow-card" href="#services" data-wow-cat="cat-4" aria-label="Live performers and roaming entertainment">
-        <span class="wow-card-media"><img src="assets/img/hp-03f465efba6e.webp" alt="Fire performer entertaining guests" loading="lazy" decoding="async"></span>
-        <span class="wow-card-foot">
-          <span class="wow-ic" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 3.6 14.6 9l5.9.85-4.3 4.2 1.05 5.95L12 17.1l-5.25 2.9L7.8 14.05 3.5 9.85 9.4 9Z"/>
-            </svg>
-          </span>
-          <span class="wow-label">Live Performers</span>
-          <span class="wow-go" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg>
-          </span>
-        </span>
-      </a>
-
-      <a class="wow-card" href="#services" data-wow-cat="cat-5" aria-label="Dance and nightlife equipment">
-        <span class="wow-card-media"><img src="assets/img/hp-77d10223935f.webp" alt="Crowd dancing on a lit dance floor" loading="lazy" decoding="async"></span>
-        <span class="wow-card-foot">
-          <span class="wow-ic" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M9 18V5l11-2v13"/><circle cx="6.5" cy="18" r="3"/><circle cx="17.5" cy="16" r="3"/>
-            </svg>
-          </span>
-          <span class="wow-label">Dance &amp; Nightlife</span>
-          <span class="wow-go" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg>
-          </span>
-        </span>
-      </a>
-
-      <a class="wow-card" href="#services" data-wow-cat="cat-6" aria-label="Food and drinks stations">
-        <span class="wow-card-media"><img src="assets/img/hp-6a47f9513634.webp" alt="Dessert and drinks station at an event" loading="lazy" decoding="async"></span>
-        <span class="wow-card-foot">
-          <span class="wow-ic" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M7 3v7.2a2.4 2.4 0 0 0 4.8 0V3"/><path d="M9.4 10.2V21"/>
-              <path d="M16.6 21V3c2 1.2 2.8 3.2 2.8 5.6 0 2.1-1 3.6-2.8 4.2"/>
-            </svg>
-          </span>
-          <span class="wow-label">Food &amp; Drinks</span>
-          <span class="wow-go" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg>
-          </span>
-        </span>
-      </a>
-
-    </div>
-  </div>
-
-  <script id="wow-band-script">
-  /* v4.10 — each WOW tile filters the catalogue to its category, then scrolls
-     the customer to the matching tab. No dependencies, keyboard friendly. */
-  (function () {
-    'use strict';
-    var cards = document.querySelectorAll('.wow-card[data-wow-cat]');
-    Array.prototype.forEach.call(cards, function (card) {
-      card.addEventListener('click', function () {
-        var cat = card.getAttribute('data-wow-cat');
-        if (!cat) return;
-        window.setTimeout(function () {
-          var tab = document.querySelector('.category-tabs-nav .tab-pill-btn[data-cat="' + cat + '"]');
-          if (tab) {
-            tab.click();
-            tab.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          }
-        }, 60);
-      });
-    });
-  }());
-  </script>
-
-
-<style id="occasion-strip-styles">
-  .occ-strip {
-    position: relative;
-    padding: clamp(1.4rem, 2.6vw, 2.2rem) 0;
-    background: linear-gradient(180deg, #F7EDDC 0%, #FBF4E6 100%);
-  }
-  .occ-eyebrow {
-    margin: 0 0 16px;
-    text-align: center;
-    font-family: var(--font-body, "Poppins", sans-serif);
-    font-size: .78rem;
-    font-weight: 700;
-    letter-spacing: .18em;
-    text-transform: uppercase;
-    color: #A16D12;
-  }
-  .occ-row {
-    list-style: none; margin: 0; padding: 0;
-    display: flex; flex-wrap: wrap; justify-content: center;
-    gap: 12px;
-  }
-  .occ-chip {
-    display: inline-flex; align-items: center; gap: 9px;
-    padding: 11px 20px;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, .72);
-    border: 1.5px solid rgba(0, 73, 168, .26);
-    color: #0B1E3F;
-    font-family: var(--font-body, "Poppins", sans-serif);
-    font-size: .9rem; font-weight: 600;
-    text-decoration: none; white-space: nowrap;
-    box-shadow: 0 6px 16px rgba(11, 30, 63, .05);
-    transition: transform .28s cubic-bezier(.22,.61,.36,1),
-                background-color .28s ease, border-color .28s ease,
-                box-shadow .28s ease, color .28s ease,
-                opacity .7s cubic-bezier(.22,.61,.36,1);
-  }
-  .occ-chip svg { width: 17px; height: 17px; color: #D5A021; flex: 0 0 auto; transition: color .28s ease; }
-  .occ-chip:hover, .occ-chip:focus-visible {
-    transform: translateY(-3px);
-    background: #FFCE1B;
-    border-color: #F0BE1F;
-    color: #0B1E3F;
-    box-shadow: 0 14px 26px rgba(240, 190, 31, .38);
-    outline: none;
-  }
-  .occ-chip:hover svg, .occ-chip:focus-visible svg { color: #0049A8; }
-  @media (max-width: 760px) {
-    .occ-strip { padding: 1.15rem 0; }
-    .occ-eyebrow { margin-bottom: 12px; font-size: .7rem; letter-spacing: .15em; }
-    .occ-row { gap: 8px; }
-    .occ-chip { padding: 9px 14px; font-size: .8rem; gap: 7px; }
-    .occ-chip svg { width: 15px; height: 15px; }
-  }
-  @media (max-width: 380px) {
-    .occ-chip { flex: 1 1 44%; justify-content: center; white-space: normal; text-align: center; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .occ-chip { transition: none; }
-  }
-</style>
 <section class="fe-featured" id="featured-experiences" aria-labelledby="fe-playground-heading">
   <style id="featured-experiences-styles">
     /* ---------- 1. FEATURED EXPERIENCES ------------------------------------ */
     .fe-featured {
       position: relative;
       padding: clamp(2.5rem, 5vw, 4.25rem) 0 clamp(2.5rem, 5vw, 4rem);
-      background:
-        radial-gradient(1100px 420px at 88% -10%, rgba(255, 206, 27, .16), transparent 60%),
-        linear-gradient(180deg, #FFFDF8 0%, #FDF6E9 58%, #F7EDDC 100%);
+      /* v5.4 — section gradient removed; sits on the shared cream page */
+      background: transparent;
       overflow: hidden;
     }
 
@@ -9768,52 +9215,60 @@
       margin-top: clamp(2rem, 3.6vw, 3rem);
     }
 
+    /* v5.8 — eyebrow/title restyled to match the Top-15 header system
+       (.hd-eyebrow + .heading-display): coral eyebrow with gold dash,
+       navy 600-weight title, non-italic gold keyword + hand-drawn underline.
+       Layout/position intentionally untouched. */
     .fe-eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       font-family: var(--font-body);
-      font-size: .72rem;
-      font-weight: 700;
-      letter-spacing: .22em;
+      font-size: 13.68px;
+      font-weight: 600;
+      line-height: 1.65;
+      letter-spacing: .1em;
       text-transform: uppercase;
-      color: #A16D12;
+      color: #F0553A;
       margin-bottom: 12px;
     }
     .fe-eyebrow .fe-rule {
       display: inline-block;
-      width: 30px;
+      width: 22px;
       height: 2px;
       border-radius: 2px;
-      background: linear-gradient(90deg, #D5A021, rgba(213, 160, 33, .15));
+      background: #D5A021;
+      box-shadow: none;
     }
 
     .fe-play-title .fe-title-gold {
       color: #A16D12;
-      font-style: italic;
+      font-style: normal;
       position: relative;
       white-space: nowrap;
     }
     .fe-play-title .fe-title-gold::after {
       content: "";
       position: absolute;
-      left: 0; right: 0; bottom: -4px;
+      left: 0; right: 0; bottom: -5px;
       height: 6px;
       border-bottom: 2px solid #D3A15F;
       border-radius: 0 0 50% 50%;
       box-shadow: 0 2px 3px rgba(211, 161, 95, .25), 0 4px 8px rgba(211, 161, 95, .20);
       transform: rotate(-1deg);
-      opacity: .9;
+      opacity: 1;
     }
 
     .fe-play-title {
       font-family: var(--font-display);
       font-size: clamp(1.75rem, 2.5vw, 2.5rem);
-      font-weight: 700;
-      line-height: 1.08;
-      letter-spacing: -.022em;
-      color: var(--color-primary);
+      font-weight: 600;
+      line-height: 1.1;
+      letter-spacing: -.01em;
+      color: #20304D;
       margin: 0 0 14px;
+      font-optical-sizing: none;
+      font-variation-settings: 'opsz' 14;
     }
 
     .fe-play-copy {
@@ -9973,10 +9428,11 @@
     /* the reference leaves the top-right corner of the cluster empty (for the
        crown doodle), so the top row is two tiles of 5/12 and the bottom row is
        4 + 3 + 5 — measured off IMG_1970 (1). */
+    /* v5.4 — equal-height rows so the top-right tile matches the tiles below it */
     .fe-mosaic {
       display: grid;
       grid-template-columns: repeat(12, minmax(0, 1fr));
-      grid-template-rows: 67fr 105fr;
+      grid-template-rows: 1fr 1fr;
       aspect-ratio: 274 / 182;
       gap: clamp(8px, .8vw, 11px);
     }
@@ -10016,6 +9472,7 @@
     /* ── mobile: the reference arrangement, scaled down ─────────────────── */
     @media (max-width: 760px) {
       .fe-playground { gap: 16px; }
+      .fe-eyebrow { font-size: 12.4762px; letter-spacing: .1em; }
       .fe-play-title { font-size: clamp(1.55rem, 7.2vw, 2.05rem); }
       .fe-play-copy { font-size: .88rem; margin-bottom: 4px; }
       .fe-play-cta { padding: 11px 20px; font-size: .78rem; }
@@ -10210,7 +9667,7 @@
     <!-- ===== 2. the ultimate party playground ===== -->
     <div class="fe-playground">
       <div class="fe-play-intro">
-        <p class="fe-eyebrow">Featured Experiences</p>
+        <p class="fe-eyebrow"><span class="fe-rule" aria-hidden="true"></span>Featured Experiences</p>
         <h2 class="fe-play-title" id="fe-playground-heading">The moments<br>everyone <span class="fe-title-gold">remembers.</span></h2>
         <p class="fe-play-copy">From jaw-dropping attractions to unique entertainment, here are some of our most popular experiences.</p>
         <a class="fe-play-cta fe-play-cta--outline" href="#services" id="fe-discover-more">
@@ -10976,12 +10433,13 @@
       gap: 22px;
     }
 
-    /* ---------- card ---------- */
+    /* ---------- card (v5.4: photo-header design, matching the WOW cards) -- */
     .t15-card {
       position: relative;
       display: flex;
       flex-direction: column;
-      padding: 26px 24px 20px;
+      padding: 0;
+      overflow: hidden;
       background: var(--color-bg-surface, #fff);
       border: 1px solid var(--color-border-card, rgba(0, 73, 168, .12));
       border-radius: 20px;
@@ -11007,22 +10465,41 @@
       box-shadow: 0 22px 44px rgba(120, 18, 64, 0.13);
     }
 
-    .t15-rank-ghost {
+    /* ---- photo header (v5.6: shorter 16/8.4 frame to cut card height) ---- */
+    .t15-media {
+      position: relative;
+      aspect-ratio: 16 / 8.4;
+      /* visible so the overlapping badge icon can break the photo edge;
+         the card's own overflow:hidden + radius still clip the corners */
+      overflow: visible;
+      background: #0B1E3F;
+    }
+    /* absolute fill so the image can't inflate the aspect-ratio box:
+       the media height is now driven purely by aspect-ratio (v5.6) */
+    .t15-photo {
       position: absolute;
-      top: 10px;
-      left: 18px;
-      font-family: var(--font-display);
-      font-size: 3.6rem;
-      font-weight: 700;
-      line-height: 1;
-      color: rgba(0, 73, 168, 0.08);
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 20px 20px 0 0;
+      object-fit: cover;
+      display: block;
+      transition: transform .7s cubic-bezier(.16, 1, .3, 1);
+    }
+    .t15-photo--empty { background: linear-gradient(135deg, #10284f, #0B1E3F); }
+    .t15-card:hover .t15-photo { transform: scale(1.06); }
+    /* subtle readability scrim for the overlaid chips */
+    .t15-media::after {
+      content: "";
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(11,30,63,.28) 0%, rgba(11,30,63,0) 34%, rgba(11,30,63,0) 70%, rgba(11,30,63,.12) 100%);
       pointer-events: none;
-      user-select: none;
     }
     .t15-rank-pill {
       position: absolute;
-      top: 18px;
-      right: 18px;
+      z-index: 2;
+      top: 12px;
+      left: 12px;
       padding: 6px 12px;
       border-radius: 999px;
       background: linear-gradient(180deg, #FFD84D, #F0BE1F);
@@ -11030,83 +10507,126 @@
       font-family: var(--font-body);
       font-size: 10px;
       font-weight: 800;
-      letter-spacing: 1.6px;
-      box-shadow: 0 6px 14px rgba(213, 160, 33, .35);
+      letter-spacing: 1.4px;
+      box-shadow: 0 6px 14px rgba(11, 30, 63, .28);
     }
     .t15-pill-short { display: none; }
+    /* mobile-only faint serial, overlaid on the photo (no pill ≤640px) */
+    .t15-rank-ghost {
+      display: none;
+      position: absolute;
+      z-index: 2;
+      top: 10px;
+      left: 14px;
+      font-family: var(--font-display);
+      font-size: 1.9rem;
+      font-weight: 700;
+      line-height: 1;
+      color: rgba(255, 255, 255, .92);
+      text-shadow: 0 2px 10px rgba(11, 30, 63, .55);
+      pointer-events: none;
+      user-select: none;
+    }
+    /* type chip rides the photo's top-right corner */
+    .t15-media .t15-type {
+      position: absolute;
+      z-index: 2;
+      top: 12px;
+      right: 12px;
+      padding: 5px 11px;
+      border-radius: 999px;
+      font-family: var(--font-body);
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 1.4px;
+      color: #fff;
+      background: rgba(11, 30, 63, .62);
+      border: 1px solid rgba(255, 255, 255, .28);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+    }
+    .t15-media .t15-type--rental { color: #FFE4A8; background: rgba(120, 84, 8, .55); border-color: rgba(255, 206, 27, .45); }
 
-    /* AI-generated circular badge icons — the artwork carries its own
-       cream disc, gold ring and blue/gold illustration, so the container
-       stays transparent and only adds a soft lift shadow. */
+    /* AI-generated circular badge icon — overlaps the photo's bottom-left */
     .t15-icon {
-      position: relative;
-      z-index: 1;
-      width: 62px;
-      height: 62px;
-      margin-bottom: 16px;
+      position: absolute;
+      z-index: 3;
+      left: 20px;
+      bottom: -20px;
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: #fff;
+      padding: 4px;
+      box-shadow: 0 10px 22px rgba(11, 30, 63, .22);
     }
     .t15-icon img {
       width: 100%;
       height: 100%;
       display: block;
-      filter: drop-shadow(0 6px 12px rgba(11, 30, 63, .18));
+      border-radius: 50%;
       transition: transform .35s ease;
     }
     .t15-card:hover .t15-icon img { transform: scale(1.07) rotate(-3deg); }
 
+    /* ---- text body (v5.6: compact rhythm) ---- */
+    .t15-body {
+      display: flex;
+      flex-direction: column;
+      flex: 1 1 auto;
+      padding: 30px 20px 16px;
+    }
+
+    /* type chip now lives on the photo header; meta row holds category only */
     .t15-meta {
       display: flex;
       align-items: center;
       flex-wrap: wrap;
-      gap: 8px 10px;
-      margin-bottom: 10px;
+      gap: 6px 10px;
+      margin-bottom: 5px;
     }
-    .t15-type {
-      padding: 4px 10px;
-      border-radius: 999px;
+    .t15-cat {
       font-family: var(--font-body);
-      font-size: 9.5px;
-      font-weight: 800;
-      letter-spacing: 1.7px;
+      font-size: 10.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.1px;
+      color: var(--color-gold-text, #A16D12);
     }
-    .t15-type--experience { color: var(--color-primary); background: var(--color-accent-soft); border: 1px solid rgba(0, 73, 168, .22); }
-    .t15-type--rental { color: var(--color-gold-text, #A16D12); background: var(--color-gold-soft); border: 1px solid rgba(213, 160, 33, .35); }
-    .t15-cat { font-family: var(--font-body); font-size: 11.5px; font-weight: 600; color: var(--color-text-light); letter-spacing: .4px; }
 
     .t15-title {
-      margin: 0 0 8px;
-      padding-bottom: 10px;
+      margin: 0 0 5px;
       position: relative;
       font-family: var(--font-display);
-      font-size: 1.28rem;
+      font-size: 1.12rem;
       font-weight: 700;
       line-height: 1.25;
       color: var(--color-primary-dark);
+      /* reserve two lines so one- and two-line titles keep every card equal height */
+      min-height: 2.5em;
+      display: flex;
+      align-items: center;
     }
-    .t15-title::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 38px;
-      height: 3px;
-      border-radius: 3px;
-      background: linear-gradient(90deg, var(--color-accent-gold), rgba(255, 206, 27, .25));
-    }
+    /* v5.4 — hook is a plain marketing description, no quotation marks.
+       v5.6 — capped at three lines so every card stays the same compact height */
     .t15-quote {
-      margin: 0 0 16px;
-      font-family: var(--font-display);
-      font-style: italic;
-      font-size: .95rem;
-      line-height: 1.6;
+      margin: 0 0 10px;
+      font-family: var(--font-body);
+      font-style: normal;
+      font-size: .86rem;
+      line-height: 1.5;
       color: var(--color-text-body);
       flex-grow: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      /* reserve three lines so all 15 cards share one compact height */
+      min-height: 4.5em;
     }
-    .t15-quote::before { content: "\201C"; color: var(--color-accent-gold-hover, #D5A021); font-weight: 700; margin-right: 2px; }
-    .t15-quote::after  { content: "\201D"; color: var(--color-accent-gold-hover, #D5A021); font-weight: 700; margin-left: 1px; }
 
     /* ---------- footer: specs + wishlist ---------- */
-    .t15-divider { height: 1px; background: var(--color-border, #E2E8F0); margin: 4px 0 14px; }
+    .t15-divider { height: 1px; background: var(--color-border, #E2E8F0); margin: 0 0 10px; }
     .t15-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
     .t15-specs-btn {
       display: inline-flex;
@@ -11155,8 +10675,8 @@
     /* Three-state wish button: plus (idle) -> gold check (brief) -> pink heart (saved) */
     .t15-wish {
       position: relative;
-      width: 46px;
-      height: 46px;
+      width: 42px;
+      height: 42px;
       flex: 0 0 auto;
       display: flex;
       align-items: center;
@@ -11295,37 +10815,26 @@
     /* ---------- responsive: always 3 cards per row ---------- */
     @media (max-width: 1024px) {
       .t15-grid { gap: 16px; }
-      .t15-card { padding: 22px 18px 18px; }
+      .t15-body { padding: 28px 16px 14px; }
+      .t15-icon { left: 14px; bottom: -18px; width: 50px; height: 50px; }
     }
     @media (max-width: 640px) {
       .t15-grid { gap: 10px; }
-      .t15-card { padding: 10px 10px 12px; border-radius: 14px; }
-      /* compact header row: icon left, rank pill to its right — no overlap */
-      .t15-icon { width: 42px; height: 42px; margin-bottom: 9px; }
-      /* mobile only: remove the yellow # pill beside the icon; the serial
-         becomes a larger, light brand-blue numeral in the empty space to
-         the right of the icon (desktop keeps the pill + faint ghost). */
+      .t15-card { border-radius: 14px; }
+      .t15-media { aspect-ratio: 16 / 8.6; }
+      /* overlapping badge stays proportional on phones */
+      .t15-icon { left: 11px; bottom: -15px; width: 38px; height: 38px; padding: 4px; }
+      /* contract: no rank pill ≤640px — a faint white serial sits on the
+         photo instead, so cards keep their order without a yellow chip */
       .t15-rank-pill { display: none; }
-      .t15-rank-ghost {
-        display: block;
-        /* right-anchored: every numeral rests just inside the card's right
-           edge, aligned across all 15 cards. Fluid size keeps two-digit
-           ranks (10-15) clear of the icon on every phone width. */
-        left: auto;
-        right: 11px;
-        top: 15px;
-        font-size: clamp(24px, calc(20vw - 40px), 40px);
-        line-height: 1;
-        font-variant-numeric: lining-nums;
-        color: rgba(0, 73, 168, .26);
-      }
-      .t15-meta { gap: 4px 6px; margin-bottom: 7px; }
-      .t15-type { padding: 3px 7px; font-size: 7.5px; letter-spacing: 1px; }
-      .t15-cat { display: none; }
-      .t15-title { font-size: .82rem; margin-bottom: 6px; padding-bottom: 7px; }
-      .t15-title::after { width: 26px; height: 2px; }
+      .t15-rank-ghost { display: block; top: 9px; left: 12px; font-size: 1.5rem; }
+      .t15-media .t15-type { top: 10px; right: 10px; padding: 4px 8px; font-size: 7.5px; letter-spacing: 1px; }
+      .t15-body { padding: 22px 11px 10px; }
+      .t15-meta { gap: 4px 6px; margin-bottom: 6px; }
+      .t15-cat { font-size: 9px; letter-spacing: .8px; }
+      .t15-title { font-size: .82rem; margin-bottom: 6px; }
       .t15-quote {
-        font-size: .66rem; line-height: 1.45; margin-bottom: 8px;
+        font-size: .68rem; line-height: 1.45; margin-bottom: 8px; min-height: 2.9em;
         display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
       }
       .t15-divider { margin: 0 0 8px; }
@@ -11339,11 +10848,10 @@
       .t15-wish svg { width: 16px; height: 16px; }
     }
     @media (max-width: 380px) {
-      .t15-card { padding: 9px 8px 10px; }
-      .t15-icon { width: 38px; height: 38px; }
-      .t15-rank-ghost { right: 9px; top: 16px; }
-      .t15-title { font-size: .74rem; }
-      .t15-quote { -webkit-line-clamp: 1; font-size: .6rem; }
+      .t15-icon { width: 34px; height: 34px; }
+      .t15-rank-ghost { font-size: 1.25rem; }
+      .t15-title { font-size: .76rem; }
+      .t15-quote { -webkit-line-clamp: 1; font-size: .62rem; min-height: 1.5em; }
       .t15-wish { width: 32px; height: 32px; }
     }
     @media (prefers-reduced-motion: reduce) {
@@ -11356,7 +10864,476 @@
     }
   </style>
 
-  <!-- ==========================================================================
+<section class="wow-band" id="pick-your-wow" aria-labelledby="wow-heading">
+  <style id="wow-band-styles">
+    .wow-band {
+      position: relative;
+      padding: clamp(1.6rem, 3vw, 2.6rem) 0 clamp(2rem, 3.6vw, 3rem);
+      /* v5.4 — section gradient removed; sits on the shared cream page */
+      background: transparent;
+      overflow: hidden;
+    }
+
+    /* the band runs slightly wider than the standard 1240 container so the six
+       labels stay on one line at every desktop width */
+    .wow-band > .container { max-width: 1400px; }
+
+    /* ─── header row ───────────────────────────────────────────────────── */
+    .wow-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 0.92fr);
+      align-items: end;
+      gap: clamp(16px, 3vw, 54px);
+      margin-bottom: clamp(14px, 1.8vw, 22px);
+    }
+
+    .wow-eyebrow {
+      font-family: var(--font-body);
+      font-size: clamp(.62rem, .74vw, .72rem);
+      font-weight: 700;
+      letter-spacing: .19em;
+      text-transform: uppercase;
+      color: #4A6280;
+      margin: 0 0 6px;
+    }
+
+    .wow-title-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .wow-title {
+      font-family: var(--font-body);
+      font-size: clamp(1.75rem, 4vw, 3.05rem);
+      font-weight: 800;
+      line-height: .98;
+      letter-spacing: -.035em;
+      color: #0B1E3F;
+      margin: 0;
+      white-space: nowrap;
+    }
+    .wow-title .wow-gold { color: #F2A21B; }
+
+    .wow-sparks {
+      flex: 0 0 auto;
+      width: clamp(26px, 3.1vw, 46px);
+      color: #F2A21B;
+      margin-top: 4px;
+    }
+
+    .wow-right {
+      position: relative;
+      padding-right: clamp(0px, 7vw, 96px);
+    }
+
+    .wow-copy {
+      font-size: clamp(.82rem, .92vw, .93rem);
+      line-height: 1.68;
+      color: #43566E;
+      margin: 0;
+      max-width: 46ch;
+    }
+
+    .wow-note {
+      position: absolute;
+      right: 0;
+      top: -22px;
+      width: clamp(96px, 9.5vw, 132px);
+      font-family: var(--font-script);
+      font-size: clamp(1rem, 1.35vw, 1.32rem);
+      line-height: .95;
+      color: #2C3E55;
+      text-align: center;
+      transform: rotate(-4deg);
+      pointer-events: none;
+    }
+    .wow-note svg {
+      display: block;
+      width: clamp(40px, 4vw, 56px);
+      margin: 2px auto 0;
+      color: #2C3E55;
+    }
+
+    /* ─── six tiles ────────────────────────────────────────────────────── */
+    .wow-grid {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: clamp(9px, 1.1vw, 18px);
+    }
+
+    .wow-card {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      background: #fff;
+      border: 1px solid rgba(11, 30, 63, .08);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 6px 16px rgba(11, 30, 63, .06);
+      transition: transform var(--transition-normal), box-shadow var(--transition-normal),
+                  border-color var(--transition-normal);
+    }
+
+    .wow-card:hover,
+    .wow-card:focus-visible {
+      transform: translateY(-5px);
+      border-color: rgba(213, 160, 33, .5);
+      box-shadow: 0 16px 30px rgba(11, 30, 63, .14);
+      outline: none;
+    }
+    .wow-card:focus-visible { box-shadow: 0 0 0 3px rgba(255, 206, 27, .75), 0 16px 30px rgba(11, 30, 63, .14); }
+
+    .wow-card-media {
+      position: relative;
+      aspect-ratio: 3 / 2;
+      overflow: hidden;
+      background: #0B1E3F;
+    }
+    .wow-card-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .65s cubic-bezier(.16, 1, .3, 1);
+    }
+    .wow-card:hover .wow-card-media img { transform: scale(1.07); }
+    .wow-card-media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(11, 30, 63, 0) 55%, rgba(11, 30, 63, .22) 100%);
+      pointer-events: none;
+    }
+
+    .wow-card-foot {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 46px;
+      padding: 8px;
+      background: #fff;
+    }
+
+    .wow-ic {
+      flex: 0 0 auto;
+      width: 17px;
+      height: 17px;
+      color: #16283F;
+    }
+    .wow-ic svg { width: 100%; height: 100%; display: block; }
+
+    .wow-label {
+      flex: 1 1 auto;
+      min-width: 0;
+      font-family: var(--font-body);
+      font-size: clamp(10.5px, .8vw, 11.6px);
+      font-weight: 700;
+      letter-spacing: 0;
+      word-spacing: .05em;
+      color: #16283F;
+      line-height: 1.14;
+      /* never truncate: a long label wraps to a second line and the footer
+         keeps a uniform height across all six tiles */
+      white-space: normal;
+      overflow-wrap: break-word;
+      text-wrap: balance;
+    }
+
+    .wow-go {
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+      width: 23px;
+      height: 23px;
+      border-radius: 50%;
+      background: #F7C64B;
+      color: #3A2A05;
+      transition: background var(--transition-fast), transform var(--transition-fast);
+    }
+    .wow-go svg { width: 13px; height: 13px; }
+    .wow-card:hover .wow-go { background: #F2A21B; transform: translateX(2px); }
+
+    /* ─── responsive ───────────────────────────────────────────────────── */
+    @media (max-width: 1120px) {
+      .wow-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .wow-head { grid-template-columns: 1fr; align-items: start; gap: 10px; }
+      .wow-right { padding-right: clamp(96px, 16vw, 132px); min-height: 54px; }
+      .wow-note { top: 0; }
+      .wow-title { white-space: normal; }
+    }
+
+    /* ── v4.13 : MOBILE ONLY ────────────────────────────────────────────────
+       Heading block sits on the LEFT column, the six cards sit on the RIGHT in
+       a two-by-three grid; the description drops below the title, on the left.
+       Desktop (≥761px) is untouched. */
+    @media (max-width: 760px) {
+      .wow-band { padding: 14px 0 16px; }
+
+      .wow-band > .container {
+        display: grid;
+        grid-template-columns: minmax(0, 37%) minmax(0, 1fr);
+        column-gap: 10px;
+        align-items: start;
+      }
+
+      /* left column: eyebrow + title, then the copy pulled in underneath */
+      .wow-head {
+        display: block;
+        margin: 0;
+        gap: 0;
+      }
+      .wow-eyebrow {
+        font-size: 8px;
+        letter-spacing: .1em;
+        margin: 0 0 4px;
+        line-height: 1.25;
+      }
+      .wow-title-row { gap: 5px; align-items: flex-start; }
+      .wow-title {
+        white-space: normal;
+        font-size: clamp(1.02rem, 4.5vw, 1.42rem);
+        line-height: 1.04;
+        letter-spacing: -.03em;
+      }
+      .wow-title .wow-gold { display: inline; }
+      .wow-sparks { width: 16px; margin-top: 2px; }
+
+      .wow-right {
+        padding: 0;
+        min-height: 0;
+        margin-top: 8px;
+      }
+      .wow-copy {
+        font-size: .655rem;
+        line-height: 1.5;
+        max-width: none;
+      }
+      .wow-note {
+        position: static;
+        width: auto;
+        margin: 7px 0 0 2px;
+        font-size: .84rem;
+        line-height: 1;
+        text-align: left;
+        transform: rotate(-3deg);
+        transform-origin: left center;
+      }
+      .wow-note svg { width: 30px; margin: 1px 0 0 26px; }
+
+      /* right column: 2 × 3 compact cards */
+      .wow-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 7px;
+      }
+      .wow-card { border-radius: 9px; }
+      .wow-card-foot {
+        padding: 4px 4px 4px 5px;
+        gap: 4px;
+        min-height: 0;
+      }
+      .wow-ic { width: 12px; height: 12px; }
+      .wow-label {
+        font-size: 8.6px;
+        line-height: 1.16;
+        letter-spacing: -.01em;
+        text-wrap: balance;
+        word-break: normal;
+        overflow-wrap: break-word;
+        hyphens: none;
+      }
+      .wow-go { width: 16px; height: 16px; }
+      .wow-go svg { width: 8px; height: 8px; }
+    }
+
+    @media (max-width: 400px) {
+      .wow-band > .container {
+        grid-template-columns: minmax(0, 33%) minmax(0, 1fr);
+        column-gap: 7px;
+      }
+      .wow-title { font-size: clamp(.94rem, 4.7vw, 1.2rem); }
+      .wow-copy { font-size: .6rem; line-height: 1.44; }
+      .wow-note { font-size: .72rem; }
+      .wow-note svg { width: 24px; margin-left: 20px; }
+      .wow-grid { gap: 6px; }
+      .wow-card { border-radius: 8px; }
+      .wow-card-foot { padding: 3px 3px 3px 4px; gap: 3px; }
+      .wow-ic { width: 10px; height: 10px; }
+      .wow-label { font-size: 8px; line-height: 1.14; letter-spacing: -.02em; }
+      .wow-go { width: 14px; height: 14px; }
+      .wow-go svg { width: 7px; height: 7px; }
+    }
+
+    /* very small phones: give the two card columns a little more room so no
+       label word ever has to break */
+    @media (max-width: 360px) {
+      .wow-band > .container {
+        grid-template-columns: minmax(0, 30%) minmax(0, 1fr);
+        column-gap: 6px;
+      }
+      .wow-grid { gap: 5px; }
+      .wow-card-foot { padding: 3px; gap: 2.5px; }
+      .wow-ic { width: 9px; height: 9px; }
+      .wow-label { font-size: 7.9px; line-height: 1.14; }
+      .wow-go { width: 13px; height: 13px; }
+      .wow-go svg { width: 6.5px; height: 6.5px; }
+      .wow-copy { font-size: .575rem; line-height: 1.42; }
+      .wow-title { font-size: clamp(.9rem, 4.6vw, 1.1rem); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .wow-card, .wow-card-media img, .wow-go { transition: none !important; }
+      .wow-card:hover { transform: none !important; }
+      .wow-card:hover .wow-card-media img { transform: none !important; }
+    }
+  </style>
+
+  <div class="container">
+
+    <div class="wow-head">
+      <div class="wow-head-left">
+        <p class="wow-eyebrow">Our Party Services &amp; Rentals</p>
+        <div class="wow-title-row">
+          <h2 class="wow-title" id="wow-heading">Pick your kind of <span class="wow-gold">wow.</span></h2>
+          <svg class="wow-sparks" viewBox="0 0 60 46" fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round" aria-hidden="true">
+            <path d="M10 6 26 2"/><path d="M6 22h15"/><path d="M12 38 26 44"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="wow-right">
+        <p class="wow-copy">Whether it&rsquo;s a corporate event, brand activation, wedding, private celebration or something completely unique &mdash; we have the experiences, rentals and entertainment to make it unforgettable.</p>
+        <span class="wow-note" aria-hidden="true">
+          Different events. Same amazing vibes.
+          <svg viewBox="0 0 60 34" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M56 4C44 22 28 30 8 27"/>
+            <path d="M15 21 6 27l11 5"/>
+          </svg>
+        </span>
+      </div>
+    </div>
+
+    <div class="wow-grid">
+
+      <a class="wow-card" href="#services" data-wow-cat="cat-1" aria-label="Giant games and competitive challenges">
+        <span class="wow-card-media"><img src="assets/img/hp-99cd0c4e65cf.webp" alt="Guests playing giant Jenga at an event" loading="lazy" decoding="async"></span>
+        <span class="wow-card-foot">
+          <span class="wow-ic" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="8.4"/><circle cx="12" cy="12" r="3.6"/>
+              <path d="M12 3.6v2.2M12 18.2v2.2M3.6 12h2.2M18.2 12h2.2"/>
+            </svg>
+          </span>
+          <span class="wow-label">Giant Games</span>
+          <span class="wow-go" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg>
+          </span>
+        </span>
+      </a>
+
+      <a class="wow-card" href="#services" data-wow-cat="cat-2" aria-label="Carnival and arcade games">
+        <span class="wow-card-media"><img src="assets/img/hp-e79442c3e545.webp" alt="Colourful carnival midway games at a party" loading="lazy" decoding="async"></span>
+        <span class="wow-card-foot">
+          <span class="wow-ic" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 20h18"/><path d="M5.4 20V9.6L12 4l6.6 5.6V20"/>
+              <path d="M12 4v16"/><path d="M9.2 7.4 12 4l2.8 3.4"/><path d="M9 20v-4.2h6V20"/>
+            </svg>
+          </span>
+          <span class="wow-label">Carnival &amp; Arcade</span>
+          <span class="wow-go" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg>
+          </span>
+        </span>
+      </a>
+
+      <a class="wow-card" href="#services" data-wow-cat="cat-3" aria-label="Photo and video experiences">
+        <span class="wow-card-media"><img src="assets/img/hp-1eb47595c12a.webp" alt="Guests posing inside a 360 degree video booth" loading="lazy" decoding="async"></span>
+        <span class="wow-card-foot">
+          <span class="wow-ic" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="7" width="18" height="13" rx="2.6"/><path d="M8.4 7 10 4h4l1.6 3"/>
+              <circle cx="12" cy="13.4" r="3.4"/>
+            </svg>
+          </span>
+          <span class="wow-label">Photo &amp; Video</span>
+          <span class="wow-go" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg>
+          </span>
+        </span>
+      </a>
+
+      <a class="wow-card" href="#services" data-wow-cat="cat-4" aria-label="Live performers and roaming entertainment">
+        <span class="wow-card-media"><img src="assets/img/hp-03f465efba6e.webp" alt="Fire performer entertaining guests" loading="lazy" decoding="async"></span>
+        <span class="wow-card-foot">
+          <span class="wow-ic" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3.6 14.6 9l5.9.85-4.3 4.2 1.05 5.95L12 17.1l-5.25 2.9L7.8 14.05 3.5 9.85 9.4 9Z"/>
+            </svg>
+          </span>
+          <span class="wow-label">Live Performers</span>
+          <span class="wow-go" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg>
+          </span>
+        </span>
+      </a>
+
+      <a class="wow-card" href="#services" data-wow-cat="cat-5" aria-label="Dance and nightlife equipment">
+        <span class="wow-card-media"><img src="assets/img/hp-77d10223935f.webp" alt="Crowd dancing on a lit dance floor" loading="lazy" decoding="async"></span>
+        <span class="wow-card-foot">
+          <span class="wow-ic" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 18V5l11-2v13"/><circle cx="6.5" cy="18" r="3"/><circle cx="17.5" cy="16" r="3"/>
+            </svg>
+          </span>
+          <span class="wow-label">Dance &amp; Nightlife</span>
+          <span class="wow-go" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg>
+          </span>
+        </span>
+      </a>
+
+      <a class="wow-card" href="#services" data-wow-cat="cat-6" aria-label="Food and drinks stations">
+        <span class="wow-card-media"><img src="assets/img/hp-6a47f9513634.webp" alt="Dessert and drinks station at an event" loading="lazy" decoding="async"></span>
+        <span class="wow-card-foot">
+          <span class="wow-ic" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M7 3v7.2a2.4 2.4 0 0 0 4.8 0V3"/><path d="M9.4 10.2V21"/>
+              <path d="M16.6 21V3c2 1.2 2.8 3.2 2.8 5.6 0 2.1-1 3.6-2.8 4.2"/>
+            </svg>
+          </span>
+          <span class="wow-label">Food &amp; Drinks</span>
+          <span class="wow-go" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg>
+          </span>
+        </span>
+      </a>
+
+    </div>
+  </div>
+
+  <script id="wow-band-script">
+  /* v4.10 — each WOW tile filters the catalogue to its category, then scrolls
+     the customer to the matching tab. No dependencies, keyboard friendly. */
+  (function () {
+    'use strict';
+    var cards = document.querySelectorAll('.wow-card[data-wow-cat]');
+    Array.prototype.forEach.call(cards, function (card) {
+      card.addEventListener('click', function () {
+        var cat = card.getAttribute('data-wow-cat');
+        if (!cat) return;
+        window.setTimeout(function () {
+          var tab = document.querySelector('.category-tabs-nav .tab-pill-btn[data-cat="' + cat + '"]');
+          if (tab) {
+            tab.click();
+            tab.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        }, 60);
+      });
+    });
+  }());
+  </script>
+</section>  <!-- ==========================================================================
        OUR SERVICES SECTION (100% ORGANIZED BY 10 CHATGPT CATEGORIES)
        ========================================================================== -->
   <section class="services-section" id="services">
@@ -12253,23 +12230,28 @@
       will-change: transform;
     }
     .ts-slide { flex: 0 0 100%; min-width: 0; margin: 0; padding: 0 4px; }
+    /* v5.4 — logo sits ABOVE the quote at every width (the former mobile-only
+       stack is now the desktop layout too), matching the mobile arrangement */
     .ts-card {
       display: flex;
-      gap: 32px;
+      flex-direction: column;
+      gap: 18px;
       align-items: center;
+      text-align: center;
       /* no card chrome — sits directly on the section's ice-blue band */
       background: transparent;
       border: none;
       border-radius: 22px;
-      padding: 12px 40px 20px;
+      padding: 20px 40px 24px;
       box-shadow: none;
       height: 100%;
     }
     .ts-logo {
-      width: 168px;
+      width: 158px;
       height: auto;
-      max-height: 64px;
+      max-height: 60px;
       flex: 0 0 auto;
+      margin: 0 auto;
       object-fit: contain;
       background: #fff;
       border: 1px solid var(--color-border);
@@ -13080,12 +13062,14 @@
 
   <style id="plan-band-css">
     .plan-band { padding: clamp(24px, 4vw, 48px) 0 clamp(28px, 4vw, 56px); }
+    /* v5.4 — card chrome removed: the "Ready when you are" band now sits
+       directly on the shared cream page (transparent, no border/shadow) */
     .plan-card {
       max-width: 1180px; margin: 0 auto;
-      background: #FFFFFF;
-      border: 1px solid var(--color-border);
+      background: transparent;
+      border: 0;
       border-radius: 24px;
-      box-shadow: 0 16px 40px rgba(11, 30, 63, .08);
+      box-shadow: none;
       display: grid;
       grid-template-columns: 1.12fr 1fr;
       overflow: hidden;
@@ -13215,7 +13199,7 @@
             <li><a href="https://advertisingandmore.com/#work">Our Work</a></li>
             <li><a href="https://advertisingandmore.com/#team">The Team</a></li>
             <li><a href="#services" style="color: #FFCE1B; font-weight: 600;">Party Services &amp; Rentals</a></li>
-            <li><a href="./job-vacancy-page.html#vacancies">Careers &amp; Vacancies</a></li>
+            <li><a href="https://advertisingandmore.com/job-vacancy-page.html#vacancies">Careers &amp; Vacancies</a></li>
             <li><a href="https://advertisingandmore.com/#blogs">Blogs &amp; Quizzs</a></li>
           </ul>
         </div>
@@ -17466,27 +17450,37 @@ delete window.intlTelInputUtilsTemp;
       const specs = (item.specs || []).map((sp) =>
         '<li>' + SVG_SPEC_CHECK + '<span>' + esc(sp) + '</span></li>').join('');
       const panelId = 't15-specs-' + rank;
+      const photo = item.img
+        ? '<img class="t15-photo" src="' + esc(item.img) + '" alt="' + esc(item.title) + '" loading="lazy" decoding="async">'
+        : '<div class="t15-photo t15-photo--empty" aria-hidden="true"></div>';
       return '' +
       '<article class="t15-card" data-t15-key="' + esc(key) + '" style="transition-delay:' + (index * 55) + 'ms">' +
-        '<span class="t15-rank-ghost" aria-hidden="true">' + rank + '</span>' +
-        '<span class="t15-rank-pill"><span class="t15-pill-full">#' + rank + ' FAVOURITE</span><span class="t15-pill-short">#' + rank + '</span></span>' +
-        '<div class="t15-icon"><img src="' + (ICONS[item.categoryKey] || ICONS['cat-1']) + '" alt="" loading="lazy"></div>' +
-        '<div class="t15-meta">' +
+        '<div class="t15-media">' +
+          photo +
+          '<span class="t15-rank-ghost" aria-hidden="true">' + rank + '</span>' +
+          '<span class="t15-rank-pill"><span class="t15-pill-full">#' + rank + ' FAVOURITE</span><span class="t15-pill-short">#' + rank + '</span></span>' +
           '<span class="t15-type ' + typeClass + '">' + esc(entry.type) + '</span>' +
-          '<span class="t15-cat">' + esc(CATEGORY_LABELS[item.categoryKey] || item.cat || '') + '</span>' +
+          /* badge icon overlaps the photo's bottom-left; kept here so the
+             existing fly-to-tray animation (.t15-icon img) works unchanged */
+          '<span class="t15-icon"><img src="' + (ICONS[item.categoryKey] || ICONS['cat-1']) + '" alt="" loading="lazy"></span>' +
         '</div>' +
-        '<h3 class="t15-title">' + esc(item.title) + '</h3>' +
-        '<p class="t15-quote">' + esc(entry.hook) + '</p>' +
-        '<div class="t15-divider" aria-hidden="true"></div>' +
-        '<div class="t15-footer">' +
-          '<button type="button" class="t15-specs-btn" aria-expanded="false" aria-controls="' + panelId + '">' +
-            SVG_INFO + '<span class="t15-specs-label">Quick Specs</span>' + SVG_CHEVRON +
-          '</button>' +
-          '<button type="button" class="t15-wish" data-wishlist-key="' + esc(key) + '" aria-pressed="false" aria-label="Add ' + esc(item.title) + ' to wishlist">' +
-            SVG_PLUS + SVG_CHECK + SVG_HEART +
-          '</button>' +
+        '<div class="t15-body">' +
+          '<div class="t15-meta">' +
+            '<span class="t15-cat">' + esc(CATEGORY_LABELS[item.categoryKey] || item.cat || '') + '</span>' +
+          '</div>' +
+          '<h3 class="t15-title">' + esc(item.title) + '</h3>' +
+          '<p class="t15-quote">' + esc(entry.hook) + '</p>' +
+          '<div class="t15-divider" aria-hidden="true"></div>' +
+          '<div class="t15-footer">' +
+            '<button type="button" class="t15-specs-btn" aria-expanded="false" aria-controls="' + panelId + '">' +
+              SVG_INFO + '<span class="t15-specs-label">Quick Specs</span>' + SVG_CHEVRON +
+            '</button>' +
+            '<button type="button" class="t15-wish" data-wishlist-key="' + esc(key) + '" aria-pressed="false" aria-label="Add ' + esc(item.title) + ' to wishlist">' +
+              SVG_PLUS + SVG_CHECK + SVG_HEART +
+            '</button>' +
+          '</div>' +
+          '<div class="t15-specs-panel" id="' + panelId + '" role="region" aria-label="Specifications for ' + esc(item.title) + '"><ul>' + specs + '</ul></div>' +
         '</div>' +
-        '<div class="t15-specs-panel" id="' + panelId + '" role="region" aria-label="Specifications for ' + esc(item.title) + '"><ul>' + specs + '</ul></div>' +
       '</article>';
     }
 
@@ -17941,17 +17935,7 @@ delete window.intlTelInputUtilsTemp;
     var reduce = window.matchMedia &&
       window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    /* ---- 1. hero CTA clarifier under the coffee pill ---- */
-    (function () {
-      var cta = document.querySelector('#hero .hb-cta');
-      if (!cta || cta.querySelector('.hb-cta-note')) return;
-      var note = document.createElement('p');
-      note.className = 'hb-cta-note';
-      note.textContent = 'Free 20-minute consultation · No obligation · KL-based, worldwide delivery';
-      cta.insertAdjacentElement('afterend', note);
-    })();
-
-    /* ---- 2. mid-page CTA panels ---- */
+    /* ---- 1. mid-page CTA panels ---- */
     function ctaBand(kicker, titleHtml, sub) {
       var wrap = document.createElement('div');
       wrap.className = 'hp3-cta';
@@ -17985,25 +17969,9 @@ delete window.intlTelInputUtilsTemp;
       ));
     }
 
-    /* ---- 3. reassurance strip above the enquiry form ---- */
-    (function () {
-      var form = document.querySelector('#contact form');
-      if (!form || document.querySelector('.hp3-assure')) return;
-      var promises = [
-        'Free 20-minute consultation',
-        'One dedicated planner, first call to final toast',
-        'Transparent itemised quotes — no hidden costs'
-      ];
-      var check = '<svg viewBox="0 0 24 24" fill="none" stroke="#D5A021" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m8.5 12.2 2.4 2.4 4.8-5.2"/></svg>';
-      var strip = document.createElement('div');
-      strip.className = 'hp3-assure';
-      strip.innerHTML = promises.map(function (t) {
-        return '<span class="hp3-assure__item">' + check + '<span>' + t + '</span></span>';
-      }).join('');
-      form.insertAdjacentElement('beforebegin', strip);
-    })();
+    /* v5.5 — reassurance cards above the enquiry form removed at client request */
 
-    /* ---- 4. FAQ accordion ---- */
+    /* ---- 2. FAQ accordion ---- */
     document.querySelectorAll('.hp3-faq-q').forEach(function (btn) {
       var item = btn.closest('.hp3-faq-item');
       var panel = item.querySelector('.hp3-faq-a');
@@ -18019,7 +17987,7 @@ delete window.intlTelInputUtilsTemp;
       });
     });
 
-    /* ---- 5. scroll reveal (excludes #top15, which has its own system) ---- */
+    /* ---- 3. scroll reveal (excludes #top15, which has its own system) ---- */
     var SELECTORS = [
       '#why-choose .section-header-center',
       '#why-choose .wc-card',
@@ -18030,11 +17998,8 @@ delete window.intlTelInputUtilsTemp;
       '#hp3-faq .section-header-center',
       '.hp3-faq-item',
       '.hp3-cta',
-      '.hp3-assure',
       '#contact .section-header-center',
-      '#plan-band .plan-col',
-      '#occasion-strip .occ-eyebrow',
-      '#occasion-strip .occ-chip'
+      '#plan-band .plan-col'
     ];
     var targets = [];
     SELECTORS.forEach(function (sel) {
@@ -18051,10 +18016,6 @@ delete window.intlTelInputUtilsTemp;
     /* plan-band columns: quote first, conversion column a beat later */
     document.querySelectorAll('#plan-band .plan-col').forEach(function (el, i) {
       el.style.transitionDelay = (i * 140) + 'ms';
-    });
-    /* occasion chips: soft left-to-right float-up cascade */
-    document.querySelectorAll('#occasion-strip .occ-chip').forEach(function (el, i) {
-      el.style.transitionDelay = (Math.min(i, 5) * 70) + 'ms';
     });
     if (reduce || !('IntersectionObserver' in window) ||
         !window.requestAnimationFrame) {
@@ -18089,6 +18050,100 @@ delete window.intlTelInputUtilsTemp;
       window.addEventListener('resize', onScroll);
       check();
     }
+  })();
+
+  /* ---- v5.3 trusted-brands: seamless, viewport-proof logo marquee ----
+     The source markup ships two mirrored groups animated with a -50%
+     translate. When one group is narrower than the viewport the loop
+     exposes an empty right edge (the reported "logos vanish on the
+     right" bug). Clone the base group until BOTH halves are wider than
+     the container, then scale duration to the half width so the travel
+     speed stays constant at every breakpoint. */
+  (function () {
+    var rows = document.querySelectorAll('#trusted-brands .hp-logo-marquee');
+    if (!rows.length) return;
+    var reduce = window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var SPEED = 30;                 /* px per second, forward row */
+    var SPEED_REVERSE = 34;         /* opposite row drifts a touch faster */
+
+    function cloneGroup(base) {
+      var c = base.cloneNode(true);
+      c.setAttribute('data-clone', '');
+      c.setAttribute('aria-hidden', 'true');
+      c.querySelectorAll('img').forEach(function (img) {
+        img.setAttribute('alt', '');
+        img.setAttribute('loading', 'lazy');
+        img.setAttribute('decoding', 'async');
+      });
+      return c;
+    }
+
+    function halfWidth(track, mirrorEl) {
+      /* width of everything in the track before the mirror half begins */
+      var w = 0, node = track.firstElementChild;
+      while (node && node !== mirrorEl) {
+        w += node.getBoundingClientRect().width;
+        node = node.nextElementSibling;
+      }
+      return w;
+    }
+
+    function fillRow(marquee) {
+      var track = marquee.querySelector('.hp-logo-track');
+      var groups = track.querySelectorAll('.hp-logo-group');
+      var base = track.querySelector('[data-base]') || groups[0];
+      var mirror = track.querySelector('[data-mirror]') || groups[1];
+      if (!base || !mirror) return;
+      base.setAttribute('data-base', '');
+      mirror.setAttribute('data-mirror', '');
+      /* undo clones from a previous (resize) run */
+      track.querySelectorAll('[data-clone]').forEach(function (n) { n.remove(); });
+
+      var containerW = marquee.clientWidth || window.innerWidth;
+      var baseW = base.getBoundingClientRect().width;
+      if (!baseW || !containerW) return;
+      /* each half must clear the container, plus a quarter-group buffer so
+         the masked fade edges never meet a hard content boundary. A
+         measure-and-grow loop (rather than one computed count) stays
+         correct through mid-animation resize reflows. */
+      var target = containerW + baseW * 0.25;
+      var copies = 1, guard = 0;
+      while (halfWidth(track, mirror) < target && guard < 12) {
+        track.insertBefore(cloneGroup(base), mirror);   /* grow first half */
+        track.appendChild(cloneGroup(base));            /* grow mirror half */
+        copies++; guard++;
+      }
+
+      if (!reduce) {
+        var halfW = baseW * copies;
+        var speed = marquee.classList.contains('hp-logo-marquee-reverse')
+          ? SPEED_REVERSE : SPEED;
+        track.style.animationDuration = (halfW / speed).toFixed(2) + 's';
+      }
+    }
+
+    function fillAll() { rows.forEach(fillRow); }
+    /* verify after layout settles (covers late viewport changes / font
+       swaps that shift card widths); only refills when a half fell short */
+    function verifyFill() {
+      rows.forEach(function (marquee) {
+        var track = marquee.querySelector('.hp-logo-track');
+        var mirror = track.querySelector('[data-mirror]');
+        var containerW = marquee.clientWidth || window.innerWidth;
+        if (mirror && halfWidth(track, mirror) < containerW) fillRow(marquee);
+      });
+    }
+
+    var resizeTimer = null;
+    function onResize() {
+      if (resizeTimer) clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(fillAll, 150);
+    }
+    fillAll();
+    requestAnimationFrame(function () { requestAnimationFrame(verifyFill); });
+    window.addEventListener('load', verifyFill);
+    window.addEventListener('resize', onResize, { passive: true });
   })();
   </script>
 </body>
