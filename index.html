@@ -8983,776 +8983,7 @@
   </style>
 
 
-  <section class="am-stats" id="am-stats" aria-label="Advertising and More at a glance">
-    <p class="am-stats__logo-note">Brand imagery reflects the original agency website, not endorsements of new party services.</p>
-    <div class="am-stats__grid">
-      <div class="am-stat">
-        <span class="am-stat__ic" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-        </span>
-        <div class="am-stat__num">12<span class="am-stat__plus">+</span></div>
-        <div class="am-stat__lbl">Years of bold, creative advertising</div>
-      </div>
-      <div class="am-stat">
-        <span class="am-stat__ic" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"/></svg>
-        </span>
-        <div class="am-stat__num">150<span class="am-stat__plus">+</span></div>
-        <div class="am-stat__lbl">Countries reached worldwide</div>
-      </div>
-      <div class="am-stat">
-        <span class="am-stat__ic" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg>
-        </span>
-        <div class="am-stat__num">98<span class="am-stat__plus">%</span></div>
-        <div class="am-stat__lbl">Clients return to us</div>
-      </div>
-      <div class="am-stat">
-        <span class="am-stat__ic" aria-hint="true" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>
-        </span>
-        <div class="am-stat__num">100<span class="am-stat__plus">%</span></div>
-        <div class="am-stat__lbl">Project success rate</div>
-      </div>
-    </div>
-    <p class="am-stats__note">Agency-wide figures published on advertisingandmore.com</p>
-  </section>
-
-  <style id="am-stats-css">
-    .am-stats { max-width: 1180px; margin: 0 auto; padding: 26px 24px 10px; text-align: center; }
-    .am-stats__logo-note {
-      font-size: 0.72rem; line-height: 1.55; color: var(--color-text-light);
-      max-width: 720px; margin: 0 auto 22px; font-style: italic;
-    }
-    .am-stats__grid {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px;
-    }
-    .am-stat {
-      background: rgba(255, 255, 255, 0.62); border: 1px solid var(--color-border);
-      border-radius: 18px; padding: 24px 16px 20px;
-      display: flex; flex-direction: column; align-items: center; gap: 8px;
-      transition: transform .35s ease, box-shadow .35s ease;
-    }
-    .am-stat:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(11, 30, 63, .10); }
-    .am-stat__ic {
-      width: 46px; height: 46px; border-radius: 50%;
-      background: rgba(0, 73, 168, .08); color: var(--color-primary);
-      display: flex; align-items: center; justify-content: center; margin-bottom: 4px;
-    }
-    .am-stat__ic svg { width: 24px; height: 24px; }
-    .am-stat__num {
-      font-family: "Fraunces", Georgia, serif; font-weight: 700;
-      font-size: 2.35rem; line-height: 1; color: var(--color-text-dark);
-    }
-    .am-stat__plus { color: var(--color-accent-gold-hover); }
-    .am-stat__lbl {
-      font-size: 0.82rem; font-weight: 600; letter-spacing: .04em;
-      text-transform: uppercase; color: var(--color-text-muted); line-height: 1.45;
-    }
-    .am-stats__note {
-      font-size: 0.74rem; color: var(--color-text-light); margin: 18px auto 0;
-    }
-    @media (max-width: 900px) {
-      .am-stats__grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-    }
-    @media (max-width: 480px) {
-      .am-stats { padding: 18px 16px 6px; }
-      .am-stat { padding: 18px 10px 14px; }
-      .am-stat__num { font-size: 1.9rem; }
-      .am-stat__lbl { font-size: 0.72rem; }
-    }
-  </style>
-<section class="fe-featured" id="featured-experiences" aria-labelledby="fe-playground-heading">
-  <style id="featured-experiences-styles">
-    /* ---------- 1. FEATURED EXPERIENCES ------------------------------------ */
-    .fe-featured {
-      position: relative;
-      padding: clamp(2.5rem, 5vw, 4.25rem) 0 clamp(2.5rem, 5vw, 4rem);
-      /* v5.4 — section gradient removed; sits on the shared cream page */
-      background: transparent;
-      overflow: hidden;
-    }
-
-    .fe-experiences {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: clamp(12px, 1.5vw, 22px);
-      align-items: stretch;
-    }
-
-    .fe-exp-card {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      padding: 0 clamp(14px, 1.35vw, 20px) clamp(14px, 1.35vw, 20px);
-      background: var(--color-bg-surface);
-      border: 1px solid rgba(11, 30, 63, .07);
-      border-radius: 18px;
-      box-shadow: 0 10px 26px rgba(11, 30, 63, .07);
-      transition: transform var(--transition-normal), box-shadow var(--transition-normal),
-                  border-color var(--transition-normal);
-      scroll-margin-top: 96px;
-    }
-
-    .fe-exp-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      background: linear-gradient(180deg, rgba(0, 73, 168, .05), transparent 45%);
-      opacity: 0;
-      transition: opacity var(--transition-normal);
-      pointer-events: none;
-    }
-
-    .fe-exp-card:hover,
-    .fe-exp-card:focus-within {
-      transform: translateY(-6px);
-      border-color: rgba(0, 73, 168, .22);
-      box-shadow: 0 20px 42px rgba(11, 30, 63, .14);
-    }
-    .fe-exp-card:hover::before,
-    .fe-exp-card:focus-within::before { opacity: 1; }
-
-    .fe-exp-thumb {
-      position: relative;
-      margin: 0 calc(-1 * clamp(14px, 1.35vw, 20px)) 0;
-      aspect-ratio: 16 / 10.6;
-      overflow: hidden;
-      border-radius: 18px 18px 0 0;
-      background: #0B1E3F;
-      z-index: 1;
-    }
-    .fe-exp-thumb img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform .7s cubic-bezier(.16, 1, .3, 1);
-    }
-    .fe-exp-card:hover .fe-exp-thumb img,
-    .fe-exp-card:focus-within .fe-exp-thumb img { transform: scale(1.07); }
-    .fe-exp-thumb::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(11, 30, 63, .05) 0%, rgba(11, 30, 63, .30) 100%);
-      pointer-events: none;
-    }
-
-    /* round white icon badge straddling the photo edge */
-    .fe-exp-badge {
-      position: relative;
-      z-index: 3;
-      display: grid;
-      place-items: center;
-      width: clamp(48px, 4.4vw, 60px);
-      height: clamp(48px, 4.4vw, 60px);
-      margin: -28px 0 12px;
-      border-radius: 50%;
-      background: var(--color-bg-surface);
-      box-shadow: 0 10px 22px rgba(11, 30, 63, .16), inset 0 0 0 1px rgba(0, 73, 168, .07);
-      color: var(--color-primary);
-    }
-    .fe-exp-badge svg { width: 52%; height: 52%; }
-
-    .fe-exp-title {
-      font-family: var(--font-display);
-      font-size: clamp(1rem, 1.16vw, 1.19rem);
-      font-weight: 700;
-      line-height: 1.22;
-      letter-spacing: -.01em;
-      color: var(--color-primary);
-      margin: 0 0 8px;
-    }
-
-    .fe-exp-desc {
-      font-size: clamp(.79rem, .85vw, .875rem);
-      line-height: 1.62;
-      color: #4A6280;
-      margin: 0 0 16px;
-      flex: 1 1 auto;
-    }
-
-    .fe-exp-go {
-      align-self: flex-end;
-      display: grid;
-      place-items: center;
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      border: 1.5px solid rgba(0, 73, 168, .42);
-      color: var(--color-primary);
-      background: transparent;
-      transition: background var(--transition-fast), color var(--transition-fast),
-                  border-color var(--transition-fast), transform var(--transition-fast);
-    }
-    .fe-exp-go svg { width: 17px; height: 17px; }
-    .fe-exp-card:hover .fe-exp-go,
-    .fe-exp-card:focus-within .fe-exp-go {
-      background: var(--color-primary);
-      border-color: var(--color-primary);
-      color: #fff;
-      transform: translateX(3px);
-    }
-    .fe-exp-go:focus-visible {
-      outline: 3px solid rgba(255, 206, 27, .9);
-      outline-offset: 3px;
-    }
-
-    .fe-exp-card.is-active {
-      border-color: rgba(255, 206, 27, .95);
-      box-shadow: 0 16px 34px rgba(213, 160, 33, .28);
-    }
-
-    /* ---------- 2. THE ULTIMATE PARTY PLAYGROUND --------------------------- */
-    .fe-playground {
-      display: grid;
-      grid-template-columns: minmax(280px, 34%) 1fr;
-      align-items: center;
-      gap: clamp(18px, 2.4vw, 38px);
-      margin-top: clamp(2rem, 3.6vw, 3rem);
-    }
-
-    /* v5.8 — eyebrow/title restyled to match the Top-15 header system
-       (.hd-eyebrow + .heading-display): coral eyebrow with gold dash,
-       navy 600-weight title, non-italic gold keyword + hand-drawn underline.
-       Layout/position intentionally untouched. */
-    .fe-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-family: var(--font-body);
-      font-size: 13.68px;
-      font-weight: 600;
-      line-height: 1.65;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: #F0553A;
-      margin-bottom: 12px;
-    }
-    .fe-eyebrow .fe-rule {
-      display: inline-block;
-      width: 22px;
-      height: 2px;
-      border-radius: 2px;
-      background: #D5A021;
-      box-shadow: none;
-    }
-
-    .fe-play-title .fe-title-gold {
-      color: #A16D12;
-      font-style: normal;
-      position: relative;
-      white-space: nowrap;
-    }
-    .fe-play-title .fe-title-gold::after {
-      content: "";
-      position: absolute;
-      left: 0; right: 0; bottom: -5px;
-      height: 6px;
-      border-bottom: 2px solid #D3A15F;
-      border-radius: 0 0 50% 50%;
-      box-shadow: 0 2px 3px rgba(211, 161, 95, .25), 0 4px 8px rgba(211, 161, 95, .20);
-      transform: rotate(-1deg);
-      opacity: 1;
-    }
-
-    .fe-play-title {
-      font-family: var(--font-display);
-      font-size: clamp(1.75rem, 2.5vw, 2.5rem);
-      font-weight: 600;
-      line-height: 1.1;
-      letter-spacing: -.01em;
-      color: #20304D;
-      margin: 0 0 14px;
-      font-optical-sizing: none;
-      font-variation-settings: 'opsz' 14;
-    }
-
-    .fe-play-copy {
-      font-size: clamp(.9rem, .98vw, 1rem);
-      line-height: 1.72;
-      color: #33475F;
-      margin: 0 0 24px;
-      max-width: 40ch;
-    }
-
-    .fe-play-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 13px 24px;
-      border-radius: var(--radius-full);
-      background: var(--color-accent-gold);
-      color: var(--color-primary-dark);
-      font-size: .84rem;
-      font-weight: 700;
-      letter-spacing: .01em;
-      box-shadow: 0 10px 22px rgba(213, 160, 33, .32);
-      transition: background var(--transition-fast), transform var(--transition-fast),
-                  box-shadow var(--transition-fast);
-    }
-    .fe-play-cta svg { width: 16px; height: 16px; transition: transform var(--transition-fast); }
-    .fe-play-cta:hover {
-      background: var(--color-accent-gold-hover);
-      transform: translateY(-2px);
-      box-shadow: 0 14px 28px rgba(213, 160, 33, .38);
-    }
-    .fe-play-cta:hover svg { transform: translateX(4px); }
-    .fe-play-cta:focus-visible { outline: 3px solid var(--color-primary); outline-offset: 3px; }
-
-    /* polaroid stack */
-    .fe-stack {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: clamp(10px, 1.6vw, 26px);
-      padding: clamp(14px, 2vw, 26px) 0;
-      min-height: clamp(240px, 26vw, 372px);
-    }
-
-    .fe-pol {
-      position: relative;
-      flex: 0 0 auto;
-      width: clamp(150px, 20vw, 268px);
-      padding: 10px 10px 42px;
-      background: #fff;
-      border-radius: 6px;
-      box-shadow: 0 18px 34px rgba(11, 30, 63, .18), 0 2px 6px rgba(11, 30, 63, .10);
-      transform-origin: 50% 90%;
-      transition: transform .55s cubic-bezier(.16, 1, .3, 1), box-shadow .55s ease;
-      will-change: transform;
-    }
-    .fe-pol img {
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-      border-radius: 3px;
-      display: block;
-    }
-    .fe-pol figcaption {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 12px;
-      text-align: center;
-      font-family: var(--font-body);
-      font-size: .63rem;
-      font-weight: 700;
-      letter-spacing: .13em;
-      text-transform: uppercase;
-      color: #8493A6;
-    }
-
-    .fe-pol--one   { transform: rotate(-9deg)  translateY(-8px);  z-index: 1; }
-    .fe-pol--two   { transform: rotate(1.5deg) translateY(6px);   z-index: 3; }
-    .fe-pol--three { transform: rotate(8.5deg) translateY(-6px);  z-index: 2; }
-
-    .fe-stack:hover .fe-pol--one   { transform: rotate(-12deg) translateY(-12px); }
-    .fe-stack:hover .fe-pol--two   { transform: rotate(0deg)   translateY(-2px); }
-    .fe-stack:hover .fe-pol--three { transform: rotate(11.5deg) translateY(-10px); }
-    .fe-stack:hover .fe-pol       { box-shadow: 0 26px 46px rgba(11, 30, 63, .24); }
-
-    /* little gold sparkle lines beside the stack (as in the reference) */
-    .fe-spark {
-      position: absolute;
-      right: clamp(-6px, .4vw, 8px);
-      top: 6%;
-      width: clamp(26px, 3.2vw, 44px);
-      color: var(--color-accent-gold);
-      opacity: .95;
-      pointer-events: none;
-    }
-
-
-    /* the reference uses a thin gold outline pill */
-    .fe-play-cta--outline {
-      background: transparent;
-      border: 1.5px solid rgba(198, 143, 26, .8);
-      color: #8A5A10;
-      box-shadow: none;
-    }
-    .fe-play-cta--outline:hover {
-      background: rgba(255, 206, 27, .18);
-      border-color: #D5A021;
-      color: #6E4A0C;
-      box-shadow: 0 8px 18px rgba(213, 160, 33, .18);
-    }
-    /* ── v4.40 : reference mosaic (IMG_1970 (1)) ─────────────────────────────
-       copy  |  one large frame  |  2 tiles on the top row, 3 on the bottom.
-       The large frame stretches to the exact height of the tile stack.     */
-    .fe-playground {
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1.26fr) minmax(0, 1.02fr);
-      align-items: center;
-      gap: clamp(18px, 2.4vw, 34px);
-    }
-    .fe-play-intro { position: relative; min-width: 0; }
-    .fe-play-title { max-width: none; }
-    /* the reference sets the headline on exactly two lines, so the desktop
-       size is tuned to the width of the copy column */
-    @media (min-width: 1181px) {
-      .fe-play-title {
-        font-size: clamp(1.65rem, 2.18vw, 2.2rem);
-        line-height: 1.1;
-      }
-    }
-
-    .fe-gallery {
-      display: grid;
-      grid-template-columns: minmax(0, 1.26fr) minmax(0, 1.02fr);
-      gap: clamp(8px, .8vw, 11px);
-      align-items: stretch;
-      grid-column: 2 / -1;
-    }
-    .fe-shot {
-      position: relative;
-      margin: 0;
-      overflow: hidden;
-      border-radius: 9px;
-      background: #0B1E3F;
-    }
-    .fe-shot img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform .7s cubic-bezier(.16, 1, .3, 1);
-    }
-    .fe-shot:hover img { transform: scale(1.05); }
-
-    .fe-shot--big { min-height: 100%; }
-
-    /* the reference leaves the top-right corner of the cluster empty (for the
-       crown doodle), so the top row is two tiles of 5/12 and the bottom row is
-       4 + 3 + 5 — measured off IMG_1970 (1). */
-    /* v5.4 — equal-height rows so the top-right tile matches the tiles below it */
-    .fe-mosaic {
-      display: grid;
-      grid-template-columns: repeat(12, minmax(0, 1fr));
-      grid-template-rows: 1fr 1fr;
-      aspect-ratio: 274 / 182;
-      gap: clamp(8px, .8vw, 11px);
-    }
-    .fe-mosaic .fe-shot { height: 100%; min-height: 0; }
-    .fe-mosaic .fe-shot:nth-child(1) { grid-column: 1 / span 5; grid-row: 1; }
-    .fe-mosaic .fe-shot:nth-child(2) { grid-column: 6 / span 5; grid-row: 1; }
-    .fe-mosaic .fe-shot:nth-child(3) { grid-column: 1 / span 4; grid-row: 2; }
-    .fe-mosaic .fe-shot:nth-child(4) { grid-column: 5 / span 3; grid-row: 2; }
-    .fe-mosaic .fe-shot:nth-child(5) { grid-column: 8 / span 5; grid-row: 2; }
-
-    /* gold doodles, exactly where the reference places them */
-    .fe-doodle { position: absolute; color: #D5A021; pointer-events: none; }
-    .fe-doodle--arrow {
-      top: 50%; right: -30px;
-      width: 26px; height: 26px;
-      transform: translateY(-50%);
-      opacity: .95;
-    }
-    .fe-mosaic .fe-doodle--crown {
-      position: static;
-      grid-column: 11 / -1;
-      grid-row: 1;
-      align-self: start;
-      justify-self: end;
-      width: 24px; height: 24px;
-      margin: -2px 2px 0 0;
-      opacity: .9;
-    }
-
-    @media (max-width: 1180px) {
-      .fe-playground { grid-template-columns: minmax(0, 1fr); }
-      .fe-gallery { grid-column: auto; width: 100%; }
-      /* the arrow doodle only makes sense between the copy and the cluster */
-      .fe-doodle--arrow { display: none; }
-    }
-
-    /* ── mobile: the reference arrangement, scaled down ─────────────────── */
-    @media (max-width: 760px) {
-      .fe-playground { gap: 16px; }
-      .fe-eyebrow { font-size: 12.4762px; letter-spacing: .1em; }
-      .fe-play-title { font-size: clamp(1.55rem, 7.2vw, 2.05rem); }
-      .fe-play-copy { font-size: .88rem; margin-bottom: 4px; }
-      .fe-play-cta { padding: 11px 20px; font-size: .78rem; }
-      .fe-gallery { grid-template-columns: minmax(0, 1fr); gap: 7px; }
-      .fe-shot--big { min-height: 0; aspect-ratio: 16 / 10.4; }
-      .fe-mosaic { gap: 7px; }
-      .fe-shot { border-radius: 7px; }
-      .fe-doodle--arrow, .fe-doodle--crown { display: none; }
-    }
-
-    /* ---------- 3. QUOTE  +  LET'S PLAN YOUR EVENT ------------------------- */
-    .fe-plan-bar {
-      display: grid;
-      grid-template-columns: 1.5fr auto 1px 1fr auto;
-      align-items: center;
-      gap: clamp(18px, 2.6vw, 38px);
-      margin-top: clamp(1.75rem, 3vw, 2.75rem);
-      padding: clamp(20px, 2.4vw, 30px) clamp(20px, 2.6vw, 34px);
-      background: linear-gradient(180deg, #FBF3E3 0%, #F7EDDC 100%);
-      border: 1px solid rgba(11, 30, 63, .07);
-      border-radius: 16px;
-      box-shadow: 0 10px 26px rgba(11, 30, 63, .05);
-    }
-
-    .fe-quote-wrap {
-      display: flex;
-      align-items: flex-start;
-      gap: clamp(12px, 1.4vw, 18px);
-      min-width: 0;
-    }
-    .fe-quote-mark {
-      flex: 0 0 auto;
-      font-family: var(--font-display);
-      font-size: clamp(3rem, 3.6vw, 3.8rem);
-      font-weight: 700;
-      line-height: .62;
-      color: #F2B600;
-      margin-top: 8px;
-      user-select: none;
-    }
-    .fe-quote { min-width: 0; }
-    .fe-quote-text {
-      font-family: var(--font-display);
-      font-style: italic;
-      font-size: clamp(.98rem, 1.15vw, 1.18rem);
-      line-height: 1.66;
-      color: var(--color-primary);
-      margin: 0 0 12px;
-      min-height: 3.3em;
-    }
-    .fe-quote-author {
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: .9rem;
-      color: var(--color-primary-dark);
-      letter-spacing: .01em;
-    }
-    .fe-quote-dots {
-      display: flex;
-      align-items: center;
-      gap: 9px;
-    }
-    .fe-dot {
-      width: 10px;
-      height: 10px;
-      padding: 0;
-      border-radius: 50%;
-      border: 0;
-      background: #DCCDB2;
-      cursor: pointer;
-      transition: background var(--transition-fast), transform var(--transition-fast);
-    }
-    .fe-dot:hover { background: #C3AE8C; }
-    .fe-dot[aria-selected="true"] {
-      background: var(--color-primary);
-      transform: scale(1.12);
-    }
-    .fe-dot:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 3px; }
-
-    .fe-plan-rule {
-      width: 1px;
-      align-self: stretch;
-      background: linear-gradient(180deg, transparent, rgba(11, 30, 63, .16), transparent);
-    }
-
-    .fe-plan-copy { min-width: 0; }
-    .fe-plan-title {
-      font-family: var(--font-display);
-      font-size: clamp(1.15rem, 1.55vw, 1.5rem);
-      font-weight: 700;
-      letter-spacing: -.01em;
-      color: var(--color-primary);
-      margin: 0 0 8px;
-    }
-    .fe-plan-desc {
-      font-size: clamp(.82rem, .9vw, .92rem);
-      line-height: 1.6;
-      color: #4A6280;
-      margin: 0 0 16px;
-      max-width: 34ch;
-    }
-    .fe-plan-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 12px 22px;
-      border-radius: var(--radius-full);
-      background: var(--color-accent-gold);
-      color: var(--color-primary-dark);
-      font-size: .83rem;
-      font-weight: 700;
-      box-shadow: 0 10px 22px rgba(213, 160, 33, .30);
-      transition: background var(--transition-fast), transform var(--transition-fast),
-                  box-shadow var(--transition-fast);
-    }
-    .fe-plan-btn svg { width: 15px; height: 15px; transition: transform var(--transition-fast); }
-    .fe-plan-btn:hover {
-      background: var(--color-accent-gold-hover);
-      transform: translateY(-2px);
-      box-shadow: 0 14px 26px rgba(213, 160, 33, .36);
-    }
-    .fe-plan-btn:hover svg { transform: translateX(4px); }
-    .fe-plan-btn:focus-visible { outline: 3px solid var(--color-primary); outline-offset: 3px; }
-
-    .fe-plan-art {
-      width: clamp(74px, 8vw, 108px);
-      color: var(--color-primary);
-      justify-self: end;
-    }
-
-    /* ---------- responsive ------------------------------------------------- */
-    @media (max-width: 1180px) {
-      .fe-experiences { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-      .fe-playground { grid-template-columns: 1fr; }
-      .fe-play-title, .fe-play-copy { max-width: 46ch; }
-      .fe-stack { justify-content: flex-start; }
-      .fe-plan-bar { grid-template-columns: 1.3fr auto 1px 1fr; }
-      .fe-plan-art { display: none; }
-    }
-
-    @media (max-width: 900px) {
-      .fe-plan-bar { grid-template-columns: 1fr; }
-      .fe-plan-rule { width: 100%; height: 1px; background: linear-gradient(90deg, transparent, rgba(11, 30, 63, .16), transparent); }
-      .fe-quote-dots { margin: -4px 0 0 46px; }
-      .fe-plan-art { display: block; justify-self: end; }
-      .fe-experiences { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .fe-stack {
-        min-height: 0;
-        gap: 8px;
-        justify-content: center;
-        overflow: visible;
-      }
-      .fe-pol { width: min(31vw, 220px); padding: 7px 7px 32px; }
-      .fe-pol figcaption { font-size: .55rem; bottom: 9px; }
-      .fe-spark { display: none; }
-      .fe-quote-text { min-height: 0; }
-    }
-
-    @media (max-width: 620px) {
-      .fe-experiences { grid-template-columns: 1fr; gap: 16px; }
-      .fe-exp-thumb { aspect-ratio: 16 / 9; }
-      .fe-exp-card { padding: 0 16px 16px; }
-      .fe-exp-thumb { margin: 0 -16px 0; }
-      .fe-play-title { max-width: none; }
-      .fe-stack { flex-wrap: nowrap; gap: 0; padding: 6px 4px 26px; overflow: hidden; }
-      .fe-pol { width: 48%; }
-      .fe-pol + .fe-pol { margin-left: -22%; }
-      .fe-pol--one   { transform: rotate(-9deg); }
-      .fe-pol--two   { transform: rotate(1deg); z-index: 4; }
-      .fe-pol--three { transform: rotate(9deg); }
-      .fe-stack:hover .fe-pol--one   { transform: rotate(-9deg); }
-      .fe-stack:hover .fe-pol--two   { transform: rotate(1deg); }
-      .fe-stack:hover .fe-pol--three { transform: rotate(9deg); }
-      .fe-plan-bar { gap: 18px; }
-      .fe-plan-art { width: 66px; justify-self: end; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .fe-exp-card, .fe-exp-thumb img, .fe-pol, .fe-play-cta, .fe-plan-btn, .fe-exp-go { transition: none !important; }
-      .fe-exp-card:hover, .fe-stack:hover .fe-pol { transform: none !important; }
-      .fe-exp-card:hover .fe-exp-thumb img { transform: none !important; }
-    }
-  </style>
-
-  <div class="container">
-
-    <!-- v4.02 (client request) — the five experience pillars that used to sit
-         above the playground have been REMOVED. The section now opens with
-         "The Ultimate Party Playground". Their CSS + JS stay in place so the
-         cards can be restored later without rewriting anything. -->
-
-    <!-- ===== 2. the ultimate party playground ===== -->
-    <div class="fe-playground">
-      <div class="fe-play-intro">
-        <p class="fe-eyebrow"><span class="fe-rule" aria-hidden="true"></span>Featured Experiences</p>
-        <h2 class="fe-play-title" id="fe-playground-heading">The moments<br>everyone <span class="fe-title-gold">remembers.</span></h2>
-        <p class="fe-play-copy">From jaw-dropping attractions to unique entertainment, here are some of our most popular experiences.</p>
-        <a class="fe-play-cta fe-play-cta--outline" href="#services" id="fe-discover-more">
-          View Full Gallery
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13"/><path d="m12 5 7 7-7 7"/></svg>
-        </a>
-        <svg class="fe-doodle fe-doodle--arrow" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M4 26c6-2 12-7 15-14"/><path d="M13 9.5 19 6l2.5 6.5"/>
-        </svg>
-      </div>
-
-            <div class="fe-gallery" aria-label="Featured party experiences">
-        <figure class="fe-shot fe-shot--big">
-          <img loading="lazy" decoding="async" src="assets/img/hp-25dc3f4da3cb.webp" alt="LED robot performers lighting up a party dance floor" decoding="sync">
-        </figure>
-        <div class="fe-mosaic">
-          <figure class="fe-shot"><img src="assets/img/hp-de1aa790796f.webp" alt="VIP lounge with a neon Good Vibes sign" loading="lazy" decoding="async"></figure>
-          <figure class="fe-shot"><img src="assets/img/hp-1c212aeebc22.webp" alt="Chef flambeing dessert at a live station" loading="lazy" decoding="async"></figure>
-          <figure class="fe-shot"><img src="assets/img/hp-c77aa10b45fc.webp" alt="Guests posing in a neon Photo Booth" loading="lazy" decoding="async"></figure>
-          <figure class="fe-shot"><img src="assets/img/hp-3b5ca4756c0f.webp" alt="Carnival prize wall stacked with plush toys" loading="lazy" decoding="async"></figure>
-          <figure class="fe-shot"><img src="assets/img/hp-d0e7489d3b18.webp" alt="Elegant banquet table with tall floral centrepieces" loading="lazy" decoding="async"></figure>
-          <svg class="fe-doodle fe-doodle--crown" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-    <path d="M5 22 3 9l7 5 6-8 6 8 7-5-2 13z"/><path d="M5 26h22"/>
-          </svg>
-
-        </div>
-      </div>
-    </div>
-
-    <!-- v4.30 — the duplicate testimonial + "Let's Plan Your Event" bar was
-         removed on client review: the same quote lives in #testimonials and the
-         same CTA lives in the contact form right above this section. -->
-
-  <script id="featured-experiences-script">
-  /* ------------------------------------------------------------------------
-     v4.00 — Featured Experiences behaviour
-     1. Experience-card arrows open the catalogue filtered to that category.
-     (v5: anonymous quote carousel removed — real reviews live in #testimonials.)
-     Icon-only + keyboard friendly; no external dependencies.
-     ------------------------------------------------------------------------ */
-  (function () {
-    'use strict';
-
-    var LABELS = {
-      'cat-1': '\ud83c\udfaf 1. Giant Games',
-      'cat-2': '\ud83c\udfaa 2. Carnival Games',
-      'cat-3': '\ud83d\udcf8 3. Photo & Video',
-      'cat-4': '\ud83c\udfad 4. Performers',
-      'cat-5': '\ud83c\udfa7 5. Music & Nightclub',
-      'cat-6': '\ud83c\udf78 6. Food & Drinks',
-      'cat-7': '\u2728 7. Foyer & Immersive',
-      'cat-8': '\ud83c\udfce\ufe0f 8. Adrenaline & VR',
-      'cat-9': '\ud83d\udc86 9. Pampering',
-      'cat-10': '\ud83d\ude80 10. Big-Ticket'
-    };
-
-    /* -- 1. category shortcuts ------------------------------------------- */
-    var cards = document.querySelectorAll('.fe-exp-card');
-    Array.prototype.forEach.call(cards, function (card) {
-      var link = card.querySelector('.fe-exp-go');
-      if (!link) return;
-      link.addEventListener('click', function () {
-        var cat = link.getAttribute('data-fe-cat');
-        if (!cat) return;
-
-        window.setTimeout(function () {
-          var tab = document.querySelector('.category-tabs-nav .tab-pill-btn[data-cat="' + cat + '"]');
-          if (tab) {
-            tab.click();
-            tab.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          }
-        }, 60);
-
-        /* highlight the pillar for a moment so the jump feels connected */
-        card.classList.add('is-active');
-        window.setTimeout(function () { card.classList.remove('is-active'); }, 1200);
-      });
-    });
-
-    /* v5 — the former quote carousel (anonymous, unverifiable attributions)
-       was removed; real client reviews live in #testimonials, sourced verbatim
-       from the parent site advertisingandmore.com. */
-  }());
-  </script>
-</section>
+  
   <section class="am-quote" aria-label="Richard Branson on aiming for amazing">
     <div class="am-quote__card">
       <span class="am-quote__mark" aria-hidden="true">&ldquo;</span>
@@ -10042,345 +9273,6 @@
       .wc-text { font-size: .58rem; max-height: 2.55em; }
     }
   </style>
-<section class="rc-recipes" id="party-recipes" aria-labelledby="party-recipes-heading">
-
-  <style id="party-recipes-styles">
-    /* ==========================================================================
-       v4.30 — "Start with a party recipe."  (client reference IMG_1986)
-       Same section grammar as the live site: eyebrow -> sentence-case H2 -> deck.
-       Every recipe maps onto five real catalogue items, so "Add recipe to my
-       plan" pushes them straight into the existing wishlist.
-       ========================================================================== */
-    .rc-recipes {
-      position: relative;
-      padding: clamp(2.25rem, 5vw, 4rem) 0 clamp(2.25rem, 5vw, 3.75rem);
-      overflow: hidden;
-    }
-    .rc-recipes::before {
-      content: "";
-      position: absolute;
-      inset: 0 0 auto 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(0, 73, 168, .16), transparent);
-    }
-
-    /* gold keyword + hand-drawn underline, verbatim from the site's scoped
-       #services / #contact rules so every H2 matches 1:1 */
-    #party-recipes .section-header-center .heading-display::after {
-      content: none !important;
-      display: none !important;
-    }
-    #party-recipes .section-header-center .heading-display .text-gold {
-      position: relative;
-      display: inline-block;
-      color: #A16D12;
-    }
-    #party-recipes .section-header-center .heading-display .text-gold::after {
-      content: "";
-      position: absolute;
-      left: 0; bottom: -5px;
-      width: 100%; height: 6px;
-      border-bottom: 2px solid #D3A15F;
-      border-radius: 0 0 50% 50%;
-      box-shadow: 0 2px 3px rgba(211, 161, 95, .25), 0 4px 8px rgba(211, 161, 95, .20);
-      transform: rotate(-1deg);
-    }
-
-    .rc-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: clamp(14px, 1.6vw, 22px);
-      align-items: stretch;
-    }
-
-    .rc-card {
-      display: flex;
-      flex-direction: column;
-      min-width: 0;
-      background: #fff;
-      border: 1px solid rgba(11, 30, 63, .09);
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 8px 22px rgba(11, 30, 63, .06);
-      transition: transform var(--transition-normal), box-shadow var(--transition-normal),
-                  border-color var(--transition-normal);
-    }
-    .rc-card:hover,
-    .rc-card:focus-within {
-      transform: translateY(-5px);
-      border-color: rgba(213, 160, 33, .45);
-      box-shadow: 0 20px 38px rgba(11, 30, 63, .14);
-    }
-
-    .rc-media {
-      position: relative;
-      aspect-ratio: 16 / 10;
-      overflow: hidden;
-      background: #0B1E3F;
-    }
-    .rc-media img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform .7s cubic-bezier(.16, 1, .3, 1);
-    }
-    .rc-card:hover .rc-media img { transform: scale(1.06); }
-    .rc-media::after {
-      content: "";
-      position: absolute; inset: 0;
-      background: linear-gradient(180deg, rgba(11, 30, 63, 0) 45%, rgba(11, 30, 63, .38) 100%);
-      pointer-events: none;
-    }
-    .rc-chip {
-      position: absolute;
-      left: 12px; bottom: 11px;
-      z-index: 2;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: rgba(11, 30, 63, .82);
-      color: #fff;
-      font-family: var(--font-body);
-      font-size: .66rem;
-      font-weight: 700;
-      letter-spacing: .04em;
-    }
-
-    .rc-body {
-      display: flex;
-      flex-direction: column;
-      flex: 1 1 auto;
-      padding: 16px 16px 18px;
-    }
-
-    .rc-title {
-      font-family: var(--font-display);
-      font-size: clamp(1.02rem, 1.2vw, 1.18rem);
-      font-weight: 700;
-      line-height: 1.2;
-      letter-spacing: -.01em;
-      color: #20304D;
-      margin: 0 0 7px;
-    }
-
-    .rc-desc {
-      font-family: var(--font-body);
-      font-size: .815rem;
-      line-height: 1.6;
-      color: #6B7C91;
-      margin: 0 0 14px;
-    }
-
-    .rc-list {
-      list-style: none;
-      margin: 0 0 16px;
-      padding: 14px 0 0;
-      border-top: 1px solid rgba(11, 30, 63, .08);
-      display: grid;
-      gap: 8px;
-      flex: 1 1 auto;
-      align-content: start;
-    }
-    .rc-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
-      font-family: var(--font-body);
-      font-size: .775rem;
-      line-height: 1.45;
-      color: #33475F;
-    }
-    .rc-list svg {
-      flex: 0 0 auto;
-      width: 14px; height: 14px;
-      margin-top: 2px;
-      color: #D5A021;
-    }
-
-    .rc-add {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      width: 100%;
-      padding: 11px 14px;
-      border-radius: 999px;
-      border: 1.5px solid rgba(11, 30, 63, .5);
-      background: transparent;
-      color: #20304D;
-      font-family: var(--font-body);
-      font-size: .7rem;
-      font-weight: 700;
-      letter-spacing: .055em;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: background var(--transition-fast), color var(--transition-fast),
-                  border-color var(--transition-fast), transform var(--transition-fast);
-    }
-    .rc-add svg { width: 13px; height: 13px; }
-    .rc-add:hover {
-      background: #20304D;
-      border-color: #20304D;
-      color: #fff;
-      transform: translateY(-1px);
-    }
-    .rc-add:focus-visible { outline: 3px solid var(--color-accent-gold); outline-offset: 3px; }
-    .rc-add.is-done {
-      background: #F2F7EF;
-      border-color: #4C8B4A;
-      color: #2F6B2D;
-    }
-
-    @media (max-width: 1100px) {
-      .rc-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    }
-    @media (max-width: 620px) {
-      .rc-grid { grid-template-columns: 1fr; gap: 14px; }
-      .rc-body { padding: 14px 14px 16px; }
-      .rc-desc { font-size: .8rem; }
-      .rc-list li { font-size: .765rem; }
-      .rc-add { font-size: .68rem; padding: 10px 12px; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .rc-card, .rc-media img, .rc-add { transition: none !important; }
-      .rc-card:hover { transform: none !important; }
-      .rc-card:hover .rc-media img { transform: none !important; }
-    }
-  </style>
-
-    <div class="container">
-      <div class="section-header-center">
-        <div class="hd-eyebrow"><span class="line"></span><span>Not sure where to start?</span></div>
-        <h2 class="heading-display" id="party-recipes-heading">Start with a <span class="text-gold">party recipe.</span></h2>
-        <p class="section-deck">Four tried-and-loved combinations for ballroom and foyer parties. Add one to your plan, then make it yours.</p>
-      </div>
-
-      <div class="rc-grid">
-      <article class="rc-card" id="recipe-adult-carnival">
-        <figure class="rc-media">
-          <img src="assets/img/hp-c12d81fd248a.webp" alt="The Adult Carnival party recipe" loading="lazy" decoding="async">
-          <span class="rc-chip">5 experiences</span>
-        </figure>
-        <div class="rc-body">
-          <h3 class="rc-title">The Adult Carnival</h3>
-          <p class="rc-desc">Booths, prizes and giant games, with a ticket counter to keep score.</p>
-          <ul class="rc-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Carnival midway booths</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Plinko prize wall</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>High-striker strength tester</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Giant Jenga</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Mystery prize vending machine</span></li>
-          </ul>
-          <button type="button" class="rc-add" data-recipe-keys="chatgpt_11 chatgpt_16 chatgpt_12 chatgpt_2 chatgpt_20" data-recipe-title="The Adult Carnival">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
-            <span>Add recipe to my plan</span>
-          </button>
-        </div>
-      </article>
-
-      <article class="rc-card" id="recipe-nightclub-takeover">
-        <figure class="rc-media">
-          <img src="assets/img/hp-03a2f2933f03.webp" alt="The Nightclub Takeover party recipe" loading="lazy" decoding="async">
-          <span class="rc-chip">5 experiences</span>
-        </figure>
-        <div class="rc-body">
-          <h3 class="rc-title">The Nightclub Takeover</h3>
-          <p class="rc-desc">Silent disco, LED floor and a headline moment at midnight.</p>
-          <ul class="rc-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Silent disco headphones</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>LED dance floor</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Professional DJ booth</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>LED robot performers</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Confetti and streamer cannons</span></li>
-          </ul>
-          <button type="button" class="rc-add" data-recipe-keys="chatgpt_41 chatgpt_42 chatgpt_44 chatgpt_31 chatgpt_97" data-recipe-title="The Nightclub Takeover">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
-            <span>Add recipe to my plan</span>
-          </button>
-        </div>
-      </article>
-
-      <article class="rc-card" id="recipe-vip-foyer">
-        <figure class="rc-media">
-          <img src="assets/img/hp-3fd752753b1f.webp" alt="The VIP Foyer party recipe" loading="lazy" decoding="async">
-          <span class="rc-chip">5 experiences</span>
-        </figure>
-        <div class="rc-body">
-          <h3 class="rc-title">The VIP Foyer</h3>
-          <p class="rc-desc">A red-carpet arrival your guests will still be posting next week.</p>
-          <ul class="rc-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Red-carpet paparazzi experience</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Neon tunnel entrance</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>360-degree video booth</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Secret speakeasy lounge</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Live cocktail mixology bar</span></li>
-          </ul>
-          <button type="button" class="rc-add" data-recipe-keys="chatgpt_63 chatgpt_62 chatgpt_21 chatgpt_64 chatgpt_51" data-recipe-title="The VIP Foyer">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
-            <span>Add recipe to my plan</span>
-          </button>
-        </div>
-      </article>
-
-      <article class="rc-card" id="recipe-grand-game-night">
-        <figure class="rc-media">
-          <img src="assets/img/hp-15bcb9230550.webp" alt="The Grand Game Night party recipe" loading="lazy" decoding="async">
-          <span class="rc-chip">5 experiences</span>
-        </figure>
-        <div class="rc-body">
-          <h3 class="rc-title">The Grand Game Night</h3>
-          <p class="rc-desc">Leaderboards, simulators and a game-show finale.</p>
-          <ul class="rc-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Professional racing simulators</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>VR gaming arena</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Portable escape-room challenge</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Electronic reaction wall</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Mobile game-show stage</span></li>
-          </ul>
-          <button type="button" class="rc-add" data-recipe-keys="chatgpt_72 chatgpt_71 chatgpt_73 chatgpt_9 chatgpt_92" data-recipe-title="The Grand Game Night">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
-            <span>Add recipe to my plan</span>
-          </button>
-        </div>
-      </article>
-      </div>
-    </div>
-
-    <script id="party-recipes-script">
-    /* v4.30 — one click adds the recipe's five items to the shared wishlist
-       (window.addToWishlist). Already-wishlisted items are left alone. */
-    (function () {
-      'use strict';
-      var buttons = document.querySelectorAll('.rc-add[data-recipe-keys]');
-      Array.prototype.forEach.call(buttons, function (btn) {
-        btn.addEventListener('click', function () {
-          var keys = (btn.getAttribute('data-recipe-keys') || '').split(/\s+/).filter(Boolean);
-          var title = btn.getAttribute('data-recipe-title') || 'recipe';
-          if (!keys.length || typeof window.addToWishlist !== 'function') return;
-
-          var added = 0;
-          keys.forEach(function (key) { if (window.addToWishlist(key)) added += 1; });
-
-          var label = btn.querySelector('span');
-          var original = btn.getAttribute('data-original-label') || (label ? label.textContent : '');
-          btn.setAttribute('data-original-label', original);
-          btn.classList.add('is-done');
-          if (label) label.textContent = added ? 'Added to your plan' : 'Already in your plan';
-
-          if (window.showToast) {
-            window.showToast(added
-              ? '\u2665 ' + title + ' \u2014 ' + added + ' experience' + (added > 1 ? 's' : '') + ' added to your wishlist'
-              : title + ' is already in your wishlist');
-          }
-
-          window.setTimeout(function () {
-            btn.classList.remove('is-done');
-            if (label) label.textContent = original;
-          }, 3200);
-        });
-      });
-    }());
-    </script>
-  </section>
   <!-- ==========================================================================
        v3.27 — TOP 15 CROWD FAVOURITES (curated "start here" band)
        Sits between the trusted-brands marquee and the full 100-item catalogue.
@@ -10819,7 +9711,7 @@
       .t15-icon { left: 14px; bottom: -18px; width: 50px; height: 50px; }
     }
     @media (max-width: 640px) {
-      .t15-grid { gap: 10px; }
+      .t15-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
       .t15-card { border-radius: 14px; }
       .t15-media { aspect-ratio: 16 / 8.6; }
       /* overlapping badge stays proportional on phones */
@@ -10832,7 +9724,7 @@
       .t15-body { padding: 22px 11px 10px; }
       .t15-meta { gap: 4px 6px; margin-bottom: 6px; }
       .t15-cat { font-size: 9px; letter-spacing: .8px; }
-      .t15-title { font-size: .82rem; margin-bottom: 6px; }
+      .t15-title { font-size: .9rem; margin-bottom: 6px; min-height: 2.35em; }
       .t15-quote {
         font-size: .68rem; line-height: 1.45; margin-bottom: 8px; min-height: 2.9em;
         display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
@@ -11988,6 +10880,10 @@
       .op-title { font-size: 1rem; }
       .op-text { font-size: .82rem; }
     }
+    /* Mobile: hide Our Process; keep desktop experience intact (client request) */
+    @media (max-width: 900px) {
+      #our-process { display: none !important; }
+    }
     @media (prefers-reduced-motion: reduce) {
       .op-steps::before,
       .op-ic,
@@ -11996,7 +10892,73 @@
       .op-text { animation: none !important; opacity: 1 !important; transform: none !important; }
     }
   </style>
-<section class="hp-showcase" id="happy-meeting" aria-labelledby="hp-showcase-drinks-heading">
+<!-- ==========================================================================
+       v3.35 — FAQ (objection handling + SEO), sits just before Testimonials
+       ========================================================================== -->
+  <section class="hp3-faq-section" id="hp3-faq" aria-labelledby="hp3-faq-heading">
+    <div class="container">
+      <div class="section-header-center">
+        <div class="hd-eyebrow"><span class="line"></span><span>Questions, Answered</span></div>
+        <h2 class="heading-display" id="hp3-faq-heading">Everything Before You <span class="text-gold">Book.</span></h2>
+      </div>
+      <div class="hp3-faq-list">
+        <div class="hp3-faq-item">
+          <h3 class="hp3-faq-q-wrap">
+            <button type="button" class="hp3-faq-q" aria-expanded="false">
+              <span>How early should we book our event?</span>
+              <svg class="hp3-faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+          </h3>
+          <div class="hp3-faq-a"><p>Peak dates — year-end dinners, weddings and product launches — fill up six to ten weeks ahead, so earlier is always better. Send us your date and we will confirm availability within one business day, and we always do our best to accommodate shorter timelines.</p></div>
+        </div>
+        <div class="hp3-faq-item">
+          <h3 class="hp3-faq-q-wrap">
+            <button type="button" class="hp3-faq-q" aria-expanded="false">
+              <span>Do you handle delivery, setup and teardown?</span>
+              <svg class="hp3-faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+          </h3>
+          <div class="hp3-faq-a"><p>Yes. Every rental includes delivery, professional on-site setup and full teardown by our own crew, so your team never lifts a box. A dedicated coordinator stays reachable from the first briefing until the final photo.</p></div>
+        </div>
+        <div class="hp3-faq-item">
+          <h3 class="hp3-faq-q-wrap">
+            <button type="button" class="hp3-faq-q" aria-expanded="false">
+              <span>Can rentals and booths be customised with our branding?</span>
+              <svg class="hp3-faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+          </h3>
+          <div class="hp3-faq-a"><p>Absolutely. As a full-service creative agency we offer agency-level branding — custom backdrops, printed props, branded photo templates, LED wraps and activations tailored to your campaign guidelines, all previewed before the event.</p></div>
+        </div>
+        <div class="hp3-faq-item">
+          <h3 class="hp3-faq-q-wrap">
+            <button type="button" class="hp3-faq-q" aria-expanded="false">
+              <span>What kind of budgets do you work with?</span>
+              <svg class="hp3-faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+          </h3>
+          <div class="hp3-faq-a"><p>From intimate team celebrations to multi-zone corporate activations, every proposal is built around your goals and itemised line by line. You approve a transparent quote before anything is confirmed — no hidden fees, no surprise add-ons.</p></div>
+        </div>
+        <div class="hp3-faq-item">
+          <h3 class="hp3-faq-q-wrap">
+            <button type="button" class="hp3-faq-q" aria-expanded="false">
+              <span>Where do you operate?</span>
+              <svg class="hp3-faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+          </h3>
+          <div class="hp3-faq-a"><p>We are headquartered in Kuala Lumpur and serve events across Peninsular Malaysia, with regional delivery for clients in Singapore and beyond. The first consultation is free and can run online from anywhere in the world.</p></div>
+        </div>
+        <div class="hp3-faq-item">
+          <h3 class="hp3-faq-q-wrap">
+            <button type="button" class="hp3-faq-q" aria-expanded="false">
+              <span>What if our plans change or the event is postponed?</span>
+              <svg class="hp3-faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+          </h3>
+          <div class="hp3-faq-a"><p>Plans move, and we plan for that. Packages can be rescheduled with flexible date transfers, and your coordinator will walk you through the options quickly so neither the budget nor the experience is lost.</p></div>
+        </div>
+      </div>
+    </div>
+  </section><section class="hp-showcase" id="happy-meeting" aria-labelledby="hp-showcase-drinks-heading">
     <div class="hp-showcase__inner">
       <div class="hp-showcase__body">
         <div class="hp-showcase__eyebrow">
@@ -12084,74 +11046,6 @@
         </div>
         <div class="hp-showcase__signoffwrap">
           <h2 class="hp-showcase__signoff">The drinks are on <span class="hp-showcase__italic"><b> us.</b></span></h2>
-        </div>
-      </div>
-    </div>
-  </section>
-
-    <!-- ==========================================================================
-       v3.35 — FAQ (objection handling + SEO), sits just before Testimonials
-       ========================================================================== -->
-  <section class="hp3-faq-section" id="hp3-faq" aria-labelledby="hp3-faq-heading">
-    <div class="container">
-      <div class="section-header-center">
-        <div class="hd-eyebrow"><span class="line"></span><span>Questions, Answered</span></div>
-        <h2 class="heading-display" id="hp3-faq-heading">Everything Before You <span class="text-gold">Book.</span></h2>
-      </div>
-      <div class="hp3-faq-list">
-        <div class="hp3-faq-item">
-          <h3 class="hp3-faq-q-wrap">
-            <button type="button" class="hp3-faq-q" aria-expanded="false">
-              <span>How early should we book our event?</span>
-              <svg class="hp3-faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
-            </button>
-          </h3>
-          <div class="hp3-faq-a"><p>Peak dates — year-end dinners, weddings and product launches — fill up six to ten weeks ahead, so earlier is always better. Send us your date and we will confirm availability within one business day, and we always do our best to accommodate shorter timelines.</p></div>
-        </div>
-        <div class="hp3-faq-item">
-          <h3 class="hp3-faq-q-wrap">
-            <button type="button" class="hp3-faq-q" aria-expanded="false">
-              <span>Do you handle delivery, setup and teardown?</span>
-              <svg class="hp3-faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
-            </button>
-          </h3>
-          <div class="hp3-faq-a"><p>Yes. Every rental includes delivery, professional on-site setup and full teardown by our own crew, so your team never lifts a box. A dedicated coordinator stays reachable from the first briefing until the final photo.</p></div>
-        </div>
-        <div class="hp3-faq-item">
-          <h3 class="hp3-faq-q-wrap">
-            <button type="button" class="hp3-faq-q" aria-expanded="false">
-              <span>Can rentals and booths be customised with our branding?</span>
-              <svg class="hp3-faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
-            </button>
-          </h3>
-          <div class="hp3-faq-a"><p>Absolutely. As a full-service creative agency we offer agency-level branding — custom backdrops, printed props, branded photo templates, LED wraps and activations tailored to your campaign guidelines, all previewed before the event.</p></div>
-        </div>
-        <div class="hp3-faq-item">
-          <h3 class="hp3-faq-q-wrap">
-            <button type="button" class="hp3-faq-q" aria-expanded="false">
-              <span>What kind of budgets do you work with?</span>
-              <svg class="hp3-faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
-            </button>
-          </h3>
-          <div class="hp3-faq-a"><p>From intimate team celebrations to multi-zone corporate activations, every proposal is built around your goals and itemised line by line. You approve a transparent quote before anything is confirmed — no hidden fees, no surprise add-ons.</p></div>
-        </div>
-        <div class="hp3-faq-item">
-          <h3 class="hp3-faq-q-wrap">
-            <button type="button" class="hp3-faq-q" aria-expanded="false">
-              <span>Where do you operate?</span>
-              <svg class="hp3-faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
-            </button>
-          </h3>
-          <div class="hp3-faq-a"><p>We are headquartered in Kuala Lumpur and serve events across Peninsular Malaysia, with regional delivery for clients in Singapore and beyond. The first consultation is free and can run online from anywhere in the world.</p></div>
-        </div>
-        <div class="hp3-faq-item">
-          <h3 class="hp3-faq-q-wrap">
-            <button type="button" class="hp3-faq-q" aria-expanded="false">
-              <span>What if our plans change or the event is postponed?</span>
-              <svg class="hp3-faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
-            </button>
-          </h3>
-          <div class="hp3-faq-a"><p>Plans move, and we plan for that. Packages can be rescheduled with flexible date transfers, and your coordinator will walk you through the options quickly so neither the budget nor the experience is lost.</p></div>
         </div>
       </div>
     </div>
@@ -13238,7 +12132,7 @@
           </a>
 
           <!-- Email below button -->
-          <a class="footer-email-link" href="mailto:hello@advertisingandmore.com">hello@advertisingandmore.com</a>
+          <a class="footer-email-link" href="/cdn-cgi/l/email-protection#e28a878e8e8da28386948790968b918b8c85838c868f8d9087cc818d8f"><span class="__cf_email__" data-cfemail="80e8e5ececefc0e1e4f6e5f2f4e9f3e9eee7e1eee4edeff2e5aee3efed">[email&#160;protected]</span></a>
         </div>
 
       </div>
@@ -13341,7 +12235,7 @@
   <!-- ==========================================================================
        JAVASCRIPT LOGIC & DATABASE ENGINE
        ========================================================================== -->
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // Mobile Menu Drawer Toggle — identical behaviour to job-vacancy-page
     const mobileBtn = document.getElementById('mobile-toggle');
     const mobileDrawer = document.getElementById('mobile-drawer');
@@ -17951,23 +16845,6 @@ delete window.intlTelInputUtilsTemp;
         '</a>';
       return wrap;
     }
-    var t15 = document.getElementById('top15');
-    if (t15 && t15.nextElementSibling &&
-        !t15.nextElementSibling.classList.contains('hp3-cta')) {
-      t15.insertAdjacentElement('afterend', ctaBand(
-        'Shortlist ready?',
-        'Turn your favourites into a <em>tailored proposal.</em>',
-        'Tell us your date and crowd size and we will turn your wishlist into an itemised quote — usually within one business day.'
-      ));
-    }
-    var services = document.getElementById('services');
-    if (services) {
-      services.insertAdjacentElement('afterend', ctaBand(
-        '100+ experiences, one point of contact',
-        'Mix rentals, booths and F&amp;B into <em>one seamless event.</em>',
-        'No juggling multiple vendors. One coordinator plans, books, sets up and runs every moving piece on your behalf.'
-      ));
-    }
 
     /* v5.5 — reassurance cards above the enquiry form removed at client request */
 
@@ -18146,5 +17023,5 @@ delete window.intlTelInputUtilsTemp;
     window.addEventListener('resize', onResize, { passive: true });
   })();
   </script>
-</body>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a51c17951998dae3',t:'MTc5MzIxMzA2OQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
