@@ -7487,6 +7487,106 @@
       .hp-showcase__signoff { font-size: 24.624px; }
     }
   </style>
+  
+<style id="round6-cream-hero">
+  :root{--cream:#F7EDDC;--gold:#F6C927;--gold-deep:#D9A815;--navy:#0B1E3F;--slate:#66748F;--eyebrow-red:#FF7A6E;}
+  body{background-color:var(--cream);}
+  .site-header{background:var(--cream)!important;border-bottom-color:rgba(11,30,63,.08)!important;box-shadow:0 4px 20px rgba(11,30,63,.06)!important;}
+  .site-header .brand-logo .name{color:var(--navy)!important;}
+  .site-header .brand-logo .subtitle{color:rgba(11,30,63,.6)!important;}
+  .site-header .nav-link{color:var(--slate)!important;}
+  .site-header .nav-link:hover,.site-header .nav-link.active{color:var(--navy)!important;}
+  .site-header .mobile-menu-btn{color:var(--navy)!important;}
+  .site-header .nav-badge-pill{background:rgba(246,201,39,.22)!important;color:#8a5a10!important;}
+
+  #hero.hero-cream{position:relative;background:var(--cream);padding:clamp(28px,5vw,72px) 0 clamp(38px,5vw,64px);min-height:0;overflow:hidden;}
+  #hero.hero-cream .hero-cream-inner{position:relative;max-width:1280px;margin:0 auto;padding:0 20px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:clamp(220px,28vw,320px);text-align:center;z-index:2;}
+
+  /* ---- Party Services & Rentals wordmark (restored title above CTA) ---- */
+  #hero.hero-cream .hb-wordmark{
+    color:#0B1E3F;
+    text-align:center;
+    margin:0 0 clamp(18px,2.4vw,28px);
+  }
+  #hero.hero-cream .hb-wordmark .hb-caps{
+    filter:drop-shadow(0 4px 14px rgba(11,30,63,.12));
+  }
+  /* Deep blue for "Services & Rentals" caps (override gold gradient) */
+  #hero.hero-cream .hb-caps-line{
+    background-image:none !important;
+    -webkit-text-fill-color: var(--navy) !important;
+    color: var(--navy) !important;
+    text-shadow:none;
+  }
+  #hero.hero-cream .hb-wordmark.is-shine .hb-caps-line{ animation: none !important; }
+  #hero.hero-cream .hb-wordmark .hb-caps{
+    filter:none;
+  }
+
+  #hero.hero-cream .cream-eyebrow{display:inline-flex;align-items:center;gap:10px;padding:12px 28px;background:#fff;border-radius:999px;box-shadow:0 8px 24px rgba(11,30,63,.06);margin-bottom:clamp(18px,2.4vw,28px);font-family:'Poppins',var(--font-body),sans-serif;font-size:clamp(14px,1.18vw,17.6px);font-weight:700;letter-spacing:.02em;text-transform:uppercase;color:#8a5a10;line-height:1;white-space:nowrap;max-width:none;align-self:center;margin-left:auto;margin-right:auto;}
+  #hero.hero-cream .cream-eyebrow::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--eyebrow-red);flex-shrink:0;box-shadow:0 0 0 4px rgba(255,122,110,.18);}
+
+  #hero.hero-cream .btn-coffee-pill.hero-coffee{position:relative;display:inline-flex;align-items:center;justify-content:flex-end;width:311px;max-width:100%;height:55px;padding:11px 28px 11px 92px;background:linear-gradient(180deg,#FCD34D 0%,var(--gold) 50%,var(--gold-deep) 100%);border-radius:44px;color:var(--navy);font-family:'Poppins',var(--font-body),sans-serif;font-size:17.6px;font-weight:700;letter-spacing:.18px;text-transform:uppercase;text-decoration:none;box-shadow:0 14px 28px rgba(217,168,21,.32),inset 0 1px 0 rgba(255,255,255,.35);transition:transform .25s ease,box-shadow .25s ease,filter .25s ease;}
+  #hero.hero-cream .btn-coffee-pill.hero-coffee:hover{transform:translateY(-2px);box-shadow:0 18px 34px rgba(217,168,21,.42),inset 0 1px 0 rgba(255,255,255,.45);filter:brightness(1.03);}
+  #hero.hero-cream .btn-coffee-pill.hero-coffee img.coffee-cup-badge{position:absolute;left:-28px;top:-32px;transform:none;width:108px;height:108px;object-fit:contain;filter:drop-shadow(0 10px 14px rgba(217,168,21,.4));animation:coffeeFloat 2.8s ease-in-out infinite;}
+
+  #hero.hero-cream .hero-deco{position:absolute;pointer-events:none;z-index:1;user-select:none;}
+  #hero.hero-cream .hero-deco-cup{width:clamp(70px,7vw,100px);height:auto;filter:drop-shadow(0 14px 22px rgba(11,30,63,.14));animation:coffeeFloat 3.4s ease-in-out infinite;}
+  #hero.hero-cream .hero-deco-cup.cup-a{top:8%;left:7%;animation-delay:-.4s;}
+  #hero.hero-cream .hero-deco-cup.cup-b{bottom:14%;left:11%;width:clamp(55px,5vw,72px);animation-delay:-1.2s;}
+  #hero.hero-cream .hero-deco-martini{top:12%;right:11%;width:clamp(70px,7vw,96px);filter:drop-shadow(0 10px 18px rgba(11,30,63,.14));animation:floatY 4s ease-in-out infinite;}
+  #hero.hero-cream .hero-deco-redwine{bottom:10%;right:8%;width:clamp(78px,8vw,110px);filter:drop-shadow(0 14px 22px rgba(11,30,63,.14));animation:floatY 4.6s ease-in-out infinite;animation-delay:-1.8s;}
+
+  #hero.hero-cream .hero-success-badge{display:none !important;}
+
+  /* === Live 100% Success Rate seal (advertisingandmore.com exact) === */
+  .hero-badge{position:absolute;right:3.5%;top:116px;margin:0;z-index:50;transform:scale(.78);display:block;}
+  .badge-success{width:146px;height:146px;margin:0 auto 18px;position:relative;display:grid;place-items:center;border-radius:50%;background:conic-gradient(from 218deg,#a9790a,#f4d67e,#c99618,#f7e4a6,#b8860b,#eec152,#c99618,#f4d67e,#a9790a);}
+  .badge-success:before{content:"";position:absolute;inset:6px;border-radius:50%;border:1px solid rgba(247,228,166,.5);}
+  .badge-success .chk{position:absolute;top:-4px;left:50%;transform:translateX(-50%);width:30px;height:30px;border-radius:50%;background:radial-gradient(circle at 50% 35%,#0049a8,#0049a8);border:2px solid #f2d27a;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 8px rgba(0,0,0,.4);z-index:2;}
+  .badge-success .chk svg{width:13px;height:13px;display:block;}
+  .badge-success .seal-core{width:110px;height:110px;border-radius:50%;background:radial-gradient(circle at 50% 30%,#0049a8,#0049a8);border:2px solid rgba(247,228,166,.45);display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:inset 0 3px 11px rgba(0,0,0,.6);}
+  .badge-success .seal-100{font-family:'Fraunces',Georgia,'Times New Roman',serif;font-size:2.25rem;font-weight:700;color:#D5A021;line-height:1;}
+  .badge-success .seal-txt{font-size:.50rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#efe2c1;margin-top:5px;}
+  .badge-success .seal-100 span{font-size:1.25rem;vertical-align:top;margin-left:1px;}
+
+  @keyframes floatY{0%,100%{transform:translateY(0) scale(var(--b-scale,1));}50%{transform:translateY(-10px) scale(var(--b-scale,1));}}
+
+  .hp-trusted#trusted-brands{background:var(--cream)!important;padding-top:clamp(20px,3vw,34px)!important;}
+  .hp-trusted#trusted-brands .hp-trusted-head{margin-bottom:clamp(22px,3vw,32px);}
+  .hp-trusted#trusted-brands .hp-trusted-eyebrow{background:none!important;box-shadow:none!important;color:var(--slate)!important;font-family:'Poppins',var(--font-body),sans-serif!important;font-size:clamp(12.8px,1.05vw,14px)!important;font-weight:700!important;letter-spacing:.08em!important;padding:0!important;border-radius:0!important;}
+
+  #hero.hb-hero:not(.hero-cream){display:none!important;}
+
+  @media (max-width:700px){
+    #hero.hero-cream{padding:16px 0 24px;}
+    #hero.hero-cream .hero-cream-inner{min-height:auto;padding:18px 16px 0;}
+    #hero.hero-cream .cream-eyebrow{
+      font-size:11px;
+      padding:9px 96px 9px 16px;gap:7px;margin:60px 0 14px 0;
+      white-space:nowrap;
+      align-self:center;
+      line-height:1;
+      max-width:calc(100% - 16px);
+    }
+    #hero.hero-cream .cream-eyebrow::before{width:7px;height:7px;}
+    #hero.hero-cream .btn-coffee-pill.hero-coffee{width:260px;height:50px;padding:9px 22px 9px 78px;font-size:15.2px;}
+    #hero.hero-cream .btn-coffee-pill.hero-coffee img.coffee-cup-badge{width:82px;height:82px;left:-12px;top:-24px;}
+    #hero.hero-cream .hero-deco-cup.cup-a{top:88px;left:6px;width:36px;}
+    #hero.hero-cream .hero-deco-cup.cup-b{display:none;}
+    #hero.hero-cream .hero-deco-martini{top:148px;right:6px;width:34px;}
+    #hero.hero-cream .hero-deco-redwine{display:none;}
+    #hero.hero-cream .hero-badge{position:absolute;top:0;right:0;transform:scale(.42);--b-scale:.42;margin:0;transform-origin:top right;}
+    #hero.hero-cream .badge-success{width:146px;height:146px;margin:0;}
+    #hero.hero-cream .badge-success .seal-core{width:110px;height:110px;}
+    #hero.hero-cream .badge-success .seal-100{font-size:2.25rem;}
+    #hero.hero-cream .badge-success .seal-100 span{font-size:1.25rem;}
+    #hero.hero-cream .badge-success .seal-txt{font-size:.50rem;margin-top:5px;}
+    #hero.hero-cream .badge-success .chk{width:30px;height:30px;top:-4px;}
+    #hero.hero-cream .badge-success .chk svg{width:13px;height:13px;}
+  }
+</style>
+
   <style id="admore-header-styles">
     /* ==========================================================================
        SECTION HEADERS — styled exactly like advertisingandmore.com's
@@ -8773,19 +8873,35 @@
   <!-- ==========================================================================
        HERO SECTION (ENTRY #43 STRUCTURE + REALISTIC AI BALLROOM PHOTOGRAPHY)
        ========================================================================== -->
-  <section class="hero-section hb-hero" id="hero" aria-label="Party services and rentals">
-    <div class="hb-bg" aria-hidden="true">
-      <figure class="hb-slide is-active" data-cat="3. Photo, video & social-media experiences" data-chip="Photo & Social Media" data-caption="360&deg; Video Booth &middot; Glam Photo Studio" data-desc="Slow-motion spin-cam booth, glam photo studio and a roaming event photographer — every guest leaves with a share-ready clip."><img loading="eager" decoding="async" fetchpriority="high" src="assets/img/hp-736a7ff3ddd2.webp" alt="Photo & Social Media — 360&deg; Video Booth &middot; Glam Photo Studio" decoding="async"></figure>
-      <figure class="hb-slide" data-cat="4. Performers &amp; roaming entertainment" data-chip="Performers &amp; Entertainment" data-caption="LED Robot Performers &middot; Roaming Acts" data-desc="Pixel-suited robots, stilt walkers, close-up magicians, aerial and fire acts that turn any foyer into a headline show."><img loading="eager" decoding="async" fetchpriority="high" src="assets/img/hp-d2bdaddebd5f.webp" alt="Performers &amp; Entertainment — LED Robot Performers &middot; Roaming Acts" decoding="async"></figure>
-      <figure class="hb-slide" data-cat="6. Food, drinks &amp; interactive tasting stations" data-chip="Food &amp; Drinks" data-caption="Live Cocktail Mixology Bar" data-desc="Dry-ice mixology, mocktail laboratory, nitrogen ice cream and gourmet tasting stations — expert bartenders pouring all night."><img loading="eager" decoding="async" fetchpriority="high" src="assets/img/hp-f18424352403.webp" alt="Food &amp; Drinks — Live Cocktail Mixology Bar" decoding="async"></figure>
-      <figure class="hb-slide" data-cat="5. Music, dancing &amp; nightclub equipment" data-chip="Music &amp; Nightclub" data-caption="LED Dance Floor &middot; Silent Disco" data-desc="Glowing LED floor, silent-disco headphones, pro DJ booth, CO&#8322; cannons and a live band — a nightclub build inside your ballroom."><img loading="eager" decoding="async" fetchpriority="high" src="assets/img/hp-07b6527d7144.webp" alt="Music &amp; Nightclub — LED Dance Floor &middot; Silent Disco" decoding="async"></figure>
-      <figure class="hb-slide" data-cat="7. Foyer attractions &amp; immersive experiences" data-chip="Immersive Foyer" data-caption="Ball Pit Lounge &middot; Neon Arrival" data-desc="Neon tunnel entrance, mirror maze, red-carpet paparazzi and a secret speakeasy — an arrival zone guests never want to leave."><img loading="eager" decoding="async" fetchpriority="high" src="assets/img/hp-4d61684af6fa.webp" alt="Immersive Foyer — Ball Pit Lounge &middot; Neon Arrival" decoding="async"></figure>
-    </div>
-    <div class="hb-veil" aria-hidden="true"></div>
-    <div class="hb-softzone" aria-hidden="true"></div>
-    <div class="hb-aurora" aria-hidden="true"></div>
-
-    <svg class="hb-defs" width="0" height="0" aria-hidden="true" focusable="false">
+  <!-- HERO SECTION v6 — cream minimal hero -->
+  <section class="hero-cream" id="hero" aria-label="Everything you need under one roof">
+    <img loading="eager" decoding="async" fetchpriority="high" class="hero-deco hero-deco-cup cup-a" src="assets/img/hp-f71aad4b7033.webp" alt="" aria-hidden="true">
+    <img loading="lazy" decoding="async" class="hero-deco hero-deco-cup cup-b" src="assets/img/hp-f71aad4b7033.webp" alt="" aria-hidden="true">
+    <svg class="hero-deco hero-deco-martini" viewBox="0 0 120 140" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+  <defs><linearGradient id="mGlass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".95"/><stop offset="1" stop-color="#fff" stop-opacity=".55"/></linearGradient><linearGradient id="mDrink" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FF5478"/><stop offset="1" stop-color="#C1194A"/></linearGradient></defs>
+  <circle cx="92" cy="22" r="14" fill="#FCE76B"/><circle cx="92" cy="22" r="14" fill="none" stroke="#E0C23B" stroke-width="1.5"/>
+  <path d="M80 22 h24 M92 10 v24 M83 14 l18 16 M101 14 l-18 16" stroke="#E0C23B" stroke-width="1.2" opacity=".7"/>
+  <path d="M15 32 L95 32 L55 78 Z" fill="url(#mGlass)" stroke="#C2D1E5" stroke-width="1.5"/>
+  <path d="M21 38 L89 38 L55 74 Z" fill="url(#mDrink)" opacity=".9"/>
+  <path d="M22 40 L28 40 L50 68 Z" fill="#fff" opacity=".25"/>
+  <path d="M55 78 L55 122" stroke="#C2D1E5" stroke-width="3" stroke-linecap="round"/>
+  <ellipse cx="55" cy="126" rx="28" ry="5" fill="url(#mGlass)" stroke="#C2D1E5" stroke-width="1.5"/>
+  <path d="M92 22 Q72 30 55 36" stroke="#8B5A2B" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+  <path d="M98 44 q10 2 14 14 q-14 0 -18 -10 z" fill="#B3E26C" stroke="#6FA83C" stroke-width="1.2"/>
+</svg>
+    <svg class="hero-deco hero-deco-redwine" viewBox="0 0 110 180" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+  <defs><linearGradient id="rwGlass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".95"/><stop offset="1" stop-color="#fff" stop-opacity=".5"/></linearGradient><linearGradient id="rwWine" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8B1020"/><stop offset=".5" stop-color="#5C0A16"/><stop offset="1" stop-color="#3B060E"/></linearGradient><radialGradient id="rwHighlight" cx=".3" cy=".35" r=".6"><stop offset="0" stop-color="#FF7F8F" stop-opacity=".85"/><stop offset="1" stop-color="#5C0A16" stop-opacity="0"/></radialGradient></defs>
+  <path d="M20 26 Q20 78 55 90 Q90 78 90 26 Z" fill="url(#rwGlass)" stroke="#C2D1E5" stroke-width="1.5"/>
+  <path d="M24 42 Q24 78 55 86 Q86 78 86 42 Z" fill="url(#rwWine)"/>
+  <path d="M24 42 Q24 78 55 86 Q86 78 86 42 Z" fill="url(#rwHighlight)"/>
+  <ellipse cx="55" cy="42" rx="30" ry="4" fill="#A0213A" opacity=".8"/>
+  <ellipse cx="55" cy="26" rx="35" ry="5" fill="none" stroke="#C2D1E5" stroke-width="1.5"/>
+  <path d="M55 90 L55 156" stroke="#C2D1E5" stroke-width="3" stroke-linecap="round"/>
+  <ellipse cx="55" cy="162" rx="32" ry="6" fill="url(#rwGlass)" stroke="#C2D1E5" stroke-width="1.5"/>
+  <ellipse cx="55" cy="160" rx="28" ry="3" fill="#fff" opacity=".35"/>
+</svg>
+    <div class="hero-badge"><div class="badge-success"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="#f2d27a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l6 6L20 6"></path></svg></span><div class="seal-core"><div class="seal-100">100<span>%</span></div><div class="seal-txt">Success Rate</div></div></div></div>
+    <svg class="hb-defs" width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
       <defs>
         <linearGradient id="hbGold" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0%" stop-color="#F7E3A6"/><stop offset="45%" stop-color="#E2B24C"/>
@@ -8794,32 +8910,60 @@
       </defs>
     </svg>
 
-    <div class="container hb-inner">
-      <div class="hero-content hb-content">
-        <p class="hb-chip" id="hb-chip"><span class="hb-chip-line" aria-hidden="true"></span><span class="hb-chip-text">Photo & Social Media</span></p>
+    <div class="hero-cream-inner">
+      <span class="cream-eyebrow">Everything you need, under one roof.</span>
 
-        <h1 class="hb-wordmark">
-          <span class="hb-script-wrap"><span class="hb-script">Party</span><svg class="hb-crown" viewBox="0 0 68 44" aria-hidden="true" focusable="false"><path d="M5 37 L2 12 L19 23 L34 3 L49 23 L66 12 L63 37 Z" fill="url(#hbGold)"/><path d="M5 37 H63" stroke="#A16D12" stroke-width="3" stroke-linecap="round"/><circle cx="34" cy="3" r="3.2" fill="#F7E3A6"/><circle cx="2" cy="12" r="2.6" fill="#F7E3A6"/><circle cx="66" cy="12" r="2.6" fill="#F7E3A6"/></svg><span class="hb-stars" aria-hidden="true"><svg class="hb-star" viewBox="0 0 24 24" focusable="false"><path d="M12 0 L14.6 9.4 L24 12 L14.6 14.6 L12 24 L9.4 14.6 L0 12 L9.4 9.4 Z" fill="url(#hbGold)"/></svg><svg class="hb-star" viewBox="0 0 24 24" focusable="false"><path d="M12 0 L14.6 9.4 L24 12 L14.6 14.6 L12 24 L9.4 14.6 L0 12 L9.4 9.4 Z" fill="url(#hbGold)"/></svg><svg class="hb-star" viewBox="0 0 24 24" focusable="false"><path d="M12 0 L14.6 9.4 L24 12 L14.6 14.6 L12 24 L9.4 14.6 L0 12 L9.4 9.4 Z" fill="url(#hbGold)"/></svg><svg class="hb-star" viewBox="0 0 24 24" focusable="false"><path d="M12 0 L14.6 9.4 L24 12 L14.6 14.6 L12 24 L9.4 14.6 L0 12 L9.4 9.4 Z" fill="url(#hbGold)"/></svg><svg class="hb-star" viewBox="0 0 24 24" focusable="false"><path d="M12 0 L14.6 9.4 L24 12 L14.6 14.6 L12 24 L9.4 14.6 L0 12 L9.4 9.4 Z" fill="url(#hbGold)"/></svg></span><span class="hb-burst" aria-hidden="true"><i style="--x:-0.266em;--y:-1.067em;--s:0.075em;--dl:0ms;--rot:0deg"></i><i style="--x:0.108em;--y:-1.546em;--s:0.095em;--dl:90ms;--rot:13deg"></i><i style="--x:0.603em;--y:-1.855em;--s:0.075em;--dl:220ms;--rot:26deg"></i><i style="--x:1.219em;--y:-1.951em;--s:0.105em;--dl:40ms;--rot:39deg"></i><i style="--x:1.834em;--y:-1.771em;--s:0.08em;--dl:300ms;--rot:52deg"></i><i style="--x:2.382em;--y:-1.375em;--s:0.1em;--dl:130ms;--rot:65deg"></i><i style="--x:2.788em;--y:-0.799em;--s:0.075em;--dl:380ms;--rot:78deg"></i><i style="--x:2.996em;--y:-0.157em;--s:0.095em;--dl:60ms;--rot:91deg"></i><i style="--x:2.807em;--y:0.495em;--s:0.08em;--dl:430ms;--rot:104deg"></i><i style="--x:2.467em;--y:1.098em;--s:0.1em;--dl:180ms;--rot:117deg"></i><i style="--x:1.954em;--y:1.527em;--s:0.075em;--dl:480ms;--rot:130deg"></i><i style="--x:1.367em;--y:1.749em;--s:0.095em;--dl:250ms;--rot:143deg"></i><i style="--x:0.773em;--y:1.736em;--s:0.078em;--dl:530ms;--rot:156deg"></i><i style="--x:0.269em;--y:1.526em;--s:0.092em;--dl:330ms;--rot:169deg"></i><i style="--x:-0.125em;--y:1.193em;--s:0.072em;--dl:580ms;--rot:182deg"></i><i style="--x:-0.356em;--y:0.881em;--s:0.085em;--dl:410ms;--rot:195deg"></i><i style="--x:-0.475em;--y:-0.705em;--s:0.07em;--dl:340ms;--rot:208deg"></i><i style="--x:0.592em;--y:-1.213em;--s:0.065em;--dl:620ms;--rot:221deg"></i><i style="--x:1.202em;--y:0.811em;--s:0.065em;--dl:660ms;--rot:234deg"></i><i style="--x:1.782em;--y:-0.251em;--s:0.07em;--dl:700ms;--rot:247deg"></i></span></span><svg class="hb-spark" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 0 L14.6 9.4 L24 12 L14.6 14.6 L12 24 L9.4 14.6 L0 12 L9.4 9.4 Z" fill="url(#hbGold)"/></svg><svg class="hb-spark" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 0 L14.6 9.4 L24 12 L14.6 14.6 L12 24 L9.4 14.6 L0 12 L9.4 9.4 Z" fill="url(#hbGold)"/></svg>
-          <span class="hb-caps"><span class="hb-caps-line">Services &amp;</span> <span class="hb-caps-line">Rentals</span></span>
-        </h1>
+      <h1 class="hb-wordmark" id="hb-wordmark" aria-label="Party Services &amp; Rentals">
+        <span class="hb-script-wrap">
+          <span class="hb-script">Party</span>
+          <svg class="hb-crown" viewBox="0 0 68 44" aria-hidden="true" focusable="false">
+            <path d="M5 37 L2 12 L19 23 L34 3 L49 23 L66 12 L63 37 Z" fill="url(#hbGold)"/>
+            <path d="M5 37 H63" stroke="#A16D12" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="34" cy="3" r="3.2" fill="#F7E3A6"/>
+            <circle cx="2" cy="12" r="2.6" fill="#F7E3A6"/>
+            <circle cx="66" cy="12" r="2.6" fill="#F7E3A6"/>
+          </svg>
+          <span class="hb-stars" aria-hidden="true">
+            <svg class="hb-star" viewBox="0 0 24 24" focusable="false"><path d="M12 0 L14.6 9.4 L24 12 L14.6 14.6 L12 24 L9.4 14.6 L0 12 L9.4 9.4 Z" fill="url(#hbGold)"/></svg>
+            <svg class="hb-star" viewBox="0 0 24 24" focusable="false"><path d="M12 0 L14.6 9.4 L24 12 L14.6 14.6 L12 24 L9.4 14.6 L0 12 L9.4 9.4 Z" fill="url(#hbGold)"/></svg>
+            <svg class="hb-star" viewBox="0 0 24 24" focusable="false"><path d="M12 0 L14.6 9.4 L24 12 L14.6 14.6 L12 24 L9.4 14.6 L0 12 L9.4 9.4 Z" fill="url(#hbGold)"/></svg>
+            <svg class="hb-star" viewBox="0 0 24 24" focusable="false"><path d="M12 0 L14.6 9.4 L24 12 L14.6 14.6 L12 24 L9.4 14.6 L0 12 L9.4 9.4 Z" fill="url(#hbGold)"/></svg>
+            <svg class="hb-star" viewBox="0 0 24 24" focusable="false"><path d="M12 0 L14.6 9.4 L24 12 L14.6 14.6 L12 24 L9.4 14.6 L0 12 L9.4 9.4 Z" fill="url(#hbGold)"/></svg>
+          </span>
+          <span class="hb-burst" aria-hidden="true">
+            <i style="--x:-0.266em;--y:-1.067em;--s:0.075em;--dl:0ms;--rot:0deg"></i>
+            <i style="--x:0.108em;--y:-1.546em;--s:0.095em;--dl:90ms;--rot:13deg"></i>
+            <i style="--x:0.603em;--y:-1.855em;--s:0.075em;--dl:220ms;--rot:26deg"></i>
+            <i style="--x:1.219em;--y:-1.951em;--s:0.105em;--dl:40ms;--rot:39deg"></i>
+            <i style="--x:1.834em;--y:-1.771em;--s:0.08em;--dl:300ms;--rot:52deg"></i>
+            <i style="--x:2.382em;--y:-1.375em;--s:0.1em;--dl:130ms;--rot:65deg"></i>
+            <i style="--x:2.788em;--y:-0.799em;--s:0.075em;--dl:380ms;--rot:78deg"></i>
+            <i style="--x:2.996em;--y:-0.157em;--s:0.095em;--dl:60ms;--rot:91deg"></i>
+            <i style="--x:2.807em;--y:0.495em;--s:0.08em;--dl:430ms;--rot:104deg"></i>
+            <i style="--x:2.467em;--y:1.098em;--s:0.1em;--dl:180ms;--rot:117deg"></i>
+            <i style="--x:1.954em;--y:1.527em;--s:0.075em;--dl:480ms;--rot:130deg"></i>
+            <i style="--x:1.367em;--y:1.749em;--s:0.095em;--dl:250ms;--rot:143deg"></i>
+            <i style="--x:0.773em;--y:1.736em;--s:0.078em;--dl:530ms;--rot:156deg"></i>
+            <i style="--x:0.269em;--y:1.526em;--s:0.092em;--dl:330ms;--rot:169deg"></i>
+            <i style="--x:-0.125em;--y:1.193em;--s:0.072em;--dl:580ms;--rot:182deg"></i>
+            <i style="--x:-0.356em;--y:0.881em;--s:0.085em;--dl:410ms;--rot:195deg"></i>
+            <i style="--x:-0.475em;--y:-0.705em;--s:0.07em;--dl:340ms;--rot:208deg"></i>
+            <i style="--x:0.592em;--y:-1.213em;--s:0.065em;--dl:620ms;--rot:221deg"></i>
+            <i style="--x:1.202em;--y:0.811em;--s:0.065em;--dl:660ms;--rot:234deg"></i>
+            <i style="--x:1.782em;--y:-0.251em;--s:0.07em;--dl:700ms;--rot:247deg"></i>
+          </span>
+        </span>
+        <svg class="hb-spark" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 0 L14.6 9.4 L24 12 L14.6 14.6 L12 24 L9.4 14.6 L0 12 L9.4 9.4 Z" fill="url(#hbGold)"/></svg>
+        <svg class="hb-spark" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 0 L14.6 9.4 L24 12 L14.6 14.6 L12 24 L9.4 14.6 L0 12 L9.4 9.4 Z" fill="url(#hbGold)"/></svg>
+        <span class="hb-caps"><span class="hb-caps-line">Services &amp;</span> <span class="hb-caps-line">Rentals</span></span>
+      </h1>
 
-        <div class="hb-slide-copy" id="hb-copy">
-          <p class="hb-caption" id="hb-caption">360&deg; Video Booth &middot; Glam Photo Studio</p>
-          <p class="hb-desc" id="hb-desc">Slow-motion spin-cam booth, glam photo studio and a roaming event photographer — every guest leaves with a share-ready clip.</p>
-        </div>
-
-        <div class="hb-actions">
-          <div class="hero-cta-row hb-cta">
-            <a href="#contact" class="btn-coffee-pill">
-              <img loading="eager" decoding="async" fetchpriority="high" class="coffee-cup-badge" src="assets/img/hp-f71aad4b7033.webp" alt="Coffee Cup">
-              <span>CLICK FOR COFFEE</span>
-            </a>
-          </div>
-        </div>
-      </div>
+      <a href="#contact" class="btn-coffee-pill hero-coffee">
+        <img loading="eager" decoding="async" fetchpriority="high" class="coffee-cup-badge" src="assets/img/hp-f71aad4b7033.webp" alt="Coffee Cup">
+        <span>Click for coffee</span>
+      </a>
     </div>
   </section>
-
 
 
   <!-- ==========================================================================
@@ -10518,7 +10662,7 @@
 
         document.addEventListener('click', (event) => {
           const btn = event.target && event.target.closest
-            ? event.target.closest('.services-grid-12 .catalog-card .wishlist-btn')
+            ? event.target.closest('.services-grid-12 .catalog-card .wishlist-btn, #t15-grid .catalog-card .wishlist-btn')
             : null;
           if (!btn) return;
           if (btn.classList.contains('is-active')) return; // removing: no flight
@@ -11834,6 +11978,142 @@
     </div>
   </section>
 
+  <!-- ==========================================================================
+       SINGLE CLIENT TESTIMONIAL — Dentsu quote placed immediately after the
+       contact form and immediately before the footer, per client request.
+       ========================================================================== -->
+  <style id="dentsu-testimonial-styles">
+    .dentsu-quote-section {
+      position: relative;
+      padding: clamp(3rem, 6vw, 5rem) 20px clamp(3.5rem, 6.5vw, 5.5rem);
+      background: var(--color-bg-page, #F7EDDC);
+      overflow: hidden;
+    }
+    .dentsu-quote-section .container {
+      max-width: 880px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .dentsu-quote-card {
+      position: relative;
+      background: #FAF1DF;
+      border-radius: 28px;
+      padding: clamp(48px, 7vw, 72px) clamp(28px, 5vw, 64px) clamp(40px, 5.5vw, 56px);
+      box-shadow: 0 24px 60px rgba(11, 30, 63, 0.08);
+      text-align: left;
+    }
+    .dentsu-quote-mark {
+      position: absolute;
+      top: clamp(18px, 3vw, 28px);
+      left: clamp(22px, 4vw, 40px);
+      font-family: 'Admore Fraunces', Fraunces, Georgia, serif;
+      font-size: clamp(88px, 14vw, 140px);
+      font-weight: 900;
+      line-height: 0.7;
+      color: var(--color-accent-gold, #FFCE1B);
+      opacity: 0.95;
+      pointer-events: none;
+      user-select: none;
+    }
+    .dentsu-quote-text {
+      position: relative;
+      margin: 0 0 clamp(28px, 4vw, 40px);
+      font-family: 'Admore Fraunces', Fraunces, Georgia, serif;
+      font-style: italic;
+      font-weight: 500;
+      font-size: clamp(1.65rem, 3.6vw, 2.55rem);
+      line-height: 1.35;
+      letter-spacing: -0.005em;
+      color: var(--color-primary-dark, #0B1E3F);
+    }
+    .dentsu-quote-text::before { content: "\201C"; margin-right: 0.05em; }
+    .dentsu-quote-text::after  { content: "\201D"; }
+    .dentsu-attribution {
+      display: flex;
+      align-items: center;
+      gap: clamp(18px, 3vw, 28px);
+      flex-wrap: wrap;
+    }
+    .dentsu-logo-badge {
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 150px;
+      padding: 14px 26px;
+      background: #ffffff;
+      border: 2px solid rgba(11, 30, 63, 0.12);
+      border-radius: 40px;
+      box-shadow: 0 12px 28px rgba(11, 30, 63, 0.08);
+    }
+    .dentsu-logo-badge svg {
+      display: block;
+      width: 150px;
+      height: auto;
+    }
+    .dentsu-identity {
+      flex: 1 1 220px;
+      min-width: 0;
+    }
+    .dentsu-company {
+      margin: 0 0 4px;
+      font-family: var(--font-body, Poppins, sans-serif);
+      font-size: clamp(1.85rem, 3.6vw, 2.6rem);
+      font-weight: 800;
+      line-height: 1.1;
+      color: var(--color-primary-dark, #0B1E3F);
+      letter-spacing: -0.01em;
+    }
+    .dentsu-role {
+      margin: 0;
+      font-family: var(--font-body, Poppins, sans-serif);
+      font-size: clamp(1.15rem, 2.2vw, 1.65rem);
+      font-weight: 500;
+      line-height: 1.3;
+      color: #5A7089;
+      letter-spacing: 0.005em;
+    }
+    @media (max-width: 600px) {
+      .dentsu-quote-card { border-radius: 22px; padding: 44px 22px 32px; }
+      .dentsu-quote-mark { font-size: 80px; top: 14px; left: 18px; }
+      .dentsu-quote-text { font-size: 1.5rem; line-height: 1.4; margin-bottom: 24px; }
+      .dentsu-attribution { gap: 16px; }
+      .dentsu-logo-badge { min-width: 128px; padding: 10px 18px; border-radius: 30px; }
+      .dentsu-logo-badge svg { width: 124px; }
+      .dentsu-company { font-size: 1.7rem; }
+      .dentsu-role { font-size: 1.05rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .dentsu-quote-card, .dentsu-logo-badge { transition: none !important; }
+    }
+  </style>
+
+  <section class="dentsu-quote-section" id="dentsu-quote" aria-label="Client testimonial">
+    <div class="container">
+      <div class="dentsu-quote-card">
+        <span class="dentsu-quote-mark" aria-hidden="true">&ldquo;</span>
+        <blockquote class="dentsu-quote-text">
+          Fine staff who has performed outstandingly on all our campaigns. A real asset that gives your company an edge over the competition. Keep up the good work!
+        </blockquote>
+        <div class="dentsu-attribution">
+          <div class="dentsu-logo-badge" aria-hidden="true">
+            <!-- Inline Dentsu wordmark (lowercase "dentsu" in the brand's black
+                 sans style) — matches the pill logo in the client reference. -->
+            <svg viewBox="0 0 300 80" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="dentsu">
+              <g fill="#000000" font-family="Helvetica, Arial, 'Arial Black', sans-serif" font-weight="900">
+                <text x="0" y="62" font-size="68" letter-spacing="-1.5">dentsu</text>
+              </g>
+            </svg>
+          </div>
+          <div class="dentsu-identity">
+            <p class="dentsu-company">Dentsu</p>
+            <p class="dentsu-role">Associate Digital Director</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
 
   <!-- ==========================================================================
        FOOTER (100% BRAND CONSISTENCY WITH JOB-VACANCY-PAGE (2).HTML)
@@ -11912,7 +12192,7 @@
           </a>
 
           <!-- Email below button -->
-          <a class="footer-email-link" href="/cdn-cgi/l/email-protection#3f575a5353507f5e5b495a4d4b564c5651585e515b52504d5a115c5052"><span class="__cf_email__" data-cfemail="9bf3fef7f7f4dbfaffedfee9eff2e8f2f5fcfaf5fff6f4e9feb5f8f4f6">[email&#160;protected]</span></a>
+          <a class="footer-email-link" href="/cdn-cgi/l/email-protection#b9d1dcd5d5d6f9d8ddcfdccbcdd0cad0d7ded8d7ddd4d6cbdc97dad6d4"><span class="__cf_email__" data-cfemail="b9d1dcd5d5d6f9d8ddcfdccbcdd0cad0d7ded8d7ddd4d6cbdc97dad6d4">[email&#160;protected]</span></a>
         </div>
 
       </div>
@@ -16280,19 +16560,19 @@ delete window.intlTelInputUtilsTemp;
 
     /* capture phase: remember which card button was clicked before the
        shared toggleWishlist() flips state and emits its global toast */
-    document.addEventListener('click', (event) => {
-      const btn = event.target && event.target.closest
-        ? event.target.closest('.t15-wish, .services-grid-12 .catalog-card .wishlist-btn')
-        : null;
-      if (!btn) return;
-      pending = {
-        anchor: btn,
-        title: titleFrom(btn),
-        willAdd: !btn.classList.contains('is-active')
-      };
-      clearTimeout(pendingTimer);
-      pendingTimer = setTimeout(() => { pending = null; }, 600);
-    }, true);
+      document.addEventListener('click', (event) => {
+        const btn = event.target && event.target.closest
+          ? event.target.closest('.t15-wish, .services-grid-12 .catalog-card .wishlist-btn, #t15-grid .catalog-card .wishlist-btn')
+          : null;
+        if (!btn) return;
+        pending = {
+          anchor: btn,
+          title: titleFrom(btn),
+          willAdd: !btn.classList.contains('is-active')
+        };
+        clearTimeout(pendingTimer);
+        pendingTimer = setTimeout(() => { pending = null; }, 600);
+      }, true);
 
     new MutationObserver((mutations) => {
       if (!pending) return;
@@ -16597,5 +16877,5 @@ delete window.intlTelInputUtilsTemp;
     window.addEventListener('resize', onResize, { passive: true });
   })();
   </script>
-</body>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a522e7931b398e79',t:'MTc5MzI4NDUwMw=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a522e7931b398e79',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
