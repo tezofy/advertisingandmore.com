@@ -8576,21 +8576,6 @@
       }
     }
 
-    /* ---------- v3.36 drinks section trim (~30% shorter) ---------- */
-    #happy-meeting .hp-showcase__leadbox { padding-bottom: 12px; }
-    #happy-meeting .hp-showcase__lead { font-size: 16px; }
-    #happy-meeting .hp-showcase__grid--drinks { gap: 12px; max-width: 560px; }
-    #happy-meeting .hp-showcase__drank { padding: 13px 14px; border-radius: 16px; }
-    #happy-meeting .hp-showcase__iconblock { margin-bottom: 10px; }
-    #happy-meeting .hp-showcase__iconblock img { height: 56px; }
-    #happy-meeting .hp-showcase__dranktitle { margin-bottom: 4px; font-size: 14px; }
-    #happy-meeting .hp-showcase__signoffwrap { padding-top: 12px; }
-    #happy-meeting .hp-showcase__signoff { font-size: 22px; }
-    @media (max-width: 640px) {
-      #happy-meeting .hp-showcase__grid--drinks { gap: 10px; }
-      #happy-meeting .hp-showcase__iconblock img { height: 46px; }
-      #happy-meeting .hp-showcase__drank { padding: 10px 8px; }
-    }
 
     /* ---------- v3.36 de-emphasise the non-funnel Careers link ---------- */
     .site-nav .nav-link[href*="job-vacancy"] { opacity: .8; font-weight: 500; }
@@ -9754,8 +9739,92 @@
       .t15-specs-panel { transition: none; }
       .t15-icon img, .t15-wish { transition: none; }
     }
-  </style>
+    /* ---- Client request: Top15 cards reuse catalogue-card styles 1:1 ----
+       Grid keeps 3 columns desktop / 2 columns mobile (bigger cards per the
+       client's earlier directive), but every card visual — font, font-size,
+       line-height, image sizing, padding, radius, shadow and the heart
+       Add-to-Wishlist button — is inherited directly from .catalog-card /
+       .service-card CSS shared with "Our Services & Event Rentals". The ONLY
+       added element is the gold #N FAVOURITE rank pill over the image. */
+    #t15-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;               /* match .services-grid-12 desktop gap */
+      align-items: stretch;
+    }
+    #t15-grid .catalog-card {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity .55s ease, transform .55s cubic-bezier(.22,.61,.36,1), box-shadow .35s ease, border-color .35s ease;
+      height: 100%;
+    }
+    #t15-grid.is-inview .catalog-card { opacity: 1; transform: translateY(0); }
+    /* Inherit the catalogue's square-photo treatment (1:1 aspect-ratio).
+       This is what makes the image sizing match .services-grid-12 exactly. */
+    #t15-grid .catalog-card .service-card-img-wrap {
+      position: relative;
+      height: auto !important;
+      aspect-ratio: 1 / 1;
+      flex: 0 0 auto;
+    }
+    #t15-grid .catalog-rank-badge {
+      position: absolute;
+      z-index: 2;
+      top: 12px;
+      left: 12px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #FFD84D, #F0BE1F);
+      color: #0B1E3F;
+      font-family: Poppins, sans-serif;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      box-shadow: 0 6px 14px rgba(11,30,63,.28);
+      pointer-events: none;
+      white-space: nowrap;
+    }
+    @media (max-width: 1024px) { #t15-grid { gap: 18px; } }
+    /* On phones Top15 keeps the catalogue's 2-per-row card layout exactly —
+       the same border-radius, body padding, title/desc/button font-sizes as
+       .services-grid-12, so the design is a 1:1 match. */
+    @media (max-width: 767px) {
+      #t15-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+      #t15-grid .catalog-card { border-radius: 16px; }
+    }
+    @media (max-width: 700px) {
+      #t15-grid { gap: 12px; }
+      #t15-grid .catalog-card .service-card-body { padding: 12px !important; }
+      #t15-grid .catalog-card .catalog-card-topline { gap: 4px; margin-bottom: 6px; }
+      #t15-grid .catalog-card .catalog-number,
+      #t15-grid .catalog-card .catalog-category-label { font-size: 0.5rem; letter-spacing: 0.07em; }
+      #t15-grid .catalog-card .catalog-category-label::before { margin-right: 4px; }
+      #t15-grid .catalog-card .service-card-title { font-size: 0.86rem !important; line-height: 1.22 !important; margin-bottom: 6px; }
+      #t15-grid .catalog-card .service-card-desc { font-size: 0.72rem !important; line-height: 1.4 !important; min-height: 2.8em; margin-bottom: 9px; }
+      #t15-grid .catalog-card-tags { gap: 4px; }
+      #t15-grid .catalog-card-tag { padding: 3px 5px; font-size: 0.5rem; }
+      #t15-grid .catalog-card .wishlist-btn { margin-top: 10px; padding: 7px 9px !important; font-size: 0.62rem !important; gap: 5px; }
+      #t15-grid .catalog-card .wishlist-btn svg { width: 12px; height: 12px; }
+      #t15-grid .catalog-rank-badge { top: 10px; left: 10px; padding: 5px 9px; font-size: 9px; letter-spacing: 1px; }
+    }
+    @media (max-width: 380px) {
+      #t15-grid { gap: 10px; }
+      #t15-grid .catalog-card .service-card-body { padding: 10px !important; }
+      #t15-grid .catalog-card .catalog-number,
+      #t15-grid .catalog-card .catalog-category-label { font-size: 0.47rem; letter-spacing: 0.055em; }
+      #t15-grid .catalog-card .service-card-title { font-size: 0.8rem !important; }
+      #t15-grid .catalog-card .service-card-desc { font-size: 0.68rem !important; }
+      #t15-grid .catalog-card-tag { font-size: 0.47rem; padding: 3px 4px; }
+      #t15-grid .catalog-card .wishlist-btn { padding: 6px 7px !important; font-size: 0.58rem !important; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      #t15-grid .catalog-card { opacity: 1 !important; transform: none !important; transition: none !important; }
+    }
 
+
+
+  </style>
 <section class="wow-band" id="pick-your-wow" aria-labelledby="wow-heading">
   <style id="wow-band-styles">
     .wow-band {
@@ -10253,24 +10322,30 @@
       /* v3.22 - "Add to Wishlist" now wears the same gold as the
          "CLICK FOR COFFEE" pill: flat --color-accent-gold, #20304D text,
          the same pill radius and the same soft navy shadow. */
-      .services-section .services-grid-12 .catalog-card .wishlist-btn {
+      .services-section .services-grid-12 .catalog-card .wishlist-btn,
+      #t15-grid .catalog-card .wishlist-btn {
         background: var(--color-accent-gold);
         color: #20304D;
         border-color: transparent;
         box-shadow: 0 6px 18px rgba(11, 30, 63, 0.14);
       }
-      .services-section .services-grid-12 .catalog-card .wishlist-btn svg {
+      .services-section .services-grid-12 .catalog-card .wishlist-btn svg,
+      #t15-grid .catalog-card .wishlist-btn svg {
         stroke: currentColor;
       }
       .services-section .services-grid-12 .catalog-card .wishlist-btn:hover,
-      .services-section .services-grid-12 .catalog-card .wishlist-btn:focus-visible {
+      .services-section .services-grid-12 .catalog-card .wishlist-btn:focus-visible,
+      #t15-grid .catalog-card .wishlist-btn:hover,
+      #t15-grid .catalog-card .wishlist-btn:focus-visible {
         background: var(--color-accent-gold-hover);
         color: #20304D;
         border-color: transparent;
         box-shadow: 0 10px 24px rgba(255, 206, 27, 0.45);
       }
-      /* already-saved state stays readable: same gold, navy inner ring */
-      .services-section .services-grid-12 .catalog-card .wishlist-btn.is-active {
+      /* already-saved state is overridden below by the pink-heart styles,
+         but keep a gold fallback for any grid that doesn't opt in. */
+      .services-section .services-grid-12 .catalog-card .wishlist-btn.is-active,
+      #t15-grid .catalog-card .wishlist-btn.is-active {
         background: linear-gradient(135deg, #FFCE1B 0%, #D5A021 100%);
         color: #20304D;
         border-color: transparent;
@@ -10280,8 +10355,11 @@
 <!-- v3.23: clicked wishlist button becomes a big pink heart -->
     <style id="wishlist-pink-heart-styles">
       /* v3.23 - after the click the pill vanishes and only a big pink
-         heart stays, in the same spot, still clickable to undo. */
-      .services-section .services-grid-12 .catalog-card .wishlist-btn.is-active {
+         heart stays, in the same spot, still clickable to undo.
+         Applies to BOTH the catalogue services grid AND the Top 15 grid so
+         the wishlist interaction is identical everywhere on the page. */
+      .services-section .services-grid-12 .catalog-card .wishlist-btn.is-active,
+      #t15-grid .catalog-card .wishlist-btn.is-active {
         background: transparent;
         background-image: none;
         border-color: transparent;
@@ -10294,10 +10372,12 @@
         overflow: visible;
         transform: none;
       }
-      .services-section .services-grid-12 .catalog-card .wishlist-btn.is-active > span {
+      .services-section .services-grid-12 .catalog-card .wishlist-btn.is-active > span,
+      #t15-grid .catalog-card .wishlist-btn.is-active > span {
         display: none;
       }
-      .services-section .services-grid-12 .catalog-card .wishlist-btn.is-active svg {
+      .services-section .services-grid-12 .catalog-card .wishlist-btn.is-active svg,
+      #t15-grid .catalog-card .wishlist-btn.is-active svg {
         width: 42px;
         height: 42px;
         flex: 0 0 auto;
@@ -10308,13 +10388,17 @@
         animation: hpWishHeartPop 0.42s cubic-bezier(0.34, 1.56, 0.64, 1) both;
       }
       .services-section .services-grid-12 .catalog-card .wishlist-btn.is-active:hover,
-      .services-section .services-grid-12 .catalog-card .wishlist-btn.is-active:focus-visible {
+      .services-section .services-grid-12 .catalog-card .wishlist-btn.is-active:focus-visible,
+      #t15-grid .catalog-card .wishlist-btn.is-active:hover,
+      #t15-grid .catalog-card .wishlist-btn.is-active:focus-visible {
         background: transparent;
         box-shadow: none;
         transform: scale(1.08);
       }
       .services-section .services-grid-12 .catalog-card .wishlist-btn.is-active:hover svg,
-      .services-section .services-grid-12 .catalog-card .wishlist-btn.is-active:focus-visible svg {
+      .services-section .services-grid-12 .catalog-card .wishlist-btn.is-active:focus-visible svg,
+      #t15-grid .catalog-card .wishlist-btn.is-active:hover svg,
+      #t15-grid .catalog-card .wishlist-btn.is-active:focus-visible svg {
         filter: drop-shadow(0 6px 16px rgba(255, 62, 140, 0.62));
       }
       @keyframes hpWishHeartPop {
@@ -10323,13 +10407,15 @@
         100% { transform: scale(1); opacity: 1; }
       }
       @media (max-width: 700px) {
-        .services-section .services-grid-12 .catalog-card .wishlist-btn.is-active svg {
+        .services-section .services-grid-12 .catalog-card .wishlist-btn.is-active svg,
+        #t15-grid .catalog-card .wishlist-btn.is-active svg {
           width: 34px;
           height: 34px;
         }
       }
       @media (prefers-reduced-motion: reduce) {
-        .services-section .services-grid-12 .catalog-card .wishlist-btn.is-active svg {
+        .services-section .services-grid-12 .catalog-card .wishlist-btn.is-active svg,
+        #t15-grid .catalog-card .wishlist-btn.is-active svg {
           animation: none;
         }
       }
@@ -11055,162 +11141,7 @@
   <!-- ==========================================================================
        v3.31 — CLIENT TESTIMONIALS (social proof immediately before enquiry)
        ========================================================================== -->
-  <section class="hp2-testimonials" id="testimonials" aria-labelledby="testimonials-heading">
-    <div class="container">
-      <div class="section-header-center">
-        <div class="hd-eyebrow"><span class="line"></span><span>Kind words</span></div>
-        <h2 class="heading-display" id="testimonials-heading">Trusted by Brands Who Love to <span class="text-gold">Celebrate.</span></h2>
-        <p class="section-deck">The same client words published on advertisingandmore.com &mdash; from partners who trust our agency with their biggest moments.</p>
-      </div>
-      <div class="ts-wrap" id="ts-wrap">
-        <div class="ts-viewport">
-          <div class="ts-track" id="ts-track">
-            <figure class="ts-slide">
-              <div class="ts-card">
-                <img class="ts-logo" src="assets/img/testi-linkedin.png" alt="LinkedIn Corporation logo" width="160" height="40" loading="lazy">
-                <figcaption class="ts-body">
-                  <blockquote class="ts-quote">&ldquo;Congratulations for being the highest earners for LinkedIn. As a token of my appreciation, I would like to reward your hard work. Thank you for a job well done!&rdquo;</blockquote>
-                  <div class="ts-name">LinkedIn Corporation</div>
-                  <div class="ts-role">Regional Account Director, South East Asia</div>
-                </figcaption>
-              </div>
-            </figure>
-            <figure class="ts-slide">
-              <div class="ts-card">
-                <img class="ts-logo" src="assets/img/testi-bosch.png" alt="Bosch logo" width="160" height="40" loading="lazy">
-                <figcaption class="ts-body">
-                  <blockquote class="ts-quote">&ldquo;Never failed to provide sound advice &amp; solutions to optimise Bosch&rsquo;s opportunities on digital media. Impeccable professional ethics &amp; pleasant to work with. Highly recommend.&rdquo;</blockquote>
-                  <div class="ts-name">Bosch</div>
-                  <div class="ts-role">Corporate Communications &amp; Brand Management</div>
-                </figcaption>
-              </div>
-            </figure>
-            <figure class="ts-slide">
-              <div class="ts-card">
-                <img class="ts-logo" src="assets/img/testi-universal.png" alt="Universal Music Group logo" width="160" height="40" loading="lazy">
-                <figcaption class="ts-body">
-                  <blockquote class="ts-quote">&ldquo;Managed our campaigns on Facebook, Google, YouTube &amp; Mobile for artist launches, showcases &amp; concerts. Genuine interest in our business &amp; an open, honest approach.&rdquo;</blockquote>
-                  <div class="ts-name">Universal Music Group</div>
-                  <div class="ts-role">Label Manager</div>
-                </figcaption>
-              </div>
-            </figure>
-          </div>
-        </div>
-        <div class="ts-controls">
-          <button type="button" class="ts-btn" id="ts-prev" aria-label="Previous testimonial">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
-          </button>
-          <button type="button" class="ts-btn" id="ts-next" aria-label="Next testimonial">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
-          </button>
-        </div>
-        <div class="ts-dots" id="ts-dots" role="tablist" aria-label="Choose testimonial"></div>
-      </div>
-    </div>
-  </section>
-
-  <style id="hp2-testimonials-css">
-    .hp2-testimonials {
-      position: relative;
-      background: transparent;
-      overflow: hidden;
-    }
-    .ts-wrap { max-width: 980px; margin: 0 auto; }
-    .ts-viewport { overflow: hidden; border-radius: 22px; }
-    .ts-track {
-      display: flex;
-      transition: transform .55s cubic-bezier(.22,.61,.36,1);
-      will-change: transform;
-    }
-    .ts-slide { flex: 0 0 100%; min-width: 0; margin: 0; padding: 0 4px; }
-    /* v5.4 — logo sits ABOVE the quote at every width (the former mobile-only
-       stack is now the desktop layout too), matching the mobile arrangement */
-    .ts-card {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-      align-items: center;
-      text-align: center;
-      /* no card chrome — sits directly on the section's ice-blue band */
-      background: transparent;
-      border: none;
-      border-radius: 22px;
-      padding: 20px 40px 24px;
-      box-shadow: none;
-      height: 100%;
-    }
-    .ts-logo {
-      width: 158px;
-      height: auto;
-      max-height: 60px;
-      flex: 0 0 auto;
-      margin: 0 auto;
-      object-fit: contain;
-      background: #fff;
-      border: 1px solid var(--color-border);
-      border-radius: 14px;
-      padding: 12px 18px;
-      box-shadow: 0 8px 20px rgba(11, 30, 63, .10);
-    }
-    .ts-quote {
-      margin: 0 0 14px;
-      font-size: 1.06rem;
-      line-height: 1.72;
-      color: #33475f;
-    }
-    .ts-name {
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: 1.08rem;
-      color: var(--color-primary-dark);
-    }
-    .ts-role { font-size: .9rem; color: var(--color-text-muted); margin-top: 2px; }
-    .ts-controls { display: flex; gap: 10px; justify-content: flex-end; margin-top: 18px; }
-    .ts-btn {
-      width: 46px;
-      height: 46px;
-      border-radius: 50%;
-      border: 1.6px solid rgba(213, 160, 33, .6);
-      background: #fff;
-      color: #D5A021;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background .25s ease, color .25s ease, transform .25s ease, box-shadow .25s ease;
-    }
-    .ts-btn svg { width: 20px; height: 20px; }
-    .ts-btn:hover {
-      background: linear-gradient(180deg, #FFD84D, #F0BE1F);
-      color: #0049A8;
-      border-color: #E8B915;
-      transform: translateY(-2px);
-      box-shadow: 0 10px 20px rgba(213, 160, 33, .35);
-    }
-    .ts-dots { display: flex; gap: 8px; justify-content: center; margin-top: 16px; }
-    .ts-dot {
-      width: 10px;
-      height: 10px;
-      padding: 0;
-      border: none;
-      border-radius: 50%;
-      background: rgba(11, 30, 63, .22);
-      cursor: pointer;
-      transition: all .3s ease;
-    }
-    .ts-dot.is-active { width: 26px; border-radius: 999px; background: #D5A021; }
-    @media (max-width: 767px) {
-      .ts-card { flex-direction: column; text-align: center; gap: 18px; padding: 28px 22px; }
-      .ts-logo { width: 150px; max-height: 56px; }
-      .ts-quote { font-size: .96rem; line-height: 1.65; }
-      .ts-controls { justify-content: center; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .ts-track { transition: none; }
-      .ts-btn { transition: none; }
-    }
-  </style>
+  
 <section class="homepage-contact-section" id="contact" aria-labelledby="homepage-contact-heading">
     <div class="container">
       <div class="section-header-center homepage-form-intro">
@@ -11908,158 +11839,7 @@
        FOOTER (100% BRAND CONSISTENCY WITH JOB-VACANCY-PAGE (2).HTML)
        ========================================================================== -->
   
-  <section class="plan-band" id="plan-band" aria-labelledby="plan-band-heading">
-    <div class="container">
-      <div class="plan-card">
-        <div class="plan-col plan-quote">
-          <span class="plan-quote__mark" aria-hidden="true">
-            <svg viewBox="0 0 32 32" fill="currentColor"><path d="M9.4 6C5.6 8.7 3 12.6 3 17.2 3 21.1 5.4 24 9 24c2.6 0 4.5-1.9 4.5-4.4 0-2.4-1.7-4.2-4-4.2-.4 0-.9.1-1 .1.3-2.3 2.1-4.6 4.4-6.1L9.4 6zm13 0c-3.8 2.7-6.4 6.6-6.4 11.2 0 3.9 2.4 6.8 6 6.8 2.6 0 4.5-1.9 4.5-4.4 0-2.4-1.7-4.2-4-4.2-.4 0-.9.1-1 .1.3-2.3 2.1-4.6 4.4-6.1L22.4 6z"/></svg>
-          </span>
-          <blockquote class="plan-quote__text">&ldquo;Fine staff who has performed outstandingly on all our campaigns. A real asset that gives your company an edge over the competition. Keep up the good work!&rdquo;</blockquote>
-          <div class="plan-quote__who">
-            <img class="ts-logo plan-quote__logo" src="assets/img/testi-dentsu.png" alt="Dentsu logo" width="120" height="32" loading="lazy">
-            <div class="plan-quote__meta">
-              <div class="plan-quote__name">Dentsu</div>
-              <div class="plan-quote__role">Associate Digital Director</div>
-            </div>
-          </div>
-        </div>
-        <div class="plan-col plan-cta">
-          <span class="plan-cta__doodle" aria-hidden="true">
-            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-              <!-- party popper cone, opening toward top-right -->
-              <path d="M10 52 30 28 40 36 18 58 Z"/>
-              <path d="M30 28 40 36"/>
-              <!-- burst rays out of the opening -->
-              <path d="M40 30 50 14"/>
-              <path d="M46 36 60 30"/>
-              <path d="M42 42 52 50"/>
-              <!-- confetti: sparkles and dots -->
-              <path d="M54 8l1.5 3.5L59 13l-3.5 1.5L54 18l-1.5-3.5L49 13l3.5-1.5z"/>
-              <path d="M58 40l1 2.4 2.4 1-2.4 1-1 2.4-1-2.4-2.4-1 2.4-1z"/>
-              <circle cx="48" cy="10" r="2.2" fill="currentColor" stroke="none"/>
-              <circle cx="60" cy="22" r="1.9" fill="currentColor" stroke="none"/>
-              <circle cx="50" cy="56" r="2" fill="currentColor" stroke="none"/>
-            </svg>
-          </span>
-          <p class="plan-cta__eyebrow">Ready when you are</p>
-          <h2 class="plan-cta__title" id="plan-band-heading">Let&rsquo;s plan your <span class="text-gold">event.</span></h2>
-          <p class="plan-cta__sub">Tell us what you&rsquo;re celebrating, and we&rsquo;ll create a custom party experience just for you.</p>
-          <a class="plan-cta__btn" href="#contact">
-            Request a Quote
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <style id="plan-band-css">
-    .plan-band { padding: clamp(24px, 4vw, 48px) 0 clamp(28px, 4vw, 56px); }
-    /* v5.4 — card chrome removed: the "Ready when you are" band now sits
-       directly on the shared cream page (transparent, no border/shadow) */
-    .plan-card {
-      max-width: 1180px; margin: 0 auto;
-      background: transparent;
-      border: 0;
-      border-radius: 24px;
-      box-shadow: none;
-      display: grid;
-      grid-template-columns: 1.12fr 1fr;
-      overflow: hidden;
-    }
-    .plan-col { padding: clamp(28px, 3.4vw, 46px); }
-    .plan-quote { position: relative; }
-    .plan-quote__mark {
-      display: inline-flex; color: var(--color-accent-gold);
-      width: 34px; height: 34px; margin-bottom: 10px;
-    }
-    .plan-quote__mark svg { width: 100%; height: 100%; }
-    .plan-quote__text {
-      margin: 0 0 22px;
-      font-family: "Fraunces", Georgia, serif;
-      font-style: italic;
-      font-size: clamp(1.02rem, 1.35vw, 1.22rem);
-      line-height: 1.7;
-      color: var(--color-text-dark);
-    }
-    .plan-quote__who { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
-    .plan-quote__logo {
-      width: 128px; max-height: 52px; margin: 0;
-      padding: 10px 14px;
-    }
-    .plan-quote__name { font-weight: 700; color: var(--color-primary-dark); font-size: .98rem; }
-    .plan-quote__role { font-size: .82rem; color: var(--color-text-muted); margin-top: 2px; }
-    .plan-cta {
-      position: relative;
-      border-left: 1px solid var(--color-border);
-      display: flex; flex-direction: column; justify-content: center;
-      text-align: left;
-    }
-    .plan-cta__doodle {
-      position: absolute; top: 22px; right: 26px;
-      width: 62px; height: 62px; color: var(--color-primary);
-      animation: planDoodleFloat 3.6s ease-in-out infinite;
-      pointer-events: none;
-    }
-    @keyframes planDoodleFloat {
-      0%, 100% { transform: translateY(0) rotate(-4deg); }
-      50% { transform: translateY(-7px) rotate(4deg); }
-    }
-    .plan-cta__eyebrow {
-      margin: 0 0 8px;
-      font-size: .76rem; font-weight: 700; letter-spacing: .14em;
-      text-transform: uppercase; color: #C2633F;
-    }
-    .plan-cta__title {
-      margin: 0 0 10px;
-      font-family: "Fraunces", Georgia, serif;
-      font-size: clamp(1.55rem, 2.6vw, 2.1rem);
-      line-height: 1.18; font-weight: 700;
-      color: var(--color-text-dark);
-    }
-    .plan-cta__sub {
-      margin: 0 0 24px; max-width: 420px;
-      font-size: .96rem; line-height: 1.65; color: var(--color-text-muted);
-    }
-    .plan-cta__btn {
-      align-self: flex-start;
-      display: inline-flex; align-items: center; gap: 10px;
-      padding: 15px 30px; border-radius: 999px;
-      background: linear-gradient(180deg, #FFD84D, #F0BE1F);
-      color: #0049A8; font-weight: 800; font-size: .98rem;
-      text-decoration: none; white-space: nowrap;
-      box-shadow: 0 14px 30px rgba(240, 190, 31, .35);
-      transition: transform .3s cubic-bezier(.22,.61,.36,1), box-shadow .3s ease;
-    }
-    .plan-cta__btn:hover { transform: translateY(-3px); box-shadow: 0 20px 38px rgba(240, 190, 31, .45); }
-    .plan-cta__btn svg { width: 18px; height: 18px; }
-    @media (max-width: 860px) {
-      .plan-card { grid-template-columns: 1fr; }
-      .plan-cta {
-        border-left: 0; border-top: 1px solid var(--color-border);
-        text-align: center; align-items: center;
-      }
-      .plan-cta__sub { margin-inline: auto; }
-      .plan-cta__btn { align-self: center; }
-      .plan-quote__who { justify-content: center; }
-    }
-    @media (max-width: 640px) {
-      .plan-band { padding: 18px 0 26px; }
-      .plan-col { padding: 24px 20px; }
-      .plan-quote__mark { width: 28px; height: 28px; margin-bottom: 6px; }
-      .plan-quote__text { font-size: .98rem; line-height: 1.62; margin-bottom: 18px; }
-      .plan-quote__logo { width: 108px; padding: 8px 12px; }
-      .plan-cta__doodle { width: 46px; height: 46px; top: 16px; right: 18px; }
-      .plan-cta__eyebrow { font-size: .7rem; }
-      .plan-cta__title { font-size: 1.45rem; }
-      .plan-cta__sub { font-size: .9rem; margin-bottom: 20px; }
-      .plan-cta__btn { width: 100%; justify-content: center; padding: 14px 22px; font-size: .94rem; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .plan-cta__doodle { animation: none; }
-    }
-  </style>
+  
 
 <footer class="site-footer" id="site-footer">
     <div class="container">
@@ -12132,7 +11912,7 @@
           </a>
 
           <!-- Email below button -->
-          <a class="footer-email-link" href="/cdn-cgi/l/email-protection#e28a878e8e8da28386948790968b918b8c85838c868f8d9087cc818d8f"><span class="__cf_email__" data-cfemail="80e8e5ececefc0e1e4f6e5f2f4e9f3e9eee7e1eee4edeff2e5aee3efed">[email&#160;protected]</span></a>
+          <a class="footer-email-link" href="/cdn-cgi/l/email-protection#3f575a5353507f5e5b495a4d4b564c5651585e515b52504d5a115c5052"><span class="__cf_email__" data-cfemail="9bf3fef7f7f4dbfaffedfee9eff2e8f2f5fcfaf5fff6f4e9feb5f8f4f6">[email&#160;protected]</span></a>
         </div>
 
       </div>
@@ -16297,247 +16077,108 @@ delete window.intlTelInputUtilsTemp;
       })();
     </script>
 
-  <!-- v3.27 — Top 15 Crowd Favourites renderer (uses catalogData + shared wishlist) -->
+  <!-- v5.1 — Top 15 Crowd Favourites renderer.
+       Cards are built with the SAME createCatalogCard(key) used by the
+       "Our Services & Event Rentals" grid so font, font-size, line-height,
+       image sizing, padding, border-radius, shadow and the Add-to-Wishlist
+       button are a 100% match. The only addition is the gold #N FAVOURITE
+       rank badge prepended inside the image wrap. -->
   <script>
   (() => {
-    if (typeof catalogData === 'undefined') return;
+    if (typeof catalogData === 'undefined' || typeof createCatalogCard !== 'function') return;
     const grid = document.getElementById('t15-grid');
     if (!grid) return;
 
-    const CURATED = [{"key": "chatgpt_11", "type": "Rental", "hook": "The classic midway rebooted for grownups, with high-stakes prizes and carnival nostalgia."}, {"key": "chatgpt_4", "type": "Experience", "hook": "The ultimate ballroom crowd-pleaser that gets CEOs and managers cheering on their feet."}, {"key": "chatgpt_41", "type": "Rental", "hook": "Three switchable DJ channels, glowing headphones and zero noise-curfew complaints from the hotel."}, {"key": "chatgpt_72", "type": "Experience", "hook": "Force-feedback steering and triple screens for genuine lap-time bragging rights."}, {"key": "chatgpt_21", "type": "Experience", "hook": "A slow-motion rotating glam platform tailored for viral LinkedIn and Instagram reels."}, {"key": "chatgpt_64", "type": "Experience", "hook": "A hidden entrance opens into an intimate luxury cocktail haven inside the foyer."}, {"key": "chatgpt_3", "type": "Rental", "hook": "Oversized padded gloves and comedy grudge matches that bring pure hilarity."}, {"key": "chatgpt_9", "type": "Rental", "hook": "Fast-twitch reflex competition that draws a perpetual queue of eager challengers."}, {"key": "chatgpt_19", "type": "Rental", "hook": "Blackjack, roulette and poker with custom branded fun-money chips and professional croupiers."}, {"key": "chatgpt_31", "type": "Experience", "hook": "Tower-high illuminated robots that turn every grand entrance into a photo moment."}, {"key": "chatgpt_51", "type": "Experience", "hook": "Flair bartenders shaking theatre-level cocktails that guests queue to photograph."}, {"key": "chatgpt_83", "type": "Experience", "hook": "Glitter, gems and glow stations that keep the dance floor sparkling all night."}, {"key": "chatgpt_93", "type": "Experience", "hook": "Guests dive into a flying-cash machine for the most photographed 20 seconds of the night."}, {"key": "chatgpt_22", "type": "Experience", "hook": "Studio lighting, props and instant prints that empty straight onto social feeds."}, {"key": "chatgpt_42", "type": "Rental", "hook": "A glowing reactive dance floor that pulls guests out of their chairs and onto the tiles."}];
+    const CURATED = [
+      { key: 'chatgpt_11', rank: 1,  type: 'Rental',     hook: 'The classic midway rebooted for grownups, with high-stakes prizes and carnival nostalgia.' },
+      { key: 'chatgpt_4',  rank: 2,  type: 'Experience', hook: 'The ultimate ballroom crowd-pleaser that gets CEOs and managers cheering on their feet.' },
+      { key: 'chatgpt_41', rank: 3,  type: 'Rental',     hook: 'Three switchable DJ channels, glowing headphones and zero noise-curfew complaints from the hotel.' },
+      { key: 'chatgpt_72', rank: 4,  type: 'Experience', hook: 'Force-feedback steering and triple screens for genuine lap-time bragging rights.' },
+      { key: 'chatgpt_21', rank: 5,  type: 'Experience', hook: 'A slow-motion rotating glam platform tailored for viral LinkedIn and Instagram reels.' },
+      { key: 'chatgpt_64', rank: 6,  type: 'Experience', hook: 'A hidden entrance opens into an intimate luxury cocktail haven inside the foyer.' },
+      { key: 'chatgpt_3',  rank: 7,  type: 'Rental',     hook: 'Oversized padded gloves and comedy grudge matches that bring pure hilarity.' },
+      { key: 'chatgpt_9',  rank: 8,  type: 'Rental',     hook: 'Fast-twitch reflex competition that draws a perpetual queue of eager challengers.' },
+      { key: 'chatgpt_19', rank: 9,  type: 'Rental',     hook: 'Blackjack, roulette and poker with custom branded fun-money chips and professional croupiers.' },
+      { key: 'chatgpt_31', rank: 10, type: 'Experience', hook: 'Tower-high illuminated robots that turn every grand entrance into a photo moment.' },
+      { key: 'chatgpt_51', rank: 11, type: 'Experience', hook: 'Flair bartenders shaking theatre-level cocktails that guests queue to photograph.' },
+      { key: 'chatgpt_83', rank: 12, type: 'Experience', hook: 'Glitter, gems and glow stations that keep the dance floor sparkling all night.' },
+      { key: 'chatgpt_93', rank: 13, type: 'Experience', hook: 'Guests dive into a flying-cash machine for the most photographed 20 seconds of the night.' },
+      { key: 'chatgpt_22', rank: 14, type: 'Experience', hook: 'Studio lighting, props and instant prints that empty straight onto social feeds.' },
+      { key: 'chatgpt_42', rank: 15, type: 'Rental',     hook: 'A glowing reactive dance floor that pulls guests out of their chairs and onto the tiles.' }
+    ];
 
-    const CATEGORY_LABELS = {
-      'cat-1': '01 Giant Games',
-      'cat-2': '02 Carnival Games',
-      'cat-3': '03 Photo & Video',
-      'cat-4': '04 Performers',
-      'cat-5': '05 Music & Nightclub',
-      'cat-6': '06 Food & Drinks',
-      'cat-7': '07 Foyer & Immersive',
-      'cat-8': '08 Adrenaline & VR',
-      'cat-9': '09 Pampering',
-      'cat-10': '10 Big-Ticket'
-    };
+    // Preserve curated short descriptions for cards whose catalogue desc is long.
+    // We do this by temporarily writing the hook into item.shortDesc so
+    // formatCatalogDesc in createCatalogCard picks it up (the function prefers
+    // item.shortDesc over item.desc). We restore original values afterwards.
+    const savedShortDesc = {};
+    CURATED.forEach(entry => {
+      const item = catalogData[entry.key];
+      if (!item) return;
+      savedShortDesc[entry.key] = item.shortDesc;
+      item.shortDesc = entry.hook;
+    });
 
-    /* One uniform AI-generated icon set: cream disc + gold ring + blue/gold art,
-       pre-embedded as data URIs so the single HTML file stays self-contained. */
-    const ICONS = {"cat-1": "assets/img/hp-128d6d76010c.webp", "cat-2": "assets/img/hp-23ce4e867e3a.webp", "cat-3": "assets/img/hp-6451a6beb2f9.webp", "cat-4": "assets/img/hp-7daadc5532d5.webp", "cat-5": "assets/img/hp-501ac40ed9f9.webp", "cat-6": "assets/img/hp-be82d9f0a719.webp", "cat-7": "assets/img/hp-5cedacdfe844.webp", "cat-8": "assets/img/hp-33704855eef4.webp", "cat-9": "assets/img/hp-ddad7fe16aed.webp", "cat-10": "assets/img/hp-98a7ede694d0.webp"};
+    // Build cards via the SAME factory used by Services & Rentals so every
+    // typographic, spacing, radius, shadow and wishlist-button detail inherits
+    // 1:1 from .catalog-card / .service-card CSS.
+    grid.innerHTML = '';
+    CURATED.forEach((entry, index) => {
+      const item = catalogData[entry.key];
+      if (!item) return;
+      const card = createCatalogCard(entry.key);
+      card.classList.add('t15-catalog-card');
+      card.dataset.t15Key = entry.key;
+      card.style.transitionDelay = (index * 55) + 'ms';
 
-    const SVG_INFO = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/></svg>';
-    const SVG_CHEVRON = '<svg class="t15-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>';
-    const SVG_PLUS = '<svg class="t15-ico-plus" viewBox="0 0 24 24" fill="none" stroke-width="2.3" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>';
-    const SVG_CHECK = '<svg class="t15-ico-check" viewBox="0 0 24 24" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>';
-    const HEART_PATH = 'M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z';
-    const SVG_HEART = '<svg class="t15-ico-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="' + HEART_PATH + '"/></svg>';
-    const SVG_SPEC_CHECK = '<svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>';
-
-    const esc = (s) => String(s == null ? '' : s)
-      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
-
-    function cardMarkup(entry, index) {
-      const key = entry.key;
-      const item = catalogData[key];
-      if (!item) return '';
-      const rank = index + 1;
-      const typeClass = entry.type === 'Rental' ? 't15-type--rental' : 't15-type--experience';
-      const specs = (item.specs || []).map((sp) =>
-        '<li>' + SVG_SPEC_CHECK + '<span>' + esc(sp) + '</span></li>').join('');
-      const panelId = 't15-specs-' + rank;
-      const photo = item.img
-        ? '<img class="t15-photo" src="' + esc(item.img) + '" alt="' + esc(item.title) + '" loading="lazy" decoding="async">'
-        : '<div class="t15-photo t15-photo--empty" aria-hidden="true"></div>';
-      return '' +
-      '<article class="t15-card" data-t15-key="' + esc(key) + '" style="transition-delay:' + (index * 55) + 'ms">' +
-        '<div class="t15-media">' +
-          photo +
-          '<span class="t15-rank-ghost" aria-hidden="true">' + rank + '</span>' +
-          '<span class="t15-rank-pill"><span class="t15-pill-full">#' + rank + ' FAVOURITE</span><span class="t15-pill-short">#' + rank + '</span></span>' +
-          '<span class="t15-type ' + typeClass + '">' + esc(entry.type) + '</span>' +
-          /* badge icon overlaps the photo's bottom-left; kept here so the
-             existing fly-to-tray animation (.t15-icon img) works unchanged */
-          '<span class="t15-icon"><img src="' + (ICONS[item.categoryKey] || ICONS['cat-1']) + '" alt="" loading="lazy"></span>' +
-        '</div>' +
-        '<div class="t15-body">' +
-          '<div class="t15-meta">' +
-            '<span class="t15-cat">' + esc(CATEGORY_LABELS[item.categoryKey] || item.cat || '') + '</span>' +
-          '</div>' +
-          '<h3 class="t15-title">' + esc(item.title) + '</h3>' +
-          '<p class="t15-quote">' + esc(entry.hook) + '</p>' +
-          '<div class="t15-divider" aria-hidden="true"></div>' +
-          '<div class="t15-footer">' +
-            '<button type="button" class="t15-specs-btn" aria-expanded="false" aria-controls="' + panelId + '">' +
-              SVG_INFO + '<span class="t15-specs-label">Quick Specs</span>' + SVG_CHEVRON +
-            '</button>' +
-            '<button type="button" class="t15-wish" data-wishlist-key="' + esc(key) + '" aria-pressed="false" aria-label="Add ' + esc(item.title) + ' to wishlist">' +
-              SVG_PLUS + SVG_CHECK + SVG_HEART +
-            '</button>' +
-          '</div>' +
-          '<div class="t15-specs-panel" id="' + panelId + '" role="region" aria-label="Specifications for ' + esc(item.title) + '"><ul>' + specs + '</ul></div>' +
-        '</div>' +
-      '</article>';
-    }
-
-    grid.innerHTML = CURATED.map(cardMarkup).join('');
-
-    /* ---- flying AI badge icon -> wishlist tray (mirrors the site's v3.24 fly) ---- */
-    const reduceMotion = () => window.matchMedia &&
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    function trayTargetRect() {
-      const t = document.getElementById('wishlist-tray-btn');
-      if (t) {
-        const icon = t.querySelector('.wishlist-tray-icon');
-        const r = (icon || t).getBoundingClientRect();
-        if (r.width && r.height) return r;
+      // Prepend the ONLY extra element: the gold rank pill over the image.
+      const imgWrap = card.querySelector('.service-card-img-wrap');
+      if (imgWrap) {
+        imgWrap.style.position = 'relative';
+        const badge = document.createElement('span');
+        badge.className = 'catalog-rank-badge';
+        badge.setAttribute('aria-hidden', 'true');
+        badge.textContent = '#' + entry.rank + ' FAVOURITE';
+        imgWrap.insertBefore(badge, imgWrap.firstChild);
       }
-      // tray not painted yet (first add) -> its fixed bottom-right resting spot
-      return { left: window.innerWidth - 60, top: window.innerHeight - 60, width: 40, height: 40 };
-    }
+      grid.appendChild(card);
+    });
 
-    function bumpTray() {
-      const t = document.getElementById('wishlist-tray-btn');
-      if (!t) return;
-      t.classList.remove('hp-tray-bump');
-      void t.offsetWidth;
-      t.classList.add('hp-tray-bump');
-      setTimeout(() => t.classList.remove('hp-tray-bump'), 560);
-    }
-
-    function flyCardIcon(card) {
-      if (reduceMotion() || typeof Element.prototype.animate !== 'function') return;
-      const iconImg = card && card.querySelector('.t15-icon img');
-      if (!iconImg) return;
-      const f = iconImg.getBoundingClientRect();
-      const tr = trayTargetRect();
-      const sx = f.left + f.width / 2, sy = f.top + f.height / 2;
-      const ex = tr.left + tr.width / 2, ey = tr.top + tr.height / 2;
-      const dx = ex - sx, dy = ey - sy;
-
-      const wrap = document.createElement('span');
-      wrap.className = 't15-fly-icon';
-      wrap.setAttribute('aria-hidden', 'true');
-      wrap.style.left = sx + 'px';
-      wrap.style.top = sy + 'px';
-      wrap.style.width = f.width + 'px';
-      wrap.style.height = f.height + 'px';
-      const clone = document.createElement('img');
-      clone.src = iconImg.src;
-      clone.alt = '';
-      wrap.appendChild(clone);
-      document.body.appendChild(wrap);
-
-      const anim = wrap.animate([
-        { transform: 'translate(-50%, -50%) scale(1) rotate(0deg)', opacity: 1, offset: 0 },
-        { transform: 'translate(calc(-50% + ' + (dx * 0.5) + 'px), calc(-50% + ' + (dy * 0.42 - 70) + 'px)) scale(1.12) rotate(-8deg)', opacity: 1, offset: 0.5 },
-        { transform: 'translate(calc(-50% + ' + dx + 'px), calc(-50% + ' + dy + 'px)) scale(.3) rotate(10deg)', opacity: 0.15, offset: 1 }
-      ], { duration: 850, easing: 'cubic-bezier(.3, .7, .4, 1)', fill: 'forwards' });
-      anim.onfinish = () => { wrap.remove(); bumpTray(); };
-      anim.oncancel = () => wrap.remove();
-    }
-
-    /* reverse flight: badge clone travels tray -> card and "lands" with a pop */
-    function flyCardIconBack(card) {
-      if (reduceMotion() || typeof Element.prototype.animate !== 'function') return;
-      const iconImg = card && card.querySelector('.t15-icon img');
-      if (!iconImg) return;
-      const tr = trayTargetRect();
-      const f = iconImg.getBoundingClientRect();
-      const sx = tr.left + tr.width / 2, sy = tr.top + tr.height / 2;
-      const ex = f.left + f.width / 2, ey = f.top + f.height / 2;
-      const dx = ex - sx, dy = ey - sy;
-
-      const wrap = document.createElement('span');
-      wrap.className = 't15-fly-icon';
-      wrap.setAttribute('aria-hidden', 'true');
-      wrap.style.left = sx + 'px';
-      wrap.style.top = sy + 'px';
-      wrap.style.width = f.width + 'px';
-      wrap.style.height = f.height + 'px';
-      const clone = document.createElement('img');
-      clone.src = iconImg.src;
-      clone.alt = '';
-      wrap.appendChild(clone);
-      document.body.appendChild(wrap);
-
-      const anim = wrap.animate([
-        { transform: 'translate(-50%, -50%) scale(.3) rotate(10deg)', opacity: 0.25, offset: 0 },
-        { transform: 'translate(calc(-50% + ' + (dx * 0.5) + 'px), calc(-50% + ' + (dy * 0.42 - 70) + 'px)) scale(1.1) rotate(8deg)', opacity: 1, offset: 0.5 },
-        { transform: 'translate(calc(-50% + ' + dx + 'px), calc(-50% + ' + dy + 'px)) scale(1) rotate(0deg)', opacity: 1, offset: 1 }
-      ], { duration: 850, easing: 'cubic-bezier(.3, .7, .4, 1)', fill: 'forwards' });
-      anim.onfinish = () => {
-        wrap.remove();
-        iconImg.classList.remove('t15-land-pop');
-        void iconImg.offsetWidth;
-        iconImg.classList.add('t15-land-pop');
-        setTimeout(() => iconImg.classList.remove('t15-land-pop'), 520);
-      };
-      anim.oncancel = () => wrap.remove();
-    }
-
-    /* ---- Quick Specs accordion (inline; modals are disabled in this build) ---- */
-    grid.addEventListener('click', (ev) => {
-      const specsBtn = ev.target.closest('.t15-specs-btn');
-      if (specsBtn) {
-        const panel = document.getElementById(specsBtn.getAttribute('aria-controls'));
-        const open = specsBtn.getAttribute('aria-expanded') === 'true';
-        specsBtn.setAttribute('aria-expanded', String(!open));
-        if (panel) panel.style.maxHeight = open ? '0px' : (panel.scrollHeight + 24) + 'px';
-        return;
-      }
-
-      const wishBtn = ev.target.closest('.t15-wish');
-      if (wishBtn) {
-        const key = wishBtn.getAttribute('data-wishlist-key');
-        const willAdd = !wishBtn.classList.contains('is-active');
-        const card = wishBtn.closest('.t15-card');
-        if (typeof window.toggleWishlist === 'function') {
-          window.toggleWishlist(ev, key);          // shared storage / drawer / toast / form
-        }
-        const active = wishBtn.classList.contains('is-active');
-        if (card) card.classList.toggle('is-saved', active);
-        const item = catalogData[key];
-        wishBtn.setAttribute('aria-label',
-          (active ? 'Remove ' : 'Add ') + (item ? item.title : key) + (active ? ' from wishlist' : ' to wishlist'));
-
-        clearTimeout(wishBtn._t15PhaseTimer);
-        if (willAdd && active) {
-          /* +  ->  gold check (brief)  ->  pink heart (final) */
-          wishBtn.classList.add('is-checking');
-          wishBtn._t15PhaseTimer = setTimeout(() => wishBtn.classList.remove('is-checking'), 680);
-          /* wait two frames so the tray has painted before measuring its rect */
-          requestAnimationFrame(() => requestAnimationFrame(() => flyCardIcon(card)));
-        } else if (!willAdd && !active) {
-          /* symmetric removal: pink heart -> gold check (brief) -> plus,
-             while the badge flies back from the tray into this card */
-          wishBtn.classList.add('is-checking');
-          wishBtn._t15PhaseTimer = setTimeout(() => wishBtn.classList.remove('is-checking'), 680);
-          requestAnimationFrame(() => requestAnimationFrame(() => flyCardIconBack(card)));
-        }
+    // Restore catalog entries so other grids aren't affected.
+    CURATED.forEach(entry => {
+      const item = catalogData[entry.key];
+      if (!item) return;
+      if (savedShortDesc[entry.key] === undefined) {
+        delete item.shortDesc;
+      } else {
+        item.shortDesc = savedShortDesc[entry.key];
       }
     });
 
-    /* ---- reflect any pre-existing wishlist state on first paint ---- */
-    function syncInitial() {
-      if (typeof window.syncWishlistButtons === 'function') window.syncWishlistButtons();
-      grid.querySelectorAll('.t15-wish').forEach((btn) => {
-        const card = btn.closest('.t15-card');
-        if (card) card.classList.toggle('is-saved', btn.classList.contains('is-active'));
-      });
-    }
-    syncInitial();
+    // Sync wishlist state with the site drawer (buttons are wired via the
+    // same onclick="toggleWishlist(...)" that createCatalogCard installs, so
+    // the drawer + flying-heart system just works — nothing to duplicate).
+    if (window.syncWishlistButtons) window.syncWishlistButtons();
 
-    /* ---- staggered scroll-in animation ---- */
-    if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach((en) => { if (en.isIntersecting) { grid.classList.add('is-inview'); io.disconnect(); } });
-      }, { threshold: 0.08 });
-      io.observe(grid);
-    } else {
+    // Reveal-on-scroll: the IntersectionObserver already watches .t15-grid
+    // via the site's standard section IO. If not observed yet (rare), fall
+    // back to our own reveal so badges appear immediately.
+    const reduceMotion = () => window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotion()) {
       grid.classList.add('is-inview');
+    } else if (!grid.classList.contains('is-inview')) {
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach(e => { if (e.isIntersecting) { grid.classList.add('is-inview'); io.disconnect(); } });
+        }, { threshold: 0.08 });
+        io.observe(grid);
+      } else {
+        grid.classList.add('is-inview');
+      }
     }
   })();
-  </script>
+    </script>
 
   <!-- v3.28 — main catalogue (100 cards) reverse flight: a pink heart flies
        OUT of the wishlist tray back to the card being removed. The existing
@@ -16740,66 +16381,6 @@ delete window.intlTelInputUtilsTemp;
   })();
   </script>
 
-  <script>
-  (function () {
-    const wrap = document.getElementById('ts-wrap');
-    if (!wrap) return;
-    const track = document.getElementById('ts-track');
-    const slides = track ? track.querySelectorAll('.ts-slide') : [];
-    const dotsWrap = document.getElementById('ts-dots');
-    const prev = document.getElementById('ts-prev');
-    const next = document.getElementById('ts-next');
-    if (slides.length < 2) return;
-    const reduce = window.matchMedia &&
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    let index = 0;
-    let timer = null;
-
-    slides.forEach((_, i) => {
-      const dot = document.createElement('button');
-      dot.type = 'button';
-      dot.className = 'ts-dot' + (i === 0 ? ' is-active' : '');
-      dot.setAttribute('role', 'tab');
-      dot.setAttribute('aria-label', 'Go to testimonial ' + (i + 1));
-      dot.addEventListener('click', () => { goTo(i); restart(); });
-      dotsWrap.appendChild(dot);
-    });
-    const dots = dotsWrap.querySelectorAll('.ts-dot');
-
-    function render() {
-      track.style.transform = 'translateX(-' + (index * 100) + '%)';
-      dots.forEach((d, i) => d.classList.toggle('is-active', i === index));
-    }
-    function goTo(i) {
-      index = (i + slides.length) % slides.length;
-      render();
-    }
-    function restart() {
-      if (reduce || !window.requestAnimationFrame) return;
-      if (timer) clearInterval(timer);
-      timer = setInterval(() => goTo(index + 1), 6500);
-    }
-    prev.addEventListener('click', () => { goTo(index - 1); restart(); });
-    next.addEventListener('click', () => { goTo(index + 1); restart(); });
-    wrap.addEventListener('mouseenter', () => timer && clearInterval(timer));
-    wrap.addEventListener('mouseleave', restart);
-    wrap.addEventListener('focusin', () => timer && clearInterval(timer));
-    wrap.addEventListener('focusout', restart);
-
-    /* touch swipe */
-    let startX = null;
-    track.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; }, { passive: true });
-    track.addEventListener('touchend', (e) => {
-      if (startX === null) return;
-      const dx = e.changedTouches[0].clientX - startX;
-      if (Math.abs(dx) > 42) { goTo(index + (dx < 0 ? 1 : -1)); restart(); }
-      startX = null;
-    }, { passive: true });
-
-    render();
-    restart();
-  })();
-  </script>
 
   <script>
   (function () {
@@ -16870,13 +16451,10 @@ delete window.intlTelInputUtilsTemp;
       '#why-choose .wc-card',
       '#our-process .section-header-center',
       '#happy-meeting .section-header-center',
-      '#testimonials .section-header-center',
-      '#testimonials .ts-card',
       '#hp3-faq .section-header-center',
       '.hp3-faq-item',
       '.hp3-cta',
       '#contact .section-header-center',
-      '#plan-band .plan-col'
     ];
     var targets = [];
     SELECTORS.forEach(function (sel) {
@@ -16889,10 +16467,6 @@ delete window.intlTelInputUtilsTemp;
     /* gentle stagger inside card groups */
     document.querySelectorAll('#why-choose .wc-card, .hp3-faq-item').forEach(function (el, i) {
       el.style.transitionDelay = Math.min(i, 5) * 80 + 'ms';
-    });
-    /* plan-band columns: quote first, conversion column a beat later */
-    document.querySelectorAll('#plan-band .plan-col').forEach(function (el, i) {
-      el.style.transitionDelay = (i * 140) + 'ms';
     });
     if (reduce || !('IntersectionObserver' in window) ||
         !window.requestAnimationFrame) {
@@ -17023,5 +16597,5 @@ delete window.intlTelInputUtilsTemp;
     window.addEventListener('resize', onResize, { passive: true });
   })();
   </script>
-<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a51c17951998dae3',t:'MTc5MzIxMzA2OQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
