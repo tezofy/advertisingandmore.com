@@ -7491,13 +7491,15 @@
 <style id="round6-cream-hero">
   :root{--cream:#F7EDDC;--gold:#F6C927;--gold-deep:#D9A815;--navy:#0B1E3F;--slate:#66748F;--eyebrow-red:#FF7A6E;}
   body{background-color:var(--cream);}
-  .site-header{background:var(--cream)!important;border-bottom-color:rgba(11,30,63,.08)!important;box-shadow:0 4px 20px rgba(11,30,63,.06)!important;}
-  .site-header .brand-logo .name{color:var(--navy)!important;}
-  .site-header .brand-logo .subtitle{color:rgba(11,30,63,.6)!important;}
-  .site-header .nav-link{color:var(--slate)!important;}
-  .site-header .nav-link:hover,.site-header .nav-link.active{color:var(--navy)!important;}
-  .site-header .mobile-menu-btn{color:var(--navy)!important;}
-  .site-header .nav-badge-pill{background:rgba(246,201,39,.22)!important;color:#8a5a10!important;}
+  /* Header keeps its original royal blue (matches footer #0049A8) */
+  .site-header{background:var(--color-primary)!important;border-bottom:1px solid rgba(247,237,220,.25)!important;box-shadow:0 4px 20px rgba(7,42,90,.22)!important;}
+  .site-header .brand-logo .name{color:#fff!important;}
+  .site-header .brand-logo .subtitle{color:rgba(255,255,255,.7)!important;}
+  .site-header .nav-link{color:#DCE6F5!important;}
+  .site-header .nav-link:hover,.site-header .nav-link.active{color:#fff!important;}
+  .site-header .mobile-menu-btn{color:#fff!important;}
+  .site-header .nav-badge-pill{background:rgba(255,206,27,.26)!important;color:#FFE88C!important;}
+  .brand-logo .mark{background:#fff!important;}
 
   #hero.hero-cream{position:relative;background:var(--cream);padding:clamp(28px,5vw,72px) 0 clamp(38px,5vw,64px);min-height:0;overflow:hidden;}
   #hero.hero-cream .hero-cream-inner{position:relative;max-width:1280px;margin:0 auto;padding:0 20px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:clamp(220px,28vw,320px);text-align:center;z-index:2;}
@@ -7562,21 +7564,27 @@
     #hero.hero-cream{padding:16px 0 24px;}
     #hero.hero-cream .hero-cream-inner{min-height:auto;padding:18px 16px 0;}
     #hero.hero-cream .cream-eyebrow{
-      font-size:11px;
-      padding:9px 96px 9px 16px;gap:7px;margin:60px 0 14px 0;
+      font-size:12.8px;
+      padding:10px 22px;gap:8px;margin:18px 0 18px 0;
       white-space:nowrap;
       align-self:center;
       line-height:1;
-      max-width:calc(100% - 16px);
+      max-width:none;
     }
-    #hero.hero-cream .cream-eyebrow::before{width:7px;height:7px;}
+    #hero.hero-cream .cream-eyebrow::before{width:8px;height:8px;}
     #hero.hero-cream .btn-coffee-pill.hero-coffee{width:260px;height:50px;padding:9px 22px 9px 78px;font-size:15.2px;}
     #hero.hero-cream .btn-coffee-pill.hero-coffee img.coffee-cup-badge{width:82px;height:82px;left:-12px;top:-24px;}
-    #hero.hero-cream .hero-deco-cup.cup-a{top:88px;left:6px;width:36px;}
+    #hero.hero-cream .hero-deco-cup.cup-a{display:none;}
     #hero.hero-cream .hero-deco-cup.cup-b{display:none;}
-    #hero.hero-cream .hero-deco-martini{top:148px;right:6px;width:34px;}
+    #hero.hero-cream .hero-deco-martini{display:none;}
     #hero.hero-cream .hero-deco-redwine{display:none;}
-    #hero.hero-cream .hero-badge{position:absolute;top:0;right:0;transform:scale(.42);--b-scale:.42;margin:0;transform-origin:top right;}
+    /* Mobile: badge lives in normal flow, centered ABOVE the eyebrow pill (like advertisingandmore.com) */
+    #hero.hero-cream .hero-badge{
+      position:static;
+      transform:scale(.78);
+      --b-scale:.78;
+      margin:0 auto 4px;
+    }
     #hero.hero-cream .badge-success{width:146px;height:146px;margin:0;}
     #hero.hero-cream .badge-success .seal-core{width:110px;height:110px;}
     #hero.hero-cream .badge-success .seal-100{font-size:2.25rem;}
@@ -8799,6 +8807,28 @@
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Party services and event rentals by Advertising & More">
   <meta name="twitter:image" content="assets/img/og-image.jpg">
+<style id="branson-quote-css">
+  /* v6.7d Richard Branson quote — placed below trusted-brands band, avatar lives cleanly inside the white card */
+  .branson-section{background:var(--cream);padding:56px 0 16px;position:relative;}
+  .branson-card{width:640px;max-width:calc(100vw - 32px);margin:0 auto;background:#fff;border:1px solid #F2E6CE;border-radius:32px;padding:38px 44px 40px;display:flex;flex-direction:column;align-items:center;position:relative;box-sizing:border-box;box-shadow:0 10px 30px rgba(11,30,63,.06);}
+  .branson-avatar-wrap{width:100%;display:flex;justify-content:center;margin-bottom:14px;}
+  .branson-avatar{width:200px;height:200px;border-radius:50%;border:5px solid #fff;box-shadow:0 12px 28px rgba(11,30,63,.16);object-fit:cover;object-position:center top;display:block;max-width:100%;}
+  .branson-q-open,.branson-q-close{display:block;height:42px;width:auto;margin:0 auto;}
+  .branson-q-close{height:40px;margin-top:2px;}
+  .branson-quote-text{font:500 30px/1.35 Fraunces,Georgia,serif;color:#0B1E3F;text-align:center;margin:14px 0 4px;padding:0;width:100%;}
+  .branson-quote-text b{font-weight:700;color:#0B1E3F;}
+  .branson-attrib{font:500 62px/1.2 "Alex Brush","Great Vibes",cursive;color:#20304D;text-align:center;margin:4px 0 0;width:100%;white-space:nowrap;letter-spacing:.4px;}
+  @media (max-width:640px){
+    .branson-section{padding:24px 0 4px;}
+    .branson-card{padding:28px 22px 30px;border-radius:26px;}
+    .branson-avatar-wrap{margin-bottom:10px;}
+    .branson-avatar{width:150px;height:150px;}
+    .branson-q-open,.branson-q-close{height:30px;}
+    .branson-quote-text{font-size:21px;line-height:1.4;margin:10px 0 2px;}
+    .branson-attrib{font-size:42px;line-height:1.15;margin-top:2px;white-space:normal;}
+  }
+</style>
+
 </head>
 <body>
 
@@ -8900,7 +8930,6 @@
   <ellipse cx="55" cy="162" rx="32" ry="6" fill="url(#rwGlass)" stroke="#C2D1E5" stroke-width="1.5"/>
   <ellipse cx="55" cy="160" rx="28" ry="3" fill="#fff" opacity=".35"/>
 </svg>
-    <div class="hero-badge"><div class="badge-success"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="#f2d27a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l6 6L20 6"></path></svg></span><div class="seal-core"><div class="seal-100">100<span>%</span></div><div class="seal-txt">Success Rate</div></div></div></div>
     <svg class="hb-defs" width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
       <defs>
         <linearGradient id="hbGold" x1="0" y1="0" x2="0" y2="1">
@@ -8911,6 +8940,7 @@
     </svg>
 
     <div class="hero-cream-inner">
+      <div class="hero-badge"><div class="badge-success"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="#f2d27a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l6 6L20 6"></path></svg></span><div class="seal-core"><div class="seal-100">100<span>%</span></div><div class="seal-txt">Success Rate</div></div></div></div>
       <span class="cream-eyebrow">Everything you need, under one roof.</span>
 
       <h1 class="hb-wordmark" id="hb-wordmark" aria-label="Party Services &amp; Rentals">
@@ -8968,8 +8998,7 @@
 
   <!-- ==========================================================================
        v3.26 — TRUSTED BY / CLIENT LOGOS (brands shown on advertisingandmore.com)
-       ========================================================================== -->
-  <section class="hp-trusted" id="trusted-brands" aria-label="Trusted by these brands">
+       ========================================================================== -->  <section class="hp-trusted" id="trusted-brands" aria-label="Trusted by these brands">
     <div class="hp-trusted-head">
       <span class="hp-trusted-eyebrow">Trusted by these brands, &amp; more&hellip;</span>
     </div>
@@ -9113,52 +9142,24 @@
 
 
   
-  <section class="am-quote" aria-label="Richard Branson on aiming for amazing">
-    <div class="am-quote__card">
-      <span class="am-quote__mark" aria-hidden="true">&ldquo;</span>
-      <blockquote class="am-quote__text">
-        Don&rsquo;t think what&rsquo;s the cheapest way to do it or what&rsquo;s the fastest way to do it.
-        Think, what&rsquo;s the most amazing way to do it?
-      </blockquote>
-      <div class="am-quote__by">Sir Richard Branson</div>
-      <div class="am-quote__role">As featured on advertisingandmore.com</div>
-    </div>
-  </section>
-
-  <style id="am-quote-css">
-    .am-quote { max-width: 980px; margin: 0 auto; padding: 30px 24px 8px; }
-    .am-quote__card {
-      position: relative; background: #FFFFFF; border: 1px solid var(--color-border);
-      border-radius: 22px; padding: 44px 48px 38px; text-align: center;
-      box-shadow: 0 10px 28px rgba(11, 30, 63, .06);
-    }
-    .am-quote__mark {
-      position: absolute; top: 6px; left: 34px;
-      font-family: "Fraunces", Georgia, serif; font-size: 5.2rem; line-height: 1;
-      color: var(--color-accent-gold); opacity: .85;
-    }
-    .am-quote__text {
-      margin: 0; font-family: "Fraunces", Georgia, serif;
-      font-size: 1.32rem; line-height: 1.7; font-style: italic;
-      color: var(--color-text-dark);
-    }
-    .am-quote__by {
-      margin-top: 20px; font-weight: 700; font-size: 1.02rem;
-      color: var(--color-primary); letter-spacing: .02em;
-    }
-    .am-quote__role { margin-top: 4px; font-size: 0.8rem; color: var(--color-text-light); }
-    @media (max-width: 640px) {
-      .am-quote__card { padding: 34px 22px 28px; }
-      .am-quote__mark { font-size: 3.6rem; left: 18px; }
-      .am-quote__text { font-size: 1.06rem; }
-    }
-  </style>
-
   <!-- ==========================================================================
        v3.31 — WHY CHOOSE US (trust: why brands rely on Advertising & More)
        Sits between the trusted-brands marquee and the Top 15 band.
-       ========================================================================== -->
-  <section class="hp2-why" id="why-choose" aria-labelledby="why-choose-heading">
+       ========================================================================== -->  
+
+<section class="branson-section" id="bransonQuote" aria-label="Richard Branson quote">
+  <div class="branson-card">
+    <div class="branson-avatar-wrap">
+      <img class="branson-avatar" loading="lazy" decoding="async" alt="Sir Richard Branson" src="assets/quote/branson.png" width="200" height="200">
+    </div>
+    <img class="branson-q-open" loading="lazy" decoding="async" alt="" src="assets/quote/quote-open.png" width="88" height="69">
+    <h2 class="branson-quote-text">Don't think what's the <b>CHEAPEST</b> way to do it or what's the <b>FASTEST</b> way to do it. Think, what's the <b>MOST AMAZING</b> way to do it?</h2>
+    <img class="branson-q-close" loading="lazy" decoding="async" alt="" src="assets/quote/quote-close.png" width="83" height="63">
+    <p class="branson-attrib">— Richard Branson —</p>
+  </div>
+</section>
+
+<section class="hp2-why" id="why-choose" aria-labelledby="why-choose-heading">
     <div class="container">
       <div class="section-header-center">
         <div class="hd-eyebrow"><span class="line"></span><span>Why Choose Advertising &amp; More</span></div>
@@ -9415,8 +9416,9 @@
           <span>Our 15 Favourites</span>
         </div>
         <h2 class="heading-display" id="t15-heading">
-          Start with the crowd <span class="text-gold">pleasers</span>
+          Pick your kind of <span class="text-gold">WOW</span>
         </h2>
+        <p class="t15-heading-sub" style="margin:10px auto 0;max-width:720px;text-align:center;font-family:var(--font-body,Poppins),sans-serif;font-size:clamp(0.95rem,1.2vw,1.1rem);font-weight:500;color:#5A7089;line-height:1.45;">inspired by this submission</p>
       </div>
 
       <div class="t15-grid" id="t15-grid">
@@ -10440,8 +10442,7 @@
   </script>
 </section>  <!-- ==========================================================================
        OUR SERVICES SECTION (100% ORGANIZED BY 10 CHATGPT CATEGORIES)
-       ========================================================================== -->
-  <section class="services-section" id="services">
+       ========================================================================== -->  <section class="services-section" id="services">
     <div class="container">
       
       <div class="section-header-center">
@@ -11122,73 +11123,7 @@
       .op-text { animation: none !important; opacity: 1 !important; transform: none !important; }
     }
   </style>
-<!-- ==========================================================================
-       v3.35 — FAQ (objection handling + SEO), sits just before Testimonials
-       ========================================================================== -->
-  <section class="hp3-faq-section" id="hp3-faq" aria-labelledby="hp3-faq-heading">
-    <div class="container">
-      <div class="section-header-center">
-        <div class="hd-eyebrow"><span class="line"></span><span>Questions, Answered</span></div>
-        <h2 class="heading-display" id="hp3-faq-heading">Everything Before You <span class="text-gold">Book.</span></h2>
-      </div>
-      <div class="hp3-faq-list">
-        <div class="hp3-faq-item">
-          <h3 class="hp3-faq-q-wrap">
-            <button type="button" class="hp3-faq-q" aria-expanded="false">
-              <span>How early should we book our event?</span>
-              <svg class="hp3-faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
-            </button>
-          </h3>
-          <div class="hp3-faq-a"><p>Peak dates — year-end dinners, weddings and product launches — fill up six to ten weeks ahead, so earlier is always better. Send us your date and we will confirm availability within one business day, and we always do our best to accommodate shorter timelines.</p></div>
-        </div>
-        <div class="hp3-faq-item">
-          <h3 class="hp3-faq-q-wrap">
-            <button type="button" class="hp3-faq-q" aria-expanded="false">
-              <span>Do you handle delivery, setup and teardown?</span>
-              <svg class="hp3-faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
-            </button>
-          </h3>
-          <div class="hp3-faq-a"><p>Yes. Every rental includes delivery, professional on-site setup and full teardown by our own crew, so your team never lifts a box. A dedicated coordinator stays reachable from the first briefing until the final photo.</p></div>
-        </div>
-        <div class="hp3-faq-item">
-          <h3 class="hp3-faq-q-wrap">
-            <button type="button" class="hp3-faq-q" aria-expanded="false">
-              <span>Can rentals and booths be customised with our branding?</span>
-              <svg class="hp3-faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
-            </button>
-          </h3>
-          <div class="hp3-faq-a"><p>Absolutely. As a full-service creative agency we offer agency-level branding — custom backdrops, printed props, branded photo templates, LED wraps and activations tailored to your campaign guidelines, all previewed before the event.</p></div>
-        </div>
-        <div class="hp3-faq-item">
-          <h3 class="hp3-faq-q-wrap">
-            <button type="button" class="hp3-faq-q" aria-expanded="false">
-              <span>What kind of budgets do you work with?</span>
-              <svg class="hp3-faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
-            </button>
-          </h3>
-          <div class="hp3-faq-a"><p>From intimate team celebrations to multi-zone corporate activations, every proposal is built around your goals and itemised line by line. You approve a transparent quote before anything is confirmed — no hidden fees, no surprise add-ons.</p></div>
-        </div>
-        <div class="hp3-faq-item">
-          <h3 class="hp3-faq-q-wrap">
-            <button type="button" class="hp3-faq-q" aria-expanded="false">
-              <span>Where do you operate?</span>
-              <svg class="hp3-faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
-            </button>
-          </h3>
-          <div class="hp3-faq-a"><p>We are headquartered in Kuala Lumpur and serve events across Peninsular Malaysia, with regional delivery for clients in Singapore and beyond. The first consultation is free and can run online from anywhere in the world.</p></div>
-        </div>
-        <div class="hp3-faq-item">
-          <h3 class="hp3-faq-q-wrap">
-            <button type="button" class="hp3-faq-q" aria-expanded="false">
-              <span>What if our plans change or the event is postponed?</span>
-              <svg class="hp3-faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
-            </button>
-          </h3>
-          <div class="hp3-faq-a"><p>Plans move, and we plan for that. Packages can be rescheduled with flexible date transfers, and your coordinator will walk you through the options quickly so neither the budget nor the experience is lost.</p></div>
-        </div>
-      </div>
-    </div>
-  </section><section class="hp-showcase" id="happy-meeting" aria-labelledby="hp-showcase-drinks-heading">
+<section class="hp-showcase" id="happy-meeting" aria-labelledby="hp-showcase-drinks-heading">
     <div class="hp-showcase__inner">
       <div class="hp-showcase__body">
         <div class="hp-showcase__eyebrow">
@@ -11297,6 +11232,30 @@
           Let’s plan your event <span class="text-gold">over coffee.</span>
         </h2>
       </div>
+<style id="enquiry-event-fields-css">
+  .homepage-form-row.homepage-event-row .homepage-field-wrap{display:flex;flex-direction:column;gap:10px;}
+  .homepage-fieldset-legend{display:flex;align-items:center;gap:10px;margin:18px 0 6px;font-family:var(--font-body,Poppins),sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#8a5a10;}
+  .homepage-fieldset-legend::before,.homepage-fieldset-legend::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(213,160,33,.35),transparent);}
+  .homepage-occasion-wrap{display:flex;flex-direction:column;gap:10px;}
+  .homepage-occasion-wrap .homepage-input-other{display:none !important;width:100%;padding:12px 14px;font-family:inherit;font-size:15px;background:#fff;border:1.5px solid rgba(11,30,63,.12);border-radius:12px;color:#0B1E3F;transition:border-color .2s,box-shadow .2s;}
+  .homepage-occasion-wrap.has-other .homepage-input-other{display:block !important;}
+  .homepage-input-other:focus{outline:none;border-color:#D5A021;box-shadow:0 0 0 3px rgba(246,201,39,.18);}
+  .homepage-date-mode{display:flex;gap:6px;margin-bottom:8px;flex-wrap:wrap;}
+  .homepage-date-mode label{display:inline-flex;align-items:center;gap:6px;padding:7px 13px;border-radius:999px;border:1.5px solid rgba(11,30,63,.15);background:#fff;font-family:var(--font-body,Poppins),sans-serif;font-size:12.5px;font-weight:600;color:#5A7089;cursor:pointer;transition:all .2s;user-select:none;}
+  .homepage-date-mode label:has(input:checked){background:linear-gradient(180deg,#FCD34D,#F6C927);border-color:#D5A021;color:#0B1E3F;box-shadow:0 4px 10px rgba(213,168,21,.25);}
+  .homepage-date-pane{display:none;}
+  .homepage-date-pane.is-active{display:block;}
+  .homepage-date-pane input[type=date],.homepage-date-pane select{width:100%;padding:12px 14px;font-family:inherit;font-size:15px;background:#fff;border:1.5px solid rgba(11,30,63,.12);border-radius:12px;color:#0B1E3F;transition:border-color .2s,box-shadow .2s;}
+  .homepage-date-pane input[type=date]:focus,.homepage-date-pane select:focus{outline:none;border-color:#D5A021;box-shadow:0 0 0 3px rgba(246,201,39,.18);}
+  .homepage-venue-row{display:flex;gap:10px;align-items:stretch;}
+  .homepage-venue-row .homepage-input{flex:1;}
+  .homepage-venue-toggle{display:inline-flex;align-items:center;gap:8px;padding:0 16px;border-radius:12px;border:1.5px solid rgba(11,30,63,.12);background:#fff;font-family:var(--font-body,Poppins),sans-serif;font-size:13px;font-weight:600;color:#5A7089;cursor:pointer;white-space:nowrap;transition:all .2s;}
+  .homepage-venue-toggle:has(input:checked){background:linear-gradient(180deg,#FCD34D,#F6C927);border-color:#D5A021;color:#0B1E3F;box-shadow:0 4px 10px rgba(213,168,21,.25);}
+  .homepage-venue-row.is-no-venue .homepage-input{background:#F5F1E5;color:#9aa7bb;cursor:not-allowed;}
+  .homepage-label .req{color:#E2503A;margin-left:2px;}
+  @media (max-width:700px){.homepage-venue-row{flex-direction:column;}.homepage-venue-toggle{justify-content:center;padding:10px 14px;}}
+</style>
+
       <div class="homepage-form-card">
         <form id="homepage-contact-form" novalidate>
           <div class="homepage-form-row">
@@ -11915,6 +11874,128 @@
             </div>
           </div>
 
+          <div class="homepage-fieldset-legend">About Your Event</div>
+
+          <div class="homepage-form-row homepage-event-row" id="homepageOccasionRow">
+            <div class="homepage-label-wrap">
+              <label class="homepage-label" for="homepageOccasion">The Occasion<span class="req" aria-hidden="true">*</span></label>
+            </div>
+            <div class="homepage-field-wrap">
+              <div class="homepage-occasion-wrap" id="homepageOccasionWrap">
+                <div class="homepage-field-wrap homepage-select-wrap" style="margin:0;">
+                  <select class="homepage-select" id="homepageOccasion" name="select-occasion" required>
+                    <option value="" selected>Select the occasion</option>
+                    <optgroup label="Corporate &amp; Business">
+                      <option value="Annual Dinner / D&amp;D">Annual Dinner / D&amp;D</option>
+                      <option value="Family Day">Family Day</option>
+                      <option value="Product Launch">Product Launch</option>
+                      <option value="Conference / Seminar">Conference / Seminar</option>
+                      <option value="Team Building">Team Building</option>
+                      <option value="Corporate Retreat / Incentive Trip">Corporate Retreat / Incentive Trip</option>
+                      <option value="Roadshow / Mobile Activation">Roadshow / Mobile Activation</option>
+                      <option value="Trade Show / Exhibition Booth">Trade Show / Exhibition Booth</option>
+                      <option value="Award / Gala Night">Award / Gala Night</option>
+                      <option value="CSR / Community Event">CSR / Community Event</option>
+                    </optgroup>
+                    <optgroup label="Celebrations &amp; Parties">
+                      <option value="Wedding Reception">Wedding Reception</option>
+                      <option value="Birthday Party">Birthday Party</option>
+                      <option value="Engagement / ROM">Engagement / ROM</option>
+                      <option value="Baby Shower / Full Moon">Baby Shower / Full Moon</option>
+                      <option value="Graduation Party">Graduation Party</option>
+                      <option value="Themed Party">Themed Party</option>
+                    </optgroup>
+                    <optgroup label="Experiences">
+                      <option value="Carnival / Fun Fair">Carnival / Fun Fair</option>
+                      <option value="Concert / Live Performance">Concert / Live Performance</option>
+                      <option value="Festival">Festival</option>
+                      <option value="Sports Event / Tournament">Sports Event / Tournament</option>
+                    </optgroup>
+                    <option value="Other">Other (tell us below)</option>
+                  </select>
+                  <svg class="homepage-select-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+                <input class="homepage-input homepage-input-other" id="homepageOccasionOther" name="text-occasion-other" type="text" placeholder="Tell us what other service/occasion you need…" disabled>
+              </div>
+            </div>
+          </div>
+
+          <div class="homepage-form-row homepage-event-row" id="homepageEventDateRow">
+            <div class="homepage-label-wrap">
+              <label class="homepage-label" for="homepageEventDate">Event Date<span class="req" aria-hidden="true">*</span></label>
+            </div>
+            <div class="homepage-field-wrap">
+              <div class="homepage-date-mode" role="radiogroup" aria-label="Date entry mode">
+                <label><input type="radio" name="date-mode" value="date" checked><span>Exact date</span></label>
+                <label><input type="radio" name="date-mode" value="month"><span>Specific month</span></label>
+              </div>
+              <div class="homepage-date-pane is-active" id="homepageDatePane">
+                <input type="date" id="homepageEventDate" name="date-event" required>
+              </div>
+              <div class="homepage-date-pane" id="homepageMonthPane">
+                <select id="homepageEventMonth" name="select-event-month" disabled>
+                  <option value="" selected>Pick a month</option>
+                  <option value="January 2026">January 2026</option>
+                  <option value="February 2026">February 2026</option>
+                  <option value="March 2026">March 2026</option>
+                  <option value="April 2026">April 2026</option>
+                  <option value="May 2026">May 2026</option>
+                  <option value="June 2026">June 2026</option>
+                  <option value="July 2026">July 2026</option>
+                  <option value="August 2026">August 2026</option>
+                  <option value="September 2026">September 2026</option>
+                  <option value="October 2026">October 2026</option>
+                  <option value="November 2026">November 2026</option>
+                  <option value="December 2026">December 2026</option>
+                  <option value="January 2027">January 2027</option>
+                  <option value="February 2027">February 2027</option>
+                  <option value="March 2027">March 2027</option>
+                  <option value="April 2027">April 2027</option>
+                  <option value="May 2027">May 2027</option>
+                  <option value="June 2027">June 2027</option>
+                  <option value="Not sure yet / TBC">Not sure yet / TBC</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="homepage-form-row homepage-event-row" id="homepageGuestsRow">
+            <div class="homepage-label-wrap">
+              <label class="homepage-label" for="homepageGuests">Number of Guests<span class="req" aria-hidden="true">*</span></label>
+            </div>
+            <div class="homepage-field-wrap homepage-select-wrap">
+              <select class="homepage-select" id="homepageGuests" name="select-guests" required>
+                <option value="" selected>Select guest count</option>
+                <option value="Under 50 (intimate)">Under 50 (intimate)</option>
+                <option value="50 – 100">50 – 100</option>
+                <option value="101 – 200">101 – 200</option>
+                <option value="201 – 350">201 – 350</option>
+                <option value="351 – 500">351 – 500</option>
+                <option value="501 – 1,000">501 – 1,000</option>
+                <option value="1,001 – 2,500">1,001 – 2,500</option>
+                <option value="2,501 – 5,000">2,501 – 5,000</option>
+                <option value="5,000+ (large-scale activation)">5,000+ (large-scale activation)</option>
+                <option value="Not sure yet">Not sure yet</option>
+              </select>
+              <svg class="homepage-select-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+          </div>
+
+          <div class="homepage-form-row homepage-event-row" id="homepageVenueRow">
+            <div class="homepage-label-wrap">
+              <label class="homepage-label" for="homepageVenue">Venue</label>
+            </div>
+            <div class="homepage-field-wrap">
+              <div class="homepage-venue-row" id="homepageVenueRowInner">
+                <input class="homepage-input" id="homepageVenue" name="text-venue" type="text" placeholder="Venue name or address (leave blank if you don&apos;t have one yet)">
+                <label class="homepage-venue-toggle">
+                  <input type="checkbox" id="homepageNoVenue" name="checkbox-no-venue" value="No Venue Yet">
+                  <span>No venue yet</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
           <div class="homepage-form-row">
             <div class="homepage-label-wrap">
               <label class="homepage-label" for="homepageEmail">Your Work Email Address</label>
@@ -11974,6 +12055,19 @@
           </button>
           <p class="homepage-form-status" id="homepageFormStatus" role="status" aria-live="polite" hidden></p>
         </form>
+
+<script id="enquiry-event-fields-js">
+(function(){
+  const occ=document.getElementById('homepageOccasion'),occOther=document.getElementById('homepageOccasionOther'),occWrap=document.getElementById('homepageOccasionWrap');
+  if(occ&&occOther){function syncOcc(){const o=occ.value==='Other';occWrap.classList.toggle('has-other',o);occOther.disabled=!o;occOther.required=o;if(!o)occOther.value='';}occ.addEventListener('change',syncOcc);syncOcc();}
+  const datePane=document.getElementById('homepageDatePane'),monthPane=document.getElementById('homepageMonthPane'),dateInput=document.getElementById('homepageEventDate'),monthInput=document.getElementById('homepageEventMonth'),radios=document.querySelectorAll('input[name="date-mode"]');
+  function syncDate(){const m=(document.querySelector('input[name="date-mode"]:checked')||{}).value||'date';const d=m==='date';datePane.classList.toggle('is-active',d);monthPane.classList.toggle('is-active',!d);dateInput.disabled=!d;monthInput.disabled=d;dateInput.required=d;monthInput.required=!d;if(!d)dateInput.value='';if(d)monthInput.value='';}
+  radios.forEach(r=>r.addEventListener('change',syncDate));syncDate();
+  const noV=document.getElementById('homepageNoVenue'),vI=document.getElementById('homepageVenue'),vR=document.getElementById('homepageVenueRowInner');
+  if(noV&&vI){function syncV(){const o=noV.checked;vR.classList.toggle('is-no-venue',o);vI.disabled=o;if(o){vI.value='';vI.placeholder='No venue yet — we can suggest venues!';}else{vI.placeholder='Venue name or address (leave blank if you don\'t have one yet)';}}noV.addEventListener('change',syncV);syncV();}
+})();
+</script>
+
       </div>
     </div>
   </section>
@@ -11982,6 +12076,79 @@
        SINGLE CLIENT TESTIMONIAL — Dentsu quote placed immediately after the
        contact form and immediately before the footer, per client request.
        ========================================================================== -->
+
+  <!-- ==========================================================================
+       FAQ — moved below Start Your Enquiry per request
+       ========================================================================== -->
+<!-- ==========================================================================
+       v3.35 — FAQ (objection handling + SEO), sits just before Testimonials
+       ========================================================================== -->
+  <section class="hp3-faq-section" id="hp3-faq" aria-labelledby="hp3-faq-heading">
+    <div class="container">
+      <div class="section-header-center">
+        <div class="hd-eyebrow"><span class="line"></span><span>Questions, Answered</span></div>
+        <h2 class="heading-display" id="hp3-faq-heading">Everything Before You <span class="text-gold">Book.</span></h2>
+      </div>
+      <div class="hp3-faq-list">
+        <div class="hp3-faq-item">
+          <h3 class="hp3-faq-q-wrap">
+            <button type="button" class="hp3-faq-q" aria-expanded="false">
+              <span>How early should we book our event?</span>
+              <svg class="hp3-faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+          </h3>
+          <div class="hp3-faq-a"><p>Peak dates — year-end dinners, weddings and product launches — fill up six to ten weeks ahead, so earlier is always better. Send us your date and we will confirm availability within one business day, and we always do our best to accommodate shorter timelines.</p></div>
+        </div>
+        <div class="hp3-faq-item">
+          <h3 class="hp3-faq-q-wrap">
+            <button type="button" class="hp3-faq-q" aria-expanded="false">
+              <span>Do you handle delivery, setup and teardown?</span>
+              <svg class="hp3-faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+          </h3>
+          <div class="hp3-faq-a"><p>Yes. Every rental includes delivery, professional on-site setup and full teardown by our own crew, so your team never lifts a box. A dedicated coordinator stays reachable from the first briefing until the final photo.</p></div>
+        </div>
+        <div class="hp3-faq-item">
+          <h3 class="hp3-faq-q-wrap">
+            <button type="button" class="hp3-faq-q" aria-expanded="false">
+              <span>Can rentals and booths be customised with our branding?</span>
+              <svg class="hp3-faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+          </h3>
+          <div class="hp3-faq-a"><p>Absolutely. As a full-service creative agency we offer agency-level branding — custom backdrops, printed props, branded photo templates, LED wraps and activations tailored to your campaign guidelines, all previewed before the event.</p></div>
+        </div>
+        <div class="hp3-faq-item">
+          <h3 class="hp3-faq-q-wrap">
+            <button type="button" class="hp3-faq-q" aria-expanded="false">
+              <span>What kind of budgets do you work with?</span>
+              <svg class="hp3-faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+          </h3>
+          <div class="hp3-faq-a"><p>From intimate team celebrations to multi-zone corporate activations, every proposal is built around your goals and itemised line by line. You approve a transparent quote before anything is confirmed — no hidden fees, no surprise add-ons.</p></div>
+        </div>
+        <div class="hp3-faq-item">
+          <h3 class="hp3-faq-q-wrap">
+            <button type="button" class="hp3-faq-q" aria-expanded="false">
+              <span>Where do you operate?</span>
+              <svg class="hp3-faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+          </h3>
+          <div class="hp3-faq-a"><p>We are headquartered in Kuala Lumpur and serve events across Peninsular Malaysia, with regional delivery for clients in Singapore and beyond. The first consultation is free and can run online from anywhere in the world.</p></div>
+        </div>
+        <div class="hp3-faq-item">
+          <h3 class="hp3-faq-q-wrap">
+            <button type="button" class="hp3-faq-q" aria-expanded="false">
+              <span>What if our plans change or the event is postponed?</span>
+              <svg class="hp3-faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+          </h3>
+          <div class="hp3-faq-a"><p>Plans move, and we plan for that. Packages can be rescheduled with flexible date transfers, and your coordinator will walk you through the options quickly so neither the budget nor the experience is lost.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
   <style id="dentsu-testimonial-styles">
     .dentsu-quote-section {
       position: relative;
@@ -12192,7 +12359,7 @@
           </a>
 
           <!-- Email below button -->
-          <a class="footer-email-link" href="/cdn-cgi/l/email-protection#b9d1dcd5d5d6f9d8ddcfdccbcdd0cad0d7ded8d7ddd4d6cbdc97dad6d4"><span class="__cf_email__" data-cfemail="b9d1dcd5d5d6f9d8ddcfdccbcdd0cad0d7ded8d7ddd4d6cbdc97dad6d4">[email&#160;protected]</span></a>
+          <a class="footer-email-link" href="mailto:hello@advertisingandmore.com">hello@advertisingandmore.com</a>
         </div>
 
       </div>
@@ -12295,7 +12462,7 @@
   <!-- ==========================================================================
        JAVASCRIPT LOGIC & DATABASE ENGINE
        ========================================================================== -->
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script>
     // Mobile Menu Drawer Toggle — identical behaviour to job-vacancy-page
     const mobileBtn = document.getElementById('mobile-toggle');
     const mobileDrawer = document.getElementById('mobile-drawer');
@@ -16877,5 +17044,5 @@ delete window.intlTelInputUtilsTemp;
     window.addEventListener('resize', onResize, { passive: true });
   })();
   </script>
-<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a522e7931b398e79',t:'MTc5MzI4NDUwMw=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a522e7931b398e79',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
