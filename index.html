@@ -8415,10 +8415,8 @@
   <style id="unified-section-rhythm">
     :root { --uni-section-pad: clamp(2.25rem, 5vw, 4rem); }
     #trusted-brands,
-    #why-choose,
     #top15,
     #services,
-    #our-process,
     #happy-meeting,
     #testimonials,
     #contact {
@@ -8448,9 +8446,8 @@
   <style id="hp3-polish-css">
     html { scroll-behavior: smooth; }
     /* keep anchor targets clear of the 85px sticky header */
-    #trusted-brands, #pick-your-wow, #why-choose, #party-recipes, #top15,
-    #services, #featured-experiences, #our-process,
-    #happy-meeting, #hp3-faq, #testimonials, #contact { scroll-margin-top: 92px; }
+    #trusted-brands, #pick-your-wow, #party-recipes, #top15,
+    #services, #featured-experiences, #happy-meeting, #hp3-faq, #testimonials, #contact { scroll-margin-top: 92px; }
 
     /* v4.01 (client request) — hero no longer dissolves into the page at its foot */
     #hero.hb-hero::after { content: none !important; display: none !important; background: none !important; }
@@ -8810,6 +8807,14 @@
 <style id="branson-quote-css">
   /* v6.7d Richard Branson quote — placed below trusted-brands band, avatar lives cleanly inside the white card */
   .branson-section{background:var(--cream);padding:56px 0 16px;position:relative;}
+  .branson-slot{width:100%;display:block;margin:0 0 clamp(14px,1.8vw,22px);grid-column:1 / -1;}
+  .branson-section--wide{background:transparent;padding:0;margin:0;width:100%;max-width:none;}
+  .branson-section--wide .branson-card{width:100%;max-width:640px;margin:0 auto;box-shadow:0 10px 28px rgba(11,30,63,.07);border-color:#F2E6CE;}
+  @media (max-width:680px){
+    .branson-slot{margin-bottom:14px;}
+    .branson-section--wide .branson-card{max-width:100%;padding:28px 20px 28px;border-radius:26px;}
+    .branson-section--wide .branson-avatar{width:140px;height:140px;}
+  }
   .branson-card{width:640px;max-width:calc(100vw - 32px);margin:0 auto;background:#fff;border:1px solid #F2E6CE;border-radius:32px;padding:38px 44px 40px;display:flex;flex-direction:column;align-items:center;position:relative;box-sizing:border-box;box-shadow:0 10px 30px rgba(11,30,63,.06);}
   .branson-avatar-wrap{width:100%;display:flex;justify-content:center;margin-bottom:14px;}
   .branson-avatar{width:200px;height:200px;border-radius:50%;border:5px solid #fff;box-shadow:0 12px 28px rgba(11,30,63,.16);object-fit:cover;object-position:center top;display:block;max-width:100%;}
@@ -9141,269 +9146,7 @@
   </style>
 
 
-  
-  <!-- ==========================================================================
-       v3.31 — WHY CHOOSE US (trust: why brands rely on Advertising & More)
-       Sits between the trusted-brands marquee and the Top 15 band.
-       ========================================================================== -->  
-
-<section class="branson-section" id="bransonQuote" aria-label="Richard Branson quote">
-  <div class="branson-card">
-    <div class="branson-avatar-wrap">
-      <img class="branson-avatar" loading="lazy" decoding="async" alt="Sir Richard Branson" src="assets/quote/branson.png" width="200" height="200">
-    </div>
-    <img class="branson-q-open" loading="lazy" decoding="async" alt="" src="assets/quote/quote-open.png" width="88" height="69">
-    <h2 class="branson-quote-text">Don't think what's the <b>CHEAPEST</b> way to do it or what's the <b>FASTEST</b> way to do it. Think, what's the <b>MOST AMAZING</b> way to do it?</h2>
-    <img class="branson-q-close" loading="lazy" decoding="async" alt="" src="assets/quote/quote-close.png" width="83" height="63">
-    <p class="branson-attrib">— Richard Branson —</p>
-  </div>
-</section>
-
-<section class="hp2-why" id="why-choose" aria-labelledby="why-choose-heading">
-    <div class="container">
-      <div class="section-header-center">
-        <div class="hd-eyebrow"><span class="line"></span><span>Why Choose Advertising &amp; More</span></div>
-        <h2 class="heading-display" id="why-choose-heading">More Than an Event &mdash; A <span class="text-gold">Partner</span> You Can Count On.</h2>
-        <p class="section-deck">One team for the idea, the setup and the last song &mdash; so you can stay with your guests instead of chasing vendors.</p>
-      </div>
-      <div class="wc-grid">
-        <article class="wc-card">
-          <div class="wc-icon"><img src="assets/img/hp-764aed219d50.webp" alt="" loading="lazy" width="62" height="62"></div>
-          <div class="wc-body">
-            <h3 class="wc-title">Custom Concepts</h3>
-            <p class="wc-text" title="Fresh ideas tailored to your goals and style.">Fresh ideas tailored to your goals and style.</p>
-          </div>
-        </article>
-        <article class="wc-card">
-          <div class="wc-icon"><img src="assets/img/hp-ec5e382f3523.webp" alt="" loading="lazy" width="62" height="62"></div>
-          <div class="wc-body">
-            <h3 class="wc-title">Seamless Coordina&shy;tion</h3>
-            <p class="wc-text" title="We handle the details so you can enjoy the moment.">We handle the details so you can enjoy the moment.</p>
-          </div>
-        </article>
-        <article class="wc-card">
-          <div class="wc-icon"><img src="assets/img/hp-51332c08288c.webp" alt="" loading="lazy" width="62" height="62"></div>
-          <div class="wc-body">
-            <h3 class="wc-title">Creative Execution</h3>
-            <p class="wc-text" title="Stunning setups, memorable experiences, zero stress.">Stunning setups, memorable experiences, zero stress.</p>
-          </div>
-        </article>
-        <article class="wc-card">
-          <div class="wc-icon"><img src="assets/img/hp-9aa753ccfd42.webp" alt="" loading="lazy" width="62" height="62"></div>
-          <div class="wc-body">
-            <h3 class="wc-title">Agency-Level Branding Support</h3>
-            <p class="wc-text" title="Perfect for corporate events and brand activations.">Perfect for corporate events and brand activations.</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <style id="hp2-why-process-css">
-  
-    #why-choose .section-header-center .heading-display,
-    #our-process .section-header-center .heading-display,
-    #testimonials .section-header-center .heading-display {
-      margin: 0 auto;
-      max-width: 63%;
-      padding: 6px 0 14px;
-      font-family: var(--font-display);
-      font-size: 46.8px;
-      font-weight: 600;
-      line-height: 1.1;
-      letter-spacing: -.01em;
-      color: #20304D;
-      text-align: center;
-      text-wrap: balance;
-      font-optical-sizing: none;
-      font-variation-settings: 'opsz' 14;
-    }
-    #why-choose .section-header-center .heading-display::after,
-    #our-process .section-header-center .heading-display::after,
-    #testimonials .section-header-center .heading-display::after {
-      content: none !important;
-      display: none !important;
-    }
-    /* gold keyword + hand-drawn underline, verbatim from the site's
-       #services/#contact scoped rules for 100% title consistency */
-    #why-choose .section-header-center .heading-display .text-gold,
-    #our-process .section-header-center .heading-display .text-gold,
-    #testimonials .section-header-center .heading-display .text-gold {
-      position: relative;
-      display: inline-block;
-      color: #A16D12;
-    }
-    #why-choose .section-header-center .heading-display .text-gold::after,
-    #our-process .section-header-center .heading-display .text-gold::after,
-    #testimonials .section-header-center .heading-display .text-gold::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -5px;
-      width: 100%;
-      height: 6px;
-      border-bottom: 2px solid #D3A15F;
-      border-radius: 0 0 50% 50%;
-      box-shadow: 0 2px 3px rgba(211, 161, 95, .25), 0 4px 8px rgba(211, 161, 95, .20);
-    }
-    #why-choose .section-header-center .hd-eyebrow,
-    #our-process .section-header-center .hd-eyebrow,
-    #testimonials .section-header-center .hd-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-family: var(--font-body);
-      font-size: 13.68px;
-      font-weight: 600;
-      line-height: 1.65;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: #F0553A;
-      margin-bottom: 12px;
-      justify-content: center;
-    }
-    #why-choose .section-header-center .hd-eyebrow .line,
-    #our-process .section-header-center .hd-eyebrow .line,
-    #testimonials .section-header-center .hd-eyebrow .line {
-      width: 22px;
-      height: 2px;
-      border-radius: 2px;
-      background: #D5A021;
-      box-shadow: none;
-    }
-    @media (max-width: 767px) {
-      #why-choose .section-header-center .hd-eyebrow,
-      #our-process .section-header-center .hd-eyebrow,
-      #testimonials .section-header-center .hd-eyebrow {
-        font-size: 12.4762px;
-        letter-spacing: .1em;
-      }
-      #why-choose .section-header-center .heading-display,
-      #our-process .section-header-center .heading-display,
-      #testimonials .section-header-center .heading-display {
-        max-width: 100%;
-        font-size: 32.832px;
-      }
-    }
-
-    /* ---------------- Why Choose Us ---------------- */
-    .hp2-why {
-      position: relative;
-      /* no section band — the page's warm cream background runs through */
-      background: transparent;
-      overflow: hidden;
-    }
-    .hp2-why::before,
-    .hp2-process::before,
-    .hp2-testimonials::before {
-      content: "";
-      position: absolute;
-      inset: 0 0 auto 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(0, 73, 168, 0.16), transparent);
-    }
-    .wc-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 22px;
-    }
-    .wc-card {
-      background: linear-gradient(180deg, #fdfaf3, #fbf3e2);
-      border: 1px solid rgba(213, 160, 33, .22);
-      border-radius: 18px;
-      padding: 30px 24px 28px;
-      transition: transform .35s cubic-bezier(.22,.61,.36,1), box-shadow .35s ease, border-color .35s ease;
-    }
-    .wc-card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(213, 160, 33, .65);
-      box-shadow: 0 20px 40px rgba(11, 30, 63, .12);
-    }
-    /* The AI badge artwork carries its own cream disc and gold ring, so the
-       container stays transparent like the Top 15 icon wrapper. */
-    .wc-icon {
-      width: 62px;
-      height: 62px;
-      flex: 0 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 18px;
-    }
-    .wc-icon img {
-      width: 62px;
-      height: 62px;
-      display: block;
-      filter: drop-shadow(0 6px 12px rgba(11, 30, 63, .16));
-      transition: transform .35s ease;
-    }
-    .wc-card:hover .wc-icon img { transform: scale(1.06) rotate(-3deg); }
-    .wc-title {
-      font-family: var(--font-display);
-      font-size: 1.18rem;
-      font-weight: 700;
-      color: var(--color-primary-dark);
-      margin: 0 0 8px;
-    }
-    .wc-text {
-      font-size: .96rem;
-      line-height: 1.62;
-      color: var(--color-text-muted);
-      margin: 0;
-    }
-    /* All four cards stay side by side at every width — badge on top,
-       title and description centered beneath each icon. */
-    @media (max-width: 1024px) {
-      .wc-grid { gap: 14px; }
-      .wc-card { padding: 20px 14px 18px; border-radius: 16px; }
-      .wc-icon, .wc-icon img { width: 54px; height: 54px; }
-      .wc-icon { margin-bottom: 12px; }
-      .wc-title { font-size: 1rem; }
-      .wc-text { font-size: .85rem; }
-    }
-    @media (max-width: 640px) {
-      .wc-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
-      .wc-card {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding: 12px 7px;
-        border-radius: 14px;
-        min-width: 0;
-      }
-      .wc-icon, .wc-icon img { width: 44px; height: 44px; }
-      .wc-icon { margin-bottom: 9px; }
-      .wc-body { width: 100%; min-width: 0; }
-      .wc-title {
-        font-size: .74rem;
-        line-height: 1.28;
-        margin: 0 0 5px;
-        overflow-wrap: break-word;
-        hyphens: auto;
-      }
-      .wc-text {
-        display: block;
-        font-size: .62rem;
-        line-height: 1.42;
-        margin: 0;
-        text-align: center;
-        overflow-wrap: break-word;
-        /* cap at ~3 lines without -webkit-box (which justified narrow text) */
-        max-height: 2.65em;
-        overflow: hidden;
-      }
-    }
-    @media (max-width: 380px) {
-      .wc-grid { gap: 6px; }
-      .wc-card { padding: 10px 5px; border-radius: 12px; }
-      .wc-icon, .wc-icon img { width: 36px; height: 36px; }
-      .wc-icon { margin-bottom: 7px; }
-      .wc-title { font-size: .68rem; margin-bottom: 4px; }
-      .wc-text { font-size: .58rem; max-height: 2.55em; }
-    }
-  </style>
-  <!-- ==========================================================================
+    <!-- ==========================================================================
        v3.27 — TOP 15 CROWD FAVOURITES (curated "start here" band)
        Sits between the trusted-brands marquee and the full 100-item catalogue.
        Cards are rendered by the script at the end of <body> from catalogData.
@@ -9416,9 +9159,9 @@
           <span>Our 15 Favourites</span>
         </div>
         <h2 class="heading-display" id="t15-heading">
-          Pick your kind of <span class="text-gold">WOW</span>
+          Client &amp; Crowd <span class="text-gold">Favourites</span>
         </h2>
-        <p class="t15-heading-sub" style="margin:10px auto 0;max-width:720px;text-align:center;font-family:var(--font-body,Poppins),sans-serif;font-size:clamp(0.95rem,1.2vw,1.1rem);font-weight:500;color:#5A7089;line-height:1.45;">inspired by this submission</p>
+        <p class="t15-heading-sub" style="margin:10px auto 0;max-width:720px;text-align:center;font-family:var(--font-body,Poppins),sans-serif;font-size:clamp(0.95rem,1.2vw,1.1rem);font-weight:500;color:#5A7089;line-height:1.45;">The VIP 15</p>
       </div>
 
       <div class="t15-grid" id="t15-grid">
@@ -9971,478 +9714,42 @@
 
 
   </style>
-<section class="wow-band" id="pick-your-wow" aria-labelledby="wow-heading">
+<section class="wow-band" id="pick-your-wow" aria-label="Richard Branson quote">
   <style id="wow-band-styles">
     .wow-band {
       position: relative;
-      padding: clamp(1.6rem, 3vw, 2.6rem) 0 clamp(2rem, 3.6vw, 3rem);
-      /* v5.4 — section gradient removed; sits on the shared cream page */
+      padding: clamp(1rem, 2vw, 1.4rem) 0 clamp(1.4rem, 2vw, 1.8rem);
       background: transparent;
       overflow: hidden;
     }
-
-    /* the band runs slightly wider than the standard 1240 container so the six
-       labels stay on one line at every desktop width */
-    .wow-band > .container { max-width: 1400px; }
-
-    /* ─── header row ───────────────────────────────────────────────────── */
-    .wow-head {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 0.92fr);
-      align-items: end;
-      gap: clamp(16px, 3vw, 54px);
-      margin-bottom: clamp(14px, 1.8vw, 22px);
-    }
-
-    .wow-eyebrow {
-      font-family: var(--font-body);
-      font-size: clamp(.62rem, .74vw, .72rem);
-      font-weight: 700;
-      letter-spacing: .19em;
-      text-transform: uppercase;
-      color: #4A6280;
-      margin: 0 0 6px;
-    }
-
-    .wow-title-row {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .wow-title {
-      font-family: var(--font-body);
-      font-size: clamp(1.75rem, 4vw, 3.05rem);
-      font-weight: 800;
-      line-height: .98;
-      letter-spacing: -.035em;
-      color: #0B1E3F;
-      margin: 0;
-      white-space: nowrap;
-    }
-    .wow-title .wow-gold { color: #F2A21B; }
-
-    .wow-sparks {
-      flex: 0 0 auto;
-      width: clamp(26px, 3.1vw, 46px);
-      color: #F2A21B;
-      margin-top: 4px;
-    }
-
-    .wow-right {
-      position: relative;
-      padding-right: clamp(0px, 7vw, 96px);
-    }
-
-    .wow-copy {
-      font-size: clamp(.82rem, .92vw, .93rem);
-      line-height: 1.68;
-      color: #43566E;
-      margin: 0;
-      max-width: 46ch;
-    }
-
-    .wow-note {
-      position: absolute;
-      right: 0;
-      top: -22px;
-      width: clamp(96px, 9.5vw, 132px);
-      font-family: var(--font-script);
-      font-size: clamp(1rem, 1.35vw, 1.32rem);
-      line-height: .95;
-      color: #2C3E55;
-      text-align: center;
-      transform: rotate(-4deg);
-      pointer-events: none;
-    }
-    .wow-note svg {
-      display: block;
-      width: clamp(40px, 4vw, 56px);
-      margin: 2px auto 0;
-      color: #2C3E55;
-    }
-
-    /* ─── six tiles ────────────────────────────────────────────────────── */
-    .wow-grid {
-      display: grid;
-      grid-template-columns: repeat(6, minmax(0, 1fr));
-      gap: clamp(9px, 1.1vw, 18px);
-    }
-
-    .wow-card {
-      display: flex;
-      flex-direction: column;
-      min-width: 0;
-      background: #fff;
-      border: 1px solid rgba(11, 30, 63, .08);
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 6px 16px rgba(11, 30, 63, .06);
-      transition: transform var(--transition-normal), box-shadow var(--transition-normal),
-                  border-color var(--transition-normal);
-    }
-
-    .wow-card:hover,
-    .wow-card:focus-visible {
-      transform: translateY(-5px);
-      border-color: rgba(213, 160, 33, .5);
-      box-shadow: 0 16px 30px rgba(11, 30, 63, .14);
-      outline: none;
-    }
-    .wow-card:focus-visible { box-shadow: 0 0 0 3px rgba(255, 206, 27, .75), 0 16px 30px rgba(11, 30, 63, .14); }
-
-    .wow-card-media {
-      position: relative;
-      aspect-ratio: 3 / 2;
-      overflow: hidden;
-      background: #0B1E3F;
-    }
-    .wow-card-media img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform .65s cubic-bezier(.16, 1, .3, 1);
-    }
-    .wow-card:hover .wow-card-media img { transform: scale(1.07); }
-    .wow-card-media::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(11, 30, 63, 0) 55%, rgba(11, 30, 63, .22) 100%);
-      pointer-events: none;
-    }
-
-    .wow-card-foot {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      min-height: 46px;
-      padding: 8px;
-      background: #fff;
-    }
-
-    .wow-ic {
-      flex: 0 0 auto;
-      width: 17px;
-      height: 17px;
-      color: #16283F;
-    }
-    .wow-ic svg { width: 100%; height: 100%; display: block; }
-
-    .wow-label {
-      flex: 1 1 auto;
-      min-width: 0;
-      font-family: var(--font-body);
-      font-size: clamp(10.5px, .8vw, 11.6px);
-      font-weight: 700;
-      letter-spacing: 0;
-      word-spacing: .05em;
-      color: #16283F;
-      line-height: 1.14;
-      /* never truncate: a long label wraps to a second line and the footer
-         keeps a uniform height across all six tiles */
-      white-space: normal;
-      overflow-wrap: break-word;
-      text-wrap: balance;
-    }
-
-    .wow-go {
-      flex: 0 0 auto;
-      display: grid;
-      place-items: center;
-      width: 23px;
-      height: 23px;
-      border-radius: 50%;
-      background: #F7C64B;
-      color: #3A2A05;
-      transition: background var(--transition-fast), transform var(--transition-fast);
-    }
-    .wow-go svg { width: 13px; height: 13px; }
-    .wow-card:hover .wow-go { background: #F2A21B; transform: translateX(2px); }
-
-    /* ─── responsive ───────────────────────────────────────────────────── */
-    @media (max-width: 1120px) {
-      .wow-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-      .wow-head { grid-template-columns: 1fr; align-items: start; gap: 10px; }
-      .wow-right { padding-right: clamp(96px, 16vw, 132px); min-height: 54px; }
-      .wow-note { top: 0; }
-      .wow-title { white-space: normal; }
-    }
-
-    /* ── v4.13 : MOBILE ONLY ────────────────────────────────────────────────
-       Heading block sits on the LEFT column, the six cards sit on the RIGHT in
-       a two-by-three grid; the description drops below the title, on the left.
-       Desktop (≥761px) is untouched. */
-    @media (max-width: 760px) {
-      .wow-band { padding: 14px 0 16px; }
-
-      .wow-band > .container {
-        display: grid;
-        grid-template-columns: minmax(0, 37%) minmax(0, 1fr);
-        column-gap: 10px;
-        align-items: start;
-      }
-
-      /* left column: eyebrow + title, then the copy pulled in underneath */
-      .wow-head {
-        display: block;
-        margin: 0;
-        gap: 0;
-      }
-      .wow-eyebrow {
-        font-size: 8px;
-        letter-spacing: .1em;
-        margin: 0 0 4px;
-        line-height: 1.25;
-      }
-      .wow-title-row { gap: 5px; align-items: flex-start; }
-      .wow-title {
-        white-space: normal;
-        font-size: clamp(1.02rem, 4.5vw, 1.42rem);
-        line-height: 1.04;
-        letter-spacing: -.03em;
-      }
-      .wow-title .wow-gold { display: inline; }
-      .wow-sparks { width: 16px; margin-top: 2px; }
-
-      .wow-right {
-        padding: 0;
-        min-height: 0;
-        margin-top: 8px;
-      }
-      .wow-copy {
-        font-size: .655rem;
-        line-height: 1.5;
-        max-width: none;
-      }
-      .wow-note {
-        position: static;
-        width: auto;
-        margin: 7px 0 0 2px;
-        font-size: .84rem;
-        line-height: 1;
-        text-align: left;
-        transform: rotate(-3deg);
-        transform-origin: left center;
-      }
-      .wow-note svg { width: 30px; margin: 1px 0 0 26px; }
-
-      /* right column: 2 × 3 compact cards */
-      .wow-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 7px;
-      }
-      .wow-card { border-radius: 9px; }
-      .wow-card-foot {
-        padding: 4px 4px 4px 5px;
-        gap: 4px;
-        min-height: 0;
-      }
-      .wow-ic { width: 12px; height: 12px; }
-      .wow-label {
-        font-size: 8.6px;
-        line-height: 1.16;
-        letter-spacing: -.01em;
-        text-wrap: balance;
-        word-break: normal;
-        overflow-wrap: break-word;
-        hyphens: none;
-      }
-      .wow-go { width: 16px; height: 16px; }
-      .wow-go svg { width: 8px; height: 8px; }
-    }
-
-    @media (max-width: 400px) {
-      .wow-band > .container {
-        grid-template-columns: minmax(0, 33%) minmax(0, 1fr);
-        column-gap: 7px;
-      }
-      .wow-title { font-size: clamp(.94rem, 4.7vw, 1.2rem); }
-      .wow-copy { font-size: .6rem; line-height: 1.44; }
-      .wow-note { font-size: .72rem; }
-      .wow-note svg { width: 24px; margin-left: 20px; }
-      .wow-grid { gap: 6px; }
-      .wow-card { border-radius: 8px; }
-      .wow-card-foot { padding: 3px 3px 3px 4px; gap: 3px; }
-      .wow-ic { width: 10px; height: 10px; }
-      .wow-label { font-size: 8px; line-height: 1.14; letter-spacing: -.02em; }
-      .wow-go { width: 14px; height: 14px; }
-      .wow-go svg { width: 7px; height: 7px; }
-    }
-
-    /* very small phones: give the two card columns a little more room so no
-       label word ever has to break */
-    @media (max-width: 360px) {
-      .wow-band > .container {
-        grid-template-columns: minmax(0, 30%) minmax(0, 1fr);
-        column-gap: 6px;
-      }
-      .wow-grid { gap: 5px; }
-      .wow-card-foot { padding: 3px; gap: 2.5px; }
-      .wow-ic { width: 9px; height: 9px; }
-      .wow-label { font-size: 7.9px; line-height: 1.14; }
-      .wow-go { width: 13px; height: 13px; }
-      .wow-go svg { width: 6.5px; height: 6.5px; }
-      .wow-copy { font-size: .575rem; line-height: 1.42; }
-      .wow-title { font-size: clamp(.9rem, 4.6vw, 1.1rem); }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .wow-card, .wow-card-media img, .wow-go { transition: none !important; }
-      .wow-card:hover { transform: none !important; }
-      .wow-card:hover .wow-card-media img { transform: none !important; }
+    .wow-band > .container { max-width: 1400px; margin: 0 auto; padding: 0 24px; display: block; }
+    @media (max-width: 680px){
+      .wow-band > .container { padding: 0 18px; }
     }
   </style>
-
   <div class="container">
 
-    <div class="wow-head">
-      <div class="wow-head-left">
-        <p class="wow-eyebrow">Our Party Services &amp; Rentals</p>
-        <div class="wow-title-row">
-          <h2 class="wow-title" id="wow-heading">Pick your kind of <span class="wow-gold">wow.</span></h2>
-          <svg class="wow-sparks" viewBox="0 0 60 46" fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round" aria-hidden="true">
-            <path d="M10 6 26 2"/><path d="M6 22h15"/><path d="M12 38 26 44"/>
-          </svg>
+    <div class="branson-slot">
+      <section class="branson-section branson-section--wide" id="bransonQuote" aria-label="Richard Branson quote">
+        <div class="branson-card">
+          <div class="branson-avatar-wrap">
+            <img class="branson-avatar" loading="lazy" decoding="async" alt="Sir Richard Branson" src="assets/quote/branson.png" width="200" height="200">
+          </div>
+          <img class="branson-q-open" loading="lazy" decoding="async" alt="" src="assets/quote/quote-open.png" width="88" height="69">
+          <h2 class="branson-quote-text">Don't think what's the <b>CHEAPEST</b> way to do it or what's the <b>FASTEST</b> way to do it. Think, what's the <b>MOST AMAZING</b> way to do it?</h2>
+          <img class="branson-q-close" loading="lazy" decoding="async" alt="" src="assets/quote/quote-close.png" width="83" height="63">
+          <p class="branson-attrib">— Richard Branson —</p>
         </div>
-      </div>
-
-      <div class="wow-right">
-        <p class="wow-copy">Whether it&rsquo;s a corporate event, brand activation, wedding, private celebration or something completely unique &mdash; we have the experiences, rentals and entertainment to make it unforgettable.</p>
-        <span class="wow-note" aria-hidden="true">
-          Different events. Same amazing vibes.
-          <svg viewBox="0 0 60 34" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M56 4C44 22 28 30 8 27"/>
-            <path d="M15 21 6 27l11 5"/>
-          </svg>
-        </span>
-      </div>
+      </section>
     </div>
 
-    <div class="wow-grid">
-
-      <a class="wow-card" href="#services" data-wow-cat="cat-1" aria-label="Giant games and competitive challenges">
-        <span class="wow-card-media"><img src="assets/img/hp-99cd0c4e65cf.webp" alt="Guests playing giant Jenga at an event" loading="lazy" decoding="async"></span>
-        <span class="wow-card-foot">
-          <span class="wow-ic" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="8.4"/><circle cx="12" cy="12" r="3.6"/>
-              <path d="M12 3.6v2.2M12 18.2v2.2M3.6 12h2.2M18.2 12h2.2"/>
-            </svg>
-          </span>
-          <span class="wow-label">Giant Games</span>
-          <span class="wow-go" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg>
-          </span>
-        </span>
-      </a>
-
-      <a class="wow-card" href="#services" data-wow-cat="cat-2" aria-label="Carnival and arcade games">
-        <span class="wow-card-media"><img src="assets/img/hp-e79442c3e545.webp" alt="Colourful carnival midway games at a party" loading="lazy" decoding="async"></span>
-        <span class="wow-card-foot">
-          <span class="wow-ic" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M3 20h18"/><path d="M5.4 20V9.6L12 4l6.6 5.6V20"/>
-              <path d="M12 4v16"/><path d="M9.2 7.4 12 4l2.8 3.4"/><path d="M9 20v-4.2h6V20"/>
-            </svg>
-          </span>
-          <span class="wow-label">Carnival &amp; Arcade</span>
-          <span class="wow-go" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg>
-          </span>
-        </span>
-      </a>
-
-      <a class="wow-card" href="#services" data-wow-cat="cat-3" aria-label="Photo and video experiences">
-        <span class="wow-card-media"><img src="assets/img/hp-1eb47595c12a.webp" alt="Guests posing inside a 360 degree video booth" loading="lazy" decoding="async"></span>
-        <span class="wow-card-foot">
-          <span class="wow-ic" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="7" width="18" height="13" rx="2.6"/><path d="M8.4 7 10 4h4l1.6 3"/>
-              <circle cx="12" cy="13.4" r="3.4"/>
-            </svg>
-          </span>
-          <span class="wow-label">Photo &amp; Video</span>
-          <span class="wow-go" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg>
-          </span>
-        </span>
-      </a>
-
-      <a class="wow-card" href="#services" data-wow-cat="cat-4" aria-label="Live performers and roaming entertainment">
-        <span class="wow-card-media"><img src="assets/img/hp-03f465efba6e.webp" alt="Fire performer entertaining guests" loading="lazy" decoding="async"></span>
-        <span class="wow-card-foot">
-          <span class="wow-ic" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 3.6 14.6 9l5.9.85-4.3 4.2 1.05 5.95L12 17.1l-5.25 2.9L7.8 14.05 3.5 9.85 9.4 9Z"/>
-            </svg>
-          </span>
-          <span class="wow-label">Live Performers</span>
-          <span class="wow-go" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg>
-          </span>
-        </span>
-      </a>
-
-      <a class="wow-card" href="#services" data-wow-cat="cat-5" aria-label="Dance and nightlife equipment">
-        <span class="wow-card-media"><img src="assets/img/hp-77d10223935f.webp" alt="Crowd dancing on a lit dance floor" loading="lazy" decoding="async"></span>
-        <span class="wow-card-foot">
-          <span class="wow-ic" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M9 18V5l11-2v13"/><circle cx="6.5" cy="18" r="3"/><circle cx="17.5" cy="16" r="3"/>
-            </svg>
-          </span>
-          <span class="wow-label">Dance &amp; Nightlife</span>
-          <span class="wow-go" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg>
-          </span>
-        </span>
-      </a>
-
-      <a class="wow-card" href="#services" data-wow-cat="cat-6" aria-label="Food and drinks stations">
-        <span class="wow-card-media"><img src="assets/img/hp-6a47f9513634.webp" alt="Dessert and drinks station at an event" loading="lazy" decoding="async"></span>
-        <span class="wow-card-foot">
-          <span class="wow-ic" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M7 3v7.2a2.4 2.4 0 0 0 4.8 0V3"/><path d="M9.4 10.2V21"/>
-              <path d="M16.6 21V3c2 1.2 2.8 3.2 2.8 5.6 0 2.1-1 3.6-2.8 4.2"/>
-            </svg>
-          </span>
-          <span class="wow-label">Food &amp; Drinks</span>
-          <span class="wow-go" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg>
-          </span>
-        </span>
-      </a>
-
-    </div>
   </div>
+</section>
 
-  <script id="wow-band-script">
-  /* v4.10 — each WOW tile filters the catalogue to its category, then scrolls
-     the customer to the matching tab. No dependencies, keyboard friendly. */
-  (function () {
-    'use strict';
-    var cards = document.querySelectorAll('.wow-card[data-wow-cat]');
-    Array.prototype.forEach.call(cards, function (card) {
-      card.addEventListener('click', function () {
-        var cat = card.getAttribute('data-wow-cat');
-        if (!cat) return;
-        window.setTimeout(function () {
-          var tab = document.querySelector('.category-tabs-nav .tab-pill-btn[data-cat="' + cat + '"]');
-          if (tab) {
-            tab.click();
-            tab.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          }
-        }, 60);
-      });
-    });
-  }());
-  </script>
-</section>  <!-- ==========================================================================
-       OUR SERVICES SECTION (100% ORGANIZED BY 10 CHATGPT CATEGORIES)
-       ========================================================================== -->  <section class="services-section" id="services">
+<!-- ==========================================================================
+     OUR SERVICES SECTION (100% ORGANIZED BY 10 CHATGPT CATEGORIES)
+     ========================================================================== -->
+<section class="services-section" id="services">
     <div class="container">
       
       <div class="section-header-center">
@@ -10451,8 +9758,9 @@
           <span>Our Services &amp; Event Rentals</span>
         </div>
         <h2 class="heading-display">
-          100 ways to make your event <span class="text-gold">unforgettable.</span>
+          Pick your kind of <span class="text-gold">WOW</span>
         </h2>
+        <p class="section-deck" style="margin:8px auto 0;max-width:760px;text-align:center;font-family:var(--font-body,Poppins),sans-serif;font-size:clamp(1rem,1.2vw,1.15rem);font-weight:500;color:#5A7089;line-height:1.45;">100 &amp; More Ways To Make Your Event Unforgettable</p>
       </div>
 
 <!-- v3.21: services search bar removed on client request -->
@@ -10747,382 +10055,30 @@
        v3.31 — OUR PROCESS (5-step timeline, lowers enquiry friction)
        Sits between the full catalogue and the drinks showcase.
        ========================================================================== -->
-  <section class="hp2-process" id="our-process" aria-labelledby="our-process-heading">
+
+    <section class="dentsu-quote-section" id="dentsu-quote" aria-label="Client testimonial">
     <div class="container">
-      <div class="section-header-center">
-        <div class="hd-eyebrow"><span class="line"></span><span>Our Process</span></div>
-        <h2 class="heading-display" id="our-process-heading">From Idea to <span class="text-gold">Incredible,</span> Together.</h2>
-        <p class="section-deck">Five simple steps, a lot of heart, and just enough caffeine.</p>
+      <div class="dentsu-quote-card">
+        <div class="dentsu-stars" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="#F2A21B"><path d="M12 2l2.9 6.9 7.4.6-5.6 4.9 1.7 7.3L12 17.8 5.6 21.7l1.7-7.3L1.7 9.5l7.4-.6z"/></svg>
+          <svg viewBox="0 0 24 24" fill="#F2A21B"><path d="M12 2l2.9 6.9 7.4.6-5.6 4.9 1.7 7.3L12 17.8 5.6 21.7l1.7-7.3L1.7 9.5l7.4-.6z"/></svg>
+          <svg viewBox="0 0 24 24" fill="#F2A21B"><path d="M12 2l2.9 6.9 7.4.6-5.6 4.9 1.7 7.3L12 17.8 5.6 21.7l1.7-7.3L1.7 9.5l7.4-.6z"/></svg>
+          <svg viewBox="0 0 24 24" fill="#F2A21B"><path d="M12 2l2.9 6.9 7.4.6-5.6 4.9 1.7 7.3L12 17.8 5.6 21.7l1.7-7.3L1.7 9.5l7.4-.6z"/></svg>
+          <svg viewBox="0 0 24 24" fill="#F2A21B"><path d="M12 2l2.9 6.9 7.4.6-5.6 4.9 1.7 7.3L12 17.8 5.6 21.7l1.7-7.3L1.7 9.5l7.4-.6z"/></svg>
+        </div>
+        <blockquote class="dentsu-quote-text">
+          &ldquo;Fine staff who has performed outstandingly on all our campaigns. A real asset that gives your company an edge over the competition. Keep up the good work!&rdquo;
+        </blockquote>
+        <div class="dentsu-divider" aria-hidden="true"></div>
+        <div class="dentsu-attribution">
+          <p class="dentsu-wordmark" aria-hidden="true">dentsu</p>
+          <p class="dentsu-company">Dentsu</p>
+          <p class="dentsu-role">Associate Digital Director</p>
+        </div>
       </div>
-      <ol class="op-steps op-run">
-        <li class="op-step">
-          <span class="op-ic"><img src="assets/img/hp-ad737bed9d92.webp" alt="" loading="lazy" width="92" height="92"></span>
-          <div class="op-copy">
-          <h3 class="op-title">We Listen</h3>
-          <p class="op-text">Your goals, ideas and must-haves.</p>
-        </div>
-          <span class="op-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#D5A021" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></span>
-        </li>
-        <li class="op-step">
-          <span class="op-ic"><img src="assets/img/hp-dd2b6411aeae.webp" alt="" loading="lazy" width="92" height="92"></span>
-          <div class="op-copy">
-          <h3 class="op-title">We Plan</h3>
-          <p class="op-text">Creative concepts, details and logistics.</p>
-        </div>
-          <span class="op-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#D5A021" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></span>
-        </li>
-        <li class="op-step">
-          <span class="op-ic"><img src="assets/img/hp-73d4b29ce2ac.webp" alt="" loading="lazy" width="92" height="92"></span>
-          <div class="op-copy">
-          <h3 class="op-title">We Execute</h3>
-          <p class="op-text">Flawless setup, onsite coordination.</p>
-        </div>
-          <span class="op-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#D5A021" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></span>
-        </li>
-        <li class="op-step">
-          <span class="op-ic"><img src="assets/img/hp-5efec044a420.webp" alt="" loading="lazy" width="92" height="92"></span>
-          <div class="op-copy">
-          <h3 class="op-title">We Deliver</h3>
-          <p class="op-text">A seamless and memorable event.</p>
-        </div>
-          <span class="op-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#D5A021" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></span>
-        </li>
-        <li class="op-step">
-          <span class="op-ic"><img src="assets/img/hp-a6b1ca9eab9c.webp" alt="" loading="lazy" width="92" height="92"></span>
-          <div class="op-copy">
-          <h3 class="op-title">We Celebrate</h3>
-          <p class="op-text">Happy people, lasting memories.</p>
-        </div>
-        </li>
-      </ol>
     </div>
   </section>
 
-  <style id="hp2-process-css">
-    .hp2-process {
-      position: relative;
-      background: transparent;
-      overflow: hidden;
-    }
-    .op-steps {
-      position: relative;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 26px;
-    }
-    /* connector line runs behind the badge icons, draws itself in each cycle */
-    .op-steps::before {
-      content: "";
-      position: absolute;
-      top: 45px;
-      left: 10%;
-      right: 10%;
-      height: 2px;
-      background: linear-gradient(90deg, rgba(213,160,33,.18), rgba(213,160,33,.55), rgba(213,160,33,.18));
-      transform-origin: left center;
-    }
-    .op-step {
-      position: relative;
-      text-align: center;
-      margin: 0;
-    }
-    /* larger AI brand badges (self-contained cream disc + gold ring) */
-    .op-ic {
-      position: relative;
-      z-index: 1;
-      width: 92px;
-      height: 92px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 16px;
-    }
-    .op-ic img {
-      width: 92px;
-      height: 92px;
-      display: block;
-      filter: drop-shadow(0 8px 16px rgba(11, 30, 63, .18));
-      transition: transform .35s ease;
-    }
-    .op-step:hover .op-ic img { transform: scale(1.07) rotate(-3deg); }
-    /* gold arrow disc bridging one step to the next */
-    .op-arrow {
-      position: absolute;
-      top: 28px;
-      right: -30px;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: var(--color-bg-page, #F7EDDC);
-      border: 1.5px solid rgba(213, 160, 33, .55);
-      box-shadow: 0 6px 14px rgba(11, 30, 63, .12);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 2;
-    }
-    .op-arrow svg { width: 18px; height: 18px; display: block; }
-    .op-title {
-      font-family: var(--font-display);
-      font-size: 1.12rem;
-      font-weight: 700;
-      color: var(--color-primary-dark);
-      margin: 0 0 6px;
-    }
-    .op-text {
-      font-size: .92rem;
-      line-height: 1.6;
-      color: var(--color-text-muted);
-      margin: 0;
-      max-width: 210px;
-      margin-inline: auto;
-    }
-
-    /* ---- one-shot sequential reveal: badge pops, arrow flies to the next,
-           then every step stays fully visible (no infinite hiding loop) ---- */
-    
-    @keyframes opIcon1 {
-      0% { opacity: 0; transform: scale(.4); }
-      3% { opacity: 1; transform: scale(1.22); }
-      4% { transform: scale(1); }
-      82% { opacity: 1; transform: scale(1); }
-      88%, 100% { opacity: 1; transform: scale(1); }
-    }
-    @keyframes opIcon2 {
-      0%, 9% { opacity: 0; transform: scale(.4); }
-      12% { opacity: 1; transform: scale(1.22); }
-      13% { transform: scale(1); }
-      82% { opacity: 1; transform: scale(1); }
-      88%, 100% { opacity: 1; transform: scale(1); }
-    }
-    @keyframes opIcon3 {
-      0%, 18% { opacity: 0; transform: scale(.4); }
-      21% { opacity: 1; transform: scale(1.22); }
-      22% { transform: scale(1); }
-      82% { opacity: 1; transform: scale(1); }
-      88%, 100% { opacity: 1; transform: scale(1); }
-    }
-    @keyframes opIcon4 {
-      0%, 27% { opacity: 0; transform: scale(.4); }
-      30% { opacity: 1; transform: scale(1.22); }
-      31% { transform: scale(1); }
-      82% { opacity: 1; transform: scale(1); }
-      88%, 100% { opacity: 1; transform: scale(1); }
-    }
-    @keyframes opIcon5 {
-      0%, 36% { opacity: 0; transform: scale(.4); }
-      39% { opacity: 1; transform: scale(1.22); }
-      40% { transform: scale(1); }
-      82% { opacity: 1; transform: scale(1); }
-      88%, 100% { opacity: 1; transform: scale(1); }
-    }
-    @keyframes opArrowH1 {
-      0%, 4% { opacity: 0; transform: translateX(-58px) scale(.5); }
-      8% { opacity: 1; transform: translateX(2px) scale(1.06); }
-      9%, 82% { opacity: 1; transform: translateX(0) scale(1); }
-      88%, 100% { opacity: 1; transform: translateX(0) scale(1); }
-    }
-    @keyframes opArrowV1 {
-      0%, 4% { opacity: 0; transform: translateY(-40px) scale(.5); }
-      8% { opacity: 1; transform: translateY(2px) scale(1.06); }
-      9%, 82% { opacity: 1; transform: translateY(0) scale(1); }
-      88%, 100% { opacity: 1; transform: translateY(0) scale(1); }
-    }
-    @keyframes opArrowH2 {
-      0%, 13% { opacity: 0; transform: translateX(-58px) scale(.5); }
-      17% { opacity: 1; transform: translateX(2px) scale(1.06); }
-      18%, 82% { opacity: 1; transform: translateX(0) scale(1); }
-      88%, 100% { opacity: 1; transform: translateX(0) scale(1); }
-    }
-    @keyframes opArrowV2 {
-      0%, 13% { opacity: 0; transform: translateY(-40px) scale(.5); }
-      17% { opacity: 1; transform: translateY(2px) scale(1.06); }
-      18%, 82% { opacity: 1; transform: translateY(0) scale(1); }
-      88%, 100% { opacity: 1; transform: translateY(0) scale(1); }
-    }
-    @keyframes opArrowH3 {
-      0%, 22% { opacity: 0; transform: translateX(-58px) scale(.5); }
-      26% { opacity: 1; transform: translateX(2px) scale(1.06); }
-      27%, 82% { opacity: 1; transform: translateX(0) scale(1); }
-      88%, 100% { opacity: 1; transform: translateX(0) scale(1); }
-    }
-    @keyframes opArrowV3 {
-      0%, 22% { opacity: 0; transform: translateY(-40px) scale(.5); }
-      26% { opacity: 1; transform: translateY(2px) scale(1.06); }
-      27%, 82% { opacity: 1; transform: translateY(0) scale(1); }
-      88%, 100% { opacity: 1; transform: translateY(0) scale(1); }
-    }
-    @keyframes opArrowH4 {
-      0%, 31% { opacity: 0; transform: translateX(-58px) scale(.5); }
-      35% { opacity: 1; transform: translateX(2px) scale(1.06); }
-      36%, 82% { opacity: 1; transform: translateX(0) scale(1); }
-      88%, 100% { opacity: 1; transform: translateX(0) scale(1); }
-    }
-    @keyframes opArrowV4 {
-      0%, 31% { opacity: 0; transform: translateY(-40px) scale(.5); }
-      35% { opacity: 1; transform: translateY(2px) scale(1.06); }
-      36%, 82% { opacity: 1; transform: translateY(0) scale(1); }
-      88%, 100% { opacity: 1; transform: translateY(0) scale(1); }
-    }
-    @keyframes opText1 {
-      0% { opacity: .55; transform: translateY(8px); }
-      4% { opacity: 1; transform: translateY(0); }
-      82% { opacity: 1; transform: none; }
-      88%, 100% { opacity: 1; transform: none; }
-    }
-    @keyframes opText2 {
-      0%, 9% { opacity: .55; transform: translateY(8px); }
-      13% { opacity: 1; transform: translateY(0); }
-      82% { opacity: 1; transform: none; }
-      88%, 100% { opacity: 1; transform: none; }
-    }
-    @keyframes opText3 {
-      0%, 18% { opacity: .55; transform: translateY(8px); }
-      22% { opacity: 1; transform: translateY(0); }
-      82% { opacity: 1; transform: none; }
-      88%, 100% { opacity: 1; transform: none; }
-    }
-    @keyframes opText4 {
-      0%, 27% { opacity: .55; transform: translateY(8px); }
-      31% { opacity: 1; transform: translateY(0); }
-      82% { opacity: 1; transform: none; }
-      88%, 100% { opacity: 1; transform: none; }
-    }
-    @keyframes opText5 {
-      0%, 36% { opacity: .55; transform: translateY(8px); }
-      40% { opacity: 1; transform: translateY(0); }
-      82% { opacity: 1; transform: none; }
-      88%, 100% { opacity: 1; transform: none; }
-    }
-    @keyframes opLineH {
-      0% { opacity: 1; transform: scaleX(0); }
-      38% { transform: scaleX(1); }
-      82% { opacity: 1; transform: scaleX(1); }
-      88%, 100% { opacity: 1; transform: scaleX(1); }
-    }
-    @keyframes opLineV {
-      0% { opacity: 1; transform: scaleY(0); }
-      38% { transform: scaleY(1); }
-      82% { opacity: 1; transform: scaleY(1); }
-      88%, 100% { opacity: 1; transform: scaleY(1); }
-    }
-    .op-steps.op-run::before { animation: opLineH 4.8s ease-out forwards; }
-    .op-run .op-step:nth-child(1) .op-ic { animation: opIcon1 4.8s ease-out forwards; }
-    .op-run .op-step:nth-child(2) .op-ic { animation: opIcon2 4.8s ease-out forwards; }
-    .op-run .op-step:nth-child(3) .op-ic { animation: opIcon3 4.8s ease-out forwards; }
-    .op-run .op-step:nth-child(4) .op-ic { animation: opIcon4 4.8s ease-out forwards; }
-    .op-run .op-step:nth-child(5) .op-ic { animation: opIcon5 4.8s ease-out forwards; }
-    .op-run .op-step:nth-child(1) .op-arrow { animation: opArrowH1 4.8s ease-out forwards; }
-    .op-run .op-step:nth-child(2) .op-arrow { animation: opArrowH2 4.8s ease-out forwards; }
-    .op-run .op-step:nth-child(3) .op-arrow { animation: opArrowH3 4.8s ease-out forwards; }
-    .op-run .op-step:nth-child(4) .op-arrow { animation: opArrowH4 4.8s ease-out forwards; }
-    /* copy never leaves — it only floats up and brightens with its badge */
-    .op-run .op-step:nth-child(1) :is(.op-title, .op-text) { animation: opText1 4.8s ease-out forwards; }
-    .op-run .op-step:nth-child(2) :is(.op-title, .op-text) { animation: opText2 4.8s ease-out forwards; }
-    .op-run .op-step:nth-child(3) :is(.op-title, .op-text) { animation: opText3 4.8s ease-out forwards; }
-    .op-run .op-step:nth-child(4) :is(.op-title, .op-text) { animation: opText4 4.8s ease-out forwards; }
-    .op-run .op-step:nth-child(5) :is(.op-title, .op-text) { animation: opText5 4.8s ease-out forwards; }
-
-    @media (max-width: 1024px) {
-      .op-steps { gap: 18px; }
-      .op-ic, .op-ic img { width: 78px; height: 78px; }
-      .op-steps::before { top: 38px; }
-      .op-arrow { top: 22px; right: -26px; width: 32px; height: 32px; }
-      .op-arrow svg { width: 16px; height: 16px; }
-    }
-    @media (max-width: 860px) {
-      /* Vertical rail on one fixed measure. Each slot is a flex row: badge
-         fixed on the LEFT and a tight title+copy block on the RIGHT, both
-         vertically centred, so there is never stray whitespace between the
-         title and description or between the icon and its text. */
-      .op-steps {
-        --op-ic: 60px;
-        --op-arw: 28px;
-        --op-gap: 28px;
-        --op-cgap: 16px;
-        --op-row: 84px;
-        grid-template-columns: 1fr;
-        gap: var(--op-gap);
-      }
-      .op-steps::before {
-        top: calc(var(--op-row) / 2);
-        bottom: calc(var(--op-row) / 2);
-        left: calc((var(--op-ic) - 2px) / 2);
-        right: auto;
-        width: 2px;
-        height: auto;
-        transform-origin: top center;
-        background: linear-gradient(180deg, rgba(213,160,33,.18), rgba(213,160,33,.55), rgba(213,160,33,.18));
-      }
-      .op-steps.op-run::before { animation-name: opLineV; }
-      .op-step {
-        position: relative;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        column-gap: var(--op-cgap);
-        text-align: left;
-        padding-left: 0;
-        /* every slot is the same fixed height, so a two-line description can
-           never lengthen one row and break the icon/arrow rhythm */
-        min-height: var(--op-row);
-      }
-      .op-ic {
-        position: static;
-        flex: 0 0 var(--op-ic);
-        width: var(--op-ic);
-        height: var(--op-ic);
-        margin: 0;
-      }
-      .op-ic img { width: 100%; height: 100%; }
-      /* tight text block: title and description stacked with no empty gap */
-      .op-copy { flex: 1 1 auto; min-width: 0; }
-      .op-title { padding-top: 0; margin: 0 0 2px; }
-      .op-text { max-width: none; margin: 0; }
-      /* the disc always centres in the row gap on the icon centre-line,
-         i.e. exactly between two consecutive badges */
-      .op-arrow {
-        position: absolute;
-        left: calc((var(--op-ic) - var(--op-arw)) / 2);
-        top: calc(100% + (var(--op-gap) - var(--op-arw)) / 2);
-        bottom: auto;
-        width: var(--op-arw);
-        height: var(--op-arw);
-        margin: 0;
-      }
-      .op-arrow svg { width: 14px; height: 14px; transform: rotate(90deg); }
-      .op-run .op-step:nth-child(1) .op-arrow { animation-name: opArrowV1; }
-      .op-run .op-step:nth-child(2) .op-arrow { animation-name: opArrowV2; }
-      .op-run .op-step:nth-child(3) .op-arrow { animation-name: opArrowV3; }
-      .op-run .op-step:nth-child(4) .op-arrow { animation-name: opArrowV4; }
-    }
-    @media (max-width: 480px) {
-      /* compact phones: slightly smaller badge + disc, tighter measure */
-      .op-steps {
-        --op-ic: 52px;
-        --op-arw: 26px;
-        --op-gap: 24px;
-        --op-cgap: 12px;
-        --op-row: 84px;
-      }
-      .op-title { font-size: 1rem; }
-      .op-text { font-size: .82rem; }
-    }
-    /* Mobile: hide Our Process; keep desktop experience intact (client request) */
-    @media (max-width: 900px) {
-      #our-process { display: none !important; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .op-steps::before,
-      .op-ic,
-      .op-arrow,
-      .op-title,
-      .op-text { animation: none !important; opacity: 1 !important; transform: none !important; }
-    }
-  </style>
 <section class="hp-showcase" id="happy-meeting" aria-labelledby="hp-showcase-drinks-heading">
     <div class="hp-showcase__inner">
       <div class="hp-showcase__body">
@@ -12150,139 +11106,102 @@
 
 
   <style id="dentsu-testimonial-styles">
+    /* v7.1 Dentsu testimonial — 100% match to reference: white card with cream halo,
+       5 gold stars, navy sans-serif quote, tan divider, centered stacked wordmark */
     .dentsu-quote-section {
       position: relative;
-      padding: clamp(3rem, 6vw, 5rem) 20px clamp(3.5rem, 6.5vw, 5.5rem);
+      padding: clamp(2.5rem, 5vw, 3.5rem) 20px clamp(2.2rem, 4vw, 3rem);
       background: var(--color-bg-page, #F7EDDC);
       overflow: hidden;
     }
     .dentsu-quote-section .container {
-      max-width: 880px;
+      max-width: 760px;
       margin: 0 auto;
       position: relative;
     }
     .dentsu-quote-card {
       position: relative;
-      background: #FAF1DF;
-      border-radius: 28px;
-      padding: clamp(48px, 7vw, 72px) clamp(28px, 5vw, 64px) clamp(40px, 5.5vw, 56px);
-      box-shadow: 0 24px 60px rgba(11, 30, 63, 0.08);
-      text-align: left;
+      background: #fff;
+      border: 1px solid #F2E6CE;
+      border-radius: 40px;
+      padding: clamp(38px, 5vw, 54px) clamp(28px, 5vw, 56px) clamp(36px, 5vw, 50px);
+      box-shadow: 0 16px 42px rgba(11, 30, 63, 0.07);
+      text-align: center;
     }
-    .dentsu-quote-mark {
-      position: absolute;
-      top: clamp(18px, 3vw, 28px);
-      left: clamp(22px, 4vw, 40px);
-      font-family: 'Admore Fraunces', Fraunces, Georgia, serif;
-      font-size: clamp(88px, 14vw, 140px);
-      font-weight: 900;
-      line-height: 0.7;
-      color: var(--color-accent-gold, #FFCE1B);
-      opacity: 0.95;
-      pointer-events: none;
-      user-select: none;
+    .dentsu-stars {
+      display: flex;
+      justify-content: center;
+      gap: clamp(6px, 1vw, 10px);
+      margin: 0 0 clamp(20px, 2.6vw, 28px);
+    }
+    .dentsu-stars svg {
+      width: clamp(38px, 5vw, 58px);
+      height: auto;
+      display: block;
     }
     .dentsu-quote-text {
-      position: relative;
-      margin: 0 0 clamp(28px, 4vw, 40px);
-      font-family: 'Admore Fraunces', Fraunces, Georgia, serif;
-      font-style: italic;
+      margin: 0 0 clamp(24px, 3.2vw, 32px);
+      font-family: var(--font-body, Poppins, Inter, sans-serif);
+      font-style: normal;
       font-weight: 500;
-      font-size: clamp(1.65rem, 3.6vw, 2.55rem);
-      line-height: 1.35;
+      font-size: clamp(1.5rem, 3.3vw, 2.35rem);
+      line-height: 1.4;
       letter-spacing: -0.005em;
-      color: var(--color-primary-dark, #0B1E3F);
+      color: #20304D;
+      text-align: left;
     }
-    .dentsu-quote-text::before { content: "\201C"; margin-right: 0.05em; }
-    .dentsu-quote-text::after  { content: "\201D"; }
+    .dentsu-divider {
+      width: 100%;
+      height: 2px;
+      background: #F2E6CE;
+      margin: 0 0 clamp(22px, 3vw, 30px);
+      border-radius: 2px;
+    }
     .dentsu-attribution {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: clamp(18px, 3vw, 28px);
-      flex-wrap: wrap;
+      gap: 4px;
+      text-align: center;
     }
-    .dentsu-logo-badge {
-      flex: 0 0 auto;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 150px;
-      padding: 14px 26px;
-      background: #ffffff;
-      border: 2px solid rgba(11, 30, 63, 0.12);
-      border-radius: 40px;
-      box-shadow: 0 12px 28px rgba(11, 30, 63, 0.08);
-    }
-    .dentsu-logo-badge svg {
-      display: block;
-      width: 150px;
-      height: auto;
-    }
-    .dentsu-identity {
-      flex: 1 1 220px;
-      min-width: 0;
+    .dentsu-wordmark {
+      margin: 0 0 6px;
+      font-family: Helvetica, Arial, 'Arial Black', sans-serif;
+      font-weight: 900;
+      font-size: clamp(3.4rem, 8vw, 5.8rem);
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      color: #000000;
     }
     .dentsu-company {
-      margin: 0 0 4px;
+      margin: 0;
       font-family: var(--font-body, Poppins, sans-serif);
-      font-size: clamp(1.85rem, 3.6vw, 2.6rem);
+      font-size: clamp(1.55rem, 2.8vw, 2.1rem);
       font-weight: 800;
       line-height: 1.1;
-      color: var(--color-primary-dark, #0B1E3F);
-      letter-spacing: -0.01em;
+      color: #0B1E3F;
+      letter-spacing: -0.005em;
     }
     .dentsu-role {
       margin: 0;
       font-family: var(--font-body, Poppins, sans-serif);
-      font-size: clamp(1.15rem, 2.2vw, 1.65rem);
+      font-size: clamp(1.05rem, 2vw, 1.55rem);
       font-weight: 500;
-      line-height: 1.3;
+      line-height: 1.35;
       color: #5A7089;
       letter-spacing: 0.005em;
     }
     @media (max-width: 600px) {
-      .dentsu-quote-card { border-radius: 22px; padding: 44px 22px 32px; }
-      .dentsu-quote-mark { font-size: 80px; top: 14px; left: 18px; }
-      .dentsu-quote-text { font-size: 1.5rem; line-height: 1.4; margin-bottom: 24px; }
-      .dentsu-attribution { gap: 16px; }
-      .dentsu-logo-badge { min-width: 128px; padding: 10px 18px; border-radius: 30px; }
-      .dentsu-logo-badge svg { width: 124px; }
-      .dentsu-company { font-size: 1.7rem; }
-      .dentsu-role { font-size: 1.05rem; }
+      .dentsu-quote-card { border-radius: 30px; padding: 32px 22px 28px; }
+      .dentsu-stars { gap: 6px; margin-bottom: 18px; }
+      .dentsu-stars svg { width: 34px; }
+      .dentsu-quote-text { font-size: 1.35rem; line-height: 1.45; margin-bottom: 20px; text-align: left; }
+      .dentsu-divider { margin-bottom: 18px; }
+      .dentsu-wordmark { font-size: 3rem; margin-bottom: 6px; }
+      .dentsu-company { font-size: 1.45rem; }
+      .dentsu-role { font-size: 1rem; }
     }
-    @media (prefers-reduced-motion: reduce) {
-      .dentsu-quote-card, .dentsu-logo-badge { transition: none !important; }
-    }
-  </style>
-
-  <section class="dentsu-quote-section" id="dentsu-quote" aria-label="Client testimonial">
-    <div class="container">
-      <div class="dentsu-quote-card">
-        <span class="dentsu-quote-mark" aria-hidden="true">&ldquo;</span>
-        <blockquote class="dentsu-quote-text">
-          Fine staff who has performed outstandingly on all our campaigns. A real asset that gives your company an edge over the competition. Keep up the good work!
-        </blockquote>
-        <div class="dentsu-attribution">
-          <div class="dentsu-logo-badge" aria-hidden="true">
-            <!-- Inline Dentsu wordmark (lowercase "dentsu" in the brand's black
-                 sans style) — matches the pill logo in the client reference. -->
-            <svg viewBox="0 0 300 80" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="dentsu">
-              <g fill="#000000" font-family="Helvetica, Arial, 'Arial Black', sans-serif" font-weight="900">
-                <text x="0" y="62" font-size="68" letter-spacing="-1.5">dentsu</text>
-              </g>
-            </svg>
-          </div>
-          <div class="dentsu-identity">
-            <p class="dentsu-company">Dentsu</p>
-            <p class="dentsu-role">Associate Digital Director</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ==========================================================================
+  </style>  <!-- ==========================================================================
        FOOTER (100% BRAND CONSISTENCY WITH JOB-VACANCY-PAGE (2).HTML)
        ========================================================================== -->
   
@@ -12316,8 +11235,7 @@
           <ul class="footer-exact-links">
             <li><a href="https://advertisingandmore.com/#about">About Us</a></li>
             <li><a href="https://advertisingandmore.com/#services">Services</a></li>
-            <li><a href="https://advertisingandmore.com/#process">Our Process</a></li>
-            <li><a href="https://advertisingandmore.com/#work">Our Work</a></li>
+                        <li><a href="https://advertisingandmore.com/#work">Our Work</a></li>
             <li><a href="https://advertisingandmore.com/#team">The Team</a></li>
             <li><a href="#services" style="color: #FFCE1B; font-weight: 600;">Party Services &amp; Rentals</a></li>
             <li><a href="https://advertisingandmore.com/job-vacancy-page.html#vacancies">Careers &amp; Vacancies</a></li>
@@ -16833,7 +15751,7 @@ delete window.intlTelInputUtilsTemp;
   (function () {
     /* Restart the synchronized process-flow animation every time the section
        scrolls into view, so arriving visitors always see it begin at step 1. */
-    const section = document.getElementById('our-process');
+    const section = null;
     const list = section ? section.querySelector('.op-steps') : null;
     if (!section || !list) return;
     if (window.matchMedia &&
@@ -16894,9 +15812,9 @@ delete window.intlTelInputUtilsTemp;
 
     /* ---- 3. scroll reveal (excludes #top15, which has its own system) ---- */
     var SELECTORS = [
-      '#why-choose .section-header-center',
-      '#why-choose .wc-card',
-      '#our-process .section-header-center',
+      ' .section-header-center',
+      ' .wc-card',
+      ' .section-header-center',
       '#happy-meeting .section-header-center',
       '#hp3-faq .section-header-center',
       '.hp3-faq-item',
@@ -16912,7 +15830,7 @@ delete window.intlTelInputUtilsTemp;
       });
     });
     /* gentle stagger inside card groups */
-    document.querySelectorAll('#why-choose .wc-card, .hp3-faq-item').forEach(function (el, i) {
+    document.querySelectorAll(' .wc-card, .hp3-faq-item').forEach(function (el, i) {
       el.style.transitionDelay = Math.min(i, 5) * 80 + 'ms';
     });
     if (reduce || !('IntersectionObserver' in window) ||
