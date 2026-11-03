@@ -10071,7 +10071,7 @@
         </blockquote>
         <div class="dentsu-divider" aria-hidden="true"></div>
         <div class="dentsu-attribution">
-          <p class="dentsu-wordmark" aria-hidden="true">dentsu</p>
+          <img class="dentsu-wordmark" src="assets/brand/dentsu-tc.png" alt="dentsu" width="240" height="52" loading="lazy" decoding="async">
           <p class="dentsu-company">Dentsu</p>
           <p class="dentsu-role">Associate Digital Director</p>
         </div>
@@ -11165,13 +11165,10 @@
       text-align: center;
     }
     .dentsu-wordmark {
-      margin: 0 0 6px;
-      font-family: Helvetica, Arial, 'Arial Black', sans-serif;
-      font-weight: 900;
-      font-size: clamp(3.4rem, 8vw, 5.8rem);
-      line-height: 0.95;
-      letter-spacing: -0.02em;
-      color: #000000;
+      display: block;
+      width: clamp(180px, 28vw, 260px);
+      height: auto;
+      margin: 0 0 10px;
     }
     .dentsu-company {
       margin: 0;
@@ -11192,14 +11189,62 @@
       letter-spacing: 0.005em;
     }
     @media (max-width: 600px) {
-      .dentsu-quote-card { border-radius: 30px; padding: 32px 22px 28px; }
-      .dentsu-stars { gap: 6px; margin-bottom: 18px; }
-      .dentsu-stars svg { width: 34px; }
-      .dentsu-quote-text { font-size: 1.35rem; line-height: 1.45; margin-bottom: 20px; text-align: left; }
-      .dentsu-divider { margin-bottom: 18px; }
-      .dentsu-wordmark { font-size: 3rem; margin-bottom: 6px; }
-      .dentsu-company { font-size: 1.45rem; }
-      .dentsu-role { font-size: 1rem; }
+      /* v7.5 — mobile matches advertisingandmore.com testimonial cards 1:1 */
+      .dentsu-quote-section { padding: 32px 15px 28px; }
+      .dentsu-quote-section .container { max-width: 100%; padding: 0; }
+      .dentsu-quote-card {
+        border-radius: 18px;
+        padding: 20px;
+        box-shadow: none;
+        text-align: left;
+      }
+      .dentsu-stars {
+        justify-content: center;
+        gap: 7px;
+        margin: 0 0 14px;
+      }
+      .dentsu-stars svg { width: 28px; }
+      .dentsu-quote-text {
+        font-family: Poppins, 'Admore Poppins', Inter, sans-serif;
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 1.65;
+        color: #20304D;
+        text-align: left;
+        margin: 0 0 16px;
+      }
+      .dentsu-divider {
+        height: 2px;
+        margin: 0 0 16px;
+      }
+      .dentsu-attribution {
+        align-items: center;
+        gap: 4px;
+      }
+      .dentsu-wordmark {
+        display: block;
+        width: 220px;
+        height: auto;
+        margin: 0 0 8px;
+      }
+      .dentsu-company {
+        font-family: Poppins, 'Admore Poppins', Inter, sans-serif;
+        font-size: 13.68px;
+        font-weight: 600;
+        line-height: 1.25;
+        color: #0B1E3F;
+        text-align: center;
+        margin: 0;
+      }
+      .dentsu-role {
+        font-family: Poppins, 'Admore Poppins', Inter, sans-serif;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #66748F;
+        text-align: center;
+        margin: 0;
+      }
     }
   </style>  <!-- ==========================================================================
        FOOTER (100% BRAND CONSISTENCY WITH JOB-VACANCY-PAGE (2).HTML)
