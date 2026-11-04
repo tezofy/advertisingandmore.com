@@ -8995,6 +8995,7 @@
 
       <a href="#contact" class="btn-coffee-pill hero-coffee">
         <img loading="eager" decoding="async" fetchpriority="high" class="coffee-cup-badge" src="assets/img/hp-f71aad4b7033.webp" alt="Coffee Cup">
+        <img loading="lazy" decoding="async" class="coffee-cup-badge hero-coffee-cup-live" src="assets/img/live-coffee-cup.png" alt="Coffee Cup" aria-hidden="true">
         <span>Click for coffee</span>
       </a>
     </div>
@@ -11246,7 +11247,230 @@
         margin: 0;
       }
     }
-  </style>  <!-- ==========================================================================
+  </style>
+
+  <!-- v7.6/v7.8 — Mobile vertical spacing tight to advertisingandmore.com.
+       Desktop/tablet is untouched; only ≤640px paddings/margins are tuned so every
+       block sits close to the next (matching the live site's tight-but-perfect
+       rhythm): 100% seal sits near the header, the eyebrow pill tucks right
+       under the seal, the CTA button is tight below the title, the trusted
+       brands marquee flows directly off the coffee button, and every
+       subsequent section sits flush against the previous one on shared cream
+       backgrounds. Top 15 '#N FAVOURITE' rank pills are apple green (Add to
+       Wishlist buttons keep their original gold). Design/code otherwise intact. -->
+  <style id="v78-mobile-tight-rhythm">
+    @media (max-width: 640px) {
+      :root { --apple-green: #7CB342; --apple-green-deep: #689F38; --apple-green-soft: #9CCC65; }
+
+      /* ---- HERO (tight to the header, elements stacked close together) ---- */
+      #hero.hero-cream { padding-top: 6px !important; padding-bottom: 0 !important; }
+      #hero.hero-cream .hero-cream-inner {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+        gap: 0;
+      }
+      /* 100% seal — original hero-proportioned size (matches live) */
+      #hero.hero-cream .hero-badge { margin: 2px auto 8px !important; transform: scale(.78) !important; }
+      #hero.hero-cream .badge-success { width: 146px; height: 146px; margin: 0; }
+      #hero.hero-cream .badge-success .seal-core { width: 110px; height: 110px; }
+      #hero.hero-cream .badge-success .seal-100 { font-size: 2.25rem; }
+      #hero.hero-cream .badge-success .seal-txt { font-size: .50rem; margin-top: 5px !important; }
+      #hero.hero-cream .badge-success .chk { top: -4px; width: 30px; height: 30px; }
+      /* Eyebrow pill ("EVERYTHING YOU NEED, UNDER ONE ROOF.") — moved up closer to the seal */
+      #hero.hero-cream .cream-eyebrow {
+        margin: 0 auto 4px !important;
+        padding: 9px 20px !important;
+        font-size: 12.6px !important;
+      }
+      /* "Party / Services & Rentals" wordmark — TWO LINES, sized strong as page H1.
+         Only change vs v7.9: tighten top/bottom margins so the wordmark sits
+         closer to the eyebrow, and cap max-width so the coffee cup can't overlap. */
+      #hero.hero-cream .hb-wordmark {
+        margin: 2px 0 6px !important;
+        line-height: 1 !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2px;
+      }
+      /* First line: "Party" script + crown (sits above the 'y' of Party) + stars to the right */
+      #hero.hero-cream .hb-wordmark .hb-script-wrap {
+        font-size: 56px !important;
+        line-height: 1 !important;
+        display: inline-flex !important;
+        align-items: flex-end !important;
+        justify-content: center;
+        margin: 0 !important;
+        position: relative !important;
+      }
+      #hero.hero-cream .hb-wordmark .hb-script {
+        font-size: 3rem !important;
+        line-height: 0.92 !important;
+        margin: 0 !important;
+        letter-spacing: -0.5px !important;
+        font-weight: 500 !important;
+      }
+      /* Crown lifted higher above the 'y' so it sits prettily */
+      #hero.hero-cream .hb-wordmark .hb-crown {
+        width: 38px !important;
+        height: auto !important;
+        position: absolute !important;
+        top: -12px !important;
+        right: -6px !important;
+        margin: 0 !important;
+        display: block !important;
+        filter: drop-shadow(0 3px 5px rgba(161,109,18,.28));
+      }
+      #hero.hero-cream .hb-wordmark .hb-stars {
+        transform: scale(.65) !important;
+        margin: 0 0 -4px -4px !important;
+        display: inline-flex !important;
+        gap: 0;
+        align-self: flex-end;
+      }
+      #hero.hero-cream .hb-wordmark .hb-stars .hb-star { width: 14px; height: 14px; }
+      /* Caps line ("Services & Rentals") — two lines guaranteed across 320-414px.
+         Fluid size + tight tracking = ONE line for "Services & Rentals". */
+      #hero.hero-cream .hb-wordmark .hb-caps {
+        display: block !important;
+        font-size: 10.8vw !important;
+        line-height: 0.95 !important;
+        letter-spacing: -0.04em !important;
+        margin: 0 !important;
+        white-space: nowrap !important;
+        font-weight: 900 !important;
+        text-align: center;
+      }
+      #hero.hero-cream .hb-wordmark .hb-caps-line {
+        display: inline !important;
+        white-space: nowrap !important;
+      }
+      #hero.hero-cream .hb-wordmark .hb-burst { display: none !important; }
+      /* Coffee CTA — 100% match to advertisingandmore.com live hero CTA.
+         Button: 296x53, 44px radius, flat bright-gold background, soft navy shadow,
+         padding 11/24/11/114, 16px / 700 uppercase / #20304D navy text.
+         Cup: 119x94 PNG (live asset), absolute positioned -50px from top, 6px from
+         left, with original coffeeFloat animation. Container padding-top is set so
+         even at the -8px peak bob the cup never touches the title. */
+      #hero.hero-cream .btn-coffee-pill.hero-coffee {
+        margin-top: 56px !important;        /* reserve room for the overhanging cup (live rhythm) */
+        width: 296px !important;
+        max-width: calc(100vw - 40px) !important;
+        height: 53px !important;
+        font-size: 16px !important;
+        font-weight: 700 !important;
+        letter-spacing: 0.16px !important;
+        text-transform: uppercase !important;
+        color: #20304D !important;
+        padding: 11px 24px 11px 114px !important;
+        background: #FFD100 !important;
+        background-image: none !important;
+        border-radius: 44px !important;
+        border: 2px solid transparent !important;
+        box-shadow: 0 4px 12px rgba(11, 30, 63, 0.14) !important;
+        overflow: visible !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+      }
+      #hero.hero-cream .btn-coffee-pill.hero-coffee:hover {
+        transform: translateY(-2px);
+        filter: brightness(1.03);
+        box-shadow: 0 6px 14px rgba(11, 30, 63, 0.18) !important;
+      }
+      /* On mobile hide the original webp cup and show the live PNG cup */
+      #hero.hero-cream .btn-coffee-pill.hero-coffee > img.coffee-cup-badge:not(.hero-coffee-cup-live) {
+        display: none !important;
+      }
+      /* Live PNG cup — saucer sits flush ON the yellow button (rests on the shelf),
+         cup body rises above it and gently bobs via coffeeFloat. */
+      #hero.hero-cream .btn-coffee-pill.hero-coffee img.hero-coffee-cup-live {
+        display: block !important;
+        position: absolute !important;
+        top: -44px !important;   /* saucer sits ~10px inside the button top edge */
+        left: 6px !important;
+        width: 119px !important;
+        height: auto !important;
+        object-fit: contain !important;
+        filter: none !important;
+        animation: coffeeFloat 2.8s ease-in-out infinite !important;
+        transform-origin: bottom center;
+        z-index: 2;
+      }
+    }
+    /* Desktop: keep the original cup badge, hide the mobile-only live PNG */
+    @media (min-width: 641px) {
+      #hero.hero-cream .btn-coffee-pill.hero-coffee img.hero-coffee-cup-live { display: none !important; }
+      #hero.hero-cream .btn-coffee-pill.hero-coffee > img.coffee-cup-badge:not(.hero-coffee-cup-live) {
+        display: block !important;
+      }
+    }
+    @media (max-width: 640px) {
+      /* dead block so the closing brace above stays in the mobile block */
+      /* Undo the v5 margin-top 34px nudge */
+      #hero .hb-actions { margin-top: 0 !important; }
+
+      /* ---- Trusted brands strip: sits right under the CTA, compact ---- */
+      #trusted-brands.hp-trusted {
+        padding-top: 10px !important;
+        padding-bottom: 6px !important;
+        margin: 0 !important;
+      }
+      #trusted-brands .hp-trusted-head { margin-bottom: 6px !important; }
+      #trusted-brands .hp-trusted-eyebrow { font-size: 10px !important; letter-spacing: .12em !important; margin-bottom: 2px !important; }
+
+      /* ---- Sections below hero share the same cream bg: tight/no gaps ---- */
+      /* Top 15 Favourites */
+      #top15.t15-section { padding-top: 14px !important; padding-bottom: 14px !important; }
+      #top15 .section-header-center { margin-bottom: 14px !important; }
+      #top15 .hd-eyebrow { margin-bottom: 6px !important; }
+
+      /* Branson "wow band" quote */
+      #pick-your-wow.wow-band { padding-top: 8px !important; padding-bottom: 8px !important; }
+      #pick-your-wow.wow-band > .container { padding: 0 15px !important; }
+      .branson-section { padding: 0 !important; }
+      .branson-section--wide .branson-card { border-radius: 20px; padding: 18px 16px 16px; }
+
+      /* Services (Pick your kind of WOW) */
+      #services.services-section { padding-top: 14px !important; padding-bottom: 14px !important; }
+      #services .section-header-center { margin-bottom: 14px !important; }
+      #services .section-deck { margin-top: 6px !important; }
+
+      /* Dentsu testimonial */
+      #dentsu-quote.dentsu-quote-section { padding: 14px 15px 14px !important; }
+
+      /* "Book a happy meeting" drinks showcase */
+      #happy-meeting.hp-showcase { padding-top: 14px !important; padding-bottom: 14px !important; }
+      #happy-meeting .hp-showcase__inner { padding-top: 0 !important; }
+      #happy-meeting .hp-showcase__body { padding-top: 0; }
+      #happy-meeting .hp-showcase__titlebox { margin-bottom: 8px; }
+
+      /* Contact/Enquiry form */
+      #contact.homepage-contact-section { padding-top: 14px !important; padding-bottom: 14px !important; }
+
+      /* FAQ */
+      #hp3-faq.hp3-faq-section { padding-top: 12px !important; padding-bottom: 14px !important; }
+      #hp3-faq .section-header-center { margin-bottom: 12px !important; }
+
+      /* Collapse ALL leftover inter-section margins between adjacent blocks */
+      section + section,
+      section + .wow-band,
+      .wow-band + section { margin-top: 0 !important; }
+
+      /* ---- Top 15 Favourites: APPLE GREEN rank pills only.
+            Add to Wishlist buttons keep their original gold styling. ---- */
+      #t15-grid .catalog-rank-badge,
+      .t15-rank-pill {
+        background: linear-gradient(180deg, var(--apple-green-soft), var(--apple-green)) !important;
+        color: #ffffff !important;
+        box-shadow: 0 6px 14px rgba(104,159,56,.32) !important;
+      }
+    }
+  </style>
+
+  <!-- ==========================================================================
        FOOTER (100% BRAND CONSISTENCY WITH JOB-VACANCY-PAGE (2).HTML)
        ========================================================================== -->
   
