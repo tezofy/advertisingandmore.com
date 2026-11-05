@@ -9758,7 +9758,7 @@
           <span>100 &amp; MORE WAYS TO MAKE YOUR EVENT UNFORGETTABLE</span>
         </div>
         <h2 class="heading-display">
-          Our Services &amp; Event <span class="text-gold">Rentals</span>
+          Pick your kind of <span class="text-gold">WOW</span>
         </h2>
       </div>
 
@@ -11503,18 +11503,12 @@
         margin: 0 auto !important;
       }
 
-      /* Services eyebrow = "100 & MORE WAYS..." — same eyebrow font family/weight/color as other blocks,
-         slightly smaller so it wraps cleanly into two lines on 320-414px (never three). */
+      /* Services eyebrow = "100 & MORE WAYS..." — shared eyebrow font (Poppins red uppercase),
+         same size as other section eyebrows; wraps naturally into two lines on mobile. */
       #services .section-header-center .hd-eyebrow {
-        font-size: 11px !important;
-        letter-spacing: .06em !important;
-        line-height: 1.5 !important;
         white-space: normal !important;
         word-break: break-word;
-        margin-bottom: 10px !important;
-      }
-      #services .section-header-center .hd-eyebrow .line {
-        width: 18px !important;
+        line-height: 1.5 !important;
       }
       #services .section-header-center .heading-display {
         max-width: 100% !important;
@@ -16343,17 +16337,19 @@ delete window.intlTelInputUtilsTemp;
     .img-lightbox__frame {
       position: relative;
       max-width: min(92vw, 680px);
-      max-height: 86vh;
+      max-height: 80vh; /* leave room for close button + caption below */
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
+      gap: 18px;
       transform: scale(0.96);
       transition: transform .25s cubic-bezier(.2,.8,.2,1);
     }
     .img-lightbox.is-open .img-lightbox__frame { transform: scale(1); }
     .img-lightbox__img {
       max-width: 100%;
-      max-height: 86vh;
+      max-height: 72vh;
       width: auto;
       height: auto;
       border-radius: 18px;
@@ -16362,18 +16358,19 @@ delete window.intlTelInputUtilsTemp;
       display: block;
       object-fit: contain;
     }
+    .img-lightbox__footer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
     .img-lightbox__close {
-      position: absolute;
-      top: -14px;
-      right: -14px;
       width: 44px;
       height: 44px;
       border-radius: 50%;
       border: none;
       background: #fff;
       color: #0B1E3F;
-      font-size: 22px;
-      line-height: 44px;
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -16385,14 +16382,12 @@ delete window.intlTelInputUtilsTemp;
     .img-lightbox__close:hover { background: #FFD100; transform: scale(1.06); }
     .img-lightbox__close svg { width: 20px; height: 20px; display: block; }
     .img-lightbox__caption {
-      position: absolute;
-      left: 0; right: 0; bottom: -34px;
       text-align: center;
-      color: rgba(255,255,255,.85);
+      color: rgba(255,255,255,.92);
       font-family: Poppins, sans-serif;
-      font-size: 13px;
-      letter-spacing: .02em;
-      pointer-events: none;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: .01em;
     }
     /* Zoom hint + cursor on card images */
     #t15-grid .catalog-card .service-card-img-wrap,
@@ -16401,18 +16396,23 @@ delete window.intlTelInputUtilsTemp;
     }
     @media (max-width: 480px) {
       .img-lightbox { padding: 16px 10px; }
-      .img-lightbox__close { width: 40px; height: 40px; top: -10px; right: -10px; }
+      .img-lightbox__frame { gap: 14px; max-height: 82vh; }
+      .img-lightbox__img { max-height: 68vh; border-radius: 14px; }
+      .img-lightbox__close { width: 40px; height: 40px; }
       .img-lightbox__close svg { width: 18px; height: 18px; }
+      .img-lightbox__caption { font-size: 13px; }
     }
   </style>
 
   <div class="img-lightbox" id="imgLightbox" role="dialog" aria-modal="true" aria-label="Image preview" hidden>
     <div class="img-lightbox__frame">
       <img class="img-lightbox__img" id="imgLightboxImg" alt="">
-      <button class="img-lightbox__close" id="imgLightboxClose" aria-label="Close">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
-      </button>
-      <div class="img-lightbox__caption" id="imgLightboxCap"></div>
+      <div class="img-lightbox__footer">
+        <button class="img-lightbox__close" id="imgLightboxClose" aria-label="Close">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+        <div class="img-lightbox__caption" id="imgLightboxCap"></div>
+      </div>
     </div>
   </div>
 
