@@ -5078,6 +5078,10 @@
       max-width: none;
       pointer-events: none;
       animation: homepageCoffeeFloat 3.2s ease-in-out infinite;
+      transform-origin: bottom center;
+      will-change: transform;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
     }
     @keyframes homepageCoffeeFloat {
       0%, 100% { transform: translateY(0) rotate(-1deg); }
@@ -5383,7 +5387,10 @@
       left: -8px;
       top: -40px;
       transform-origin: 50% 100%;
-      animation: footerCoffeeRise 2.7s ease-in-out infinite;
+      animation: footerCoffeeRise 2.7s ease-in-out infinite !important;
+      will-change: transform;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
     }
     .foot-cta-exact .footer-email-link {
       margin-top: 21px;
@@ -5913,12 +5920,12 @@
       white-space: nowrap;
     }
     #contact .homepage-coffee-cup {
-      left: 30%;
+      left: calc(50% - 110px);
       top: -31px;
       width: 115px;
       height: auto;
       max-width: none;
-      animation: coffeeFloat 2.8s ease-in-out infinite;
+      animation: coffeeFloat 2.8s ease-in-out infinite !important;
       transform-origin: bottom center;
       will-change: transform;
     }
@@ -6398,6 +6405,17 @@
       }
     }
 
+    /* v8.23 — Coffee-cup badges: force GPU compositing so iOS Safari doesn't pause
+       coffeeFloat after lazy images decode (CTA submit + footer Click-for-Coffee). */
+    #contact .homepage-coffee-cup,
+    #site-footer .foot-cta-exact .btn-coffee-pill .coffee-cup-badge,
+    .btn-coffee-pill .coffee-cup-badge,
+    .hero-coffee-cup-live {
+      -webkit-transform: translateZ(0);
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      will-change: transform;
+    }
     @media (prefers-reduced-motion: reduce) {
       #contact .homepage-coffee-cup,
       #site-footer .foot-cta-exact .btn-coffee-pill .coffee-cup-badge {
@@ -9244,6 +9262,21 @@
       }
       .hp-logo-track { animation-duration: 34s; }
       .hp-logo-marquee-reverse .hp-logo-track { animation-duration: 38s; }
+    }
+    /* v8.23 — Mobile/iOS safeguard: force GPU compositing on the marquee so the
+       infinite translate3d animation keeps running after the page settles
+       (some iOS Safari/GH-pages builds stall keyframe animations on non-composited
+       layers when many lazy images are still decoding). */
+    .hp-logo-track {
+      -webkit-transform: translateZ(0);
+      transform: translate3d(0,0,0);
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      will-change: transform;
+    }
+    .hp-logo-marquee-reverse .hp-logo-track {
+      -webkit-transform: translateZ(0);
+      transform: translate3d(0,0,0);
     }
     @media (prefers-reduced-motion: reduce) {
       .hp-logo-track { animation: none !important; }
@@ -16591,6 +16624,56 @@ delete window.intlTelInputUtilsTemp;
     var mo = new MutationObserver(function(){ bind(); });
     document.body && mo.observe(document.body, { childList: true, subtree: true });
     window.addEventListener('load', bind);
+  })();
+  </script>
+
+  <!-- v8.23 — Mobile/iOS animation keep-alive:
+       1) Force GPU compositing on marquee + coffee cups (translateZ + backface-hidden).
+       2) Restart any infinite animation that has fallen to "paused" because iOS
+          Safari sometimes stalls keyframes after lazy images decode or when the
+          page is served from GitHub Pages / low-power mode.
+       3) Re-restart on scroll (so off-screen cups start floating when scrolled
+          into view) and on pageshow (back/forward cache). -->
+  <script id="mobile-anim-keepalive-js">
+  (function(){
+    var selectors=[
+      '.hp-logo-track',
+      '.hp-logo-marquee-reverse .hp-logo-track',
+      '#contact .homepage-coffee-cup',
+      '#site-footer .foot-cta-exact .btn-coffee-pill .coffee-cup-badge',
+      '.btn-coffee-pill .coffee-cup-badge',
+      '.hero-coffee-cup-live'
+    ].join(',');
+    function kick(){
+      var els=document.querySelectorAll(selectors);
+      els.forEach(function(el){
+        var cs=getComputedStyle(el);
+        if (cs.animationPlayState!=='running' || parseFloat(cs.animationDuration)===0){
+          el.style.animation='none';
+          // force reflow
+          // eslint-disable-next-line no-unused-expressions
+          el.offsetHeight;
+          el.style.animation='';
+        }
+        // nudge translateZ just in case
+        el.style.webkitTransform=el.style.transform || '';
+      });
+    }
+    function onReady(){
+      kick();
+      [300,900,1800,3500].forEach(function(t){ setTimeout(kick,t); });
+      var scrollT=null;
+      window.addEventListener('scroll',function(){
+        if(scrollT) return;
+        scrollT=setTimeout(function(){ scrollT=null; kick(); }, 250);
+      },{passive:true});
+      document.addEventListener('visibilitychange',function(){ if(!document.hidden) setTimeout(kick,80); });
+      window.addEventListener('pageshow',function(e){ if(e.persisted) setTimeout(kick,80); });
+    }
+    if (document.readyState==='loading'){
+      document.addEventListener('DOMContentLoaded',onReady,{once:true});
+    } else { onReady(); }
+    window.addEventListener('load',function(){ setTimeout(kick,200); },{once:true});
   })();
   </script>
 
