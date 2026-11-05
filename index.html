@@ -9755,10 +9755,10 @@
       <div class="section-header-center">
         <div class="hd-eyebrow">
           <span class="line"></span>
-          <span>Our Services &amp; Event Rentals</span>
+          <span>100 &amp; MORE WAYS TO MAKE YOUR EVENT UNFORGETTABLE</span>
         </div>
         <h2 class="heading-display">
-          Pick your kind of <span class="text-gold">WOW</span>
+          Our Services &amp; Event <span class="text-gold">Rentals</span>
         </h2>
       </div>
 
@@ -11503,10 +11503,18 @@
         margin: 0 auto !important;
       }
 
-      /* Services eyebrow/title — match other section headers (The VIP 15 eyebrow sizing etc.) */
+      /* Services eyebrow = "100 & MORE WAYS..." — same eyebrow font family/weight/color as other blocks,
+         slightly smaller so it wraps cleanly into two lines on 320-414px (never three). */
       #services .section-header-center .hd-eyebrow {
-        /* use shared eyebrow styling from #top15 / #contact (13.68px / .1em / 600) */
+        font-size: 11px !important;
+        letter-spacing: .06em !important;
+        line-height: 1.5 !important;
         white-space: normal !important;
+        word-break: break-word;
+        margin-bottom: 10px !important;
+      }
+      #services .section-header-center .hd-eyebrow .line {
+        width: 18px !important;
       }
       #services .section-header-center .heading-display {
         max-width: 100% !important;
@@ -16308,6 +16316,173 @@ delete window.intlTelInputUtilsTemp;
     requestAnimationFrame(function () { requestAnimationFrame(verifyFill); });
     window.addEventListener('load', verifyFill);
     window.addEventListener('resize', onResize, { passive: true });
+  })();
+  </script>
+
+  <!-- v8.9 — Image lightbox (zoomed preview) for The VIP 15 + Services/Event Rentals catalog cards -->
+  <style id="card-image-lightbox-css">
+    .img-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(8, 18, 38, 0.85);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 28px 18px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .22s ease;
+    }
+    .img-lightbox.is-open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .img-lightbox__frame {
+      position: relative;
+      max-width: min(92vw, 680px);
+      max-height: 86vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: scale(0.96);
+      transition: transform .25s cubic-bezier(.2,.8,.2,1);
+    }
+    .img-lightbox.is-open .img-lightbox__frame { transform: scale(1); }
+    .img-lightbox__img {
+      max-width: 100%;
+      max-height: 86vh;
+      width: auto;
+      height: auto;
+      border-radius: 18px;
+      box-shadow: 0 30px 80px rgba(0,0,0,.45);
+      background: #fff;
+      display: block;
+      object-fit: contain;
+    }
+    .img-lightbox__close {
+      position: absolute;
+      top: -14px;
+      right: -14px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: none;
+      background: #fff;
+      color: #0B1E3F;
+      font-size: 22px;
+      line-height: 44px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 22px rgba(0,0,0,.35);
+      padding: 0;
+      transition: transform .15s ease, background .15s ease;
+    }
+    .img-lightbox__close:hover { background: #FFD100; transform: scale(1.06); }
+    .img-lightbox__close svg { width: 20px; height: 20px; display: block; }
+    .img-lightbox__caption {
+      position: absolute;
+      left: 0; right: 0; bottom: -34px;
+      text-align: center;
+      color: rgba(255,255,255,.85);
+      font-family: Poppins, sans-serif;
+      font-size: 13px;
+      letter-spacing: .02em;
+      pointer-events: none;
+    }
+    /* Zoom hint + cursor on card images */
+    #t15-grid .catalog-card .service-card-img-wrap,
+    .services-section .services-grid-12 .catalog-card .service-card-img-wrap {
+      cursor: zoom-in;
+    }
+    @media (max-width: 480px) {
+      .img-lightbox { padding: 16px 10px; }
+      .img-lightbox__close { width: 40px; height: 40px; top: -10px; right: -10px; }
+      .img-lightbox__close svg { width: 18px; height: 18px; }
+    }
+  </style>
+
+  <div class="img-lightbox" id="imgLightbox" role="dialog" aria-modal="true" aria-label="Image preview" hidden>
+    <div class="img-lightbox__frame">
+      <img class="img-lightbox__img" id="imgLightboxImg" alt="">
+      <button class="img-lightbox__close" id="imgLightboxClose" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <div class="img-lightbox__caption" id="imgLightboxCap"></div>
+    </div>
+  </div>
+
+  <script id="card-image-lightbox-js">
+  (function(){
+    var lb = document.getElementById('imgLightbox');
+    var lbImg = document.getElementById('imgLightboxImg');
+    var lbCap = document.getElementById('imgLightboxCap');
+    var lbClose = document.getElementById('imgLightboxClose');
+    var lastFocus = null;
+
+    function open(src, alt, cap){
+      lastFocus = document.activeElement;
+      lbImg.src = src;
+      lbImg.alt = alt || '';
+      lbCap.textContent = cap || '';
+      lb.hidden = false;
+      requestAnimationFrame(function(){ lb.classList.add('is-open'); });
+      document.body.style.overflow = 'hidden';
+      lbClose.focus();
+    }
+    function close(){
+      lb.classList.remove('is-open');
+      setTimeout(function(){
+        lb.hidden = true;
+        lbImg.src = '';
+        document.body.style.overflow = '';
+        if (lastFocus && lastFocus.focus) lastFocus.focus();
+      }, 220);
+    }
+
+    lbClose.addEventListener('click', close);
+    lb.addEventListener('click', function(e){
+      // close when clicking the backdrop (not the image/frame/close)
+      if (e.target === lb) close();
+    });
+    document.addEventListener('keydown', function(e){
+      if (e.key === 'Escape' && lb.classList.contains('is-open')) close();
+    });
+
+    // Delegate clicks to card images in The VIP 15 + Services catalogue.
+    var SELECTORS = [
+      '#t15-grid .catalog-card .service-card-img-wrap',
+      '.services-section .services-grid-12 .catalog-card .service-card-img-wrap'
+    ].join(',');
+
+    function bind(){
+      var wraps = document.querySelectorAll(SELECTORS);
+      wraps.forEach(function(w){
+        if (w.dataset.lbBound === '1') return;
+        w.dataset.lbBound = '1';
+        w.addEventListener('click', function(e){
+          // Don't hijack clicks on wishlist/overlay buttons inside the card (none sit inside img-wrap currently)
+          var img = w.querySelector('img');
+          if (!img) return;
+          var card = w.closest('.catalog-card, .service-card');
+          var titleEl = card ? card.querySelector('.service-card-title, .catalog-card-title') : null;
+          var cap = titleEl ? titleEl.textContent.trim() : '';
+          // Prefer a higher-res source if srcset is provided (use the largest)
+          var src = img.currentSrc || img.src;
+          open(src, img.alt || (titleEl ? titleEl.textContent.trim() : ''), cap);
+          e.preventDefault();
+        });
+      });
+    }
+    bind();
+    // Rebind after catalog/T15 cards are injected (they render late)
+    var mo = new MutationObserver(function(){ bind(); });
+    document.body && mo.observe(document.body, { childList: true, subtree: true });
+    window.addEventListener('load', bind);
   })();
   </script>
 </body>
