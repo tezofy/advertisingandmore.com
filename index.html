@@ -373,23 +373,18 @@
       color: #20304D;
     }
 
-    /* Exact Position, Scale and Overflow of Coffee Cup on Yellow Pill.
-       v8.24: the float keyframe is applied via .cup--floating (added by
-       IntersectionObserver on scroll into view) to defeat iOS Safari's
-       infinite-animation stalling. */
+    /* Exact Position, Scale and Overflow of Coffee Cup on Yellow Pill */
     .btn-coffee-pill img.coffee-cup-badge {
       width: 104px;
       height: auto;
       position: absolute;
       left: -8px;
       top: -26px;
+      animation: coffeeFloat 2.8s ease-in-out infinite;
       transform-origin: bottom center;
       will-change: transform;
       pointer-events: none;
       filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.18));
-    }
-    .btn-coffee-pill img.coffee-cup-badge.cup--floating {
-      animation: coffeeFloat 2.8s ease-in-out infinite;
     }
 
     /* Header specific sizing */
@@ -5082,12 +5077,6 @@
       width: 108px;
       max-width: none;
       pointer-events: none;
-      transform-origin: bottom center;
-      will-change: transform;
-      -webkit-backface-visibility: hidden;
-      backface-visibility: hidden;
-    }
-    .homepage-coffee-cup.cup--floating {
       animation: homepageCoffeeFloat 3.2s ease-in-out infinite;
     }
     @keyframes homepageCoffeeFloat {
@@ -5394,12 +5383,7 @@
       left: -8px;
       top: -40px;
       transform-origin: 50% 100%;
-      will-change: transform;
-      -webkit-backface-visibility: hidden;
-      backface-visibility: hidden;
-    }
-    .foot-cta-exact .btn-coffee-pill .coffee-cup-badge.cup--rising {
-      animation: footerCoffeeRise 2.7s ease-in-out infinite !important;
+      animation: footerCoffeeRise 2.7s ease-in-out infinite;
     }
     .foot-cta-exact .footer-email-link {
       margin-top: 21px;
@@ -5929,16 +5913,14 @@
       white-space: nowrap;
     }
     #contact .homepage-coffee-cup {
-      left: calc(50% - 110px);
+      left: 30%;
       top: -31px;
       width: 115px;
       height: auto;
       max-width: none;
+      animation: coffeeFloat 2.8s ease-in-out infinite;
       transform-origin: bottom center;
       will-change: transform;
-    }
-    #contact .homepage-coffee-cup.cup--floating {
-      animation: homepageCoffeeFloat 3.2s ease-in-out infinite !important;
     }
 
     /* Footer: tablet and desktop */
@@ -6162,13 +6144,10 @@
       height: auto;
       max-width: none;
       margin: 0;
+      animation: coffeeFloat 2.8s ease-in-out infinite;
       transform-origin: bottom center;
       will-change: transform;
       pointer-events: none;
-    }
-    /* JS-driven class: footer cup rises with its own richer keyframe. */
-    #site-footer .foot-cta-exact .btn-coffee-pill .coffee-cup-badge.cup--rising {
-      animation: footerCoffeeRise 2.7s ease-in-out infinite !important;
     }
     #site-footer .foot-cta-exact .footer-email-link {
       display: block;
@@ -6419,29 +6398,9 @@
       }
     }
 
-    /* v8.24 — Coffee-cup badges: promote to compositor WITHOUT locking a static
-       transform (that would fight the keyframes). */
-    #contact .homepage-coffee-cup,
-    #site-footer .foot-cta-exact .btn-coffee-pill .coffee-cup-badge,
-    .btn-coffee-pill .coffee-cup-badge,
-    .hero-coffee-cup-live {
-      -webkit-backface-visibility: hidden;
-      backface-visibility: hidden;
-      will-change: transform;
-      animation-fill-mode: both;
-    }
-    /* iOS bug: parent button's overflow:visible is required so the badge is
-       painted on its own compositing layer. */
-    .btn-coffee-pill,
-    .homepage-coffee-submit {
-      -webkit-transform: translateZ(0);
-      transform: translateZ(0);
-    }
     @media (prefers-reduced-motion: reduce) {
-      .hp-logo-track.marquee--running,
-      .hp-logo-track.marquee--running-rev,
-      .cup--floating,
-      .cup--rising {
+      #contact .homepage-coffee-cup,
+      #site-footer .foot-cta-exact .btn-coffee-pill .coffee-cup-badge {
         animation: none !important;
       }
     }
@@ -9228,25 +9187,14 @@
     .hp-logo-track {
       display: flex;
       width: max-content;
-      /* animation is ATTACHED BY JS (.marquee--running / .marquee--running-rev)
-         via IntersectionObserver so iOS re-attaches a fresh animation every
-         time the band scrolls into view. */
-    }
-    .hp-logo-track.marquee--running {
       animation: hpLogoScroll 46s linear infinite;
     }
-    .hp-logo-track.marquee--running-rev {
-      animation: hpLogoScroll 52s linear infinite reverse;
+    .hp-logo-marquee-reverse .hp-logo-track {
+      animation-direction: reverse;
+      animation-duration: 52s;
     }
-    /* Mobile overrides (v8.24): faster speed, attached only when .marquee--running is present */
-    @media (max-width: 700px) {
-      .hp-logo-track.marquee--running { animation-duration: 28s; }
-      .hp-logo-track.marquee--running-rev { animation-duration: 32s; }
-    }
-    .hp-logo-marquee:hover .hp-logo-track.marquee--running,
-    .hp-logo-marquee:hover .hp-logo-track.marquee--running-rev,
-    .hp-logo-marquee:focus-within .hp-logo-track.marquee--running,
-    .hp-logo-marquee:focus-within .hp-logo-track.marquee--running-rev {
+    .hp-logo-marquee:hover .hp-logo-track,
+    .hp-logo-marquee:focus-within .hp-logo-track {
       animation-play-state: paused;
     }
     .hp-logo-group {
@@ -9294,61 +9242,12 @@
         padding: 10px 12px;
         border-radius: 13px;
       }
-      /* Mobile animation durations are set in the .marquee--running / rev
-         rules below (faster 28s/32s) — no duplicate needed here. */
-    }
-    /* v8.24 — Mobile/iOS marquee fixes:
-       - DON'T set a static transform on .hp-logo-track (that overrides the
-         keyframe from/to translate3d and visually "freezes" the strip even
-         though devtools says animation is running).
-       - Use will-change + a tiny on-load nudge instead to promote the layer
-         to the compositor without locking a transform.
-       - Replace -webkit-mask-image edge-fade (known iOS repaint issue with
-         animated children) with absolutely-positioned gradient pseudo-elements
-         so the strip can animate freely while edges still fade. */
-    .hp-logo-track {
-      will-change: transform;
-      -webkit-backface-visibility: hidden;
-      backface-visibility: hidden;
-      animation-fill-mode: both;
-    }
-    .hp-logo-marquee-reverse .hp-logo-track {
-      will-change: transform;
-    }
-    /* Edge fade implemented via ::before/::after so mask-image doesn't block
-       animated repaints on iOS */
-    .hp-logo-marquee {
-      -webkit-mask-image: none !important;
-      mask-image: none !important;
-    }
-    .hp-logo-marquee::before,
-    .hp-logo-marquee::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      width: 80px;
-      pointer-events: none;
-      z-index: 2;
-    }
-    .hp-logo-marquee::before {
-      left: 0;
-      background: linear-gradient(90deg, #f7f1e4 0%, rgba(247,241,228,0) 100%);
-    }
-    .hp-logo-marquee::after {
-      right: 0;
-      background: linear-gradient(270deg, #f7f1e4 0%, rgba(247,241,228,0) 100%);
-    }
-    @media (max-width: 700px) {
-      .hp-logo-marquee::before,
-      .hp-logo-marquee::after {
-        width: 48px;
-      }
+      .hp-logo-track { animation-duration: 34s; }
+      .hp-logo-marquee-reverse .hp-logo-track { animation-duration: 38s; }
     }
     @media (prefers-reduced-motion: reduce) {
       .hp-logo-track { animation: none !important; }
       .hp-logo-marquee { overflow-x: auto; }
-      .hp-logo-marquee::before, .hp-logo-marquee::after { display: none; }
     }
   </style>
 
@@ -11662,11 +11561,9 @@
         height: auto !important;
         object-fit: contain !important;
         filter: none !important;
+        animation: coffeeFloat 2.8s ease-in-out infinite !important;
         transform-origin: bottom center;
         z-index: 2;
-      }
-      #hero.hero-cream .btn-coffee-pill.hero-coffee img.hero-coffee-cup-live.cup--floating {
-        animation: coffeeFloat 2.8s ease-in-out infinite !important;
       }
     }
     /* Desktop: keep the original cup badge, hide the mobile-only live PNG */
@@ -16694,89 +16591,6 @@ delete window.intlTelInputUtilsTemp;
     var mo = new MutationObserver(function(){ bind(); });
     document.body && mo.observe(document.body, { childList: true, subtree: true });
     window.addEventListener('load', bind);
-  })();
-  </script>
-
-  <!-- v8.24 — Bullet-proof iOS/mobile animation starter:
-       - Marquee: IntersectionObserver adds a .is-visible class (whose CSS rule
-         is the only place `animation: hpLogoScroll` is declared). When the
-         element leaves viewport the class (and animation) is removed; coming
-         back into view it's re-added — this guarantees Safari attaches a fresh
-         animation right when the band becomes visible.
-       - Coffee cups (CTA submit + footer Click-for-Coffee + hero): same IO
-         pattern. On entering view we add .is-afloat which is what triggers
-         the float/rise keyframes. Scrolling off-screen removes the class so
-         when the user scrolls back up Safari paints a brand-new animation.
-       - This avoids iOS's "infinite-animation-stalls-after-lazy-decode" bug by
-         never expecting an infinite animation to survive for the full page
-         lifecycle; we re-attach it per viewport entry. -->
-  <script id="mobile-anim-keepalive-js">
-  (function(){
-    function observe(sel, cls, animCss){
-      var els=document.querySelectorAll(sel);
-      if(!('IntersectionObserver' in window)){
-        // Fallback: just add classes immediately
-        els.forEach(function(el){ el.classList.add(cls); });
-        return;
-      }
-      var io=new IntersectionObserver(function(entries){
-        entries.forEach(function(en){
-          var el=en.target;
-          if(en.isIntersecting){
-            el.classList.add(cls);
-          } else {
-            // Removing the class kills the stale animation so when the element
-            // scrolls back in a fresh one is attached.
-            el.classList.remove(cls);
-          }
-        });
-      },{threshold:0.05, rootMargin:'100px 0px 100px 0px'});
-      els.forEach(function(el){ io.observe(el); });
-    }
-
-    function boot(){
-      // Marquee tracks — first [data-row="a"] marquee = forward, second ([data-row="b"]
-      // and/or .hp-logo-marquee-reverse) = reverse.
-      var tracks=document.querySelectorAll('.hp-logo-track');
-      tracks.forEach(function(tr,i){
-        var parent=tr.parentElement;
-        var isRev=parent && parent.classList.contains('hp-logo-marquee-reverse');
-        observeSingle(tr, isRev?'marquee--running-rev':'marquee--running');
-      });
-      // Coffee cups
-      observe('.btn-coffee-pill .coffee-cup-badge','cup--floating');
-      observe('.hero-coffee-cup-live','cup--floating');
-      observe('#contact .homepage-coffee-cup','cup--floating');
-      observe('#site-footer .foot-cta-exact .btn-coffee-pill .coffee-cup-badge','cup--rising');
-    }
-    function observeSingle(el,cls){
-      if(!el) return;
-      if(!('IntersectionObserver' in window)){ el.classList.add(cls); return; }
-      var io=new IntersectionObserver(function(entries){
-        entries.forEach(function(en){
-          if(en.isIntersecting){ el.classList.add(cls); io.unobserve(el); }
-          // intentionally do NOT remove after becoming visible: for marquee and
-          // cups we only need the "attach on first scroll into view" trigger,
-          // which is what defeats the iOS stall. Staying attached is fine and
-          // avoids flicker on subsequent scroll.
-        });
-      },{threshold:0.05, rootMargin:'200px 0px 200px 0px'});
-      io.observe(el);
-    }
-
-    if(document.readyState==='loading'){
-      document.addEventListener('DOMContentLoaded',boot,{once:true});
-    } else { boot(); }
-    // re-scan after late DOM injections (catalog cards etc.)
-    window.addEventListener('load',function(){ setTimeout(boot,300); },{once:true});
-    // On tab resume / bfcache back, restart IO-attached classes
-    document.addEventListener('visibilitychange',function(){
-      if(!document.hidden){
-        document.querySelectorAll('.marquee--running, .marquee--running-rev, .cup--floating, .cup--rising')
-          .forEach(function(el){ el.classList.remove('marquee--running','marquee--running-rev','cup--floating','cup--rising'); });
-        setTimeout(boot,100);
-      }
-    });
   })();
   </script>
 
