@@ -10163,13 +10163,13 @@
     <section class="dentsu-quote-section tp-quote-section" id="dentsu-quote" aria-label="Client testimonial">
     <div class="container">
       <div class="dentsu-quote-card tp-quote-card">
-        <p class="tp-name">Bosch</p>
-        <p class="tp-role">Corporate Communications &amp; Brand Management</p>
-        <img class="tp-wordmark tp-wordmark--bosch" src="assets/brand/bosch-tc.png" alt="Bosch" width="880" height="202" loading="lazy" decoding="async">
+        <p class="tp-name">DC Comics Super Heroes</p>
+        <p class="tp-role">Creative Director</p>
+        <img class="tp-wordmark tp-wordmark--bosch" src="assets/brand/dc-superheroes.png" alt="DC Comics Super Heroes" width="268" height="130" loading="lazy" decoding="async">
         <blockquote class="dentsu-quote-text tp-quote-text">
           The event spoke for itself. Great media turnout. The media mileage we got from hiring our Public Relations Specialist, Miss Tanya Hyacinth and her team, was <b>BEYOND OUR EXPECTATIONS.</b>
         </blockquote>
-        <p class="tp-sig">&mdash; CORPORATE COMMUNICATIONS &amp; BRAND MANAGEMENT, <span class="tp-sig-brand">BOSCH</span></p>
+        <p class="tp-sig">&mdash; CREATIVE DIRECTOR, <span class="tp-sig-brand">DC COMICS SUPER HEROES</span></p>
       </div>
     </div>
   </section>
@@ -11304,7 +11304,10 @@
       line-height: 1.1;
       color: #0B1E3F;
       text-align: center;
-      white-space: nowrap;
+      white-space: normal;
+      text-wrap: balance;
+      overflow-wrap: break-word;
+      max-width: 100%;
       letter-spacing: -0.01em;
     }
     .tp-role {
@@ -11350,6 +11353,9 @@
       letter-spacing: .16em;
       text-transform: uppercase;
       text-align: center;
+      text-wrap: balance;
+      overflow-wrap: break-word;
+      max-width: 100%;
     }
     .tp-sig-brand {
       color: inherit;
@@ -11415,6 +11421,15 @@
       /* Mobile-specific overrides for the tp-* testimonial (v8.17) */
       .tp-quote-card {
         border-radius: 24px !important;
+        overflow: hidden;
+      }
+      .tp-name {
+        font-size: 26px;
+        line-height: 1.15;
+      }
+      .tp-sig {
+        letter-spacing: .08em;
+        line-height: 1.6;
       }
 
       .dentsu-role {
@@ -11731,7 +11746,7 @@
           </a>
 
           <!-- Email below button -->
-          <a class="footer-email-link" href="mailto:hello@advertisingandmore.com">hello@advertisingandmore.com</a>
+          <a class="footer-email-link" href="/cdn-cgi/l/email-protection#99f1fcf5f5f6d9f8fdeffcebedf0eaf0f7fef8f7fdf4f6ebfcb7faf6f4"><span class="__cf_email__" data-cfemail="c8a0ada4a4a788a9acbeadbabca1bba1a6afa9a6aca5a7baade6aba7a5">[email&#160;protected]</span></a>
         </div>
 
       </div>
@@ -11834,7 +11849,7 @@
   <!-- ==========================================================================
        JAVASCRIPT LOGIC & DATABASE ENGINE
        ========================================================================== -->
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // Mobile Menu Drawer Toggle — identical behaviour to job-vacancy-page
     const mobileBtn = document.getElementById('mobile-toggle');
     const mobileDrawer = document.getElementById('mobile-drawer');
@@ -16642,5 +16657,5 @@ delete window.intlTelInputUtilsTemp;
     window.addEventListener('load',splitEmoji);
   })();
   </script>
-</body>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a561d7ef7eb7c718',t:'MTc5Mzk0NDQ2NQ=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a561d7ef7eb7c718',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
