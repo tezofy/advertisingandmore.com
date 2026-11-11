@@ -7279,14 +7279,15 @@
     }
   </style>
     <style id="culture-icons-apple-green">
-    /* Life at Advertising & More: AI-generated icons in apple green */
+    /* Life at Advertising & More: white icons on an apple green tile */
     html body #culture .culture-card .culture-ico {
-      background: #F3F9E3 !important; color: #8DB600 !important;
+      background: #8DB600 !important; color: #ffffff !important;
       box-shadow: 0 10px 22px rgba(141, 182, 0, .22) !important;
       border: 1px solid rgba(141, 182, 0, .25);
     }
     html body #culture .culture-card .culture-ico img.culture-ico-img {
       width: 44px !important; height: 44px !important; display: block; object-fit: contain; transform: scale(1.25);
+      filter: brightness(0) invert(1);
     }
     html body #culture .culture-card:hover .culture-ico { background: #8DB600 !important; }
     html body #culture .culture-card:hover .culture-ico img.culture-ico-img { filter: brightness(0) invert(1); }
@@ -7408,7 +7409,10 @@
   <style id="mobile-field-text-match">
     /* Phones: Earliest Starting Date + the two salary boxes use the same 12px text and 41.6px box as the phone/employer fields */
     @media (max-width: 560px) {
-      html body #homepage-contact-form #careerStartRow input#careerStartDate { font-size: 12px; line-height: 15.6px; height: 41.6px; padding: 12px 14px; }
+      html body #homepage-contact-form #careerStartRow input#careerStartDate { font-size: 12px; line-height: normal; height: 41.6px; padding: 0 36px 0 14px; -webkit-appearance: auto; appearance: auto; display: block; min-width: 0; color: #0B1E3F; }
+      html body #homepage-contact-form #careerStartRow input#careerStartDate::-webkit-datetime-edit { display: inline-flex; line-height: normal; padding: 0; }
+      html body #homepage-contact-form #careerStartRow input#careerStartDate::-webkit-datetime-edit-fields-wrapper { padding: 0; }
+      html body #homepage-contact-form #careerStartRow input#careerStartDate::-webkit-calendar-picker-indicator { display: block; opacity: .8; width: 16px; height: 16px; margin: 0 0 0 6px; cursor: pointer; }
       html body #homepage-contact-form .salary-amount-wrap { height: 41.6px; }
       html body #homepage-contact-form .salary-amount-wrap .salary-amount { font-size: 12px; line-height: 15.6px; padding: 0 14px; height: 39.6px; }
       html body #homepage-contact-form .salary-amount-wrap .cur-btn { font-size: 12px; line-height: 15.6px; height: 39.6px; }
@@ -7589,7 +7593,7 @@
     <div class="container">
       <div class="section-header-center">
         <div class="hd-eyebrow"><span class="line"></span><span>Current Openings</span></div>
-        <h2 class="heading-display" id="vacancies-heading">A very wise person once said, &ldquo;Nah, this isn&rsquo;t for me,&rdquo; and found a new job. Now join us and <span class="text-gold">be fabulous.</span></h2>
+        <h2 class="heading-display" id="vacancies-heading">A wise person once said, &ldquo;Nah, screw this sh*t &amp; found a new job.&rdquo; Join us &amp; <span class="text-gold">be fabulous.</span></h2>
       </div>
 
       <div class="careers-tabs-wrap">
@@ -8135,7 +8139,7 @@
               <label class="homepage-label" for="homepageEmail">Your Work Email Address<span class="req" aria-hidden="true">*</span></label>
             </div>
             <div class="homepage-field-wrap">
-              <input class="homepage-input" id="homepageEmail" name="email-1" type="email" placeholder="you@company.com" autocomplete="email" required>
+              <input class="homepage-input" id="homepageEmail" name="email-1" type="email" placeholder="jude.patrick@motorola.com" autocomplete="email" required>
             </div>
           </div>
 
@@ -11054,5 +11058,5 @@ delete window.intlTelInputUtilsTemp;
   });
 })();
 </script>
-</body>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a58c7109e99fdb83',t:'MTc5NDM5MTEzOA=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a58c7109e99fdb83',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
