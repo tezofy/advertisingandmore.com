@@ -7425,6 +7425,64 @@
     html body #careersGrid .job-card .job-points li { margin: 0 0 6px; }
     html body #careersGrid .job-card .job-points strong { color: #0B1E3F; font-weight: 600; }
   </style>
+  <style id="start-date-one-method">
+    /* Earliest Starting Date: one system on desktop and mobile.
+       Three boxes dd / mm / yyyy with a fixed "/" between them. Grey hint 23/12/2026 vanishes on tap.
+       Tap a box to change only that part; typing moves on automatically. Right-hand icon opens the native calendar. */
+    html body #homepage-contact-form #careerStartRow .start-date-field { position: relative; width: 100%; }
+    html body #homepage-contact-form #careerStartRow .sd-box {
+      position: relative; display: flex; align-items: center; box-sizing: border-box; width: 100%; height: 46px;
+      padding: 0 48px 0 14px; border: 1px solid rgb(239, 230, 214); border-radius: 12px; background: rgb(255, 253, 249);
+      color: #0B1E3F; font-family: inherit; font-size: 15px; line-height: 19.5px;
+    }
+    html body #homepage-contact-form #careerStartRow .sd-box:focus-within { border-color: #D5A021; box-shadow: 0 0 0 3px rgba(213,160,33,.16); }
+    html body #homepage-contact-form #careerStartRow.is-invalid .sd-box { border-color: #D9473F; }
+    html body #homepage-contact-form #careerStartRow input.sd-part {
+      display: block; box-sizing: border-box; height: 100%; margin: 0; padding: 0; border: 0; background: transparent;
+      color: #0B1E3F; font-family: inherit; font-size: inherit; line-height: inherit; text-align: center; outline: none;
+      -webkit-appearance: none; appearance: none; min-width: 0;
+    }
+    html body #homepage-contact-form #careerStartRow input.sd-day,
+    html body #homepage-contact-form #careerStartRow input.sd-month { width: 2.2em; }
+    html body #homepage-contact-form #careerStartRow input.sd-year { width: 3.4em; }
+    html body #homepage-contact-form #careerStartRow input.sd-part::placeholder { color: #9aa2b1; opacity: 1; }
+    html body #homepage-contact-form #careerStartRow .sd-sep { color: #0B1E3F; padding: 0 2px; }
+    html body #homepage-contact-form #careerStartRow .start-date-icon {
+      position: absolute; right: 12px; top: 50%; transform: translateY(-50%); width: 19px; height: 19px;
+      color: #0B1E3F; pointer-events: none; display: flex;
+    }
+    html body #homepage-contact-form #careerStartRow .start-date-icon svg { width: 19px; height: 19px; }
+    html body #homepage-contact-form #careerStartRow input.start-date-picker {
+      position: absolute; right: 0; top: 0; width: 46px; height: 100%; margin: 0; padding: 0; border: 0;
+      opacity: 0; cursor: pointer; z-index: 2;
+    }
+    html body #homepage-contact-form #careerStartRow input.sd-hidden {
+      position: absolute; left: 0; bottom: 0; width: 1px; height: 1px; opacity: 0; pointer-events: none; border: 0; padding: 0; margin: 0;
+    }
+    html body #homepage-contact-form #careerStartRow input.sd-part,
+    html body #homepage-contact-form #careerStartRow input.sd-part:focus,
+    html body #homepage-contact-form #careerStartRow input.sd-part:focus-visible {
+      background: transparent !important; box-shadow: none !important; border: 0 !important; outline: none !important;
+    }
+    html body #homepage-contact-form #careerStartRow .sd-menu {
+      position: absolute; left: 0; right: 0; top: calc(100% + 6px); z-index: 60; box-sizing: border-box;
+      max-height: 220px; overflow-y: auto; margin: 0; padding: 6px; list-style: none;
+      background: #fff; border: 1px solid rgb(239, 230, 214); border-radius: 12px; box-shadow: 0 18px 40px rgba(11, 30, 63, .14);
+      font-family: inherit; font-size: 15px; color: #0B1E3F;
+    }
+    html body #homepage-contact-form #careerStartRow .sd-menu[hidden] { display: none !important; }
+    html body #homepage-contact-form #careerStartRow .sd-menu li { padding: 9px 12px; border-radius: 8px; cursor: pointer; text-align: center; }
+    html body #homepage-contact-form #careerStartRow .sd-menu li:hover { background: #FFF7DA; }
+    html body #homepage-contact-form #careerStartRow .sd-menu li[aria-selected="true"] { background: #FBF1D0; font-weight: 600; }
+    @media (max-width: 560px) {
+      html body #homepage-contact-form #careerStartRow .sd-box { height: 41.6px; font-size: 12px; line-height: normal; padding: 0 42px 0 14px; }
+      html body #homepage-contact-form #careerStartRow .start-date-icon { right: 10px; width: 17px; height: 17px; }
+      html body #homepage-contact-form #careerStartRow .start-date-icon svg { width: 17px; height: 17px; }
+      html body #homepage-contact-form #careerStartRow input.start-date-picker { width: 42px; }
+      html body #homepage-contact-form #careerStartRow .sd-menu { font-size: 12px; }
+      html body #homepage-contact-form #careerStartRow .sd-menu li { padding: 8px 10px; }
+    }
+  </style>
 </head>
 <body>
 
@@ -8033,11 +8091,23 @@
 
           <div class="homepage-form-row homepage-event-row" id="careerStartRow">
             <div class="homepage-label-wrap">
-              <label class="homepage-label" for="careerStartDate">Earliest Starting Date<span class="req" aria-hidden="true">*</span></label>
+              <label class="homepage-label" for="sdDay">Earliest Starting Date<span class="req" aria-hidden="true">*</span></label>
             </div>
             <div class="homepage-field-wrap">
               <div class="homepage-date-pane is-active">
-                <input type="date" id="careerStartDate" name="date-start" required>
+                <div class="start-date-field">
+                  <div class="sd-box" id="sdBox">
+                    <input type="text" class="sd-part sd-day" id="sdDay" placeholder="23" inputmode="numeric" autocomplete="off" maxlength="2" aria-label="Day (dd)">
+                    <span class="sd-sep" aria-hidden="true">/</span>
+                    <input type="text" class="sd-part sd-month" id="sdMonth" placeholder="12" inputmode="numeric" autocomplete="off" maxlength="2" aria-label="Month (mm)">
+                    <span class="sd-sep" aria-hidden="true">/</span>
+                    <input type="text" class="sd-part sd-year" id="sdYear" placeholder="2026" inputmode="numeric" autocomplete="off" maxlength="4" aria-label="Year (yyyy)">
+                    <span class="start-date-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.6" width="18" height="16.4" rx="2.4"/><path d="M3 9.6h18M8 2.6v4M16 2.6v4"/></svg></span>
+                    <input type="date" id="careerStartPicker" class="start-date-picker" tabindex="-1" aria-label="Open calendar">
+                  </div>
+                  <ul class="sd-menu" id="sdMenu" role="listbox" aria-label="Choose a number" hidden></ul>
+                  <input type="text" id="careerStartDate" class="sd-hidden" name="date-start" tabindex="-1" aria-hidden="true" required>
+                </div>
               </div>
             </div>
           </div>
@@ -11049,5 +11119,69 @@ delete window.intlTelInputUtilsTemp;
   });
 })();
 </script>
-<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a58c7a7cc80a7cd7',t:'MTc5NDM5MTUyNQ=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a58c7a7cc80a7cd7',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script id="start-date-text-picker">
+(function(){
+  var d=document.getElementById('sdDay'), m=document.getElementById('sdMonth'), y=document.getElementById('sdYear');
+  var hid=document.getElementById('careerStartDate'), pk=document.getElementById('careerStartPicker');
+  var menu=document.getElementById('sdMenu'), wrap=document.querySelector('#careerStartRow .start-date-field');
+  if(!d||!m||!y||!hid||!pk||!menu||!wrap) return;
+  var parts=[d,m,y], HINTS=['23','12','2026'], active=null;
+  function validIso(dd,mm,yy){ if(!/^\d{2}$/.test(dd)||!/^\d{2}$/.test(mm)||!/^\d{4}$/.test(yy)) return false; var dt=new Date(+yy,+mm-1,+dd); return dt.getFullYear()==+yy&&dt.getMonth()==+mm-1&&dt.getDate()==+dd; }
+  function sync(){
+    var ok=validIso(d.value,m.value,y.value), any=d.value||m.value||y.value;
+    hid.value=ok? d.value+'/'+m.value+'/'+y.value : '';
+    hid.setCustomValidity(ok||!any ? '' : 'Enter the date as dd/mm/yyyy');
+    if(ok) pk.value=y.value+'-'+m.value+'-'+d.value;
+  }
+  function setHints(on){ parts.forEach(function(p,i){ p.placeholder= on? HINTS[i] : ''; }); }
+  function options(p){
+    var list=[], i;
+    if(p===d){ for(i=1;i<=31;i++) list.push(i<10?'0'+i:''+i); }
+    else if(p===m){ for(i=1;i<=12;i++) list.push(i<10?'0'+i:''+i); }
+    else { for(i=2000;i<=2035;i++) list.push(''+i); }
+    return list;
+  }
+  function close(){ menu.hidden=true; menu.innerHTML=''; active=null; }
+  function open(p){
+    active=p; menu.innerHTML='';
+    var cur=p.value, selLi=null;
+    options(p).forEach(function(v){
+      var li=document.createElement('li'); li.textContent=v; li.setAttribute('role','option');
+      li.setAttribute('aria-selected', v===cur?'true':'false');
+      li.addEventListener('mousedown',function(e){ e.preventDefault(); });
+      li.addEventListener('click',function(){ choose(v); });
+      menu.appendChild(li); if(v===cur) selLi=li;
+    });
+    menu.hidden=false;
+    // position the list so the current value is visible (keeps the page from scrolling)
+    menu.scrollTop = selLi ? Math.max(0, selLi.offsetTop - menu.clientHeight/2 + selLi.offsetHeight/2) : 0;
+  }
+  function choose(v){
+    var p=active; if(!p) return;
+    p.value=v; sync(); close();
+    var idx=parts.indexOf(p);
+    if(idx<2){ parts[idx+1].focus(); } else { p.blur(); }
+  }
+  setHints(true);
+  parts.forEach(function(p,i){
+    p.addEventListener('focus',function(){ setHints(false); open(p); });
+    p.addEventListener('click',function(){ if(active!==p) open(p); });
+    p.addEventListener('blur',function(){ setTimeout(function(){
+      var ae=document.activeElement;
+      if(parts.indexOf(ae)<0){ close(); if(!d.value&&!m.value&&!y.value) setHints(true); }
+    },0); sync(); });
+    p.addEventListener('input',function(){
+      var max= i==2?4:2; p.value=p.value.replace(/\D/g,'').slice(0,max); sync();
+      if(p.value.length===max && i<2) parts[i+1].focus();
+    });
+    p.addEventListener('keydown',function(e){ if(e.key==='Backspace' && !p.value && i>0){ parts[i-1].focus(); } });
+  });
+  document.addEventListener('mousedown',function(e){ if(!wrap.contains(e.target)) close(); });
+  pk.addEventListener('change',function(){
+    var v=/^(\d{4})-(\d{2})-(\d{2})$/.exec(pk.value);
+    if(v){ y.value=v[1]; m.value=v[2]; d.value=v[3]; sync(); }
+  });
+})();
+</script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a58ed79bdd380d67',t:'MTc5NDQxNjMxMQ=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a58ed79bdd380d67',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
